@@ -13,7 +13,6 @@ It needs iOS 5.1
 
 **UWSP-Virtual Tours** is available under the MIT license:
 
-*Copyright (c) 2012 stefanoa*
 
 *Permission is hereby granted, free of charge, to any person obtaining a copy*
 *of this software and associated documentation files (the "Software"), to deal*
