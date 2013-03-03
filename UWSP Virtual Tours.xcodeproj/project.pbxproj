@@ -108,7 +108,7 @@
 		7B05395A15E15A7F00D72377 /* menuhighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuhighlighted@2x.png"; sourceTree = "<group>"; };
 		7B05395B15E15A7F00D72377 /* menuicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuicon.png; sourceTree = "<group>"; };
 		7B05395C15E15A7F00D72377 /* menuicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuicon@2x.png"; sourceTree = "<group>"; };
-		7B1141A4161B621000549B42 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7B1141A4161B621000549B42 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		7B1141A7161B658D00549B42 /* Screenshot-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot-Landscape.png"; sourceTree = "<group>"; };
 		7B1141A8161B658D00549B42 /* Screenshot-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot-Portrait.png"; sourceTree = "<group>"; };
 		7B27435816D2820600F89C69 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
@@ -305,13 +305,13 @@
 		7B8C3FCF15D8D55800E42A41 = {
 			isa = PBXGroup;
 			children = (
-				AB9CC1D716E3188D00B47683 /* Assets */,
-				7B1141A4161B621000549B42 /* Default-568h@2x.png */,
 				7BF0A6B915DE682A00B3B57F /* README.md */,
 				7B8C3FE415D8D55800E42A41 /* SASlideMenuSource */,
-				7BDBF46F166CDEB100FDA327 /* Main */,
+				AB9CC1D816E319B200B47683 /* Controllers */,
 				7B8C3FDD15D8D55800E42A41 /* Frameworks */,
 				7B8C3FDB15D8D55800E42A41 /* Products */,
+				7BDBF470166CDEB100FDA327 /* Supporting Files */,
+				AB9CC1D716E3188D00B47683 /* Assets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -373,37 +373,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7BDBF46F166CDEB100FDA327 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				AB3C2D3E16E12D48003A1A58 /* RootViewController.h */,
-				AB3C2D3F16E12D49003A1A58 /* RootViewController.m */,
-				AB3C2D3716E126E7003A1A58 /* UnderRightViewController.h */,
-				AB3C2D3816E126E7003A1A58 /* UnderRightViewController.m */,
-				AB3C2CF316E07BBD003A1A58 /* VBAnnotation.h */,
-				AB3C2CF416E07BBE003A1A58 /* VBAnnotation.m */,
-				7BF0A6B015DE499F00B3B57F /* MenuCell.h */,
-				7BF0A6B115DE499F00B3B57F /* MenuCell.m */,
-				7B3B2D5215DCE0E1009F4AB8 /* DarkViewController.h */,
-				7B3B2D5315DCE0E1009F4AB8 /* DarkViewController.m */,
-				7B27435816D2820600F89C69 /* LightViewController.h */,
-				7B27435916D2820600F89C69 /* LightViewController.m */,
-				7B5B88E1163B23B300D02C1F /* ShadesViewController.h */,
-				7B5B88E2163B23B300D02C1F /* ShadesViewController.m */,
-				7B8C3FF315D8D55800E42A41 /* ExampleStaticMenuViewController.h */,
-				7B8C3FF415D8D55800E42A41 /* ExampleStaticMenuViewController.m */,
-				7BDBF478166CDEB100FDA327 /* SASlideMenuAppDelegate.h */,
-				7BDBF479166CDEB100FDA327 /* SASlideMenuAppDelegate.m */,
-				AB3C2D4116E12F12003A1A58 /* MainStoryboard.storyboard */,
-				7BDBF470166CDEB100FDA327 /* Supporting Files */,
-			);
-			name = Main;
-			path = SASlideMenuStatic;
-			sourceTree = "<group>";
-		};
 		7BDBF470166CDEB100FDA327 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7B1141A4161B621000549B42 /* Default-568h@2x.png */,
 				7BDBF471166CDEB100FDA327 /* UWSP Virtual ToursStatic-Info.plist */,
 				7BDBF472166CDEB100FDA327 /* InfoPlist.strings */,
 				7BDBF475166CDEB100FDA327 /* main.m */,
@@ -413,7 +386,8 @@
 				7BDBF47F166CDEB100FDA327 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
+			path = SASlideMenuStatic;
+			sourceTree = SOURCE_ROOT;
 		};
 		7BF0A68615DE492E00B3B57F /* SASlideMenu */ = {
 			isa = PBXGroup;
@@ -497,6 +471,33 @@
 			);
 			name = Assets;
 			sourceTree = "<group>";
+		};
+		AB9CC1D816E319B200B47683 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB3C2D3E16E12D48003A1A58 /* RootViewController.h */,
+				AB3C2D3F16E12D49003A1A58 /* RootViewController.m */,
+				AB3C2D3716E126E7003A1A58 /* UnderRightViewController.h */,
+				AB3C2D3816E126E7003A1A58 /* UnderRightViewController.m */,
+				AB3C2CF316E07BBD003A1A58 /* VBAnnotation.h */,
+				AB3C2CF416E07BBE003A1A58 /* VBAnnotation.m */,
+				7BF0A6B015DE499F00B3B57F /* MenuCell.h */,
+				7BF0A6B115DE499F00B3B57F /* MenuCell.m */,
+				7B3B2D5215DCE0E1009F4AB8 /* DarkViewController.h */,
+				7B3B2D5315DCE0E1009F4AB8 /* DarkViewController.m */,
+				7B27435816D2820600F89C69 /* LightViewController.h */,
+				7B27435916D2820600F89C69 /* LightViewController.m */,
+				7B5B88E1163B23B300D02C1F /* ShadesViewController.h */,
+				7B5B88E2163B23B300D02C1F /* ShadesViewController.m */,
+				7B8C3FF315D8D55800E42A41 /* ExampleStaticMenuViewController.h */,
+				7B8C3FF415D8D55800E42A41 /* ExampleStaticMenuViewController.m */,
+				7BDBF478166CDEB100FDA327 /* SASlideMenuAppDelegate.h */,
+				7BDBF479166CDEB100FDA327 /* SASlideMenuAppDelegate.m */,
+				AB3C2D4116E12F12003A1A58 /* MainStoryboard.storyboard */,
+			);
+			name = Controllers;
+			path = SASlideMenuStatic;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
