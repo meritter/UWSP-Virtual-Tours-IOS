@@ -194,7 +194,7 @@
  _arViewController = [[ARViewController alloc] initWithDelegate:self];
  _arViewController.showsCloseButton = false;
  [_arViewController setHidesBottomBarWhenPushed:YES];
- [_arViewController setRadarRange:4000.0];
+[_arViewController setRadarRange:1.0];
  [_arViewController setOnlyShowItemsWithinRadarRange:YES];
  [self.navigationController pushViewController:_arViewController animated:YES];
  //}

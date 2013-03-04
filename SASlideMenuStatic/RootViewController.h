@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController :  UIViewController
+@interface RootViewController :  UIViewController <UITableViewDataSource, UITabBarControllerDelegate>
     
 {
 
+    NSArray *tableData;
+    NSMutableArray *users;
+    NSMutableArray * tours;
 }
+
+@property (nonatomic, retain) NSArray *tableData;
+
+- (void)parseJSONIOS5;
+- (void)parseJSON;
 
 
 @end

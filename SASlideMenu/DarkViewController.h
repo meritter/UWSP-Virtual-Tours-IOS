@@ -10,10 +10,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DarkViewController : UIViewController
+@interface DarkViewController :  UIViewController <UITableViewDataSource, UITabBarControllerDelegate>
 
-@property (nonatomic,strong) IBOutlet UISlider *darknessSlider;
+{
 
--(IBAction) changeDarkness:(id) sender;
+    NSMutableArray * settings;
+}
+
+@property (nonatomic, retain) NSArray *tableData;
+
 
 @end

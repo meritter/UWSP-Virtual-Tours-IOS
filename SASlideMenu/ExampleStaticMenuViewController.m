@@ -54,10 +54,19 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [super viewDidLoad];
 
     settings = [[NSMutableArray alloc] init];
-    [settings addObject:@"dark"];
-    [settings addObject:@"light"];
-    [settings addObject:@"shades"];
+  
 
+    users = [[NSMutableArray alloc] init];
+    tours = [[NSMutableArray alloc] init];
+  
+    
+    [users addObject:@"Place Holder 4"];
+    [tours addObject:@"Place Holder 3"];
+    [tours addObject:@"Place Holder 2"];
+    [tours addObject:@"Place Holder 1"];
+    
+    [settings addObject:@"General"];
+    [settings addObject:@"Map Packs"];
 
     
 
@@ -68,6 +77,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
 }
 
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    //We want 2 columns for completed/active, show user nothing in free roam mode
+    //return self.menuItems.count;
+    return 3;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 35;
@@ -98,18 +116,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    //We want 2 columns for completed/active, show user nothing in free roam mode
-    //return self.menuItems.count;
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (section) {
         case 0:
-
+            return [users count];
+            break;
+        case 1:
+            return [tours count];
+            break;
+        case 2:
             return [settings count];
             break;
         default:
@@ -127,7 +144,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     
     
-    // NSDictionary *item = [users objectAtIndex:[indexPath row]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.5];
@@ -135,6 +151,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         case 0:
             // [[cell textLabel] setText:[item objectForKey:@"name"]];
             // [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
+            cell.textLabel.text  = [users objectAtIndex:indexPath.row];
+            break;
+        case 1:
+            cell.textLabel.text  = [tours objectAtIndex:indexPath.row];
+            break;
+        case 2:
             cell.textLabel.text  = [settings objectAtIndex:indexPath.row];
             break;
         default:
@@ -152,13 +174,23 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return [NSIndexPath indexPathForRow:0 inSection:0];
 }
 
--(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        return @"dark";
-    }else if (indexPath.row == 1){
-        return @"light";
-    }else{
-        return @"shades";
+-(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+            NSLog(@"Hit at 0");
+            return @"map";      
+            break;
+        case 1:
+               return @"map";
+            break;
+        case 2:
+             if (indexPath.row == 0) {
+             return @"general";
+             }else if (indexPath.row == 1){
+             return @"mapPack";
+             }
+            break;
     }
 }
 

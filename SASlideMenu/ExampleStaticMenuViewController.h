@@ -10,5 +10,9 @@
 #import "SASlideMenuViewController.h"
 #import "SASlideMenuDataSource.h"
 @interface ExampleStaticMenuViewController :SASlideMenuViewController<SASlideMenuDataSource,SASlideMenuDelegate>
+{
+    NSMutableArray *users;
+    NSMutableArray * tours;
+}
 
 @end
