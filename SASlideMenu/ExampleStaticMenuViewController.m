@@ -65,8 +65,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [tours addObject:@"Place Holder 2"];
     [tours addObject:@"Place Holder 1"];
     
-    [settings addObject:@"General"];
-    [settings addObject:@"Map Packs"];
+    [settings addObject:@"About"];
+    [settings addObject:@"Settings"];
 
     
 
@@ -142,7 +142,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = UIColorFromRGB(0X999933);
+    //[bgColorView setBackgroundColor:[UIColor greenColor]];
+    [cell setSelectedBackgroundView:bgColorView];
     
+
     
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -186,9 +191,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             break;
         case 2:
              if (indexPath.row == 0) {
-             return @"general";
+             return @"about";
              }else if (indexPath.row == 1){
-             return @"mapPack";
+             return @"settings";
              }
             break;
     }
@@ -209,8 +214,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 -(void) configureMenuButton:(UIButton *)menuButton{
     menuButton.frame = CGRectMake(0, 0, 40, 29);
     [menuButton setImage:[UIImage imageNamed:@"menuicon.png"] forState:UIControlStateNormal];
-    [menuButton setBackgroundImage:[UIImage imageNamed:@"menu.png"] forState:UIControlStateNormal];
-    [menuButton setBackgroundImage:[UIImage imageNamed:@"menuhighlighted.png"] forState:UIControlStateHighlighted];
+    [menuButton setBackgroundImage:[UIImage imageNamed:@"menu copy2.png"] forState:UIControlStateNormal]; 
     [menuButton setAdjustsImageWhenHighlighted:NO];
     [menuButton setAdjustsImageWhenDisabled:NO];
     

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenu/ExampleStaticMenuViewController.m"
-         timestampString = "384029674.550342"
+         timestampString = "384138167.684648"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "160"
-         endingLineNumber = "160"
+         startingLineNumber = "165"
+         endingLineNumber = "165"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/LightViewController.m"
-         timestampString = "383969081.41625"
+         timestampString = "384138392.101452"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -105,6 +105,19 @@
          startingLineNumber = "23"
          endingLineNumber = "23"
          landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SASlideMenuStatic/LightViewController.m"
+         timestampString = "384138392.101452"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
+         landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

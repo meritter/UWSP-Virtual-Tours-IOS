@@ -43,7 +43,6 @@
 		7BDBF4AD166CDFEC00FDA327 /* ExampleStaticMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3FF415D8D55800E42A41 /* ExampleStaticMenuViewController.m */; };
 		7BDBF4AE166CE03000FDA327 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0A6B115DE499F00B3B57F /* MenuCell.m */; };
 		7BFEA28E16C2573F00455A22 /* SASlideMenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEA28C16C2573F00455A22 /* SASlideMenuNavigationController.m */; };
-		AB3C2CF516E07BBE003A1A58 /* VBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3C2CF416E07BBE003A1A58 /* VBAnnotation.m */; };
 		AB3C2CF716E07C8B003A1A58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */; };
 		AB3C2CF916E07C95003A1A58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF816E07C95003A1A58 /* MapKit.framework */; };
 		AB3C2D0216E08E5D003A1A58 /* marker copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFA16E08E57003A1A58 /* marker copy.png */; };
@@ -75,6 +74,8 @@
 		AB3C2D4616E14DF6003A1A58 /* fall_lakeside_by_musicalartfreak-d4iyt97.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D4516E14DF5003A1A58 /* fall_lakeside_by_musicalartfreak-d4iyt97.jpg */; };
 		AB515C2B16E2F4B000372E52 /* UWSP Logo 57.png in Resources */ = {isa = PBXBuildFile; fileRef = AB515C2916E2F4B000372E52 /* UWSP Logo 57.png */; };
 		AB515C2C16E2F4B000372E52 /* UWSP Logo 114.png in Resources */ = {isa = PBXBuildFile; fileRef = AB515C2A16E2F4B000372E52 /* UWSP Logo 114.png */; };
+		AB51ED6016E564BD00851F19 /* URBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */; };
+		AB51ED6616E5671600851F19 /* 2382615145_ab6347760c.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */; };
 		AB972CB116E2D77A0098B4AB /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */; };
 		AB972CB316E2D8040098B4AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB216E2D8040098B4AB /* CoreData.framework */; };
 		AB972CB516E2D8150098B4AB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB416E2D8150098B4AB /* CoreText.framework */; };
@@ -88,6 +89,9 @@
 		AB972CC516E2DEAA0098B4AB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AB972CC416E2DEAA0098B4AB /* GoogleMaps.bundle */; };
 		AB9CC1DE16E3CE4000B47683 /* XmlArrayParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9CC1DD16E3CE4000B47683 /* XmlArrayParser.m */; };
 		AB9CC1E116E422FA00B47683 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9CC1E016E422F900B47683 /* RootViewController.m */; };
+		AB9CC1E316E51B4500B47683 /* menu copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E216E51B4400B47683 /* menu copy.png */; };
+		AB9CC1E516E52A4D00B47683 /* menu copy2.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E416E52A4C00B47683 /* menu copy2.png */; };
+		AB9CC1E916E52D3300B47683 /* camera copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E816E52D3300B47683 /* camera copy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,8 +160,6 @@
 		7BFEA28916C1545000455A22 /* SASlideMenuRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuRightMenuViewController.m; sourceTree = "<group>"; };
 		7BFEA28B16C2573F00455A22 /* SASlideMenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuNavigationController.h; sourceTree = "<group>"; };
 		7BFEA28C16C2573F00455A22 /* SASlideMenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuNavigationController.m; sourceTree = "<group>"; };
-		AB3C2CF316E07BBD003A1A58 /* VBAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBAnnotation.h; sourceTree = "<group>"; };
-		AB3C2CF416E07BBE003A1A58 /* VBAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBAnnotation.m; sourceTree = "<group>"; };
 		AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AB3C2CF816E07C95003A1A58 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AB3C2CFA16E08E57003A1A58 /* marker copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker copy.png"; sourceTree = "<group>"; };
@@ -201,6 +203,9 @@
 		AB3C2D4516E14DF5003A1A58 /* fall_lakeside_by_musicalartfreak-d4iyt97.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fall_lakeside_by_musicalartfreak-d4iyt97.jpg"; sourceTree = "<group>"; };
 		AB515C2916E2F4B000372E52 /* UWSP Logo 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UWSP Logo 57.png"; sourceTree = "<group>"; };
 		AB515C2A16E2F4B000372E52 /* UWSP Logo 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UWSP Logo 114.png"; sourceTree = "<group>"; };
+		AB51ED5E16E564BD00851F19 /* URBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URBSegmentedControl.h; sourceTree = "<group>"; };
+		AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URBSegmentedControl.m; sourceTree = "<group>"; };
+		AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2382615145_ab6347760c.png; sourceTree = "<group>"; };
 		AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		AB972CB216E2D8040098B4AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AB972CB416E2D8150098B4AB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -216,6 +221,9 @@
 		AB9CC1DD16E3CE4000B47683 /* XmlArrayParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlArrayParser.m; sourceTree = "<group>"; };
 		AB9CC1DF16E422F900B47683 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		AB9CC1E016E422F900B47683 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		AB9CC1E216E51B4400B47683 /* menu copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu copy.png"; sourceTree = "<group>"; };
+		AB9CC1E416E52A4C00B47683 /* menu copy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu copy2.png"; sourceTree = "<group>"; };
+		AB9CC1E816E52D3300B47683 /* camera copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera copy.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +257,8 @@
 		7B05395615E15A5E00D72377 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB9CC1E416E52A4C00B47683 /* menu copy2.png */,
+				AB9CC1E216E51B4400B47683 /* menu copy.png */,
 				7B28D2F41664E6FD000EE929 /* menuright.png */,
 				7B28D2F51664E6FE000EE929 /* menuright@2x.png */,
 				7B28D2AC165E27A3000EE929 /* selectedColoredRow.png */,
@@ -272,6 +282,8 @@
 		7B8C3FCF15D8D55800E42A41 = {
 			isa = PBXGroup;
 			children = (
+				AB51ED5E16E564BD00851F19 /* URBSegmentedControl.h */,
+				AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */,
 				7BF0A6B915DE682A00B3B57F /* README.md */,
 				7B8C3FE415D8D55800E42A41 /* SASlideMenuSource */,
 				AB9CC1D816E319B200B47683 /* Controllers */,
@@ -426,6 +438,8 @@
 		AB9CC1D716E3188D00B47683 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */,
+				AB9CC1E816E52D3300B47683 /* camera copy.png */,
 				AB3C2CFA16E08E57003A1A58 /* marker copy.png */,
 				AB3C2CFB16E08E58003A1A58 /* marker.png */,
 				AB3C2D4516E14DF5003A1A58 /* fall_lakeside_by_musicalartfreak-d4iyt97.jpg */,
@@ -446,8 +460,6 @@
 				AB9CC1E016E422F900B47683 /* RootViewController.m */,
 				AB3C2D3716E126E7003A1A58 /* UnderRightViewController.h */,
 				AB3C2D3816E126E7003A1A58 /* UnderRightViewController.m */,
-				AB3C2CF316E07BBD003A1A58 /* VBAnnotation.h */,
-				AB3C2CF416E07BBE003A1A58 /* VBAnnotation.m */,
 				7BF0A6B015DE499F00B3B57F /* MenuCell.h */,
 				7BF0A6B115DE499F00B3B57F /* MenuCell.m */,
 				7B3B2D5215DCE0E1009F4AB8 /* DarkViewController.h */,
@@ -558,6 +570,10 @@
 				AB972CC516E2DEAA0098B4AB /* GoogleMaps.bundle in Resources */,
 				AB515C2B16E2F4B000372E52 /* UWSP Logo 57.png in Resources */,
 				AB515C2C16E2F4B000372E52 /* UWSP Logo 114.png in Resources */,
+				AB9CC1E316E51B4500B47683 /* menu copy.png in Resources */,
+				AB9CC1E516E52A4D00B47683 /* menu copy2.png in Resources */,
+				AB9CC1E916E52D3300B47683 /* camera copy.png in Resources */,
+				AB51ED6616E5671600851F19 /* 2382615145_ab6347760c.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +597,6 @@
 				7BC6890216A9F51C004ED00D /* SASlideMenuRootViewController.m in Sources */,
 				7BFEA28E16C2573F00455A22 /* SASlideMenuNavigationController.m in Sources */,
 				7B27435A16D2820600F89C69 /* LightViewController.m in Sources */,
-				AB3C2CF516E07BBE003A1A58 /* VBAnnotation.m in Sources */,
 				AB3C2D1F16E12606003A1A58 /* ARCoordinate.m in Sources */,
 				AB3C2D2016E12606003A1A58 /* ARGeoCoordinate.m in Sources */,
 				AB3C2D2116E12606003A1A58 /* ARKit.m in Sources */,
@@ -594,6 +609,7 @@
 				AB3C2D3916E126E8003A1A58 /* UnderRightViewController.m in Sources */,
 				AB9CC1DE16E3CE4000B47683 /* XmlArrayParser.m in Sources */,
 				AB9CC1E116E422FA00B47683 /* RootViewController.m in Sources */,
+				AB51ED6016E564BD00851F19 /* URBSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

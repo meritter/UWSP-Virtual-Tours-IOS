@@ -21,7 +21,7 @@
 {
                     
     [super viewDidLoad];
-   
+    [self.navigationController setToolbarHidden:YES  animated:YES];
     users = [[NSMutableArray alloc] init];
     tours = [[NSMutableArray alloc] init];
    
@@ -42,10 +42,7 @@
 
 }
 
--(void) setToolbarITems: (NSArray *) toolbarItems animated: (BOOL) animated
-{
-    
-}
+
 
 //This bloody works
 /*- (IBAction)startXMLTransfer:(id)sender;

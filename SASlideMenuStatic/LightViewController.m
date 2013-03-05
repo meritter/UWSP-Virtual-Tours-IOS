@@ -7,16 +7,17 @@
 //
 
 #import "LightViewController.h"
-#import "VBAnnotation.h"
 #import <GoogleMaps/GoogleMaps.h>
-
+#import "URBSegmentedControl.h"
 @interface LightViewController ()
+
 
 @end
 
 @implementation LightViewController
 {
     ARViewController    * _arViewController;
+    LightViewController * lvc;
     NSArray             *_mapPoints;
     GMSMapView *mapView;
 }
@@ -24,8 +25,12 @@
 
 
 - (void)loadView {
-
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.537923
+    
+   
+    //UIButton *button = [UIButton buttonWithType:];
+    //[button setFrame:CGRectMake(0,0,100,100)];
+    //[self.view addSubview:button];
+       GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.537923
                                                             longitude:-89.561448
                                                                  zoom:16];
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
@@ -37,26 +42,43 @@
     options.title = @"Point 1";
     options.snippet = @"Australia";
     [mapView addMarkerWithOptions:options];
-}
-
-
-
-
--(IBAction)tap:(id)sender{
-    [self.menuViewController selectContentAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] scrollPosition:UITableViewScrollPositionTop];
-}
-
-
-
-//@synthesize mapview;
-
-
-
-/*-(IBAction)getLocation:(id)sender
-{
-    mapview.showsUserLocation=YES;
     
-}*/
+    
+    	NSArray *titles = [NSArray arrayWithObjects:[@"Quest" uppercaseString], [@"Free roam" uppercaseString],  nil];
+    
+    URBSegmentedControl *control = [[URBSegmentedControl alloc] initWithItems:titles];
+	//control.frame = CGRectMake(10.0, 10.0, 300.0, 40.0);
+	//control.segmentBackgroundColor = [UIColor blueColor];
+	//[control setSegmentBackgroundColor:[UIColor greenColor] atIndex:2];
+	//[self.view addSubview:control];
+	
+	// UIKit method of handling value changes
+	[control addTarget:self action:@selector(handleSelection:) forControlEvents:UIControlEventValueChanged];
+	// block-based value change handler
+	[control setControlEventBlock:^(NSInteger index, URBSegmentedControl *segmentedControl) {
+		NSLog(@"URBSegmentedControl: control block - index=%i", index);
+	}];
+	
+	//
+	// Horizontal segmented control with icons using the standard initWithItems: method of UISegmentedControl
+	//
+	URBSegmentedControl *iconControl = [[URBSegmentedControl alloc] initWithItems:titles];
+	iconControl.frame = CGRectMake(10.0, CGRectGetMaxY(control.frame) + 332.0, 300.0, 40.0);
+	[self.view addSubview:iconControl];
+	
+	// set icons for each segment
+	[iconControl setImage:[UIImage imageNamed:@"marker.png"] forSegmentAtIndex:0];
+	[iconControl setImage:[UIImage imageNamed:@"marker.png"] forSegmentAtIndex:1];
+		
+    
+}
+
+
+
+
+//-(IBAction)tap:(id)sender{
+    //[self.menuViewController selectContentAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] scrollPosition:UITableViewScrollPositionTop];
+//}
 
 
 -(IBAction)getNoise:(id)sender
@@ -77,53 +99,6 @@
 - (void)viewWillAppear
  {}
 
-/*- (void)viewWillAppear
-{
-    
-    
-    MKCoordinateSpan span;
-    MKCoordinateRegion region;
-    span.latitudeDelta = 0.003;
-    span.longitudeDelta = 0.003;
-    CLLocationCoordinate2D location;
-    
-    
-    location.latitude = 44.537923;
-    location.longitude = -89.561448;
-    region.span = span;
-    region.center = location;
-    [mapview setRegion:region animated:YES];
-    
-    CLLocationCoordinate2D location2;
-    location.latitude = 44.537923;
-    location.longitude = -89.561448;
-    VBAnnotation *ann = [[VBAnnotation alloc] initWithPosition:location2];
-    [ann setCoordinate:location];
-    ann.title = @"Test Point 1";
-    ann.subtitle = @"Test Description";
-    [mapview addAnnotation:ann];
-    
-    
-    CLLocationCoordinate2D location3;
-    location.latitude = 44.537927;
-    location.longitude = -89.568449;
-    VBAnnotation *ann2 = [[VBAnnotation alloc] initWithPosition:location3];
-    [ann2 setCoordinate:location];
-    ann2.title = @"Test Point 2";
-    ann2.subtitle = @"Test Description";
-    [mapview addAnnotation:ann2];
-}
-
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    mapview.mapType=MKMapTypeSatellite;
-    
-    
-    
-}*/
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     NSLog(@"didUpdateUserLocation = '%@'", userLocation);
@@ -171,20 +146,6 @@
 }
 
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-{
-    MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
-    view.pinColor = MKPinAnnotationColorPurple;
-    view.enabled = YES;
-    view.animatesDrop = YES;
-    view.canShowCallout = YES;
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"palmTree.png"]];
-    view.leftCalloutAccessoryView = imageView;
-    view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    return view;
-}
-
 
 
 - (IBAction)revealUnderRight:(id)sender
@@ -193,7 +154,7 @@
  //if([ARKit deviceSupportsAR]){
  _arViewController = [[ARViewController alloc] initWithDelegate:self];
  _arViewController.showsCloseButton = false;
- [_arViewController setHidesBottomBarWhenPushed:YES];
+// [_arViewController setHidesBottomBarWhenPushed:YES];
 [_arViewController setRadarRange:1.0];
  [_arViewController setOnlyShowItemsWithinRadarRange:YES];
  [self.navigationController pushViewController:_arViewController animated:YES];
@@ -341,16 +302,9 @@
 }
 
 -(void)locationClicked:(ARGeoCoordinate *)coordinate{
-    // RootViewController *previewController = [[RootViewController alloc] init];
-    // previewController.dataSource = self;
-    // previewController.delegate = self;
     UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Root"];
-    //controller.title = [[dao libraryItemAtIndex:indexPath.row] valueForKey:@"name"];
     [self.navigationController pushViewController:controller animated:YES];
-    // start previewing the document at the current section index
-    // previewController.currentPreviewItemIndex = indexPath.row;
-    
-    // [[self navigationController] pushViewController:previewController animated:YES];
+
 }
 
 
