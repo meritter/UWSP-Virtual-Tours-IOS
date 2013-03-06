@@ -9,6 +9,7 @@
 #import "LightViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "URBSegmentedControl.h"
+#import "Singleton.h"
 @interface LightViewController ()
 
 
@@ -167,7 +168,7 @@
 }
 
 - (NSMutableArray *)geoLocations{
-    
+  
     NSMutableArray *locationArray = [[NSMutableArray alloc] init];
     ARGeoCoordinate *tempCoordinate;
     CLLocation       *tempLocation;
@@ -175,6 +176,7 @@
     
     tempLocation = [[CLLocation alloc] initWithLatitude:44.525967 longitude:-89.568972];
     tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"DUC"];
+    tempCoordinate.inclination = 100;
     [locationArray addObject:tempCoordinate];
     
     
@@ -194,7 +196,7 @@
     
     tempLocation = [[CLLocation alloc] initWithLatitude:44.528631 longitude:-89.570771];
     tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Science Building SE"];
-    tempCoordinate.inclination = M_PI/30;
+    tempCoordinate.inclination = 200;
     [locationArray addObject:tempCoordinate];
     
     
@@ -297,8 +299,8 @@
     tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Newton Abbot"];
     [locationArray addObject:tempCoordinate];
     
-    
-    return locationArray;
+    [Singleton sharedSingleton].locationsArray = locationArray;
+    return [Singleton sharedSingleton].locationsArray;
 }
 
 -(void)locationClicked:(ARGeoCoordinate *)coordinate{

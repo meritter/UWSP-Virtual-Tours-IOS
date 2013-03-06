@@ -76,6 +76,8 @@
 		AB515C2C16E2F4B000372E52 /* UWSP Logo 114.png in Resources */ = {isa = PBXBuildFile; fileRef = AB515C2A16E2F4B000372E52 /* UWSP Logo 114.png */; };
 		AB51ED6016E564BD00851F19 /* URBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */; };
 		AB51ED6616E5671600851F19 /* 2382615145_ab6347760c.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */; };
+		AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6816E7058B00851F19 /* MRViewController.m */; };
+		AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6B16E7D73500851F19 /* Singleton.m */; };
 		AB972CB116E2D77A0098B4AB /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */; };
 		AB972CB316E2D8040098B4AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB216E2D8040098B4AB /* CoreData.framework */; };
 		AB972CB516E2D8150098B4AB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB416E2D8150098B4AB /* CoreText.framework */; };
@@ -206,6 +208,10 @@
 		AB51ED5E16E564BD00851F19 /* URBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URBSegmentedControl.h; sourceTree = "<group>"; };
 		AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URBSegmentedControl.m; sourceTree = "<group>"; };
 		AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2382615145_ab6347760c.png; sourceTree = "<group>"; };
+		AB51ED6716E7058A00851F19 /* MRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRViewController.h; sourceTree = "<group>"; };
+		AB51ED6816E7058B00851F19 /* MRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRViewController.m; sourceTree = "<group>"; };
+		AB51ED6A16E7D73500851F19 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		AB51ED6B16E7D73500851F19 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		AB972CB216E2D8040098B4AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AB972CB416E2D8150098B4AB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -456,6 +462,8 @@
 		AB9CC1D816E319B200B47683 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AB51ED6A16E7D73500851F19 /* Singleton.h */,
+				AB51ED6B16E7D73500851F19 /* Singleton.m */,
 				AB9CC1DF16E422F900B47683 /* RootViewController.h */,
 				AB9CC1E016E422F900B47683 /* RootViewController.m */,
 				AB3C2D3716E126E7003A1A58 /* UnderRightViewController.h */,
@@ -475,6 +483,8 @@
 				AB3C2D4116E12F12003A1A58 /* MainStoryboard.storyboard */,
 				AB9CC1DC16E3CE4000B47683 /* XmlArrayParser.h */,
 				AB9CC1DD16E3CE4000B47683 /* XmlArrayParser.m */,
+				AB51ED6716E7058A00851F19 /* MRViewController.h */,
+				AB51ED6816E7058B00851F19 /* MRViewController.m */,
 			);
 			name = Controllers;
 			path = SASlideMenuStatic;
@@ -610,6 +620,8 @@
 				AB9CC1DE16E3CE4000B47683 /* XmlArrayParser.m in Sources */,
 				AB9CC1E116E422FA00B47683 /* RootViewController.m in Sources */,
 				AB51ED6016E564BD00851F19 /* URBSegmentedControl.m in Sources */,
+				AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */,
+				AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -96,21 +96,32 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     UILabel* label = [[UILabel alloc] initWithFrame:(CGRect) { 10, 0, 100, 100 }];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     label.textColor = [UIColor whiteColor];
-    label.backgroundColor = UIColorFromRGB(0X008080);
-    label.opaque = NO;
+    label.opaque = YES;
     label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-    
+     UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 100, 100 }];
     if(section == 0)
+    {
         label.text = @"Active Quest";
+        label.backgroundColor = UIColorFromRGB(0X008080);
+         view.backgroundColor = UIColorFromRGB(0X008080);
+    }
     else if(section == 1)
+    {
         label.text = @"Completed Quests";
+        label.backgroundColor = UIColorFromRGB(0X008080);
+         view.backgroundColor = UIColorFromRGB(0X008080);
+    }
     else
-        label.text = @"Settings";
+    {
     
-    UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 100, 100 }];
+       // label.text = @"";
+        //label.backgroundColor = UIColorFromRGB(0X541675);
+        // view.backgroundColor = UIColorFromRGB(0X541675);
+    }
+    
+   
     [view addSubview:label];
-    view.backgroundColor = UIColorFromRGB(0X008080);
-    view.opaque = NO;
+    view.opaque = YES;
     return view;
 }
 
@@ -144,11 +155,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = UIColorFromRGB(0X999933);
-    //[bgColorView setBackgroundColor:[UIColor greenColor]];
     [cell setSelectedBackgroundView:bgColorView];
-    
-
-    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.5];
@@ -183,7 +190,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     switch (indexPath.section) {
         case 0:
-            NSLog(@"Hit at 0");
             return @"map";      
             break;
         case 1:
@@ -200,7 +206,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 -(Boolean) allowContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath{
-    return YES;
+    return NO;
 }
 
 -(Boolean) disablePanGestureForIndexPath:(NSIndexPath *)indexPath{
