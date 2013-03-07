@@ -19,6 +19,8 @@
 
 @property (nonatomic, retain) NSArray *tableData;
 
+
+-(IBAction)editBtnClick;
 - (void)parseJSONIOS5;
 - (void)parseJSON;
 

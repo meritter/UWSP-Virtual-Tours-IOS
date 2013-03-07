@@ -14,6 +14,7 @@
     NSMutableArray *locationsArray;
 }
 @property (nonatomic, retain) NSMutableArray * locationsArray;
+@property (nonatomic, retain) NSString * SelectedMapPack;
 
 + (Singleton *)sharedSingleton;
 @end

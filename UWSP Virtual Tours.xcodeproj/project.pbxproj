@@ -78,6 +78,7 @@
 		AB51ED6616E5671600851F19 /* 2382615145_ab6347760c.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */; };
 		AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6816E7058B00851F19 /* MRViewController.m */; };
 		AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6B16E7D73500851F19 /* Singleton.m */; };
+		AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */; };
 		AB972CB116E2D77A0098B4AB /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */; };
 		AB972CB316E2D8040098B4AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB216E2D8040098B4AB /* CoreData.framework */; };
 		AB972CB516E2D8150098B4AB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB416E2D8150098B4AB /* CoreText.framework */; };
@@ -212,6 +213,8 @@
 		AB51ED6816E7058B00851F19 /* MRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRViewController.m; sourceTree = "<group>"; };
 		AB51ED6A16E7D73500851F19 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		AB51ED6B16E7D73500851F19 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		AB51ED6D16E8226800851F19 /* SettingsMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMasterViewController.h; sourceTree = "<group>"; };
+		AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsMasterViewController.m; sourceTree = "<group>"; };
 		AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		AB972CB216E2D8040098B4AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AB972CB416E2D8150098B4AB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -485,6 +488,8 @@
 				AB9CC1DD16E3CE4000B47683 /* XmlArrayParser.m */,
 				AB51ED6716E7058A00851F19 /* MRViewController.h */,
 				AB51ED6816E7058B00851F19 /* MRViewController.m */,
+				AB51ED6D16E8226800851F19 /* SettingsMasterViewController.h */,
+				AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */,
 			);
 			name = Controllers;
 			path = SASlideMenuStatic;
@@ -622,6 +627,7 @@
 				AB51ED6016E564BD00851F19 /* URBSegmentedControl.m in Sources */,
 				AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */,
 				AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */,
+				AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

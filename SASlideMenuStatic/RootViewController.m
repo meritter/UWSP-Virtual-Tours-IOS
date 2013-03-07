@@ -9,7 +9,8 @@
 
 // if you use the generic parser, you need this one:
 #import "XmlArrayParser.h"
-
+#import "SettingsMasterViewController.h"
+#import "Singleton.h"
 
 @implementation RootViewController
 
@@ -42,6 +43,57 @@
 
 }
 
+    
+    
+- (void)editBtnClick
+
+       {
+       }
+
+/*
+           if(self.editing)
+               
+           {
+               
+               [super setEditing:NO animated:NO];
+               
+               [Table setEditing:NO animated:NO];
+               
+               [Table reloadData];
+               
+               [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+               
+               [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+               
+           }
+           
+           else
+               
+           {
+               
+               [super setEditing:YES animated:YES];
+               
+               [Table setEditing:YES animated:YES];
+               
+               [Table reloadData];
+               
+               [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+               
+               [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+               
+           }
+           
+       }
+*/
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // If row is deleted, remove it from the list.
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+      //  SimpleEditableListAppDelegate *controller = (SimpleEditableListAppDelegate *)[[UIApplication sharedApplication] //delegate];
+        //[controller removeObjectFromListAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 
 
 //This bloody works
@@ -63,6 +115,27 @@
     }
     
 }*/
+
+//save xml into filename
+/*- (IBAction)startXMLTransfer:(id)sender;
+{
+    NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
+    NSURL  *url = [NSURL URLWithString:stringURL];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    if ( urlData )
+    {
+        NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString  *documentsDirectory = [paths objectAtIndex:0];
+        
+        NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,@"filename.xml"];
+        [urlData writeToFile:filePath atomically:YES];
+        // NSLog(filePath);
+        
+        [self parseXMLFileAtURL: @"/Users/Jonathan/Library/Application Support/iPhone Simulator/6.1/Applications//580FD371-2C90-455E-BB1F-C2BB6AE615AA/Documents/filename.xml"];
+    }
+    
+}*/
+
 
 - (void)parseJSONIOS5 {
     
@@ -86,7 +159,6 @@
         users = [parser items];
     }
 }
-
 
 
 
@@ -181,9 +253,9 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
@@ -194,8 +266,8 @@
     {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }   
-}
-*/
+}*/
+
 
 
 /*
@@ -219,19 +291,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellText = selectedCell.textLabel.text;
+
+    [Singleton sharedSingleton].SelectedMapPack = cellText;
+    [self.navigationController  popViewControllerAnimated:YES];
     
-    
-    [[[UIAlertView alloc] initWithTitle:nil
-                                message:@"Please download map pack"
-                               delegate:nil
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
-   // InitialSlidingViewController *detailViewController = [[InitialSlidingViewController alloc] initWithNibName:@"InitialSlidingViewController" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    //[self.navigationController pushViewController:detailViewController animated:YES];
-    //[detailViewController release];
-	
 }
 
 - (void)didReceiveMemoryWarning
@@ -250,6 +315,8 @@
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
+
+
 
 
 

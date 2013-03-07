@@ -15,6 +15,14 @@
 {
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyBy6x3X8S_tf_folhpgrkz9iI6A9DHiJZU"];
+    
+    
+    
+    [[[UIAlertView alloc] initWithTitle:nil
+                                message:@"Welcome to UWSP Virtual Tours, Please download a Map Pack from the Settings tab in the left view"
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
     return YES;
 }
 							
