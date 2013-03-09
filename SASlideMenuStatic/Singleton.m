@@ -10,23 +10,7 @@
 
 @implementation Singleton
 @synthesize locationsArray;
-//@synthesize SelectedMapPack;
-
-//+ (Singleton *)sharedSingleton
-/*{
-    static Singleton *sharedSingleton;
-    
-    @synchronized(self)
-    {
-        if (!sharedSingleton)
-            sharedSingleton = [[Singleton alloc] init];
-            NSMutableArray *locationArray = [[NSMutableArray alloc] init];
-        return sharedSingleton;
-    }
-}
-
-@end*/
-
+@synthesize selectedMapPack;
 
 static Singleton *sharedSingleton = nil;
 
@@ -34,9 +18,6 @@ static Singleton *sharedSingleton = nil;
 {
     if (sharedSingleton == nil) {
         sharedSingleton = [[super allocWithZone:NULL] init];
-        
-        // initialize your variables here
-        //sharedSingleton.locationsArray = nil;
     }
     return sharedSingleton;
 }

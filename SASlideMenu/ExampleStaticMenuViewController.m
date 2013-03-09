@@ -9,7 +9,7 @@
 //
 #import <QuartzCore/QuartzCore.h>
 #import "ExampleStaticMenuViewController.h"
-#import "MenuCell.h"
+
 #import "DarkViewController.h"
 #import "LightViewController.h"
 #import "Singleton.h"

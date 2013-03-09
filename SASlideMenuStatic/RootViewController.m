@@ -20,9 +20,9 @@
 
 - (void)viewDidLoad
 {
-                    
+    // [self.navigationController setToolbarHidden:YES];
     [super viewDidLoad];
-    [self.navigationController setToolbarHidden:YES  animated:YES];
+    //[self.navigationController setToolbarHidden:YES  animated:YES];
     users = [[NSMutableArray alloc] init];
     tours = [[NSMutableArray alloc] init];
    
@@ -32,8 +32,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setToolbarHidden:YES];
     [super viewWillAppear:animated];
-     [self.navigationController setToolbarHidden:NO];
+    // [self.navigationController setToolbarHidden:NO];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
         [self parseJSONIOS5];
     else

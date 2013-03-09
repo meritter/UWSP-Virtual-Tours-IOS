@@ -167,17 +167,12 @@
         <!--Navigation Controller-->
         <scene sceneID="bZ3-Hh-inT">
             <objects>
-                <navigationController definesPresentationContext="YES" hidesBottomBarWhenPushed="YES" toolbarHidden="NO" id="doc-P0-YCL" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" hidesBottomBarWhenPushed="YES" id="doc-P0-YCL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="N6o-yJ-8r8">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.30980393290519714" green="0.19215688109397888" blue="0.37254902720451355" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pqr-1O-oE7">
-                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.1991466039" green="0.057686947070000001" blue="0.29581865670000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </toolbar>
                     <connections>
                         <segue destination="HWb-3y-jm7" kind="relationship" relationship="rootViewController" id="Z7A-Sm-ZNj"/>
                     </connections>
@@ -446,9 +441,9 @@
         <!--Root View Controller - Map Packs-->
         <scene sceneID="x7o-iV-loV">
             <objects>
-                <tableViewController storyboardIdentifier="mapPacks" hidesBottomBarWhenPushed="YES" id="Cbb-lJ-bVm" customClass="RootViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="mapPacks" id="Cbb-lJ-bVm" customClass="RootViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ddZ-8O-U0E">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="QTD-3M-dsQ">
@@ -505,14 +500,10 @@
                             <outlet property="delegate" destination="Cbb-lJ-bVm" id="5cw-Ug-gHX"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Check for Updates" id="PMZ-hx-RVQ"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Map Packs" id="2sj-N3-USk">
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="bq5-Yh-WGn"/>
                     </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="6M6-jB-JCw" id="z6W-2W-6AB"/>
                     </connections>

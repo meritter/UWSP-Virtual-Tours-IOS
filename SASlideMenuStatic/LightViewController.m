@@ -8,7 +8,6 @@
 
 #import "LightViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import "URBSegmentedControl.h"
 #import "Singleton.h"
 @interface LightViewController ()
 

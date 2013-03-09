@@ -41,7 +41,6 @@
 		7BDBF4AB166CDFEC00FDA327 /* DarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3B2D5315DCE0E1009F4AB8 /* DarkViewController.m */; };
 		7BDBF4AC166CDFEC00FDA327 /* ShadesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5B88E2163B23B300D02C1F /* ShadesViewController.m */; };
 		7BDBF4AD166CDFEC00FDA327 /* ExampleStaticMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3FF415D8D55800E42A41 /* ExampleStaticMenuViewController.m */; };
-		7BDBF4AE166CE03000FDA327 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0A6B115DE499F00B3B57F /* MenuCell.m */; };
 		7BFEA28E16C2573F00455A22 /* SASlideMenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEA28C16C2573F00455A22 /* SASlideMenuNavigationController.m */; };
 		AB3C2CF716E07C8B003A1A58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */; };
 		AB3C2CF916E07C95003A1A58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF816E07C95003A1A58 /* MapKit.framework */; };
@@ -66,7 +65,6 @@
 		AB3C2D3416E12648003A1A58 /* bgCalloutDisclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2D16E12645003A1A58 /* bgCalloutDisclosure@2x.png */; };
 		AB3C2D3516E12648003A1A58 /* bgCallout.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2E16E12646003A1A58 /* bgCallout.png */; };
 		AB3C2D3616E12648003A1A58 /* bgCallout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2F16E12647003A1A58 /* bgCallout@2x.png */; };
-		AB3C2D3916E126E8003A1A58 /* UnderRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3C2D3816E126E7003A1A58 /* UnderRightViewController.m */; };
 		AB3C2D3B16E1277F003A1A58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2D3A16E1277F003A1A58 /* AVFoundation.framework */; };
 		AB3C2D3D16E127E5003A1A58 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2D3C16E127E4003A1A58 /* QuartzCore.framework */; };
 		AB3C2D4216E12F12003A1A58 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D4116E12F12003A1A58 /* MainStoryboard.storyboard */; };
@@ -74,13 +72,10 @@
 		AB3C2D4616E14DF6003A1A58 /* fall_lakeside_by_musicalartfreak-d4iyt97.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D4516E14DF5003A1A58 /* fall_lakeside_by_musicalartfreak-d4iyt97.jpg */; };
 		AB515C2B16E2F4B000372E52 /* UWSP Logo 57.png in Resources */ = {isa = PBXBuildFile; fileRef = AB515C2916E2F4B000372E52 /* UWSP Logo 57.png */; };
 		AB515C2C16E2F4B000372E52 /* UWSP Logo 114.png in Resources */ = {isa = PBXBuildFile; fileRef = AB515C2A16E2F4B000372E52 /* UWSP Logo 114.png */; };
-		AB51ED6016E564BD00851F19 /* URBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */; };
 		AB51ED6616E5671600851F19 /* 2382615145_ab6347760c.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */; };
 		AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6816E7058B00851F19 /* MRViewController.m */; };
 		AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6B16E7D73500851F19 /* Singleton.m */; };
 		AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */; };
-		AB51ED7416E878F800851F19 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED7116E878F700851F19 /* SVSegmentedControl.m */; };
-		AB51ED7516E878F800851F19 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED7316E878F800851F19 /* SVSegmentedThumb.m */; };
 		AB51ED7816E9353300851F19 /* locate.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED7616E9353000851F19 /* locate.png */; };
 		AB51ED7916E9353300851F19 /* locate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED7716E9353200851F19 /* locate@2x.png */; };
 		AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */; };
@@ -161,8 +156,6 @@
 		7BF0A6AD15DE499F00B3B57F /* row@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "row@2x.png"; sourceTree = "<group>"; };
 		7BF0A6AE15DE499F00B3B57F /* rowselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rowselected.png; sourceTree = "<group>"; };
 		7BF0A6AF15DE499F00B3B57F /* rowselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rowselected@2x.png"; sourceTree = "<group>"; };
-		7BF0A6B015DE499F00B3B57F /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuCell.h; path = ../SASlideMenu/MenuCell.h; sourceTree = "<group>"; };
-		7BF0A6B115DE499F00B3B57F /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuCell.m; path = ../SASlideMenu/MenuCell.m; sourceTree = "<group>"; };
 		7BF0A6B915DE682A00B3B57F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		7BFEA28516C0FACF00455A22 /* SASlideMenuPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuPushSegue.h; sourceTree = "<group>"; };
 		7BFEA28616C0FACF00455A22 /* SASlideMenuPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuPushSegue.m; sourceTree = "<group>"; };
@@ -204,8 +197,6 @@
 		AB3C2D2D16E12645003A1A58 /* bgCalloutDisclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgCalloutDisclosure@2x.png"; path = "../bgCalloutDisclosure@2x.png"; sourceTree = "<group>"; };
 		AB3C2D2E16E12646003A1A58 /* bgCallout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgCallout.png; path = ../bgCallout.png; sourceTree = "<group>"; };
 		AB3C2D2F16E12647003A1A58 /* bgCallout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgCallout@2x.png"; path = "../bgCallout@2x.png"; sourceTree = "<group>"; };
-		AB3C2D3716E126E7003A1A58 /* UnderRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnderRightViewController.h; sourceTree = "<group>"; };
-		AB3C2D3816E126E7003A1A58 /* UnderRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnderRightViewController.m; sourceTree = "<group>"; };
 		AB3C2D3A16E1277F003A1A58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AB3C2D3C16E127E4003A1A58 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AB3C2D4116E12F12003A1A58 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -213,8 +204,6 @@
 		AB3C2D4516E14DF5003A1A58 /* fall_lakeside_by_musicalartfreak-d4iyt97.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fall_lakeside_by_musicalartfreak-d4iyt97.jpg"; sourceTree = "<group>"; };
 		AB515C2916E2F4B000372E52 /* UWSP Logo 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UWSP Logo 57.png"; sourceTree = "<group>"; };
 		AB515C2A16E2F4B000372E52 /* UWSP Logo 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UWSP Logo 114.png"; sourceTree = "<group>"; };
-		AB51ED5E16E564BD00851F19 /* URBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URBSegmentedControl.h; sourceTree = "<group>"; };
-		AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URBSegmentedControl.m; sourceTree = "<group>"; };
 		AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2382615145_ab6347760c.png; sourceTree = "<group>"; };
 		AB51ED6716E7058A00851F19 /* MRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRViewController.h; sourceTree = "<group>"; };
 		AB51ED6816E7058B00851F19 /* MRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRViewController.m; sourceTree = "<group>"; };
@@ -222,10 +211,6 @@
 		AB51ED6B16E7D73500851F19 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		AB51ED6D16E8226800851F19 /* SettingsMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMasterViewController.h; sourceTree = "<group>"; };
 		AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsMasterViewController.m; sourceTree = "<group>"; };
-		AB51ED7016E878F600851F19 /* SVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedControl.h; sourceTree = "<group>"; };
-		AB51ED7116E878F700851F19 /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
-		AB51ED7216E878F700851F19 /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
-		AB51ED7316E878F800851F19 /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
 		AB51ED7616E9353000851F19 /* locate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locate.png; sourceTree = "<group>"; };
 		AB51ED7716E9353200851F19 /* locate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locate@2x.png"; sourceTree = "<group>"; };
 		AB51ED7A16E9B6B800851F19 /* TutorialFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialFirstViewController.h; sourceTree = "<group>"; };
@@ -309,13 +294,7 @@
 		7B8C3FCF15D8D55800E42A41 = {
 			isa = PBXGroup;
 			children = (
-				AB51ED5E16E564BD00851F19 /* URBSegmentedControl.h */,
-				AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */,
 				7BF0A6B915DE682A00B3B57F /* README.md */,
-				AB51ED7016E878F600851F19 /* SVSegmentedControl.h */,
-				AB51ED7116E878F700851F19 /* SVSegmentedControl.m */,
-				AB51ED7216E878F700851F19 /* SVSegmentedThumb.h */,
-				AB51ED7316E878F800851F19 /* SVSegmentedThumb.m */,
 				7B8C3FE415D8D55800E42A41 /* SASlideMenuSource */,
 				AB9CC1D816E319B200B47683 /* Controllers */,
 				7B8C3FDD15D8D55800E42A41 /* Frameworks */,
@@ -494,10 +473,6 @@
 				AB51ED6B16E7D73500851F19 /* Singleton.m */,
 				AB9CC1DF16E422F900B47683 /* RootViewController.h */,
 				AB9CC1E016E422F900B47683 /* RootViewController.m */,
-				AB3C2D3716E126E7003A1A58 /* UnderRightViewController.h */,
-				AB3C2D3816E126E7003A1A58 /* UnderRightViewController.m */,
-				7BF0A6B015DE499F00B3B57F /* MenuCell.h */,
-				7BF0A6B115DE499F00B3B57F /* MenuCell.m */,
 				7B3B2D5215DCE0E1009F4AB8 /* DarkViewController.h */,
 				7B3B2D5315DCE0E1009F4AB8 /* DarkViewController.m */,
 				7B27435816D2820600F89C69 /* LightViewController.h */,
@@ -637,7 +612,6 @@
 				7BDBF4AB166CDFEC00FDA327 /* DarkViewController.m in Sources */,
 				7BDBF4AC166CDFEC00FDA327 /* ShadesViewController.m in Sources */,
 				7BDBF4AD166CDFEC00FDA327 /* ExampleStaticMenuViewController.m in Sources */,
-				7BDBF4AE166CE03000FDA327 /* MenuCell.m in Sources */,
 				7BC688FC16A99DB2004ED00D /* SASlideMenuContentSegue.m in Sources */,
 				7BC688FD16A99DB2004ED00D /* SASlideMenuLeftMenuSegue.m in Sources */,
 				7BC688FE16A99DB2004ED00D /* SASlideMenuViewController.m in Sources */,
@@ -653,15 +627,11 @@
 				AB3C2D2516E12606003A1A58 /* MarkerView.m in Sources */,
 				AB3C2D2616E12606003A1A58 /* Radar.m in Sources */,
 				AB3C2D2716E12606003A1A58 /* RadarViewPortView.m in Sources */,
-				AB3C2D3916E126E8003A1A58 /* UnderRightViewController.m in Sources */,
 				AB9CC1DE16E3CE4000B47683 /* XmlArrayParser.m in Sources */,
 				AB9CC1E116E422FA00B47683 /* RootViewController.m in Sources */,
-				AB51ED6016E564BD00851F19 /* URBSegmentedControl.m in Sources */,
 				AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */,
 				AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */,
 				AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */,
-				AB51ED7416E878F800851F19 /* SVSegmentedControl.m in Sources */,
-				AB51ED7516E878F800851F19 /* SVSegmentedThumb.m in Sources */,
 				AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */,
 				AB51ED8316EAABB100851F19 /* TutorialSecondViewController.m in Sources */,
 			);
