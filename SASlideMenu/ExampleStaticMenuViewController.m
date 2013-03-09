@@ -12,6 +12,7 @@
 #import "MenuCell.h"
 #import "DarkViewController.h"
 #import "LightViewController.h"
+#import "Singleton.h"
 @interface ExampleStaticMenuViewController ()
 @property (nonatomic, strong) NSMutableArray  * settings;
 @end
@@ -65,8 +66,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [tours addObject:@"Place Holder 2"];
     [tours addObject:@"Place Holder 1"];
     
-    [settings addObject:@"About"];
     [settings addObject:@"Settings"];
+    [settings addObject:@"About"];
 
     
 
@@ -93,12 +94,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel* label = [[UILabel alloc] initWithFrame:(CGRect) { 10, 0, 100, 100 }];
+    UILabel* label = [[UILabel alloc] initWithFrame:(CGRect) { 10, 0, 80, 100 }];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     label.textColor = [UIColor whiteColor];
     label.opaque = YES;
-    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
-     UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 100, 100 }];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15.5];
+     UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 80, 100 }];
     if(section == 0)
     {
         label.text = @"Active Quest";
@@ -115,8 +116,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     {
     
        // label.text = @"";
-        //label.backgroundColor = UIColorFromRGB(0X541675);
-        // view.backgroundColor = UIColorFromRGB(0X541675);
+        label.backgroundColor = [UIColor colorWithRed:(60/255.0) green:(6/255.0) blue:(94/255.0) alpha:1] ;
+         view.backgroundColor = [UIColor colorWithRed:(60/255.0) green:(6/255.0) blue:(94/255.0) alpha:1] ;
     }
     
    
@@ -154,11 +155,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     }
     
     UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = UIColorFromRGB(0X999933);
+    bgColorView.backgroundColor = [UIColor colorWithRed:(133/255.0) green:(176/255.0) blue:(0/255.0) alpha:1] ;
     [cell setSelectedBackgroundView:bgColorView];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.5];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0];
     switch (indexPath.section) {
         case 0:
             // [[cell textLabel] setText:[item objectForKey:@"name"]];
@@ -188,6 +189,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 -(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath
 {
+    if([Singleton sharedSingleton].selectedMapPack == nil)
+    {
+            
+           return @"tutorial";
+        
+    }
+    else
+    {
+    
     switch (indexPath.section) {
         case 0:
             return @"map";      
@@ -197,11 +207,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             break;
         case 2:
              if (indexPath.row == 0) {
-             return @"about";
+                  return @"settings";
+             
              }else if (indexPath.row == 1){
-             return @"settings";
+             return @"about";
              }
             break;
+    }
     }
 }
 

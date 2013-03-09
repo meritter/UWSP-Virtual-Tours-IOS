@@ -79,6 +79,13 @@
 		AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6816E7058B00851F19 /* MRViewController.m */; };
 		AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6B16E7D73500851F19 /* Singleton.m */; };
 		AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */; };
+		AB51ED7416E878F800851F19 /* SVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED7116E878F700851F19 /* SVSegmentedControl.m */; };
+		AB51ED7516E878F800851F19 /* SVSegmentedThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED7316E878F800851F19 /* SVSegmentedThumb.m */; };
+		AB51ED7816E9353300851F19 /* locate.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED7616E9353000851F19 /* locate.png */; };
+		AB51ED7916E9353300851F19 /* locate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED7716E9353200851F19 /* locate@2x.png */; };
+		AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */; };
+		AB51ED8016EA8E3A00851F19 /* WisconsinMap.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED7F16EA8E3600851F19 /* WisconsinMap.png */; };
+		AB51ED8316EAABB100851F19 /* TutorialSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */; };
 		AB972CB116E2D77A0098B4AB /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */; };
 		AB972CB316E2D8040098B4AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB216E2D8040098B4AB /* CoreData.framework */; };
 		AB972CB516E2D8150098B4AB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB416E2D8150098B4AB /* CoreText.framework */; };
@@ -215,6 +222,17 @@
 		AB51ED6B16E7D73500851F19 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		AB51ED6D16E8226800851F19 /* SettingsMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMasterViewController.h; sourceTree = "<group>"; };
 		AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsMasterViewController.m; sourceTree = "<group>"; };
+		AB51ED7016E878F600851F19 /* SVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedControl.h; sourceTree = "<group>"; };
+		AB51ED7116E878F700851F19 /* SVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedControl.m; sourceTree = "<group>"; };
+		AB51ED7216E878F700851F19 /* SVSegmentedThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVSegmentedThumb.h; sourceTree = "<group>"; };
+		AB51ED7316E878F800851F19 /* SVSegmentedThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVSegmentedThumb.m; sourceTree = "<group>"; };
+		AB51ED7616E9353000851F19 /* locate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locate.png; sourceTree = "<group>"; };
+		AB51ED7716E9353200851F19 /* locate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locate@2x.png"; sourceTree = "<group>"; };
+		AB51ED7A16E9B6B800851F19 /* TutorialFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialFirstViewController.h; sourceTree = "<group>"; };
+		AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialFirstViewController.m; sourceTree = "<group>"; };
+		AB51ED7F16EA8E3600851F19 /* WisconsinMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WisconsinMap.png; path = SASlideMenuStatic/WisconsinMap.png; sourceTree = "<group>"; };
+		AB51ED8116EAABAD00851F19 /* TutorialSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialSecondViewController.h; sourceTree = "<group>"; };
+		AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialSecondViewController.m; sourceTree = "<group>"; };
 		AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		AB972CB216E2D8040098B4AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AB972CB416E2D8150098B4AB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -294,6 +312,10 @@
 				AB51ED5E16E564BD00851F19 /* URBSegmentedControl.h */,
 				AB51ED5F16E564BD00851F19 /* URBSegmentedControl.m */,
 				7BF0A6B915DE682A00B3B57F /* README.md */,
+				AB51ED7016E878F600851F19 /* SVSegmentedControl.h */,
+				AB51ED7116E878F700851F19 /* SVSegmentedControl.m */,
+				AB51ED7216E878F700851F19 /* SVSegmentedThumb.h */,
+				AB51ED7316E878F800851F19 /* SVSegmentedThumb.m */,
 				7B8C3FE415D8D55800E42A41 /* SASlideMenuSource */,
 				AB9CC1D816E319B200B47683 /* Controllers */,
 				7B8C3FDD15D8D55800E42A41 /* Frameworks */,
@@ -447,6 +469,9 @@
 		AB9CC1D716E3188D00B47683 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				AB51ED7F16EA8E3600851F19 /* WisconsinMap.png */,
+				AB51ED7616E9353000851F19 /* locate.png */,
+				AB51ED7716E9353200851F19 /* locate@2x.png */,
 				AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */,
 				AB9CC1E816E52D3300B47683 /* camera copy.png */,
 				AB3C2CFA16E08E57003A1A58 /* marker copy.png */,
@@ -490,6 +515,10 @@
 				AB51ED6816E7058B00851F19 /* MRViewController.m */,
 				AB51ED6D16E8226800851F19 /* SettingsMasterViewController.h */,
 				AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */,
+				AB51ED7A16E9B6B800851F19 /* TutorialFirstViewController.h */,
+				AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */,
+				AB51ED8116EAABAD00851F19 /* TutorialSecondViewController.h */,
+				AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */,
 			);
 			name = Controllers;
 			path = SASlideMenuStatic;
@@ -589,6 +618,9 @@
 				AB9CC1E516E52A4D00B47683 /* menu copy2.png in Resources */,
 				AB9CC1E916E52D3300B47683 /* camera copy.png in Resources */,
 				AB51ED6616E5671600851F19 /* 2382615145_ab6347760c.png in Resources */,
+				AB51ED7816E9353300851F19 /* locate.png in Resources */,
+				AB51ED7916E9353300851F19 /* locate@2x.png in Resources */,
+				AB51ED8016EA8E3A00851F19 /* WisconsinMap.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +660,10 @@
 				AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */,
 				AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */,
 				AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */,
+				AB51ED7416E878F800851F19 /* SVSegmentedControl.m in Sources */,
+				AB51ED7516E878F800851F19 /* SVSegmentedThumb.m in Sources */,
+				AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */,
+				AB51ED8316EAABB100851F19 /* TutorialSecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

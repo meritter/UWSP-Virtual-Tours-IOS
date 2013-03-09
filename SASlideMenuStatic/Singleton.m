@@ -10,6 +10,7 @@
 
 @implementation Singleton
 @synthesize locationsArray;
+//@synthesize SelectedMapPack;
 
 //+ (Singleton *)sharedSingleton
 /*{

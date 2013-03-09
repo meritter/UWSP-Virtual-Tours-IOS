@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-
+#import <UIKit/UIKit.h>
+/*
 @interface Singleton : NSObject
 {
     NSMutableArray *locationsArray;
@@ -17,7 +18,18 @@
 @property (nonatomic, retain) NSString * SelectedMapPack;
 
 + (Singleton *)sharedSingleton;
+@end*/
+
+
+
+@interface Singleton : NSObject
+{
+    NSMutableArray *locationsArray;
+}
+
+@property (nonatomic, retain) NSMutableArray * locationsArray;
+@property (nonatomic, retain) NSString * selectedMapPack;
+
+
++ (Singleton *)sharedSingleton;
 @end
-
-
-

@@ -12,12 +12,16 @@
 #import <MapKit/MapKit.h>
 #import "ARKit.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "SVSegmentedControl.h"
 
 @interface LightViewController : UIViewController  <ARLocationDelegate, GMSMapViewDelegate>
 {
 
     
 }
+
+- (void)segmentedControlChangedValue:(SVSegmentedControl*)segmentedControl;
+
 
 /** Updates with the display 'split view controller' button. */
 

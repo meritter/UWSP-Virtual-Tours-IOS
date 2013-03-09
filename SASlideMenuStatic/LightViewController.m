@@ -27,11 +27,11 @@
 
 - (void)loadView {
     
-   
+  
     //UIButton *button = [UIButton buttonWithType:];
     //[button setFrame:CGRectMake(0,0,100,100)];
     //[self.view addSubview:button];
-       GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.537923
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.537923
                                                             longitude:-89.561448
                                                                  zoom:16];
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
@@ -45,33 +45,29 @@
     [mapView addMarkerWithOptions:options];
     
     
-    	NSArray *titles = [NSArray arrayWithObjects:[@"Quest" uppercaseString], [@"Free roam" uppercaseString],  nil];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[UIImage imageNamed:@"locate.png"] forState:UIControlStateNormal];
+    CGRect frame = CGRectMake(10, 10, 40, 32);
+    button.frame = frame;
+    button.clipsToBounds = YES;
+    [button setBackgroundColor:[UIColor colorWithRed:(60/255.0) green:(6/255.0) blue:(94/255.0) alpha:1]];
+    button.layer.cornerRadius = 5;//half of the width
+    button.layer.borderColor=[UIColor blackColor].CGColor;
+    button.layer.borderWidth=0.8f;
+    button.center = CGPointMake(30, 392);
+    [self.view addSubview:button];
     
-    URBSegmentedControl *control = [[URBSegmentedControl alloc] initWithItems:titles];
-	//control.frame = CGRectMake(10.0, 10.0, 300.0, 40.0);
-	//control.segmentBackgroundColor = [UIColor blueColor];
-	//[control setSegmentBackgroundColor:[UIColor greenColor] atIndex:2];
-	//[self.view addSubview:control];
-	
-	// UIKit method of handling value changes
-	[control addTarget:self action:@selector(handleSelection:) forControlEvents:UIControlEventValueChanged];
-	// block-based value change handler
-	[control setControlEventBlock:^(NSInteger index, URBSegmentedControl *segmentedControl) {
-		NSLog(@"URBSegmentedControl: control block - index=%i", index);
-	}];
-	
-	//
-	// Horizontal segmented control with icons using the standard initWithItems: method of UISegmentedControl
-	//
-	URBSegmentedControl *iconControl = [[URBSegmentedControl alloc] initWithItems:titles];
-	iconControl.frame = CGRectMake(10.0, CGRectGetMaxY(control.frame) + 332.0, 300.0, 40.0);
-	[self.view addSubview:iconControl];
-	
-	// set icons for each segment
-	[iconControl setImage:[UIImage imageNamed:@"marker.png"] forSegmentAtIndex:0];
-	[iconControl setImage:[UIImage imageNamed:@"marker.png"] forSegmentAtIndex:1];
-		
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 480, 44)];
+    label.backgroundColor = [UIColor clearColor];
+    label.numberOfLines = 2;
+    label.font = [UIFont boldSystemFontOfSize: 14.0f];
+    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    label.textAlignment = UITextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.text = @"UWSP Virtual Tours\nQuest Mode";
     
+    self.navigationItem.titleView = label;
+
 }
 
 

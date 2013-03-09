@@ -44,7 +44,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.tableView reloadData];
-}
+    }
 
 - (void)didReceiveMemoryWarning
 {
@@ -58,7 +58,7 @@
 {
     //Put this here so whenever this method gets hit to reset tables it fires
     
-     mapPackName =  [Singleton sharedSingleton].SelectedMapPack;
+   //  mapPackName =  [Singleton sharedSingleton].SelectedMapPack;
     switch (indexPath.section) {
         case 0:
             switch (indexPath.row) {
