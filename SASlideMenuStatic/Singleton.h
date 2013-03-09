@@ -13,7 +13,7 @@
 
 @property (nonatomic, retain) NSMutableArray * locationsArray;
 @property (nonatomic, retain) NSString * selectedMapPack;
-
+@property (nonatomic, retain) NSString * selectedMode;
 
 + (Singleton *)sharedSingleton;
 @end

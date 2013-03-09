@@ -228,6 +228,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return YES;
 }
 
+
+//TODO configure disabled state icon
 // This is used to configure the menu button. The beahviour of the button should not be modified
 -(void) configureMenuButton:(UIButton *)menuButton{
     menuButton.frame = CGRectMake(0, 0, 40, 29);
@@ -250,7 +252,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 #pragma mark -
 #pragma mark SASlideMenuDelegate
-
+/*
 -(void) slideMenuWillSlideIn{
     NSLog(@"slideMenuWillSlideIn");
 }
@@ -270,6 +272,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 -(void) slideMenuDidSlideOut{
     NSLog(@"slideMenuDidSlideOut");
-}
+}*/
 
 @end

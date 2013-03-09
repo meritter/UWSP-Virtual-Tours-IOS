@@ -11,6 +11,7 @@
 @implementation Singleton
 @synthesize locationsArray;
 @synthesize selectedMapPack;
+@synthesize selectedMode;
 
 static Singleton *sharedSingleton = nil;
 

@@ -26,6 +26,7 @@
 
 - (void)loadView {
     
+    
   
     //UIButton *button = [UIButton buttonWithType:];
     //[button setFrame:CGRectMake(0,0,100,100)];
@@ -68,32 +69,6 @@
     self.navigationItem.titleView = label;
 
 }
-
-
-
-
-//-(IBAction)tap:(id)sender{
-    //[self.menuViewController selectContentAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] scrollPosition:UITableViewScrollPositionTop];
-//}
-
-
--(IBAction)getNoise:(id)sender
-{
-    NSString *title = [(UIBarButtonItem *)sender  title ];
-    if ([title isEqualToString:@"Quest Mode"]){
-        [self viewWillAppear];
-        [sender setTitle:@"Free Roam Mode"];
-    }
-    else
-    {
-        [sender setTitle:@"Quest Mode"];
-        
-        //Run Quest Mode intilizations
-    }
-}
-
-- (void)viewWillAppear
- {}
 
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {

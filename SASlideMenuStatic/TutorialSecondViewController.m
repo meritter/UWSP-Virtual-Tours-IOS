@@ -102,6 +102,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // UITableView Delegate Method
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellText = selectedCell.textLabel.text;
+    
+    [Singleton sharedSingleton].selectedMode = cellText;
     self.navigationItem.rightBarButtonItem.enabled = YES;
     self.lastIndexPath = indexPath;
     
