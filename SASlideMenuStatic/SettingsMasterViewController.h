@@ -11,4 +11,5 @@
 @interface SettingsMasterViewController : UITableViewController
 
 @property NSString * mapPackName;
+@property NSString * mapMode;
 @end

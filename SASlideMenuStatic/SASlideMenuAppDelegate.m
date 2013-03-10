@@ -37,7 +37,7 @@
     }
     else
     {
-        NSLog(@"this is any additional launch of the app");
+        NSLog(@"Post initial launch of the app");
         // do stuff here as you wish
         
         currentMapPack = [padFactoids valueForKey:@"CurrentMapPack"];
@@ -54,8 +54,6 @@
             [Singleton sharedSingleton].selectedMode =  currentMode;
         }
         
-        NSLog(currentMapPack);
-        NSLog(currentMode);
     }
     
    

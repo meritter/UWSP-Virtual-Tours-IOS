@@ -360,8 +360,8 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Smeeklelens" id="ZWg-I4-oI8">
-                        <barButtonItem key="rightBarButtonItem" image="2382615145_ab6347760c.png" width="5" id="CUy-Al-Hmr">
-                            <inset key="imageInsets" minX="1" minY="1" maxX="0.0" maxY="0.0"/>
+                        <barButtonItem key="rightBarButtonItem" image="73-radar.png" width="3" style="plain" id="CUy-Al-Hmr">
+                            <inset key="imageInsets" minX="0.0" minY="2" maxX="-1" maxY="3"/>
                             <connections>
                                 <action selector="revealUnderRight:" destination="CJX-Z9-Ud1" id="NFF-PB-J4t"/>
                             </connections>
@@ -381,12 +381,20 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="A little bit about us in here for fun, happy coding" id="en3-fg-1Ye">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="en3-fg-1Ye">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.14459103954081631" green="0.14459103954081631" blue="0.14459103954081631" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">A little bit about us in here for fun, happy coding                                                       iPhone AR Toolkit
+Copyright (c) 2013 Ed Rackham (edrackham.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</mutableString>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -700,13 +708,51 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2382615145_ab6347760c.png" width="22" height="22"/>
+        <image name="73-radar.png" width="27" height="27"/>
         <image name="Default.png" width="320" height="480"/>
         <image name="WisconsinMap.png" width="639" height="784"/>
         <image name="colorLogoHome.png" width="271" height="72"/>
         <image name="fall_lakeside_by_musicalartfreak-d4iyt97.jpg" width="1024" height="683"/>
         <image name="narrow_path_by_musicalartfreak-d4iytf7.jpg" width="1024" height="683"/>
     </resources>
+    <classes>
+        <class className="ExampleStaticMenuViewController" superclassName="SASlideMenuViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExampleStaticMenuViewController.h"/>
+        </class>
+        <class className="LightViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LightViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealUnderRight:"/>
+                <relationship kind="action" name="tap:"/>
+                <relationship kind="outlet" name="subtitleView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleView" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="editBtnClick"/>
+            </relationships>
+        </class>
+        <class className="SASlideMenuRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SASlideMenuRootViewController.h"/>
+        </class>
+        <class className="SASlideMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SASlideMenuViewController.h"/>
+        </class>
+        <class className="SettingsMasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsMasterViewController.h"/>
+        </class>
+        <class className="TutorialFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="MyTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TutorialSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialSecondViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -11,7 +11,6 @@
 #import "Singleton.h"
 @interface LightViewController ()
 
-
 @end
 
 @implementation LightViewController
@@ -20,8 +19,10 @@
     LightViewController * lvc;
     NSArray             *_mapPoints;
     GMSMapView *mapView;
+
 }
 
+@synthesize titleView, subtitleView;
 
 
 - (void)loadView {
@@ -57,17 +58,59 @@
     button.center = CGPointMake(30, 392);
     [self.view addSubview:button];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 480, 44)];
-    label.backgroundColor = [UIColor clearColor];
-    label.numberOfLines = 2;
-    label.font = [UIFont boldSystemFontOfSize: 14.0f];
-    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-    label.textAlignment = UITextAlignmentCenter;
-    label.textColor = [UIColor whiteColor];
-    label.text = @"UWSP Virtual Tours\nQuest Mode";
     
-    self.navigationItem.titleView = label;
+    CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
+    UIView* _headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
+    _headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
+    _headerTitleSubtitleView.autoresizesSubviews = YES;
+    
+    CGRect titleFrame = CGRectMake(0, 2, 200, 24);
+    titleView = [[UILabel alloc] initWithFrame:titleFrame];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.font = [UIFont boldSystemFontOfSize:17];
+    titleView.textAlignment = UITextAlignmentCenter;
+    titleView.textColor = [UIColor whiteColor];
+    titleView.shadowColor = [UIColor darkGrayColor];
+    titleView.shadowOffset = CGSizeMake(0, -1);
+    titleView.text = @"UWSP Virtual Tours";
+    titleView.adjustsFontSizeToFitWidth = YES;
+    [_headerTitleSubtitleView addSubview:titleView];
+    
+    CGRect subtitleFrame = CGRectMake(0, 24, 200, 44-24);
+    subtitleView = [[UILabel alloc] initWithFrame:subtitleFrame];
+    subtitleView.backgroundColor = [UIColor clearColor];
+    subtitleView.font = [UIFont boldSystemFontOfSize:12];
+    subtitleView.textAlignment = UITextAlignmentCenter;
+    subtitleView.textColor = [UIColor whiteColor];
+    subtitleView.shadowColor = [UIColor darkGrayColor];
+    subtitleView.shadowOffset = CGSizeMake(0, -1);
+    subtitleView.text = [Singleton sharedSingleton].selectedMode;
+    subtitleView.adjustsFontSizeToFitWidth = YES;
+    [_headerTitleSubtitleView addSubview:subtitleView];
+    
+    _headerTitleSubtitleView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
+                                                 UIViewAutoresizingFlexibleRightMargin |
+                                                 UIViewAutoresizingFlexibleTopMargin |
+                                                 UIViewAutoresizingFlexibleBottomMargin);
+    
+    self.navigationItem.titleView = _headerTitleSubtitleView;
 
+}
+
+
+- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [self adjustLabelsForOrientation:toInterfaceOrientation];
+}
+
+- (void) adjustLabelsForOrientation:(UIInterfaceOrientation)orientation {
+    if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
+        titleView.font = [UIFont boldSystemFontOfSize:15];
+        subtitleView.font = [UIFont boldSystemFontOfSize:9];
+    }
+    else if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        titleView.font = [UIFont boldSystemFontOfSize:17];
+        subtitleView.font = [UIFont boldSystemFontOfSize:12];
+    }
 }
 
 

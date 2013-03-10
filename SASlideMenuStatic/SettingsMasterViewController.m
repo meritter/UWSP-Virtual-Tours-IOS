@@ -16,6 +16,7 @@
 @implementation SettingsMasterViewController
 
 @synthesize mapPackName;
+@synthesize mapMode;
 
   
 
@@ -31,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    mapPackName = [Singleton sharedSingleton].selectedMapPack;
+    mapMode = [Singleton sharedSingleton].selectedMode;
        
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -72,9 +76,21 @@
                         [[cell detailTextLabel]  setText:@"Not Selected"];
                     }
                     break;
-                          }
+                          
+        case 1:
+            if(mapMode != nil)
+            {
+                [[cell detailTextLabel] setText:mapMode];
+            }
+            else
+            {
+                [[cell detailTextLabel]  setText:@"Not Selected"];
+            }
             break;
-            
+    }
+
+            break;
+    
         default:
             break;
     }
