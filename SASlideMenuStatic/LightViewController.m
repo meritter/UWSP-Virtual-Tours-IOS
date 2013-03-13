@@ -25,6 +25,8 @@
 @synthesize titleView, subtitleView;
 
 
+
+
 - (void)loadView {
     
     
@@ -46,7 +48,8 @@
     [mapView addMarkerWithOptions:options];
     
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+       
+  /*  UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"locate.png"] forState:UIControlStateNormal];
     CGRect frame = CGRectMake(10, 10, 40, 32);
     button.frame = frame;
@@ -56,7 +59,7 @@
     button.layer.borderColor=[UIColor blackColor].CGColor;
     button.layer.borderWidth=0.8f;
     button.center = CGPointMake(30, 392);
-    [self.view addSubview:button];
+    [self.view addSubview:button];*/
     
     
     CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
@@ -98,9 +101,9 @@
 }
 
 
-- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+/*- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self adjustLabelsForOrientation:toInterfaceOrientation];
-}
+}*/
 
 - (void) adjustLabelsForOrientation:(UIInterfaceOrientation)orientation {
     if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {

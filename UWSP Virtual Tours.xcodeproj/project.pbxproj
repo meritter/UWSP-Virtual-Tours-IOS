@@ -42,6 +42,7 @@
 		7BDBF4AC166CDFEC00FDA327 /* ShadesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5B88E2163B23B300D02C1F /* ShadesViewController.m */; };
 		7BDBF4AD166CDFEC00FDA327 /* ExampleStaticMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3FF415D8D55800E42A41 /* ExampleStaticMenuViewController.m */; };
 		7BFEA28E16C2573F00455A22 /* SASlideMenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEA28C16C2573F00455A22 /* SASlideMenuNavigationController.m */; };
+		AB39ABA916EE7F9B007B06EC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AB39ABA816EE7F9B007B06EC /* Reachability.m */; };
 		AB3C2CF716E07C8B003A1A58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */; };
 		AB3C2CF916E07C95003A1A58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF816E07C95003A1A58 /* MapKit.framework */; };
 		AB3C2D0216E08E5D003A1A58 /* marker copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFA16E08E57003A1A58 /* marker copy.png */; };
@@ -166,6 +167,8 @@
 		7BFEA28916C1545000455A22 /* SASlideMenuRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuRightMenuViewController.m; sourceTree = "<group>"; };
 		7BFEA28B16C2573F00455A22 /* SASlideMenuNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuNavigationController.h; sourceTree = "<group>"; };
 		7BFEA28C16C2573F00455A22 /* SASlideMenuNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASlideMenuNavigationController.m; sourceTree = "<group>"; };
+		AB39ABA716EE7F9B007B06EC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		AB39ABA816EE7F9B007B06EC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AB3C2CF816E07C95003A1A58 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AB3C2CFA16E08E57003A1A58 /* marker copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker copy.png"; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				7BF0A6B915DE682A00B3B57F /* README.md */,
+				AB39ABA716EE7F9B007B06EC /* Reachability.h */,
+				AB39ABA816EE7F9B007B06EC /* Reachability.m */,
 				7B8C3FE415D8D55800E42A41 /* SASlideMenuSource */,
 				AB9CC1D816E319B200B47683 /* Controllers */,
 				7B8C3FDD15D8D55800E42A41 /* Frameworks */,
@@ -646,6 +651,7 @@
 				AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */,
 				AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */,
 				AB51ED8316EAABB100851F19 /* TutorialSecondViewController.m in Sources */,
+				AB39ABA916EE7F9B007B06EC /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

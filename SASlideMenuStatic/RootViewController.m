@@ -13,6 +13,14 @@
 #import "Singleton.h"
 
 @implementation RootViewController
+{
+     NSArray *searchResults;
+    NSMutableArray  * users;
+    NSMutableArray * myArray2;
+      NSMutableArray  * filtered;
+    
+    
+}
 
 @synthesize tableData;
 
@@ -20,13 +28,17 @@
 
 - (void)viewDidLoad
 {
+   //  myArray2 = [NSArray arrayWithObjects:@"foo",@"bar",@"baz",nil];
     // [self.navigationController setToolbarHidden:YES];
     [super viewDidLoad];
     //[self.navigationController setToolbarHidden:YES  animated:YES];
     users = [[NSMutableArray alloc] init];
     tours = [[NSMutableArray alloc] init];
-   
-    [tours addObject:@"Tour 2"];
+ myArray2 = [[NSMutableArray alloc] init];
+    [tours addObject:@"UWSP Campus Tour"];
+    
+    
+    
      
 }
 
@@ -158,7 +170,9 @@
     if (success)
     {
         users = [parser items];
-    }
+        
+        
+          }
 }
 
 
@@ -186,14 +200,57 @@
 }
  */
 
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate
+                                   predicateWithFormat:@"SELF contains[cd] %@",
+                                    searchText];
+    
+    
+    
+    
+   // searchResults = [users filteredArrayUsingPredicate:resultPredicate];
+    //return filtered;
+    searchResults = [myArray2 filteredArrayUsingPredicate:resultPredicate];
+
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+   
+    return YES;
+}
+
+
+
+
+
+
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+        
+    } else {
+        return 2;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+        
+    } else {
+       
     switch (section) {
         case 0:
             return [users count];
@@ -203,7 +260,10 @@
         default:
             break;
     }
+    }
 }
+
+
 
 
 // Customize the appearance of table view cells.
@@ -220,16 +280,26 @@
     NSDictionary *item = [users objectAtIndex:[indexPath row]];
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
 
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        switch (indexPath.section) {
+            case 0:
+        cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+        }
+    }
+    else
+    {
     switch (indexPath.section) {
         case 0:
             [[cell textLabel] setText:[item objectForKey:@"name"]];
             [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
-
+            [myArray2 addObject:[item objectForKey:@"name"]];
             break;
         case 1:
             cell.textLabel.text  = [tours objectAtIndex:indexPath.row];
         default:
             break;
+    }
     }
     
    /* // Get item from tableData
@@ -243,6 +313,7 @@
     [[cell detailTextLabel] setText:[item objectForKey:@"description"]];*/
     
     return cell;
+    
 }
 
 /*
@@ -284,7 +355,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     if(section == 0)
-        return @"Avaliable Tours";
+        return @"Tours Near You";
     else
         return @"Downloaded Tours";
 }
@@ -295,7 +366,9 @@
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = selectedCell.textLabel.text;
 
-    [Singleton sharedSingleton].SelectedMapPack = cellText;
+    [Singleton sharedSingleton].selectedMapPack = cellText;
+    
+    NSLog([Singleton sharedSingleton].selectedMapPack);
     [self.navigationController  popViewControllerAnimated:YES];
     
 }
@@ -311,14 +384,11 @@
 - (void)viewDidUnload
 {
     [self setTableData:nil];
+    myArray2 = nil;
     [super viewDidUnload];
 
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
-
-
-
-
 
 @end

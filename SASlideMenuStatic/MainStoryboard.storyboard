@@ -49,86 +49,6 @@
                             </subviews>
                             <color key="backgroundColor" red="0.20000000000000001" green="0.058823529411764705" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="3" indentationWidth="0.0" textLabel="tqo-Ns-IxW" detailTextLabel="GJy-Nd-VrZ" style="IBUITableViewCellStyleValue1" id="YfL-9S-jL0">
-                                <rect key="frame" x="0.0" y="128" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tqo-Ns-IxW">
-                                            <rect key="frame" x="10" y="11" width="35" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GJy-Nd-VrZ">
-                                            <rect key="frame" x="246" y="11" width="44" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" red="0.42057002630000001" green="0.03171990534" blue="0.65306122450000004" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="3" indentationWidth="0.0" textLabel="aqN-Pd-y5C" detailTextLabel="ARd-VG-Upj" style="IBUITableViewCellStyleValue1" id="M6n-ae-ZZI">
-                                <rect key="frame" x="0.0" y="172" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aqN-Pd-y5C">
-                                            <rect key="frame" x="10" y="11" width="35" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ARd-VG-Upj">
-                                            <rect key="frame" x="246" y="11" width="44" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" white="0.33165322580000001" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="3" indentationWidth="0.0" textLabel="MlZ-QI-H96" detailTextLabel="9HL-14-Zcq" style="IBUITableViewCellStyleValue1" id="2US-NS-4rZ">
-                                <rect key="frame" x="0.0" y="216" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MlZ-QI-H96">
-                                            <rect key="frame" x="10" y="11" width="35" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9HL-14-Zcq">
-                                            <rect key="frame" x="246" y="11" width="44" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" white="0.33165322580000001" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableViewCell>
-                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="C3g-DQ-fRD" id="kK6-e1-Hxu"/>
@@ -360,8 +280,8 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Smeeklelens" id="ZWg-I4-oI8">
-                        <barButtonItem key="rightBarButtonItem" image="73-radar.png" width="3" style="plain" id="CUy-Al-Hmr">
-                            <inset key="imageInsets" minX="0.0" minY="2" maxX="-1" maxY="3"/>
+                        <barButtonItem key="rightBarButtonItem" image="73-radar.png" width="3" id="CUy-Al-Hmr">
+                            <inset key="imageInsets" minX="-1" minY="2" maxX="-1" maxY="2"/>
                             <connections>
                                 <action selector="revealUnderRight:" destination="CJX-Z9-Ud1" id="NFF-PB-J4t"/>
                             </connections>
@@ -385,14 +305,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.14459103954081631" green="0.14459103954081631" blue="0.14459103954081631" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">A little bit about us in here for fun, happy coding                                                       iPhone AR Toolkit
+                                <string key="text">A little bit about us in here for fun, happy coding                                                       iPhone AR Toolkit
 Copyright (c) 2013 Ed Rackham (edrackham.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</mutableString>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -454,12 +374,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="QTD-3M-dsQ">
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackOpaque" id="QCn-2X-a8Y">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" red="0.30980393290519714" green="0.19215688109397888" blue="0.37254902720451355" alpha="1" colorSpace="deviceRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="Cbb-lJ-bVm" id="Mv4-CF-pKA"/>
+                                <outlet property="delegate" destination="Cbb-lJ-bVm" id="phg-eS-1gY"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -513,17 +434,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="bq5-Yh-WGn"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="6M6-jB-JCw" id="z6W-2W-6AB"/>
+                        <outlet property="searchDisplayController" destination="sUG-VA-DGl" id="6rv-eg-68M"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IUm-zW-ZhI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="6M6-jB-JCw">
                     <connections>
                         <outlet property="delegate" destination="Cbb-lJ-bVm" id="GDT-V5-Sy3"/>
-                        <outlet property="searchBar" destination="QTD-3M-dsQ" id="qDN-we-nTQ"/>
                         <outlet property="searchContentsController" destination="Cbb-lJ-bVm" id="KII-r9-ocn"/>
                         <outlet property="searchResultsDataSource" destination="Cbb-lJ-bVm" id="coe-xM-BGd"/>
                         <outlet property="searchResultsDelegate" destination="Cbb-lJ-bVm" id="cqp-JW-EXQ"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="0yR-dN-bjp">
+                    <connections>
+                        <outlet property="delegate" destination="Cbb-lJ-bVm" id="Ejb-mt-MsJ"/>
+                        <outlet property="searchContentsController" destination="Cbb-lJ-bVm" id="dT1-Oa-zOY"/>
+                        <outlet property="searchResultsDataSource" destination="Cbb-lJ-bVm" id="zjB-kj-ABJ"/>
+                        <outlet property="searchResultsDelegate" destination="Cbb-lJ-bVm" id="aAs-HK-dBW"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="sUG-VA-DGl">
+                    <connections>
+                        <outlet property="delegate" destination="Cbb-lJ-bVm" id="Xx3-8V-ev8"/>
+                        <outlet property="searchBar" destination="QCn-2X-a8Y" id="kVw-Rf-Ztp"/>
+                        <outlet property="searchContentsController" destination="Cbb-lJ-bVm" id="GdD-va-gN0"/>
+                        <outlet property="searchResultsDataSource" destination="Cbb-lJ-bVm" id="xHu-82-IVL"/>
+                        <outlet property="searchResultsDelegate" destination="Cbb-lJ-bVm" id="H7e-0W-PQP"/>
                     </connections>
                 </searchDisplayController>
             </objects>
@@ -542,8 +479,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HGT-fa-1zv">
-                                        <rect key="frame" x="7" y="312" width="306" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="7" y="393" width="306" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Start Using App">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -576,13 +513,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hFG-sG-TZm">
-                                <rect key="frame" x="0.0" y="314" width="320" height="190"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hFG-sG-TZm">
+                                <rect key="frame" x="0.0" y="386" width="320" height="98"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="3" indentationWidth="0.0" textLabel="7kg-E1-Ema" detailTextLabel="840-UA-co5" style="IBUITableViewCellStyleValue1" id="99s-cu-NyJ">
+                                    <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="3" indentationWidth="0.0" textLabel="7kg-E1-Ema" detailTextLabel="840-UA-co5" style="IBUITableViewCellStyleValue1" id="99s-cu-NyJ">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -615,13 +552,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                     <outlet property="delegate" destination="PoT-oq-jgx" id="1Eq-JR-onX"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WisconsinMap.png" id="ZFA-WG-AXP">
-                                <rect key="frame" x="55" y="55" width="210" height="251"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="WisconsinMap.png" id="ZFA-WG-AXP">
+                                <rect key="frame" x="55" y="88" width="210" height="251"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please provide UWSP Virtual Tours with a map pack of your choosing." textAlignment="center" id="uPR-HY-bwt">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please provide UWSP Virtual Tours with a map pack of your choosing." textAlignment="center" id="uPR-HY-bwt">
                                 <rect key="frame" x="10" y="9" width="300" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.93852645985401473" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -652,9 +589,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VUy-Ii-we6">
-                                <rect key="frame" x="0.0" y="267" width="320" height="190"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VUy-Ii-we6">
+                                <rect key="frame" x="0.0" y="335" width="320" height="142"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -728,7 +665,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 <relationship kind="outlet" name="titleView" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="RootViewController" superclassName="UIViewController">
+        <class className="RootViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
             <relationships>
                 <relationship kind="action" name="editBtnClick"/>

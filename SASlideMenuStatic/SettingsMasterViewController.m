@@ -47,6 +47,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    mapPackName = [Singleton sharedSingleton].selectedMapPack;
+    mapMode = [Singleton sharedSingleton].selectedMode;
     [self.tableView reloadData];
     }
 
@@ -69,6 +71,7 @@
                 case 0:
                     if(mapPackName != nil)
                     {
+                        NSLog(mapPackName);
                         [[cell detailTextLabel] setText:mapPackName];
                     }
                     else

@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController :  UIViewController <UITableViewDataSource, UITabBarControllerDelegate>
+@interface RootViewController :  UITableViewController<UITableViewDataSource, UITabBarControllerDelegate>
     
 {
 
     NSArray *tableData;
-    NSMutableArray *users;
     NSMutableArray * tours;
 }
 
