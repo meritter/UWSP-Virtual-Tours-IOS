@@ -24,6 +24,7 @@
 /** Updates with the display 'split view controller' button. */
 @property (nonatomic, retain) IBOutlet UILabel * titleView;
 @property (nonatomic, retain) IBOutlet UILabel * subtitleView;
+@property (nonatomic, retain) IBOutlet UIButton * button;
 @property (nonatomic,strong) SASlideMenuViewController* menuViewController;
 
 -(IBAction)tap:(id)sender;

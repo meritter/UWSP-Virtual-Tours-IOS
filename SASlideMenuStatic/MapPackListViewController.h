@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootViewController :  UITableViewController<UITableViewDataSource, UITabBarControllerDelegate>
+@interface MapPackListViewController :  UITableViewController<UITableViewDataSource, UITabBarControllerDelegate>
     
 {
 
     NSArray *tableData;
-    NSMutableArray * tours;
+
 }
 
 @property (nonatomic, retain) NSArray *tableData;

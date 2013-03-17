@@ -94,7 +94,7 @@
 		AB972CC316E2D85F0098B4AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CC216E2D85E0098B4AB /* SystemConfiguration.framework */; };
 		AB972CC516E2DEAA0098B4AB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AB972CC416E2DEAA0098B4AB /* GoogleMaps.bundle */; };
 		AB9CC1DE16E3CE4000B47683 /* XmlArrayParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9CC1DD16E3CE4000B47683 /* XmlArrayParser.m */; };
-		AB9CC1E116E422FA00B47683 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9CC1E016E422F900B47683 /* RootViewController.m */; };
+		AB9CC1E116E422FA00B47683 /* MapPackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9CC1E016E422F900B47683 /* MapPackListViewController.m */; };
 		AB9CC1E316E51B4500B47683 /* menu copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E216E51B4400B47683 /* menu copy.png */; };
 		AB9CC1E516E52A4D00B47683 /* menu copy2.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E416E52A4C00B47683 /* menu copy2.png */; };
 		AB9CC1E916E52D3300B47683 /* camera copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E816E52D3300B47683 /* camera copy.png */; };
@@ -237,8 +237,8 @@
 		AB972CC416E2DEAA0098B4AB /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		AB9CC1DC16E3CE4000B47683 /* XmlArrayParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlArrayParser.h; sourceTree = "<group>"; };
 		AB9CC1DD16E3CE4000B47683 /* XmlArrayParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlArrayParser.m; sourceTree = "<group>"; };
-		AB9CC1DF16E422F900B47683 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		AB9CC1E016E422F900B47683 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		AB9CC1DF16E422F900B47683 /* MapPackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPackListViewController.h; sourceTree = "<group>"; };
+		AB9CC1E016E422F900B47683 /* MapPackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPackListViewController.m; sourceTree = "<group>"; };
 		AB9CC1E216E51B4400B47683 /* menu copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu copy.png"; sourceTree = "<group>"; };
 		AB9CC1E416E52A4C00B47683 /* menu copy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu copy2.png"; sourceTree = "<group>"; };
 		AB9CC1E816E52D3300B47683 /* camera copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera copy.png"; sourceTree = "<group>"; };
@@ -485,8 +485,10 @@
 			children = (
 				AB51ED6A16E7D73500851F19 /* Singleton.h */,
 				AB51ED6B16E7D73500851F19 /* Singleton.m */,
-				AB9CC1DF16E422F900B47683 /* RootViewController.h */,
-				AB9CC1E016E422F900B47683 /* RootViewController.m */,
+				AB51ED7A16E9B6B800851F19 /* TutorialFirstViewController.h */,
+				AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */,
+				AB51ED8116EAABAD00851F19 /* TutorialSecondViewController.h */,
+				AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */,
 				7B3B2D5215DCE0E1009F4AB8 /* DarkViewController.h */,
 				7B3B2D5315DCE0E1009F4AB8 /* DarkViewController.m */,
 				7B27435816D2820600F89C69 /* LightViewController.h */,
@@ -502,12 +504,10 @@
 				AB9CC1DD16E3CE4000B47683 /* XmlArrayParser.m */,
 				AB51ED6716E7058A00851F19 /* MRViewController.h */,
 				AB51ED6816E7058B00851F19 /* MRViewController.m */,
+				AB9CC1DF16E422F900B47683 /* MapPackListViewController.h */,
+				AB9CC1E016E422F900B47683 /* MapPackListViewController.m */,
 				AB51ED6D16E8226800851F19 /* SettingsMasterViewController.h */,
 				AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */,
-				AB51ED7A16E9B6B800851F19 /* TutorialFirstViewController.h */,
-				AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */,
-				AB51ED8116EAABAD00851F19 /* TutorialSecondViewController.h */,
-				AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */,
 			);
 			name = Controllers;
 			path = SASlideMenuStatic;
@@ -645,7 +645,7 @@
 				AB3C2D2616E12606003A1A58 /* Radar.m in Sources */,
 				AB3C2D2716E12606003A1A58 /* RadarViewPortView.m in Sources */,
 				AB9CC1DE16E3CE4000B47683 /* XmlArrayParser.m in Sources */,
-				AB9CC1E116E422FA00B47683 /* RootViewController.m in Sources */,
+				AB9CC1E116E422FA00B47683 /* MapPackListViewController.m in Sources */,
 				AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */,
 				AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */,
 				AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */,

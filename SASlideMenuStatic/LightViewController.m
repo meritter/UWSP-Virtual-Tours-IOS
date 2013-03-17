@@ -22,18 +22,13 @@
 
 }
 
-@synthesize titleView, subtitleView;
+@synthesize titleView, subtitleView, button;
 
 
 
 
 - (void)loadView {
-    
-    
-  
-    //UIButton *button = [UIButton buttonWithType:];
-    //[button setFrame:CGRectMake(0,0,100,100)];
-    //[self.view addSubview:button];
+
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.537923
                                                             longitude:-89.561448
                                                                  zoom:16];
@@ -44,12 +39,12 @@
     GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
     options.position = CLLocationCoordinate2DMake(44.537923, -89.561448);
     options.title = @"Point 1";
-    options.snippet = @"Australia";
+    options.snippet = @"Test Text";
     [mapView addMarkerWithOptions:options];
     
     
        
-  /*  UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"locate.png"] forState:UIControlStateNormal];
     CGRect frame = CGRectMake(10, 10, 40, 32);
     button.frame = frame;
@@ -59,8 +54,28 @@
     button.layer.borderColor=[UIColor blackColor].CGColor;
     button.layer.borderWidth=0.8f;
     button.center = CGPointMake(30, 392);
-    [self.view addSubview:button];*/
     
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        if ([[UIScreen mainScreen] bounds].size.height == 568) {
+            //5
+            
+            button.center = CGPointMake(30, 480);
+        }else{
+            //not 5
+            button.center = CGPointMake(30, 392);
+        }
+    }else{
+        //iPad
+            button.center = CGPointMake(30, 930);
+    }
+    
+    
+   
+    [self.view addSubview:button];
+    
+    
+
     
     CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
     UIView* _headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
@@ -100,19 +115,33 @@
 
 }
 
-
-/*- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self adjustLabelsForOrientation:toInterfaceOrientation];
-}*/
+}
+
 
 - (void) adjustLabelsForOrientation:(UIInterfaceOrientation)orientation {
     if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-        titleView.font = [UIFont boldSystemFontOfSize:15];
-        subtitleView.font = [UIFont boldSystemFontOfSize:9];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            // set up the iPad-specific view
+         button.center = CGPointMake(30, 680);
+        }
+        else {
+            
+            titleView.font = [UIFont boldSystemFontOfSize:15];
+            subtitleView.font = [UIFont boldSystemFontOfSize:9];
+             }
     }
     else if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        titleView.font = [UIFont boldSystemFontOfSize:17];
-        subtitleView.font = [UIFont boldSystemFontOfSize:12];
+            titleView.font = [UIFont boldSystemFontOfSize:17];
+            subtitleView.font = [UIFont boldSystemFontOfSize:12];
+           button.center = CGPointMake(275.0f, 80.0f);
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+           button.center = CGPointMake(30, 930);
+        }
+        else {
+             }
     }
 }
 
