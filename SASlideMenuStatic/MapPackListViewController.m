@@ -12,12 +12,10 @@
 
 @implementation MapPackListViewController
 {
-     NSArray *searchResults;
+    NSArray *searchResults;
     NSMutableArray  * serverMapPacks;
     NSMutableArray * myArray2;
     NSMutableArray * localMapPacks;
-
-    
 }
 
 @synthesize tableData;
@@ -28,47 +26,38 @@
 {
 
     [super viewDidLoad];
-    // [self.tableView setHidden:YES];
     serverMapPacks = [[NSMutableArray alloc] init];
     localMapPacks = [[NSMutableArray alloc] init];
     myArray2 = [[NSMutableArray alloc] init];
     
-    //TODO make for loop for map packs in downloads folder
-    
-    [self parseJSONIOS5];
-    
+    [self getMapPacksFromServer];
     //TODO also show no cellular for offline access
+    //Hide search bar in iOS 
     
-    //Hide search bar in iOS 5
-    
-    
-    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-   // NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     NSFileManager *manager = [NSFileManager defaultManager];
-    NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:documentsPath];
-    
+    NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:basePath];
     NSString *filename;
     
 
     
-    
+    //loop for map packs in downloads folder loads into array for UI
     while ((filename = [direnum nextObject] ))
     {
-        
-        if ([filename hasSuffix:@".xml"]) {   //change the suffix to what you are looking for
-            //NSLog(@"log");
-            
-            NSUInteger lastCharIndex = [filename length] - 4; // I assume string is not empty
+        //Look for .xml
+        if ([filename hasSuffix:@".xml"])
+        {
+            // I assume string is not empty and remove .xml extension for UI
+            NSUInteger lastCharIndex = [filename length] - 4; 
             NSRange rangeOfLastChar = [filename rangeOfComposedCharacterSequenceAtIndex: lastCharIndex];
             NSString * myNewString = [filename substringToIndex: rangeOfLastChar.location];
             [localMapPacks addObject:myNewString];
-            
         }
-        
     }
-   
-     
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -97,7 +86,7 @@
 }
 
 
-- (void)parseJSONIOS5 {
+- (void)getMapPacksFromServer {
     
     NSLog(@"hit parsing");
     NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
@@ -216,42 +205,43 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     }
     
-    NSDictionary *item = [serverMapPacks objectAtIndex:[indexPath row]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        switch (indexPath.section) {
-            case 0:
+    //iOS 5 having issues here index 2 beyond bounds [0 .. 1]
+    //Added try catch and catching exception.
+    @try {
+      item  = [serverMapPacks objectAtIndex:indexPath.row];
+        
+    }
+    @catch (NSException * e) {
+        NSLog(@"Exception: %@", e);
+    }
+    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        switch (indexPath.section)
+        {
+        case 0:
         cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
+        break;
         }
     }
     else
     {
     switch (indexPath.section) {
         case 0:
-            [[cell textLabel] setText:[item objectForKey:@"name"]];
-            [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
-            [myArray2 addObject:[item objectForKey:@"name"]];
+       
+           [[cell textLabel] setText:[item objectForKey:@"name"]];
+           [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
+           [myArray2 addObject:[item objectForKey:@"name"]];
             break;
         case 1:
             cell.textLabel.text  = [localMapPacks objectAtIndex:indexPath.row];
         default:
             break;
+            }
     }
-    }
-    
-   /* // Get item from tableData
-    NSDictionary *item = [users objectAtIndex:[indexPath row]];
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    // Set text on textLabel
-    [[cell textLabel] setText:[item objectForKey:@"name"]];
-    
-    // [[cell textLabel] setText:[item objectForKey:@"name"]];
-    // Set text on detailTextLabel
-    [[cell detailTextLabel] setText:[item objectForKey:@"description"]];*/
-    
-    return cell;
+        return cell;
     
 }
 
@@ -291,14 +281,16 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (void)saveMapPack:(NSString *)packName
 {
-    
-    //NSString *stringURL = [NSString stringWithFormat: @"http://uwsp-gis-tour-data-test.herokuapp.com/tours/" ,packName, @".xml"];
-      // NSLog(stringURL);
     NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","http://uwsp-gis-tour-data-test.herokuapp.com/tours/", packName, @".xml"];
-   // NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours/First%20Tour.xml";
-    NSLog(stringURL);
-    NSURL  *url = [NSURL URLWithString:stringURL];
+    
+    //Encode our String
+    NSString* escapedUrlString = [stringURL stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    
+    
+    NSURL  *url = [NSURL URLWithString:escapedUrlString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
+    
+    
     if ( urlData )
     {
         NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -308,12 +300,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
         
         NSString * filePath = [NSString stringWithFormat:@"%@/%@%@", documentsDirectory, packName, @".xml"];
         [urlData writeToFile:filePath atomically:YES];
-         NSLog(filePath);
-        
-        //[self parseXMLFileAtURL: @"/Users/Jonathan/Library/Application Support/iPhone Simulator/6.1/Applications//580FD371-2C90-455E-BB1F-//C2BB6AE615AA/Documents/filename.xml"];
     }
     
 }
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

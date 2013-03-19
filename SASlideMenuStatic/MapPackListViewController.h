@@ -13,6 +13,7 @@
 {
 
     NSArray *tableData;
+    NSDictionary *item;
 
 }
 

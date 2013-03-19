@@ -10,7 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "TutorialFirstViewController.h"
 #import "Singleton.h"
-
+#import "XmlArrayParser.h"
 @implementation SASlideMenuAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -45,6 +45,45 @@
         if(currentMapPack != nil)
         {
             [Singleton sharedSingleton].selectedMapPack = currentMapPack;
+            
+           
+            
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            
+            NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:@"Schmeeckle.xml"];
+            
+            if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs])
+            {
+            
+            NSLog(@"hit parsing");
+            //NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
+           // NSURL  *url = [NSURL URLWithString:stringURL];
+            //NSData *data = [NSData dataWithContentsOfURL:url];
+            
+           
+            //NSString *filename = [[NSBundle mainBundle] pathForResource:@"Schmeeckle" ofType:@"xml"];
+
+             NSData *data = [NSData dataWithContentsOfFile:myPathDocs];
+            
+            // create and init NSXMLParser object
+            XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
+            parser.rowElementName = @"tour";
+            parser.elementNames = [NSArray arrayWithObjects:@"description", @"lat", @"long", @"name", @"poi", nil];
+            
+            NSLog(@"fnished parsing");
+            
+            BOOL success = [parser parse];
+            //If fails we need to check this here
+            // test the result
+            if (success)
+            {
+                [Singleton sharedSingleton].locationsArray = [parser items];
+            }
+            }
+        }
+
         }
         
         currentMode = [padFactoids valueForKey:@"CurrentMode"];
@@ -54,7 +93,10 @@
             [Singleton sharedSingleton].selectedMode =  currentMode;
         }
         
-    }
+    
+    
+
+      
     
    
     return YES;
