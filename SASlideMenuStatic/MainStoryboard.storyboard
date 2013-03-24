@@ -370,7 +370,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <scene sceneID="x7o-iV-loV">
             <objects>
                 <tableViewController storyboardIdentifier="mapPacks" id="Cbb-lJ-bVm" customClass="MapPackListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ddZ-8O-U0E">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ddZ-8O-U0E">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -430,9 +430,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Map Packs" id="2sj-N3-USk">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="bq5-Yh-WGn"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Map Packs" id="2sj-N3-USk"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="sUG-VA-DGl" id="6rv-eg-68M"/>
                     </connections>
@@ -652,6 +650,45 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <image name="fall_lakeside_by_musicalartfreak-d4iyt97.jpg" width="1024" height="683"/>
         <image name="narrow_path_by_musicalartfreak-d4iytf7.jpg" width="1024" height="683"/>
     </resources>
+    <classes>
+        <class className="ExampleStaticMenuViewController" superclassName="SASlideMenuViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExampleStaticMenuViewController.h"/>
+        </class>
+        <class className="LightViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LightViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealUnderRight:"/>
+                <relationship kind="action" name="tap:"/>
+                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="subtitleView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleView" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MapPackListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapPackListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="editBtnClick"/>
+            </relationships>
+        </class>
+        <class className="SASlideMenuRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SASlideMenuRootViewController.h"/>
+        </class>
+        <class className="SASlideMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SASlideMenuViewController.h"/>
+        </class>
+        <class className="SettingsMasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsMasterViewController.h"/>
+        </class>
+        <class className="TutorialFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="MyTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TutorialSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialSecondViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

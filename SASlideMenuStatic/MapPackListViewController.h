@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WDUploadProgressView.h"
 
-@interface MapPackListViewController :  UITableViewController<UITableViewDataSource, UITabBarControllerDelegate>
+@interface MapPackListViewController :  UITableViewController<UITableViewDataSource, UITabBarControllerDelegate, WDUploadProgressDelegate>
     
 {
 
@@ -18,7 +19,7 @@
 }
 
 @property (nonatomic, retain) NSArray *tableData;
-
+@property (assign, nonatomic) BOOL ascending;
 
 -(IBAction)editBtnClick;
 - (void)parseJSONIOS5;

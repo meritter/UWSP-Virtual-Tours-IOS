@@ -9,6 +9,7 @@
 #import "XmlArrayParser.h"
 #import "SettingsMasterViewController.h"
 #import "Singleton.h"
+#import "DummyConnection.h"
 
 @implementation MapPackListViewController
 {
@@ -30,31 +31,25 @@
     localMapPacks = [[NSMutableArray alloc] init];
     myArray2 = [[NSMutableArray alloc] init];
     
-    [self getMapPacksFromServer];
-    //TODO also show no cellular for offline access
-    //Hide search bar in iOS 
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-    NSFileManager *manager = [NSFileManager defaultManager];
-    NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:basePath];
-    NSString *filename;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                        init];
+    
+    [refreshControl addTarget:self action:@selector(changeSorting) forControlEvents:UIControlEventValueChanged];
+    //refreshControl.tintColor = [UIColormagentaColor];
+    //[refreshControl addTarget:sigaction:@selector(changeSorting) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
     
 
     
-    //loop for map packs in downloads folder loads into array for UI
-    while ((filename = [direnum nextObject] ))
-    {
-        //Look for .xml
-        if ([filename hasSuffix:@".xml"])
-        {
-            // I assume string is not empty and remove .xml extension for UI
-            NSUInteger lastCharIndex = [filename length] - 4; 
-            NSRange rangeOfLastChar = [filename rangeOfComposedCharacterSequenceAtIndex: lastCharIndex];
-            NSString * myNewString = [filename substringToIndex: rangeOfLastChar.location];
-            [localMapPacks addObject:myNewString];
-        }
-    }
+    [self getMapPacksFromServer];
+    
+    [self getLocalMapPAcks];
+    //TODO also show no cellular for offline access
+    //Hide search bar in iOS
+    //Handle updates for verison numbers
+    //perhaps set the bar after map pack download
+ 
 }
 
 
@@ -67,23 +62,30 @@
 }
 
 
+
+
+- (void)changeSorting
+{
+   /// NSSortDescriptor *sortDescriptor = [[NSSortDescriptor]alloc]
+      //                                  initWithKey:nil ascending:self.ascending];
     
+   // NSArray *sortDescriptors = @[sortDescriptor];
+    [self getMapPacksFromServer];
+    //_objects = [_objects sortedArrayUsingDescriptors:sortDescriptors];
     
-- (void)editBtnClick
+    //_ascending = !_ascending;
+     [self getLocalMapPAcks];
+    [self performSelector:@selector(updateTable) withObject:nil
+               afterDelay:1];}
+
+- (void)updateTable
 {
     
+    [self.tableView reloadData];
+    
+    [self.refreshControl endRefreshing];
 }
 
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    // If row is deleted, remove it from the list.
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-      //  SimpleEditableListAppDelegate *controller = (SimpleEditableListAppDelegate *)[[UIApplication sharedApplication] //delegate];
-        //[controller removeObjectFromListAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
-}
 
 
 - (void)getMapPacksFromServer {
@@ -98,7 +100,7 @@
     // create and init NSXMLParser object
     XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
     parser.rowElementName = @"tour";
-    parser.elementNames = [NSArray arrayWithObjects:@"description", @"lat", @"long", @"name", nil];
+    parser.elementNames = [NSArray arrayWithObjects:@"id", @"description", @"lat", @"long", @"name", nil];
     
      NSLog(@"fnished parsing");
     BOOL success = [parser parse];
@@ -110,6 +112,36 @@
     }
 }
 
+
+- (void)getLocalMapPAcks
+{
+    
+    if(localMapPacks != nil)
+    {
+        [localMapPacks removeAllObjects];
+    }
+NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+NSFileManager *manager = [NSFileManager defaultManager];
+NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:basePath];
+NSString *filename;
+
+
+
+//loop for map packs in downloads folder loads into array for UI
+while ((filename = [direnum nextObject] ))
+{
+    //Look for .xml
+    if ([filename hasSuffix:@".xml"])
+    {
+        // I assume string is not empty and remove .xml extension for UI
+        NSUInteger lastCharIndex = [filename length] - 4;
+        NSRange rangeOfLastChar = [filename rangeOfComposedCharacterSequenceAtIndex: lastCharIndex];
+        NSString * myNewString = [filename substringToIndex: rangeOfLastChar.location];
+        [localMapPacks addObject:myNewString];
+    }
+}
+}
 
 
 - (void)viewDidAppear:(BOOL)animated
@@ -214,7 +246,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
+               
     }
+    
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     
     if (tableView == self.searchDisplayController.searchResultsTableView)
@@ -249,10 +283,47 @@ shouldReloadTableForSearchString:(NSString *)searchString
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    switch (indexPath.section) {
+        case 0:
+                return NO;
+            break;
+        case 1:
+            return YES;
+        default:
+            break;
+    }
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+
 }
 
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+
+       
+        
+        
+        NSString * name =  [localMapPacks objectAtIndex:indexPath.row];
+        
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+        
+        NSString * stringURL = [NSString stringWithFormat:@"%@%@", name, @".xml"];
+        // Delete the file using NSFileManager
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:[documentsDirectoryPath stringByAppendingPathComponent:stringURL] error:nil];
+        
+            }
+        [localMapPacks removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewRowAnimationFade];
+    
+     
+     [self getLocalMapPAcks];
+    
+}
 
 
 
@@ -260,29 +331,81 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    //NSInteger selected = [tableView selectedRow];
     NSString *cellText = selectedCell.textLabel.text;
+    //NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
+   // NSTableCellView *selectedRow = [tableView viewAtColumn:0 row:sel makeIfNecessary:YES];
     
+    //int rowIndex = indexPath.row + 1;
+
+    
+    NSString * index;
+    item  = [serverMapPacks objectAtIndex:indexPath.row];
+    index = [item objectForKey:@"id"];
     
     //For right now if the map pack is in the serverMapPack, we download it
     switch (indexPath.section) {
         case 0:
-            [self saveMapPack:cellText];
-            break;
+            [self showUploadView:cellText];
+            [self saveMapPack:cellText:index];
+        break;
         case 1:
-
+            //
+                [self.navigationController  popViewControllerAnimated:YES];
             break;
     }
     [Singleton sharedSingleton].selectedMapPack = cellText;
-    [self.navigationController  popViewControllerAnimated:YES];
+ 
     
 }
 
 
+- (void)showUploadView: selectedMapPack {
+	WDUploadProgressView *progressView = [[WDUploadProgressView alloc] initWithTableView:self.tableView cancelButton:YES];
+	progressView.delegate = self;
+	
+	// Add Here an image to show
+	//[progressView setPhotoImage:[UIImage imageNamed:@"flower"]];
+	  NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","Downloading ", selectedMapPack, @"..."];
+	// Additionally you can set the message at any time (Default: Uploading...)
+	[progressView setUploadMessage:stringURL];
+	
+	// You can customize the progress tint color
+    //	[progressView setProgressTintColor:[UIColor whiteColor]];
+	
+	// Additionally you can customize the progress track color
+    //	[progressView setProgressTrackColor:[UIColor darkGrayColor]];
+	
+	
+	// Insert your connection library that will deal with the upload
+	// and set the progress view as a delegate
+	DummyConnection *connection = [[DummyConnection alloc] initWithDelegate:progressView];
+	
+	
+}
 
-- (void)saveMapPack:(NSString *)packName
+
+- (void)uploadDidFinish:(WDUploadProgressView *)progressView {
+	[progressView removeFromSuperview];
+	[self.tableView setTableHeaderView:nil];
+       [self.navigationController  popViewControllerAnimated:YES];
+}
+
+- (void)uploadDidCancel:(WDUploadProgressView *)progressView {
+	[progressView removeFromSuperview];
+	[self.tableView setTableHeaderView:nil];
+}
+
+
+
+- (void)saveMapPack:(NSString *)packName :(NSString *)selectedIndexPath
 {
-    NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","http://uwsp-gis-tour-data-test.herokuapp.com/tours/", packName, @".xml"];
+    //NSString * index;
+     //item  = [serverMapPacks objectAtIndex:selectedIndexPath];
+     // index = [item objectForKey:@"id"];
     
+    NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","http://uwsp-gis-tour-data-test.herokuapp.com/tours/", selectedIndexPath, @".xml"];
+
     //Encode our String
     NSString* escapedUrlString = [stringURL stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     
@@ -291,9 +414,9 @@ shouldReloadTableForSearchString:(NSString *)searchString
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     
     
-    if ( urlData )
+    if (urlData)
     {
-        NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSArray   *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString  *documentsDirectory = [paths objectAtIndex:0];
         
        // NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,@"filename.xml"];
