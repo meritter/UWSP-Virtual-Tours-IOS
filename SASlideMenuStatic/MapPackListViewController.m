@@ -11,41 +11,52 @@
 #import "Singleton.h"
 #import "DummyConnection.h"
 
+#import "Reachability.h"
+
 @implementation MapPackListViewController
 {
     NSArray *searchResults;
     NSMutableArray  * serverMapPacks;
-    NSMutableArray * myArray2;
     NSMutableArray * localMapPacks;
 }
 
-@synthesize tableData;
-
-
+@synthesize tableData, reach;
 
 - (void)viewDidLoad
 {
-
     [super viewDidLoad];
     serverMapPacks = [[NSMutableArray alloc] init];
     localMapPacks = [[NSMutableArray alloc] init];
-    myArray2 = [[NSMutableArray alloc] init];
     
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
-                                        init];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
     
     [refreshControl addTarget:self action:@selector(changeSorting) forControlEvents:UIControlEventValueChanged];
-    //refreshControl.tintColor = [UIColormagentaColor];
-    //[refreshControl addTarget:sigaction:@selector(changeSorting) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refreshControl;
+     self.refreshControl = refreshControl;
     
-
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    
+    reach = [Reachability reachabilityWithHostname:@"www.google.com"];
+    reach.reachableBlock = ^(Reachability * reachability)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+                   });
+    };
+    
+    reach.unreachableBlock = ^(Reachability * reachability)
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+       
+        });
+    };
+    
+    [reach startNotifier];
     [self getMapPacksFromServer];
-    
     [self getLocalMapPAcks];
-    //TODO also show no cellular for offline access
     //Hide search bar in iOS
     //Handle updates for verison numbers Check for them
     //perhaps set the bar after map pack download but that can picky points later...
@@ -53,6 +64,21 @@
  
 }
 
+
+
+
+-(void)reachabilityChanged:(NSNotification*)note
+{
+        
+    if([reach isReachable])
+    {//
+      //  notificationLabel.text = @"Notification Says Reachable";
+    }
+    else
+    {
+       // notificationLabel.text = @"Notification Says Unreachable";
+    }
+}
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -64,26 +90,17 @@
 
 
 
-
 - (void)changeSorting
 {
-   /// NSSortDescriptor *sortDescriptor = [[NSSortDescriptor]alloc]
-      //                                  initWithKey:nil ascending:self.ascending];
-    
-   // NSArray *sortDescriptors = @[sortDescriptor];
     [self getMapPacksFromServer];
-    //_objects = [_objects sortedArrayUsingDescriptors:sortDescriptors];
-    
-    //_ascending = !_ascending;
-     [self getLocalMapPAcks];
+    [self getLocalMapPAcks];
     [self performSelector:@selector(updateTable) withObject:nil
-               afterDelay:1];}
+               afterDelay:1];
+}
 
 - (void)updateTable
 {
-    
     [self.tableView reloadData];
-    
     [self.refreshControl endRefreshing];
 }
 
@@ -95,8 +112,6 @@
     NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
     NSURL  *url = [NSURL URLWithString:stringURL];
     NSData *data = [NSData dataWithContentsOfURL:url];
-  //  NSString *filename = [[NSBundle mainBundle] pathForResource:@"filename" ofType:@"xml"];
-   // NSData *data = [NSData dataWithContentsOfFile:filename];
     
     // create and init NSXMLParser object
     XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
@@ -121,27 +136,26 @@
     {
         [localMapPacks removeAllObjects];
     }
-NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-NSFileManager *manager = [NSFileManager defaultManager];
-NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:basePath];
-NSString *filename;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:basePath];
+    NSString *filename;
 
 
-
-//loop for map packs in downloads folder loads into array for UI
-while ((filename = [direnum nextObject] ))
-{
-    //Look for .xml
-    if ([filename hasSuffix:@".xml"])
+    //loop for map packs in downloads folder loads into array for UI
+    while ((filename = [direnum nextObject] ))
     {
-        // I assume string is not empty and remove .xml extension for UI
-        NSUInteger lastCharIndex = [filename length] - 4;
-        NSRange rangeOfLastChar = [filename rangeOfComposedCharacterSequenceAtIndex: lastCharIndex];
-        NSString * myNewString = [filename substringToIndex: rangeOfLastChar.location];
-        [localMapPacks addObject:myNewString];
+        //Look for .xml
+        if ([filename hasSuffix:@".xml"])
+        {
+            // I assume string is not empty and remove .xml extension for UI
+            NSUInteger lastCharIndex = [filename length] - 4;
+            NSRange rangeOfLastChar = [filename rangeOfComposedCharacterSequenceAtIndex: lastCharIndex];
+            NSString * myNewString = [filename substringToIndex: rangeOfLastChar.location];
+            [localMapPacks addObject:myNewString];
+        }
     }
-}
 }
 
 
@@ -167,7 +181,7 @@ while ((filename = [direnum nextObject] ))
                                    predicateWithFormat:@"SELF contains[cd] %@",
                                     searchText];
 
-    searchResults = [myArray2 filteredArrayUsingPredicate:resultPredicate];
+    searchResults = [localMapPacks filteredArrayUsingPredicate:resultPredicate];
 }
 
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller
@@ -205,22 +219,23 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
         return [searchResults count];
-        
-    } else {
-       
-    switch (section) {
+    }
+    else
+    {
+        switch (section)
+        {
         case 0:
             return [serverMapPacks count];
-            break;
+                break;
             case 1:
             return [localMapPacks count];
+                break;
         default:
             break;
-    }
+        }
     }
 }
 
@@ -242,8 +257,11 @@ shouldReloadTableForSearchString:(NSString *)searchString
     //iOS 5 having issues here index 2 beyond bounds [0 .. 1]
     //Added try catch and catching exception.
     @try {
-      item  = [serverMapPacks objectAtIndex:indexPath.row];
-        
+            if([reach isReachable])
+             {
+            item  = [serverMapPacks objectAtIndex:indexPath.row];
+             }
+     
     }
     @catch (NSException * e) {
         NSLog(@"Exception: %@", e);
@@ -263,15 +281,16 @@ shouldReloadTableForSearchString:(NSString *)searchString
     }
     else
     {
-    switch (indexPath.section) {
+    switch (indexPath.section)
+    {
         case 0:
-       
            [[cell textLabel] setText:[item objectForKey:@"name"]];
            [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
-           [myArray2 addObject:[item objectForKey:@"name"]];
             break;
         case 1:
             cell.textLabel.text  = [localMapPacks objectAtIndex:indexPath.row];
+            break;
+        
         default:
             break;
             }
@@ -280,35 +299,30 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
 }
 
-
-// Override to support conditional editing of the table view.
+// Return NO if you do not want the specified item to be editable.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section) {
+    switch (indexPath.section)
+    {
         case 0:
-                return NO;
+            return NO;
             break;
         case 1:
             return YES;
+            break;
         default:
+            return NO;
             break;
     }
-    // Return NO if you do not want the specified item to be editable.
-
+       return NO;
 }
 
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-
-       
-        
-        
+    {            
         NSString * name =  [localMapPacks objectAtIndex:indexPath.row];
-        
-        
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectoryPath = [paths objectAtIndex:0];
         
@@ -332,17 +346,14 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    //NSInteger selected = [tableView selectedRow];
     NSString *cellText = selectedCell.textLabel.text;
-    //NSIndexPath *selectedIndexPath = [tableView indexPathForSelectedRow];
-   // NSTableCellView *selectedRow = [tableView viewAtColumn:0 row:sel makeIfNecessary:YES];
-    
-    //int rowIndex = indexPath.row + 1;
-
-    
     NSString * index;
+    
+    if([reach isReachable])
+    {
     item  = [serverMapPacks objectAtIndex:indexPath.row];
     index = [item objectForKey:@"id"];
+    }
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
          [Singleton sharedSingleton].selectedMapPack = cellText;
@@ -382,7 +393,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 		
 	// Insert your connection library that will deal with the upload
 	// and set the progress view as a delegate
-	DummyConnection *connection = [[DummyConnection alloc] initWithDelegate:progressView];
+	DummyConnection * connection = [[DummyConnection alloc] initWithDelegate:progressView];
 	
 	
 }
@@ -403,15 +414,10 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (void)saveMapPack:(NSString *)packName :(NSString *)selectedIndexPath
 {
-    //NSString * index;
-     //item  = [serverMapPacks objectAtIndex:selectedIndexPath];
-     // index = [item objectForKey:@"id"];
-    
     NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","http://uwsp-gis-tour-data-test.herokuapp.com/tours/", selectedIndexPath, @".xml"];
-
+    
     //Encode our String
     NSString* escapedUrlString = [stringURL stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-    
     
     NSURL  *url = [NSURL URLWithString:escapedUrlString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
@@ -419,11 +425,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     if (urlData)
     {
-        NSArray   *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString  *documentsDirectory = [paths objectAtIndex:0];
-        
-       // NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,@"filename.xml"];
-        
+        NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString * documentsDirectory = [paths objectAtIndex:0];
         NSString * filePath = [NSString stringWithFormat:@"%@/%@%@", documentsDirectory, packName, @".xml"];
         [urlData writeToFile:filePath atomically:YES];
     }
@@ -444,10 +447,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void)viewDidUnload
 {
     [self setTableData:nil];
-    //We dont want the array to keep duplicates of the items in it
-    myArray2 = nil;
     [super viewDidUnload];
-
 }
 
 @end

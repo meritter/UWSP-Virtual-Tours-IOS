@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "WDUploadProgressView.h"
 
+#import "Reachability.h"
+
+
 @interface MapPackListViewController :  UITableViewController<UITableViewDataSource, UITabBarControllerDelegate, WDUploadProgressDelegate>
     
 {
@@ -16,8 +19,8 @@
     NSArray *tableData;
     NSDictionary *item;
 
-}
-
+}  
+@property (nonatomic, retain) Reachability * reach;
 @property (nonatomic, retain) NSArray *tableData;
 @property (assign, nonatomic) BOOL ascending;
 
