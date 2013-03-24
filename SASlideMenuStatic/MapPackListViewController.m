@@ -47,8 +47,9 @@
     [self getLocalMapPAcks];
     //TODO also show no cellular for offline access
     //Hide search bar in iOS
-    //Handle updates for verison numbers
-    //perhaps set the bar after map pack download
+    //Handle updates for verison numbers Check for them
+    //perhaps set the bar after map pack download but that can picky points later...
+    
  
 }
 
@@ -343,19 +344,28 @@ shouldReloadTableForSearchString:(NSString *)searchString
     item  = [serverMapPacks objectAtIndex:indexPath.row];
     index = [item objectForKey:@"id"];
     
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+         [Singleton sharedSingleton].selectedMapPack = cellText;
+        [self.navigationController  popViewControllerAnimated:YES];
+    } else {
+    
     //For right now if the map pack is in the serverMapPack, we download it
     switch (indexPath.section) {
         case 0:
             [self showUploadView:cellText];
             [self saveMapPack:cellText:index];
+             [Singleton sharedSingleton].selectedMapPack = cellText;
         break;
         case 1:
-            //
+             [Singleton sharedSingleton].selectedMapPack = cellText;
                 [self.navigationController  popViewControllerAnimated:YES];
             break;
+            
+           
     }
-    [Singleton sharedSingleton].selectedMapPack = cellText;
- 
+    
+    
+    }
     
 }
 
@@ -369,14 +379,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 	  NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","Downloading ", selectedMapPack, @"..."];
 	// Additionally you can set the message at any time (Default: Uploading...)
 	[progressView setUploadMessage:stringURL];
-	
-	// You can customize the progress tint color
-    //	[progressView setProgressTintColor:[UIColor whiteColor]];
-	
-	// Additionally you can customize the progress track color
-    //	[progressView setProgressTrackColor:[UIColor darkGrayColor]];
-	
-	
+		
 	// Insert your connection library that will deal with the upload
 	// and set the progress view as a delegate
 	DummyConnection *connection = [[DummyConnection alloc] initWithDelegate:progressView];
@@ -388,7 +391,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void)uploadDidFinish:(WDUploadProgressView *)progressView {
 	[progressView removeFromSuperview];
 	[self.tableView setTableHeaderView:nil];
-       [self.navigationController  popViewControllerAnimated:YES];
+    [self.navigationController  popViewControllerAnimated:YES];
 }
 
 - (void)uploadDidCancel:(WDUploadProgressView *)progressView {

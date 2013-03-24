@@ -63,7 +63,7 @@
             button.center = CGPointMake(30, 480);
         }else{
             //not 5
-            button.center = CGPointMake(30, 392);
+            //button.center = CGPointMake(30, 392);
         }
     }else{
         //iPad
@@ -136,7 +136,7 @@
     else if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
             titleView.font = [UIFont boldSystemFontOfSize:17];
             subtitleView.font = [UIFont boldSystemFontOfSize:12];
-           button.center = CGPointMake(275.0f, 80.0f);
+           //button.center = CGPointMake(275.0f, 80.0f);
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
            button.center = CGPointMake(30, 930);
         }
