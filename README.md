@@ -8,7 +8,8 @@ comming soon....
 
 # Requirements
 
-It needs iOS 5.1
+ iOS 5.1
+ 
 # License
 
 **UWSP-Virtual Tours** is available under the MIT license:

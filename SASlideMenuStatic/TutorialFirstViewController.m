@@ -1,9 +1,8 @@
 //
-//  TutorialViewController.m
-//  UWSP Virtual Tours
+//  TutorialFirstViewController.m
 //
-//  Created by Jonathan Christian on 3/8/13.
-//  Copyright (c) 2013 Stefano Antonelli. All rights reserved.
+//  Created by Jonathan Christian on 2/18/13.
+//  Copyright (c) 2013 UWSP GIS All rights reserved.
 //
 
 #import "TutorialFirstViewController.h"
@@ -75,11 +74,8 @@
         default:
             break;
     }
+    return 0;
 }
-
-//have not played much with this yet
-
-
 
 
 
@@ -99,8 +95,6 @@
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.5];
     switch (indexPath.section) {
         case 0:
-            // [[cell textLabel] setText:[item objectForKey:@"name"]];
-            // [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
             cell.textLabel.text  = [users objectAtIndex:indexPath.row];
             break;
         default:
@@ -112,18 +106,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * identifier;
-    
-    switch (indexPath.section) {
+       switch (indexPath.section)
+    {
+               
         case 0:
             NSLog(@"Hit at 0");
             //identifier =  @"FirstTop";
             
             UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"mapPacks"];
             [self.navigationController pushViewController:controller animated:YES];
-            // [[cell textLabel] setText:[item objectForKey:@"name"]];
-            // [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
-            //cell.textLabel.text  = [users objectAtIndex:indexPath.row];
+
             break;
         }
     

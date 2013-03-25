@@ -1,9 +1,8 @@
 //
-//  TutorialSecondViewController.m
-//  UWSP Virtual Tours
+//  TutorialSecondViewController.h
 //
-//  Created by Jonathan Christian on 3/8/13.
-//  Copyright (c) 2013 Stefano Antonelli. All rights reserved.
+//  Created by Jonathan Christian on 2/18/13.
+//  Copyright (c) 2013 UWSP GIS All rights reserved.
 //
 
 #import "TutorialSecondViewController.h"

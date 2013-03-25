@@ -1,14 +1,12 @@
 //
-//  RootViewController.h
-//  xo-json
+//  MapPackListViewController.h
 //
-//  Created by haltink on 5/27/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Jonathan Christian on 2/18/13.
+//  Copyright (c) 2013 UWSP GIS All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "WDUploadProgressView.h"
-
 #import "Reachability.h"
 
 
@@ -23,10 +21,5 @@
 @property (nonatomic, retain) Reachability * reach;
 @property (nonatomic, retain) NSArray *tableData;
 @property (assign, nonatomic) BOOL ascending;
-
--(IBAction)editBtnClick;
-- (void)parseJSONIOS5;
-- (void)parseJSON;
-
 
 @end

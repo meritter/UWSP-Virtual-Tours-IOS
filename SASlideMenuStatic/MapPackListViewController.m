@@ -1,8 +1,8 @@
 //
-//  MapPackListViewController..m
-//  Created by haltink on 5/27/11.
-//  Modified by Jonathan Christian 2/12/13
-//  Copyright 2013. All rights reserved.
+//  MapPackListViewController.m
+//
+//  Created by Jonathan Christian on 2/18/13.
+//  Copyright (c) 2013 UWSP GIS All rights reserved.
 //
 
 #import "MapPackListViewController.h"
@@ -10,7 +10,6 @@
 #import "SettingsMasterViewController.h"
 #import "Singleton.h"
 #import "DummyConnection.h"
-
 #import "Reachability.h"
 
 @implementation MapPackListViewController
@@ -107,8 +106,6 @@
 
 
 - (void)getMapPacksFromServer {
-    
-    NSLog(@"hit parsing");
     NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
     NSURL  *url = [NSURL URLWithString:stringURL];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -237,6 +234,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
             break;
         }
     }
+    
+    return 0;
 }
 
 
@@ -331,7 +330,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
         NSFileManager *fileManager = [NSFileManager defaultManager];
         [fileManager removeItemAtPath:[documentsDirectoryPath stringByAppendingPathComponent:stringURL] error:nil];
         
-            }
+    }
         [localMapPacks removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewRowAnimationFade];
     
@@ -385,14 +384,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
 	WDUploadProgressView *progressView = [[WDUploadProgressView alloc] initWithTableView:self.tableView cancelButton:YES];
 	progressView.delegate = self;
 	
-	// Add Here an image to show
-	//[progressView setPhotoImage:[UIImage imageNamed:@"flower"]];
-	  NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","Downloading ", selectedMapPack, @"..."];
-	// Additionally you can set the message at any time (Default: Uploading...)
-	[progressView setUploadMessage:stringURL];
+    NSString * progressString = [NSString stringWithFormat:@"%s%@%@","Downloading ", selectedMapPack, @"..."];
+	[progressView setUploadMessage:progressString];
 		
 	// Insert your connection library that will deal with the upload
 	// and set the progress view as a delegate
+    //The Dummy connection works fine for now it is located in Supporting Files/WDUploadFiles/DummyConnection
 	DummyConnection * connection = [[DummyConnection alloc] initWithDelegate:progressView];
 	
 	
@@ -440,7 +437,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
     // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 

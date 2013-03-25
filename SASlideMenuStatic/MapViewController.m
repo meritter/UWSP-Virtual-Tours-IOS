@@ -1,37 +1,35 @@
 //
-//  LightViewController.m
-//  SASlideMenu
+//  MapViewController.m
 //
-//  Created by Stefano Antonelli on 2/18/13.
-//  Copyright (c) 2013 Stefano Antonelli. All rights reserved.
+//  Created by Jonathan Christian on 2/18/13.
+//  Copyright (c) UWSP GIS All rights reserved.
 //
 
-#import "LightViewController.h"
+#import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "Singleton.h"
-@interface LightViewController ()
+
+@interface MapViewController ()
 
 @end
 
-@implementation LightViewController
+@implementation MapViewController
 {
     ARViewController    * _arViewController;
-    LightViewController * lvc;
+    MapViewController * mvc;
     NSArray             *_mapPoints;
     GMSMapView *mapView;
 
 }
 
-@synthesize titleView, subtitleView, button;
-
-
+@synthesize titleView, subtitleView, button, myLocation;
 
 
 - (void)loadView {
-
+    
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.537923
                                                             longitude:-89.561448
-                                                                 zoom:16];
+                                                                 zoom:8];
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView.myLocationEnabled = YES;
     self.view = mapView;
@@ -40,6 +38,9 @@
     options.position = CLLocationCoordinate2DMake(44.537923, -89.561448);
     options.title = @"Point 1";
     options.snippet = @"Test Text";
+    
+    //We can chnage icon colors here
+    options.icon =  [UIImage imageNamed:@"locate.png"];
     [mapView addMarkerWithOptions:options];
     
     
@@ -54,6 +55,7 @@
     button.layer.borderColor=[UIColor blackColor].CGColor;
     button.layer.borderWidth=0.8f;
     button.center = CGPointMake(30, 392);
+    [button addTarget:self action:@selector(tapped:) forControlEvents:UIControlEventTouchUpInside];
     
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
@@ -146,12 +148,15 @@
 }
 
 
+
+#pragma mark - MKMapKitDelegate
+
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    NSLog(@"didUpdateUserLocation = '%@'", userLocation);
-    
+   // NSLog(@"didUpdateUserLocation = '%@'", userLocation);
+    NSLog(@"Did update user location: %f,%f", userLocation.coordinate.latitude, userLocation.coordinate.longitude);
     
     [[[UIAlertView alloc] initWithTitle:nil
-                                message:@"Error parsing document!"
+                                message:@"hit"
                                delegate:nil
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
@@ -191,21 +196,64 @@
     
 }
 
+-(IBAction)tapped:(id)sender
+{
+    NSLog(@"hit");
 
+    //mapView.
+    
+   // mapView.showsUserLocation = !mapView.showsUserLocation;
+}
+
+
+
+-(void)mapViewWillStartLoadingMap:(MKMapView *)mapView
+{
+    NSLog(@"Will start loading map");
+}
+
+-(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
+{
+    NSLog(@"Did finish loading map");
+}
+
+-(void)mapViewWillStartLocatingUser:(MKMapView *)mapView
+{
+    NSLog(@"Will start locating user");
+}
+
+-(void)mapViewDidStopLocatingUser:(MKMapView *)mapView
+{
+    NSLog(@"Did stop locating user");
+}
+
+-(void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
+{
+    NSLog(@"Did fail loading map");
+}
+
+-(void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error
+{
+    if (error.code == kCLErrorDenied){
+        NSLog(@"User refused location services");
+    } else {
+        NSLog(@"Did fail to locate user with error: %@", error.description);
+    }
+}
 
 
 - (IBAction)revealUnderRight:(id)sender
 {
     //We want to push camera here
- //if([ARKit deviceSupportsAR]){
+ if([ARKit deviceSupportsAR]){
  _arViewController = [[ARViewController alloc] initWithDelegate:self];
  _arViewController.showsCloseButton = false;
 // [_arViewController setHidesBottomBarWhenPushed:YES];
 [_arViewController setRadarRange:1.0];
  [_arViewController setOnlyShowItemsWithinRadarRange:YES];
  [self.navigationController pushViewController:_arViewController animated:YES];
- //}
  }
+}
 
 
 - (void)viewDidAppear:(BOOL)animated{

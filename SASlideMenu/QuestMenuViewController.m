@@ -1,19 +1,16 @@
 //
-//  ExampleMenuViewController.m
-//  SASlideMenu
+//  QuestMenuViewController.m
 //
-//  This is an example implementation for the SASlideMenuViewController. 
+//  Created by Jonathan Christian on 2/18/13.
+//  Copyright (c) 2013 UWSP GIS All rights reserved.
 //
-//  Created by Stefano Antonelli on 8/13/12.
-//  Copyright (c) 2012 Stefano Antonelli. All rights reserved.
-//
-#import <QuartzCore/QuartzCore.h>
-#import "ExampleStaticMenuViewController.h"
 
-#import "DarkViewController.h"
-#import "LightViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "QuestMenuViewController.h"
+#import "MapViewController.h"
 #import "Singleton.h"
-@interface ExampleStaticMenuViewController ()
+
+@interface QuestMenuViewController ()
 @property (nonatomic, strong) NSMutableArray  * settings;
 @end
 
@@ -24,7 +21,7 @@
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-@implementation ExampleStaticMenuViewController
+@implementation QuestMenuViewController
 
 
 @synthesize settings;
@@ -144,6 +141,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         default:
             break;
     }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -215,6 +213,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             break;
     }
     }
+    
+    return 0;
 }
 
 -(Boolean) allowContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath{
@@ -245,33 +245,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 -(void) prepareForSwitchToContentViewController:(UINavigationController *)content{
     UIViewController* controller = [content.viewControllers objectAtIndex:0];
-    if ([controller isKindOfClass:[LightViewController class]]) {
-        LightViewController* lightViewController = (LightViewController*)controller;
-        lightViewController.menuViewController = self;
+    if ([controller isKindOfClass:[MapViewController class]]) {
+        MapViewController* mapViewController = (MapViewController*)controller;
+        mapViewController.menuViewController = self;
     }
 }
-#pragma mark -
-#pragma mark SASlideMenuDelegate
-/*
--(void) slideMenuWillSlideIn{
-    NSLog(@"slideMenuWillSlideIn");
-}
--(void) slideMenuDidSlideIn{
-    NSLog(@"slideMenuDidSlideIn");
-}
--(void) slideMenuWillSlideToSide{
-    NSLog(@"slideMenuWillSlideToSide");    
-}
--(void) slideMenuDidSlideToSide{
-    NSLog(@"slideMenuDidSlideToSide");
-    
-}
--(void) slideMenuWillSlideOut{
-    NSLog(@"slideMenuWillSlideOut");
-    
-}
--(void) slideMenuDidSlideOut{
-    NSLog(@"slideMenuDidSlideOut");
-}*/
 
 @end

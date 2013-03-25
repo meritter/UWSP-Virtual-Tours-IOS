@@ -1,9 +1,8 @@
 //
 //  SettingsMasterViewController.m
-//  UWSP Virtual Tours
 //
-//  Created by Jonathan Christian on 3/6/13.
-//  Copyright (c) 2013 Stefano Antonelli. All rights reserved.
+//  Created by Jonathan Christian on 2/18/13.
+//  Copyright (c) 2013 UWSP GIS All rights reserved.
 //
 
 #import "SettingsMasterViewController.h"
@@ -71,7 +70,6 @@
                 case 0:
                     if(mapPackName != nil)
                     {
-                        NSLog(mapPackName);
                         [[cell detailTextLabel] setText:mapPackName];
                     }
                     else
