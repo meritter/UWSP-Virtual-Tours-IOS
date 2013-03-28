@@ -41,23 +41,114 @@
         // do stuff here as you wish
         
         currentMapPack = [padFactoids valueForKey:@"CurrentMapPack"];
+        currentMode = [padFactoids valueForKey:@"CurrentMode"];
+
         
         if(currentMapPack != nil)
         {
             [Singleton sharedSingleton].selectedMapPack = currentMapPack;
+            [Singleton sharedSingleton].selectedMode = currentMode;
+            //NSString *filename1 = @"First Tour";
             
-           
             
             
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            /*NSString *filename = [[NSBundle mainBundle] pathForResource:@"First Tour" ofType:@"xml"];
+            NSData *data = [NSData dataWithContentsOfFile:filename];
+            
+            // create and init NSXMLParser object
+            XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
+            
+          
+            
+            // create and init our delegate
+            ///UsersParser *usersParser = [[UsersParser alloc] init];
+            
+            // set delegate
+            //  [parser setDelegate:usersParser];
+            
+            // parsing...
+            // create and init NSXMLParser object
+            
+            
+            /*<?xml version="1.0" encoding="UTF-8"?>
+             <tour>
+             <id type="integer">1</id>
+             <created-at type="datetime">2013-02-07T19:23:09Z</created-at>
+             <description>This is a basic tour to help understand the system. Boom!</description>
+             <lat type="decimal">44.53583</lat>
+             <long type="decimal">-89.5611</long>
+             <location>Stevens Point, WI</location>
+             <name>First Tour</name>
+             <updated-at type="datetime">2013-02-16T15:55:58Z</updated-at>
+             <version>1361030158</version>
+             <pois type="array">
+             <poi>
+             <description nil="true"/>
+             <id type="integer">1</id>
+             <lat type="decimal">44.525854</lat>
+             <long type="decimal">-89.569151</long>
+             <title>DUC</title>
+             <category-id nil="true"/>
+             </poi>
+             </pois>
+             <categories type="array"/>
+             </tour>>*/
+            
+            
+            NSString *filename = [[NSBundle mainBundle] pathForResource:@"Test" ofType:@"xml"];
+            NSData *data = [NSData dataWithContentsOfFile:filename];
+            
+            // create and init NSXMLParser object
+            XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
+            parser.rowElementName = @"tour";
+            parser.elementNames = [NSArray arrayWithObjects:@"created-at", @"description", @"id", @"lat", @"long", @"name", nil];
+            
+            
+            BOOL success = [parser parse];
+            
+            // test the result
+            if (success)
+            {
+              [Singleton sharedSingleton].locationsArray = [parser items];
+            }
+        }
+    }
+
+    
+          /*   parser.rowElementName = @"tour";
+             parser.elementNames = [NSArray arrayWithObjects:@"description", @"lat", @"long", @"name", @"poi", nil];
+             
+             NSLog(@"fnished parsing");
+             
+             BOOL success = [parser parse];
+             //If fails we need to check this here
+             // test the result
+             if (success)
+             {
+             [Singleton sharedSingleton].locationsArray = [parser items];
+             }
+        }
+
+        }*/
+    return YES;
+}
+
+
+            
+            
+          /*  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *documentsDirectory = [paths objectAtIndex:0];
             
-            NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:@"Schmeeckle.xml"];
+            
+            NSString * stringURL = [NSString stringWithFormat:@"%@%@", currentMapPack, @".xml"];
+            
+            
+            NSString *myPathDocs =  [documentsDirectory stringByAppendingPathComponent:stringURL];
             
             if (![[NSFileManager defaultManager] fileExistsAtPath:myPathDocs])
             {
             
-            NSLog(@"hit parsing");
+            NSLog(@"hit parsing");*/
             //NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
            // NSURL  *url = [NSURL URLWithString:stringURL];
             //NSData *data = [NSData dataWithContentsOfURL:url];
@@ -65,10 +156,10 @@
            
             //NSString *filename = [[NSBundle mainBundle] pathForResource:@"Schmeeckle" ofType:@"xml"];
 
-             NSData *data = [NSData dataWithContentsOfFile:myPathDocs];
+            // NSData *data = [NSData dataWithContentsOfFile:myPathDocs];
             
             // create and init NSXMLParser object
-            XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
+        /*
             parser.rowElementName = @"tour";
             parser.elementNames = [NSArray arrayWithObjects:@"description", @"lat", @"long", @"name", @"poi", nil];
             
@@ -100,7 +191,7 @@
     
    
     return YES;
-}
+}*/
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

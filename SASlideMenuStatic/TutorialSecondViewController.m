@@ -11,12 +11,6 @@
 @interface TutorialSecondViewController ()
 
 
-//RGB color macro
-#define UIColorFromRGB(rgbValue) [UIColor \
-colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
 @property (nonatomic, strong) NSMutableArray  * settings;
 @property(retain) NSIndexPath* lastIndexPath;
 @end
@@ -40,26 +34,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
 }
 
-- (void) viewDidAppear:(BOOL)animated
-{
-}
-   /* if([Singleton sharedSingleton].SelectedMapPack != nil)
-    {
-        mapPackLabel.text = [Singleton sharedSingleton].SelectedMapPack;
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    }
-    else
-    {
-        mapPackLabel.text = @"No Map Pack Selected";
-    }
-}
-
-
-- (void)viewDidUnload
-{
-    mapPackLabel = nil;
-}*/
-
 
 
 
@@ -72,7 +46,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [users count];
+    return 2;
 }
 
 

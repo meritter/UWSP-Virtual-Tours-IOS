@@ -8,19 +8,12 @@
 #import <UIKit/UIKit.h>
 
 @interface TutorialFirstViewController : UIViewController <UITableViewDelegate, UITabBarControllerDelegate>
-{
-    
-    NSMutableArray *users;
-    NSMutableArray * tours;
+{    
+    //Create table because we are using a UIView but inheriting from UITableViewDelegate
     IBOutlet UITableView  *MyTableView;
-    
-    
 }
 
-//@property IBOutlet UITableView * tableView;
-
-
-
+//Holds the mapPack Name
 @property NSString * mapPackName;
 
 @end

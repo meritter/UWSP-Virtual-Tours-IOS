@@ -11,13 +11,17 @@
 #import "Singleton.h"
 #import "DummyConnection.h"
 #import "Reachability.h"
+#import "PullToRefreshView.h"
 
 @implementation MapPackListViewController
 {
     NSArray *searchResults;
     NSMutableArray  * serverMapPacks;
     NSMutableArray * localMapPacks;
+     PullToRefreshView *pull;
 }
+
+
 
 @synthesize tableData, reach;
 
@@ -28,10 +32,13 @@
     localMapPacks = [[NSMutableArray alloc] init];
     
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
+    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
+    [pull setDelegate:self];
+    [self.tableView addSubview:pull];
+    //UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
     
-    [refreshControl addTarget:self action:@selector(changeSorting) forControlEvents:UIControlEventValueChanged];
-     self.refreshControl = refreshControl;
+    //[refreshControl addTarget:self action:@selector(changeSorting) forControlEvents:UIControlEventValueChanged];
+     //self.refreshControl = refreshControl;
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -64,6 +71,19 @@
 }
 
 
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
+{
+    [self reloadTableData];
+}
+
+
+-(void) reloadTableData
+{
+    [self getMapPacksFromServer];
+    [self getLocalMapPAcks];
+    [self.tableView reloadData];
+    [pull finishedLoading];
+}
 
 
 -(void)reachabilityChanged:(NSNotification*)note
@@ -85,22 +105,6 @@
     [self.navigationController setToolbarHidden:YES];
     [super viewWillAppear:animated];
    
-}
-
-
-
-- (void)changeSorting
-{
-    [self getMapPacksFromServer];
-    [self getLocalMapPAcks];
-    [self performSelector:@selector(updateTable) withObject:nil
-               afterDelay:1];
-}
-
-- (void)updateTable
-{
-    [self.tableView reloadData];
-    [self.refreshControl endRefreshing];
 }
 
 

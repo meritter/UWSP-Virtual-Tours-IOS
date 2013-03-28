@@ -42,7 +42,11 @@
 		7BFEA28E16C2573F00455A22 /* SASlideMenuNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEA28C16C2573F00455A22 /* SASlideMenuNavigationController.m */; };
 		AB08905716FE988400506A01 /* DummyConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08905516FE988400506A01 /* DummyConnection.m */; };
 		AB08905E16FE98F300506A01 /* WDUploadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08905C16FE98F300506A01 /* WDUploadProgressView.m */; };
-		AB089063170116E800506A01 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = AB089062170116E800506A01 /* 1.png */; };
+		AB089063170116E800506A01 /* screenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = AB089062170116E800506A01 /* screenShot.png */; };
+		AB397EEF1703EF62000A6F18 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = AB397EEB1703EF62000A6F18 /* arrow.png */; };
+		AB397EF01703EF62000A6F18 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB397EEC1703EF62000A6F18 /* arrow@2x.png */; };
+		AB397EF11703EF62000A6F18 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB397EEE1703EF62000A6F18 /* PullToRefreshView.m */; };
+		AB397EF71703F0E5000A6F18 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB397EF61703F0E4000A6F18 /* AudioToolbox.framework */; };
 		AB39ABA916EE7F9B007B06EC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AB39ABA816EE7F9B007B06EC /* Reachability.m */; };
 		AB3C2CF716E07C8B003A1A58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */; };
 		AB3C2CF916E07C95003A1A58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF816E07C95003A1A58 /* MapKit.framework */; };
@@ -169,7 +173,12 @@
 		AB08905A16FE98F300506A01 /* WDClientUploadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDClientUploadDelegate.h; path = ../WDClientUploadDelegate.h; sourceTree = "<group>"; };
 		AB08905B16FE98F300506A01 /* WDUploadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDUploadProgressView.h; path = ../WDUploadProgressView.h; sourceTree = "<group>"; };
 		AB08905C16FE98F300506A01 /* WDUploadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDUploadProgressView.m; path = ../WDUploadProgressView.m; sourceTree = "<group>"; };
-		AB089062170116E800506A01 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		AB089062170116E800506A01 /* screenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenShot.png; sourceTree = "<group>"; };
+		AB397EEB1703EF62000A6F18 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		AB397EEC1703EF62000A6F18 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		AB397EED1703EF62000A6F18 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
+		AB397EEE1703EF62000A6F18 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
+		AB397EF61703F0E4000A6F18 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AB39ABA716EE7F9B007B06EC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AB39ABA816EE7F9B007B06EC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -255,6 +264,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB397EF71703F0E5000A6F18 /* AudioToolbox.framework in Frameworks */,
 				AB972CC316E2D85F0098B4AB /* SystemConfiguration.framework in Frameworks */,
 				AB972CC116E2D8570098B4AB /* OpenGLES.framework in Frameworks */,
 				AB972CBF16E2D8500098B4AB /* libz.dylib in Frameworks */,
@@ -328,6 +338,7 @@
 		7B8C3FDD15D8D55800E42A41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB397EF61703F0E4000A6F18 /* AudioToolbox.framework */,
 				AB972CC416E2DEAA0098B4AB /* GoogleMaps.bundle */,
 				AB972CC216E2D85E0098B4AB /* SystemConfiguration.framework */,
 				AB972CC016E2D8570098B4AB /* OpenGLES.framework */,
@@ -433,6 +444,8 @@
 		AB0890601700DBD600506A01 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AB397EED1703EF62000A6F18 /* PullToRefreshView.h */,
+				AB397EEE1703EF62000A6F18 /* PullToRefreshView.m */,
 				AB9CC1DC16E3CE4000B47683 /* XmlArrayParser.h */,
 				AB9CC1DD16E3CE4000B47683 /* XmlArrayParser.m */,
 				AB39ABA716EE7F9B007B06EC /* Reachability.h */,
@@ -495,7 +508,9 @@
 		AB9CC1D716E3188D00B47683 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				AB089062170116E800506A01 /* 1.png */,
+				AB397EEB1703EF62000A6F18 /* arrow.png */,
+				AB397EEC1703EF62000A6F18 /* arrow@2x.png */,
+				AB089062170116E800506A01 /* screenShot.png */,
 				ABF9501B16EC0E8500404436 /* radar.png */,
 				AB51ED7F16EA8E3600851F19 /* WisconsinMap.png */,
 				AB51ED7616E9353000851F19 /* locate.png */,
@@ -642,7 +657,9 @@
 				ABF9501C16EC0E8500404436 /* radar.png in Resources */,
 				ABF9501E16EC0F5B00404436 /* 73-radar.png in Resources */,
 				ABF9502016EC0FBA00404436 /* 73-radar@2x.png in Resources */,
-				AB089063170116E800506A01 /* 1.png in Resources */,
+				AB089063170116E800506A01 /* screenShot.png in Resources */,
+				AB397EEF1703EF62000A6F18 /* arrow.png in Resources */,
+				AB397EF01703EF62000A6F18 /* arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +699,7 @@
 				AB39ABA916EE7F9B007B06EC /* Reachability.m in Sources */,
 				AB08905716FE988400506A01 /* DummyConnection.m in Sources */,
 				AB08905E16FE98F300506A01 /* WDUploadProgressView.m in Sources */,
+				AB397EF11703EF62000A6F18 /* PullToRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

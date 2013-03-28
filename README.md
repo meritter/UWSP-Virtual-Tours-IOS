@@ -4,7 +4,7 @@ Created by **Jonathan Christian**
 
 
 # Screenshots
-![](https://github.com/jchri853/UWSP-Virtual-Tours-IOS/blob/master/1.png)&nbsp;
+![](https://github.com/jchri853/UWSP-Virtual-Tours-IOS/blob/master/screenShot.png)&nbsp;
 
 # Requirements
 
