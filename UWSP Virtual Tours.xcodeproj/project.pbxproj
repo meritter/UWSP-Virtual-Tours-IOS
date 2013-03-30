@@ -43,6 +43,7 @@
 		AB08905716FE988400506A01 /* DummyConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08905516FE988400506A01 /* DummyConnection.m */; };
 		AB08905E16FE98F300506A01 /* WDUploadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08905C16FE98F300506A01 /* WDUploadProgressView.m */; };
 		AB089063170116E800506A01 /* screenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = AB089062170116E800506A01 /* screenShot.png */; };
+		AB101FF6170782F200C316F8 /* Poi.m in Sources */ = {isa = PBXBuildFile; fileRef = AB101FF5170782F200C316F8 /* Poi.m */; };
 		AB397EEF1703EF62000A6F18 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = AB397EEB1703EF62000A6F18 /* arrow.png */; };
 		AB397EF01703EF62000A6F18 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB397EEC1703EF62000A6F18 /* arrow@2x.png */; };
 		AB397EF11703EF62000A6F18 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB397EEE1703EF62000A6F18 /* PullToRefreshView.m */; };
@@ -174,6 +175,8 @@
 		AB08905B16FE98F300506A01 /* WDUploadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDUploadProgressView.h; path = ../WDUploadProgressView.h; sourceTree = "<group>"; };
 		AB08905C16FE98F300506A01 /* WDUploadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDUploadProgressView.m; path = ../WDUploadProgressView.m; sourceTree = "<group>"; };
 		AB089062170116E800506A01 /* screenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenShot.png; sourceTree = "<group>"; };
+		AB101FF4170782F200C316F8 /* Poi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Poi.h; path = ../../Downloads/UITableViewFilterDemo/UITableViewFilterDemo/Poi.h; sourceTree = "<group>"; };
+		AB101FF5170782F200C316F8 /* Poi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Poi.m; path = ../../Downloads/UITableViewFilterDemo/UITableViewFilterDemo/Poi.m; sourceTree = "<group>"; };
 		AB397EEB1703EF62000A6F18 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		AB397EEC1703EF62000A6F18 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		AB397EED1703EF62000A6F18 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
@@ -457,6 +460,8 @@
 		AB0890611700DBF500506A01 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AB101FF4170782F200C316F8 /* Poi.h */,
+				AB101FF5170782F200C316F8 /* Poi.m */,
 				AB51ED6A16E7D73500851F19 /* Singleton.h */,
 				AB51ED6B16E7D73500851F19 /* Singleton.m */,
 			);
@@ -700,6 +705,7 @@
 				AB08905716FE988400506A01 /* DummyConnection.m in Sources */,
 				AB08905E16FE98F300506A01 /* WDUploadProgressView.m in Sources */,
 				AB397EF11703EF62000A6F18 /* PullToRefreshView.m in Sources */,
+				AB101FF6170782F200C316F8 /* Poi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "QuestMenuViewController.h"
 #import "MapViewController.h"
 #import "Singleton.h"
+#import "Poi.h"
 
 @interface QuestMenuViewController ()
 @property (nonatomic, strong) NSMutableArray  * settings;
@@ -57,18 +58,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     users = [[NSMutableArray alloc] init];
     tours = [[NSMutableArray alloc] init];
   
-    
-    [users addObject:@"Place Holder 4"];
-    [tours addObject:@"Place Holder 3"];
-    [tours addObject:@"Place Holder 2"];
     [tours addObject:@"Place Holder 1"];
     
     [settings addObject:@"Settings"];
     [settings addObject:@"About"];
 
+    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    {
+        [users addObject:poi];
+    }
     
-
 }
+
 
 
 - (void)awakeFromNib
@@ -158,14 +159,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0];
+     //item  = [serverMapPacks objectAtIndex:indexPath.row];
+    
+    Poi * poi;
     switch (indexPath.section) {
         case 0:
-            // [[cell textLabel] setText:[item objectForKey:@"name"]];
-            // [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
-            cell.textLabel.text  = [users objectAtIndex:indexPath.row];
+          cell.textLabel.text  = [tours objectAtIndex:indexPath.row];
             break;
         case 1:
-            cell.textLabel.text  = [tours objectAtIndex:indexPath.row];
+            poi = [users objectAtIndex:indexPath.row];
+            cell.textLabel.text = poi.title;
             break;
         case 2:
             cell.textLabel.text  = [settings objectAtIndex:indexPath.row];

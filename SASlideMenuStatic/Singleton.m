@@ -13,14 +13,25 @@
 @synthesize selectedMapPack;
 @synthesize selectedMode;
 
-static Singleton *sharedSingleton = nil;
+static Singleton* sharedSingleton;
 
 + (Singleton*)sharedSingleton
 {
-    if (sharedSingleton == nil) {
-        sharedSingleton = [[super allocWithZone:NULL] init];
+    if (!sharedSingleton)
+    {
+        sharedSingleton = [[Singleton alloc] init];
     }
     return sharedSingleton;
+}
+
+- (id)init
+{
+    self = [super init];
+    if ( self )
+    {
+        locationsArray = [[NSMutableArray alloc] init];
+    }
+    return self;
 }
 
 + (id)allocWithZone:(NSZone *)zone {
@@ -39,4 +50,10 @@ static Singleton *sharedSingleton = nil;
     return self;
 }
 @end
+
+
+
+
+
+
 
