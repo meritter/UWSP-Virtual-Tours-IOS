@@ -112,8 +112,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     }
     else
     {
-    
-       // label.text = @"";
         label.backgroundColor = [UIColor colorWithRed:(60/255.0) green:(6/255.0) blue:(94/255.0) alpha:1] ;
          view.backgroundColor = [UIColor colorWithRed:(60/255.0) green:(6/255.0) blue:(94/255.0) alpha:1] ;
     }

@@ -8,6 +8,7 @@
 #import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "Singleton.h"
+#import "Poi.h"
 
 @interface MapViewController ()
 
@@ -34,14 +35,28 @@
     mapView.myLocationEnabled = YES;
     self.view = mapView;
     mapView.mapType = kGMSTypeHybrid;
-    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-    options.position = CLLocationCoordinate2DMake(44.537923, -89.561448);
-    options.title = @"Point 1";
-    options.snippet = @"Test Text";
     
-    //We can chnage icon colors here
-    options.icon =  [UIImage imageNamed:@"locate.png"];
-    [mapView addMarkerWithOptions:options];
+    
+    
+   
+    
+    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    {
+        GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+         double lat = [poi.lat doubleValue];
+         double longitude = [poi.lon doubleValue];
+                options.position = CLLocationCoordinate2DMake(lat,longitude);
+        options.title =  poi.title;
+        options.snippet = @"Test Text";
+        //We can chnage icon colors here
+        if(poi.visited == false)
+        {
+            options.icon =  [UIImage imageNamed:@"dick.png"];
+
+        }
+        
+               [mapView addMarkerWithOptions:options];
+    }
     
     
        

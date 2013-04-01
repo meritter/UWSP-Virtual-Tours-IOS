@@ -84,6 +84,9 @@
                 Poi * poi = [[Poi alloc] init];
 
                 poi.title = [tempObjectDict objectForKey:@"title"];
+                 //poi.id = [tempObjectDict objectForKey:@"id"];
+                 poi.lat = [tempObjectDict objectForKey:@"lat"];
+                 poi.lon = [tempObjectDict objectForKey:@"long"];
                 
                  [[Singleton sharedSingleton].locationsArray  addObject:poi];
                 //[testMapPack addObject:poi];

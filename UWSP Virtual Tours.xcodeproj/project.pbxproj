@@ -52,7 +52,6 @@
 		AB3C2CF716E07C8B003A1A58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */; };
 		AB3C2CF916E07C95003A1A58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF816E07C95003A1A58 /* MapKit.framework */; };
 		AB3C2D0216E08E5D003A1A58 /* marker copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFA16E08E57003A1A58 /* marker copy.png */; };
-		AB3C2D0316E08E5D003A1A58 /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFB16E08E58003A1A58 /* marker.png */; };
 		AB3C2D0416E08E5D003A1A58 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFC16E08E58003A1A58 /* camera.png */; };
 		AB3C2D0516E08E5D003A1A58 /* colorLogoHome.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFD16E08E59003A1A58 /* colorLogoHome.png */; };
 		AB3C2D0616E08E5D003A1A58 /* 14-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFE16E08E5A003A1A58 /* 14-gear.png */; };
@@ -88,6 +87,7 @@
 		AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */; };
 		AB51ED8016EA8E3A00851F19 /* WisconsinMap.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED7F16EA8E3600851F19 /* WisconsinMap.png */; };
 		AB51ED8316EAABB100851F19 /* TutorialSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */; };
+		AB7327591709D43C001F7F7C /* dick.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7327581709D43C001F7F7C /* dick.png */; };
 		AB972CB116E2D77A0098B4AB /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */; };
 		AB972CB316E2D8040098B4AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB216E2D8040098B4AB /* CoreData.framework */; };
 		AB972CB516E2D8150098B4AB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB416E2D8150098B4AB /* CoreText.framework */; };
@@ -187,7 +187,6 @@
 		AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AB3C2CF816E07C95003A1A58 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AB3C2CFA16E08E57003A1A58 /* marker copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker copy.png"; sourceTree = "<group>"; };
-		AB3C2CFB16E08E58003A1A58 /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 		AB3C2CFC16E08E58003A1A58 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		AB3C2CFD16E08E59003A1A58 /* colorLogoHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorLogoHome.png; sourceTree = "<group>"; };
 		AB3C2CFE16E08E5A003A1A58 /* 14-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-gear.png"; sourceTree = "<group>"; };
@@ -239,6 +238,7 @@
 		AB51ED7F16EA8E3600851F19 /* WisconsinMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WisconsinMap.png; path = SASlideMenuStatic/WisconsinMap.png; sourceTree = "<group>"; };
 		AB51ED8116EAABAD00851F19 /* TutorialSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialSecondViewController.h; sourceTree = "<group>"; };
 		AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialSecondViewController.m; sourceTree = "<group>"; };
+		AB7327581709D43C001F7F7C /* dick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dick.png; path = ../../Downloads/dick.png; sourceTree = "<group>"; };
 		AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		AB972CB216E2D8040098B4AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AB972CB416E2D8150098B4AB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -513,6 +513,7 @@
 		AB9CC1D716E3188D00B47683 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				AB7327581709D43C001F7F7C /* dick.png */,
 				AB397EEB1703EF62000A6F18 /* arrow.png */,
 				AB397EEC1703EF62000A6F18 /* arrow@2x.png */,
 				AB089062170116E800506A01 /* screenShot.png */,
@@ -525,7 +526,6 @@
 				ABF9501D16EC0F5B00404436 /* 73-radar.png */,
 				AB9CC1E816E52D3300B47683 /* camera copy.png */,
 				AB3C2CFA16E08E57003A1A58 /* marker copy.png */,
-				AB3C2CFB16E08E58003A1A58 /* marker.png */,
 				AB3C2D4516E14DF5003A1A58 /* fall_lakeside_by_musicalartfreak-d4iyt97.jpg */,
 				AB3C2CFC16E08E58003A1A58 /* camera.png */,
 				AB3C2CFD16E08E59003A1A58 /* colorLogoHome.png */,
@@ -635,7 +635,6 @@
 				7BDBF4A9166CDF8200FDA327 /* rowselected.png in Resources */,
 				7BDBF4AA166CDF8200FDA327 /* rowselected@2x.png in Resources */,
 				AB3C2D0216E08E5D003A1A58 /* marker copy.png in Resources */,
-				AB3C2D0316E08E5D003A1A58 /* marker.png in Resources */,
 				AB3C2D0416E08E5D003A1A58 /* camera.png in Resources */,
 				AB3C2D0516E08E5D003A1A58 /* colorLogoHome.png in Resources */,
 				AB3C2D0616E08E5D003A1A58 /* 14-gear.png in Resources */,
@@ -665,6 +664,7 @@
 				AB089063170116E800506A01 /* screenShot.png in Resources */,
 				AB397EEF1703EF62000A6F18 /* arrow.png in Resources */,
 				AB397EF01703EF62000A6F18 /* arrow@2x.png in Resources */,
+				AB7327591709D43C001F7F7C /* dick.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -402,9 +402,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "200"
-         endingLineNumber = "200"
-         landmarkName = "-applicationDidEnterBackground:"
-         landmarkType = "5">
+         endingLineNumber = "200">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1300,8 +1298,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "104"
          endingLineNumber = "104"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
-         landmarkType = "5">
+         landmarkName = "@implementation SASlideMenuAppDelegate"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1313,7 +1311,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "106"
          endingLineNumber = "106"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkName = "-applicationWillResignActive:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1326,7 +1324,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "112"
          endingLineNumber = "112"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkName = "-applicationDidEnterBackground:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1352,7 +1350,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "106"
          endingLineNumber = "106"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkName = "-applicationWillResignActive:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1365,7 +1363,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "120"
          endingLineNumber = "120"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkName = "-applicationDidEnterBackground:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1378,8 +1376,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "111"
          endingLineNumber = "111"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
-         landmarkType = "5">
+         landmarkName = "@implementation SASlideMenuAppDelegate"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1391,7 +1389,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "110"
          endingLineNumber = "110"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkName = "-applicationWillResignActive:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1404,7 +1402,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "109"
          endingLineNumber = "109"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkName = "-applicationWillResignActive:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
