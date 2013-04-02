@@ -53,8 +53,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [super viewDidLoad];
 
     settings = [[NSMutableArray alloc] init];
-  
-
     users = [[NSMutableArray alloc] init];
     tours = [[NSMutableArray alloc] init];
   
@@ -129,10 +127,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     switch (section) {
         case 0:
-            return [users count];
+            return [tours count];
             break;
         case 1:
-            return [tours count];
+            return [users count];
             break;
         case 2:
             return [settings count];
@@ -158,16 +156,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0];
      //item  = [serverMapPacks objectAtIndex:indexPath.row];
-    
     Poi * poi;
     switch (indexPath.section) {
         case 0:
           cell.textLabel.text  = [tours objectAtIndex:indexPath.row];
             break;
         case 1:
-            poi = [users objectAtIndex:indexPath.row];
-            cell.textLabel.text = poi.title;
-            break;
+            if (poi.title != nil) {
+                poi = [users objectAtIndex:indexPath.row];
+                cell.textLabel.text = poi.title;
+            }
+           break;
         case 2:
             cell.textLabel.text  = [settings objectAtIndex:indexPath.row];
             break;
@@ -175,7 +174,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             break;
     }
     
-       return cell;
+             return cell;
+
+     
 }
 #pragma mark -
 #pragma mark SASlideMenuDataSource

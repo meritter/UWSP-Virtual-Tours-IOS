@@ -51,7 +51,7 @@
         //We can chnage icon colors here
         if(poi.visited == false)
         {
-            options.icon =  [UIImage imageNamed:@"dick.png"];
+            options.icon =  [UIImage imageNamed:@"flagGreen.png"];
 
         }
         
