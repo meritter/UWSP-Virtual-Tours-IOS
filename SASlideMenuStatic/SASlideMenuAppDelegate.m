@@ -16,45 +16,47 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //Google API Key
     [GMSServices provideAPIKey:@"AIzaSyBy6x3X8S_tf_folhpgrkz9iI6A9DHiJZU"];
     
-    NSUserDefaults      *padFactoids;
-    int                 launchCount;
-    NSString             *currentMapPack;
-    NSString             *currentMode;
-     NSMutableArray * parsedMapPack;
-   NSMutableArray * testMapPack;
+   NSUserDefaults * deviceStoredValues;
+   NSString       * currentMapPack;
+   NSString       * currentMode;
+   NSMutableArray * parsedMapPack;
+   int launchCount;
     
-    padFactoids = [NSUserDefaults standardUserDefaults];
-    launchCount = [padFactoids integerForKey:@"launchCount" ] + 1;
-    [padFactoids setInteger:launchCount forKey:@"launchCount"];
-    [padFactoids synchronize];
-    
-       parsedMapPack = [[NSMutableArray alloc] init];
-     testMapPack = [[NSMutableArray alloc] init];
-   
+    //get stored values on device
+    deviceStoredValues = [NSUserDefaults standardUserDefaults];
+    launchCount = [deviceStoredValues integerForKey:@"launchCount" ] + 1;
+    [deviceStoredValues setInteger:launchCount forKey:@"launchCount"];
+    //Sync the new launchCount value
+    [deviceStoredValues synchronize];
+        
     NSLog(@"number of times: %i this app has been launched", launchCount);
     
+    //If count is 1 load the QuestMenuViewController will segue to (return @"tutorial") view
+    //The tutorial view will guide the user to select an initial map pack and mode type
     if ( launchCount == 1 )
     {
         NSLog(@"this is the FIRST LAUNCH of the app");
-        
     }
     else
     {
         NSLog(@"Post initial launch of the app");
-        // do stuff here as you wish
         
-        currentMapPack = [padFactoids valueForKey:@"CurrentMapPack"];
-        currentMode = [padFactoids valueForKey:@"CurrentMode"];
+        //Set the current mode and map pack
+        currentMapPack = [deviceStoredValues valueForKey:@"CurrentMapPack"];
+        currentMode = [deviceStoredValues valueForKey:@"CurrentMode"];
 
-        
         if(currentMapPack != nil)
         {
+            //set the singletons values for later use
             [Singleton sharedSingleton].selectedMapPack = currentMapPack;
             [Singleton sharedSingleton].selectedMode = currentMode;
-
+           
+            parsedMapPack = [[NSMutableArray alloc] init];
+            
+            //Find the .xml file associated to the currentMapPack
             NSString * stringURL = [NSString stringWithFormat:@"%@%@", currentMapPack, @".xml"];
             
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -64,35 +66,40 @@
             NSData *data = [NSData dataWithContentsOfFile:filePath];
         
             XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
-        
             
-            //get pois points from array in XML
+            //get pois points from array in XML starting with <poi> tag
             parser.rowElementName = @"poi";
             parser.elementNames = [NSArray arrayWithObjects: @"description", @"id", @"lat", @"long", @"title", nil];
         
                        
             BOOL success = [parser parse];
-            // test the result
+            
+            //If parse was successful send items to Array
             if (success)
             {
               parsedMapPack = [parser items];
             }
             
+            
             for (int i = 0; i < [parsedMapPack count]; i++)
             {
+                //Create a dictionary and set to the count of i
               NSDictionary *tempObjectDict = [parsedMapPack objectAtIndex:i];
-                Poi * poi = [[Poi alloc] init];
-
-                poi.title = [tempObjectDict objectForKey:@"title"];
-                 //poi.id = [tempObjectDict objectForKey:@"id"];
+                
+                //Create and initialize a poi object
+                 Poi * poi = [[Poi alloc] init];
+                
+                //Assign based upon dictionary key value pairs
+                 poi.title = [tempObjectDict objectForKey:@"title"];
                  poi.lat = [tempObjectDict objectForKey:@"lat"];
                  poi.lon = [tempObjectDict objectForKey:@"long"];
                 
+                //Add poi to singleton for App use
                  [[Singleton sharedSingleton].locationsArray  addObject:poi];
-                //[testMapPack addObject:poi];
-                for ( Poi * poi in testMapPack) {
-                    //do stuff here, or just print the object with something like the code below
-                    NSLog(@"Transaction:  %@", poi.title);
+
+                for ( Poi * poi in [Singleton sharedSingleton].locationsArray)
+                {
+                    NSLog(@"Poi:  %@", poi.title);
                 }
             }
         }

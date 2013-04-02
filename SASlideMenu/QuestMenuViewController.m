@@ -85,17 +85,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 35;
+    return 33;
 }
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel* label = [[UILabel alloc] initWithFrame:(CGRect) { 10, 0, 80, 100 }];
+    UILabel* label = [[UILabel alloc] initWithFrame:(CGRect) { 10, 0, 75, 80 }];
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     label.textColor = [UIColor whiteColor];
     label.opaque = YES;
     label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15.5];
-     UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 80, 100 }];
+     UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 75, 80 }];
     if(section == 0)
     {
         label.text = @"Active Quest";
@@ -162,8 +162,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
           cell.textLabel.text  = [tours objectAtIndex:indexPath.row];
             break;
         case 1:
-            if (poi.title != nil) {
-                poi = [users objectAtIndex:indexPath.row];
+        {
+            poi = [users objectAtIndex:indexPath.row];
                 cell.textLabel.text = poi.title;
             }
            break;
@@ -191,9 +191,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     if([Singleton sharedSingleton].selectedMapPack == nil)
     {
-            
-           return @"tutorial";
-        
+        return @"tutorial";
     }
     else
     {

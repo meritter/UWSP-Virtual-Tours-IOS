@@ -90,7 +90,7 @@
 		AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */; };
 		AB51ED8016EA8E3A00851F19 /* WisconsinMap.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED7F16EA8E3600851F19 /* WisconsinMap.png */; };
 		AB51ED8316EAABB100851F19 /* TutorialSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */; };
-		AB7327621709DB4F001F7F7C /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7327611709DB4F001F7F7C /* Pin.png */; };
+		AB7F8E05170B6D1000B59165 /* flag-green.png in Resources */ = {isa = PBXBuildFile; fileRef = AB7F8E04170B6D1000B59165 /* flag-green.png */; };
 		AB972CB116E2D77A0098B4AB /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */; };
 		AB972CB316E2D8040098B4AB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB216E2D8040098B4AB /* CoreData.framework */; };
 		AB972CB516E2D8150098B4AB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB972CB416E2D8150098B4AB /* CoreText.framework */; };
@@ -244,7 +244,7 @@
 		AB51ED7F16EA8E3600851F19 /* WisconsinMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WisconsinMap.png; path = SASlideMenuStatic/WisconsinMap.png; sourceTree = "<group>"; };
 		AB51ED8116EAABAD00851F19 /* TutorialSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialSecondViewController.h; sourceTree = "<group>"; };
 		AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialSecondViewController.m; sourceTree = "<group>"; };
-		AB7327611709DB4F001F7F7C /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pin.png; path = ../../Downloads/Pin.png; sourceTree = "<group>"; };
+		AB7F8E04170B6D1000B59165 /* flag-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flag-green.png"; sourceTree = "<group>"; };
 		AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		AB972CB216E2D8040098B4AB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AB972CB416E2D8150098B4AB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -521,8 +521,8 @@
 			children = (
 				AB395E5C170A5217007C2D59 /* flagGreen.png */,
 				AB019CCC170A090D00EB5D56 /* flag.png */,
+				AB7F8E04170B6D1000B59165 /* flag-green.png */,
 				AB019CCA170A077800EB5D56 /* icon.png */,
-				AB7327611709DB4F001F7F7C /* Pin.png */,
 				AB397EEB1703EF62000A6F18 /* arrow.png */,
 				AB397EEC1703EF62000A6F18 /* arrow@2x.png */,
 				AB089062170116E800506A01 /* screenShot.png */,
@@ -673,10 +673,10 @@
 				AB089063170116E800506A01 /* screenShot.png in Resources */,
 				AB397EEF1703EF62000A6F18 /* arrow.png in Resources */,
 				AB397EF01703EF62000A6F18 /* arrow@2x.png in Resources */,
-				AB7327621709DB4F001F7F7C /* Pin.png in Resources */,
 				AB019CCB170A077800EB5D56 /* icon.png in Resources */,
 				AB019CCD170A090D00EB5D56 /* flag.png in Resources */,
 				AB395E5D170A5217007C2D59 /* flagGreen.png in Resources */,
+				AB7F8E05170B6D1000B59165 /* flag-green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
