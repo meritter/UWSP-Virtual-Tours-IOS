@@ -11,9 +11,9 @@
     NSMutableArray *locationsArray;
 }
 
-@property (nonatomic, retain) NSMutableArray * locationsArray;
-@property (nonatomic, retain) NSString * selectedMapPack;
-@property (nonatomic, retain) NSString * selectedMode;
+@property (atomic, retain) NSMutableArray * locationsArray;
+@property (atomic, retain) NSString * selectedMapPack;
+@property (atomic, retain) NSString * selectedMode;
 
 + (Singleton *)sharedSingleton;
 @end

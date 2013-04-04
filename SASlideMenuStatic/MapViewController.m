@@ -23,29 +23,40 @@
 
 }
 
-@synthesize titleView, subtitleView, button, myLocation;
+
+@synthesize titleView, subtitleView, button, myLocation, poi;
 
 
 - (void)loadView {
     
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.537923
-                                                            longitude:-89.561448
-                                                                 zoom:8];
+    
+    double lat = [poi.lat doubleValue];
+    double longitude = [poi.lon doubleValue];
+
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:longitude
+                                                            longitude:lat
+                                                                 zoom:15];
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView.myLocationEnabled = YES;
     self.view = mapView;
     mapView.mapType = kGMSTypeHybrid;
     
+    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+    options.position = CLLocationCoordinate2DMake(longitude,lat);
+    options.title =  poi.title;
+    options.snippet = @"Test Text";
+      options.icon =  [UIImage imageNamed:@"flag-green-lt.png"];
+
+    [mapView addMarkerWithOptions:options];
     
+  
     
-   
-    
-    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    NSLog(poi.title);
+     //If Free Roam Mode
+    /*for (Poi * poi in [Singleton sharedSingleton].locationsArray)
     {
         GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-         double lat = [poi.lat doubleValue];
-         double longitude = [poi.lon doubleValue];
-                options.position = CLLocationCoordinate2DMake(lat,longitude);
+                         options.position = CLLocationCoordinate2DMake(lat,longitude);
         options.title =  poi.title;
         options.snippet = @"Test Text";
         //We can chnage icon colors here
@@ -53,10 +64,10 @@
         {
            options.icon =  [UIImage imageNamed:@"flag-green.png"];
 
-        }
+        }*/
         
-               [mapView addMarkerWithOptions:options];
-    }
+
+    
     
     
        
@@ -160,6 +171,11 @@
         else {
              }
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
 }
 
 

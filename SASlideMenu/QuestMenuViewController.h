@@ -8,11 +8,12 @@
 #import <UIKit/UIKit.h>
 #import "SASlideMenuViewController.h"
 #import "SASlideMenuDataSource.h"
+#import "Poi.h"
 
 @interface QuestMenuViewController :SASlideMenuViewController<SASlideMenuDataSource,SASlideMenuDelegate>
 {
     NSMutableArray *users;
     NSMutableArray * tours;
 }
-
+@property (nonatomic, strong) Poi * poi;
 @end

@@ -13,6 +13,8 @@
 
 @interface QuestMenuViewController ()
 @property (nonatomic, strong) NSMutableArray  * settings;
+
+
 @end
 
 
@@ -23,7 +25,7 @@ colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @implementation QuestMenuViewController
-
+@synthesize poi;
 
 @synthesize settings;
 -(id) initWithCoder:(NSCoder *)aDecoder{
@@ -65,6 +67,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     {
         [users addObject:poi];
     }
+    
+    
+       
     
 }
 
@@ -156,7 +161,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0];
      //item  = [serverMapPacks objectAtIndex:indexPath.row];
-    Poi * poi;
+ 
     switch (indexPath.section) {
         case 0:
           cell.textLabel.text  = [tours objectAtIndex:indexPath.row];
@@ -198,10 +203,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     switch (indexPath.section) {
         case 0:
-            return @"map";      
+            if([Singleton sharedSingleton].selectedMapPack != nil)
+            {
+            poi = [users objectAtIndex:indexPath.row];
+            }
+            return @"map";
             break;
         case 1:
-               return @"map";
+            if([Singleton sharedSingleton].selectedMapPack != nil)
+            {
+            poi = [users objectAtIndex:indexPath.row];
+            }
+            return @"map";
             break;
         case 2:
              if (indexPath.row == 0) {
@@ -247,6 +260,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     UIViewController* controller = [content.viewControllers objectAtIndex:0];
     if ([controller isKindOfClass:[MapViewController class]]) {
         MapViewController* mapViewController = (MapViewController*)controller;
+        mapViewController.poi =  poi;
         mapViewController.menuViewController = self;
     }
 }

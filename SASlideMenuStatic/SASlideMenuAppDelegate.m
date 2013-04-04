@@ -1,10 +1,10 @@
 //
 //  SASlideMenuAppDelegate.m
 //  SASlideMenuStatic
-//
 //  Created by Stefano Antonelli on 12/3/12.
-//  Copyright (c) 2012 Stefano Antonelli. All rights reserved.
+//  Edited by Jonathan Christian on 2/18/13.
 //
+
 
 #import "SASlideMenuAppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
@@ -47,7 +47,7 @@
         //Set the current mode and map pack
         currentMapPack = [deviceStoredValues valueForKey:@"CurrentMapPack"];
         currentMode = [deviceStoredValues valueForKey:@"CurrentMode"];
-
+    
         if(currentMapPack != nil)
         {
             //set the singletons values for later use
