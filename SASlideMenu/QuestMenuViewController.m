@@ -194,40 +194,53 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 -(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath
 {
+    @try {
     if([Singleton sharedSingleton].selectedMapPack == nil)
     {
         return @"tutorial";
     }
     else
     {
-    
-    switch (indexPath.section) {
-        case 0:
-            if([Singleton sharedSingleton].selectedMapPack != nil)
-            {
-            poi = [users objectAtIndex:indexPath.row];
-            }
-            return @"map";
-            break;
-        case 1:
-            if([Singleton sharedSingleton].selectedMapPack != nil)
-            {
-            poi = [users objectAtIndex:indexPath.row];
-            }
-            return @"map";
-            break;
-        case 2:
-             if (indexPath.row == 0) {
-                  return @"settings";
-             
-             }else if (indexPath.row == 1){
-             return @"about";
+      
+            switch (indexPath.section) {
+                case 0:
+                   /* if([Singleton sharedSingleton].selectedMapPack != nil)
+                    {
+                        poi = [users objectAtIndex:indexPath.row];
+                    }*/
+                    return @"map";
+                    break;
+                case 1:
+                    /*if([Singleton sharedSingleton].selectedMapPack != nil)
+                    {
+                        poi = [users objectAtIndex:indexPath.row];
+                    }*/
+                    return @"map";
+                    break;
+                case 2:
+                    if (indexPath.row == 0) {
+                        return @"settings";
+                        
+                    }else if (indexPath.row == 1){
+                        return @"about";
+                    }
+                    break;
+
              }
-            break;
     }
+        
     }
+          @catch (NSException *exception) {
+              NSLog(@"Hit exception");
+          }
+          @finally {
+              
+          }
+
+    
     
     return 0;
+
 }
 
 -(Boolean) allowContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath{

@@ -52,7 +52,6 @@
 		AB397EF71703F0E5000A6F18 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB397EF61703F0E4000A6F18 /* AudioToolbox.framework */; };
 		AB39ABA916EE7F9B007B06EC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AB39ABA816EE7F9B007B06EC /* Reachability.m */; };
 		AB3C2CF716E07C8B003A1A58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */; };
-		AB3C2CF916E07C95003A1A58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF816E07C95003A1A58 /* MapKit.framework */; };
 		AB3C2D0216E08E5D003A1A58 /* marker copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFA16E08E57003A1A58 /* marker copy.png */; };
 		AB3C2D0416E08E5D003A1A58 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFC16E08E58003A1A58 /* camera.png */; };
 		AB3C2D0516E08E5D003A1A58 /* colorLogoHome.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2CFD16E08E59003A1A58 /* colorLogoHome.png */; };
@@ -81,7 +80,6 @@
 		AB515C2B16E2F4B000372E52 /* UWSP Logo 57.png in Resources */ = {isa = PBXBuildFile; fileRef = AB515C2916E2F4B000372E52 /* UWSP Logo 57.png */; };
 		AB515C2C16E2F4B000372E52 /* UWSP Logo 114.png in Resources */ = {isa = PBXBuildFile; fileRef = AB515C2A16E2F4B000372E52 /* UWSP Logo 114.png */; };
 		AB51ED6616E5671600851F19 /* 2382615145_ab6347760c.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */; };
-		AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6816E7058B00851F19 /* MRViewController.m */; };
 		AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6B16E7D73500851F19 /* Singleton.m */; };
 		AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */; };
 		AB51ED7816E9353300851F19 /* locate.png in Resources */ = {isa = PBXBuildFile; fileRef = AB51ED7616E9353000851F19 /* locate.png */; };
@@ -107,6 +105,9 @@
 		AB9CC1E316E51B4500B47683 /* menu copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E216E51B4400B47683 /* menu copy.png */; };
 		AB9CC1E516E52A4D00B47683 /* menu copy2.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E416E52A4C00B47683 /* menu copy2.png */; };
 		AB9CC1E916E52D3300B47683 /* camera copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E816E52D3300B47683 /* camera copy.png */; };
+		ABE36439170F70FA004F2112 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE36438170F70FA004F2112 /* map.png */; };
+		ABE36440170F7811004F2112 /* map57.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE3643E170F7811004F2112 /* map57.png */; };
+		ABE36441170F7811004F2112 /* Map114.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE3643F170F7811004F2112 /* Map114.png */; };
 		ABEDF4BC170E09B700B0251E /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEDF4BB170E09B700B0251E /* EGORefreshTableHeaderView.m */; };
 		ABEDF4C5170E0A1200B0251E /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = ABEDF4BD170E0A1200B0251E /* grayArrow.png */; };
 		ABEDF4C6170E0A1200B0251E /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABEDF4BE170E0A1200B0251E /* grayArrow@2x.png */; };
@@ -198,7 +199,6 @@
 		AB39ABA716EE7F9B007B06EC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AB39ABA816EE7F9B007B06EC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		AB3C2CF816E07C95003A1A58 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AB3C2CFA16E08E57003A1A58 /* marker copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker copy.png"; sourceTree = "<group>"; };
 		AB3C2CFC16E08E58003A1A58 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		AB3C2CFD16E08E59003A1A58 /* colorLogoHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorLogoHome.png; sourceTree = "<group>"; };
@@ -238,8 +238,6 @@
 		AB515C2916E2F4B000372E52 /* UWSP Logo 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UWSP Logo 57.png"; sourceTree = "<group>"; };
 		AB515C2A16E2F4B000372E52 /* UWSP Logo 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UWSP Logo 114.png"; sourceTree = "<group>"; };
 		AB51ED6516E5671600851F19 /* 2382615145_ab6347760c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2382615145_ab6347760c.png; sourceTree = "<group>"; };
-		AB51ED6716E7058A00851F19 /* MRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRViewController.h; sourceTree = "<group>"; };
-		AB51ED6816E7058B00851F19 /* MRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRViewController.m; sourceTree = "<group>"; };
 		AB51ED6A16E7D73500851F19 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = SASlideMenuStatic/Singleton.h; sourceTree = "<group>"; };
 		AB51ED6B16E7D73500851F19 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Singleton.m; path = SASlideMenuStatic/Singleton.m; sourceTree = "<group>"; };
 		AB51ED6D16E8226800851F19 /* SettingsMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMasterViewController.h; sourceTree = "<group>"; };
@@ -271,6 +269,9 @@
 		AB9CC1E216E51B4400B47683 /* menu copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu copy.png"; sourceTree = "<group>"; };
 		AB9CC1E416E52A4C00B47683 /* menu copy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu copy2.png"; sourceTree = "<group>"; };
 		AB9CC1E816E52D3300B47683 /* camera copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera copy.png"; sourceTree = "<group>"; };
+		ABE36438170F70FA004F2112 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		ABE3643E170F7811004F2112 /* map57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map57.png; sourceTree = "<group>"; };
+		ABE3643F170F7811004F2112 /* Map114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Map114.png; sourceTree = "<group>"; };
 		ABEDF4BA170E09B700B0251E /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		ABEDF4BB170E09B700B0251E /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		ABEDF4BD170E0A1200B0251E /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
@@ -304,7 +305,6 @@
 				AB972CB316E2D8040098B4AB /* CoreData.framework in Frameworks */,
 				AB3C2D3D16E127E5003A1A58 /* QuartzCore.framework in Frameworks */,
 				AB3C2D3B16E1277F003A1A58 /* AVFoundation.framework in Frameworks */,
-				AB3C2CF916E07C95003A1A58 /* MapKit.framework in Frameworks */,
 				7BDBF46C166CDEB100FDA327 /* UIKit.framework in Frameworks */,
 				7BDBF46D166CDEB100FDA327 /* Foundation.framework in Frameworks */,
 				7BDBF46E166CDEB100FDA327 /* CoreGraphics.framework in Frameworks */,
@@ -379,7 +379,6 @@
 				AB972CB016E2D77A0098B4AB /* GoogleMaps.framework */,
 				AB3C2D3C16E127E4003A1A58 /* QuartzCore.framework */,
 				AB3C2D3A16E1277F003A1A58 /* AVFoundation.framework */,
-				AB3C2CF816E07C95003A1A58 /* MapKit.framework */,
 				AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */,
 				7B8C3FDE15D8D55800E42A41 /* UIKit.framework */,
 				7B8C3FE015D8D55800E42A41 /* Foundation.framework */,
@@ -537,6 +536,7 @@
 		AB9CC1D716E3188D00B47683 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				ABE36438170F70FA004F2112 /* map.png */,
 				ABEDF4BD170E0A1200B0251E /* grayArrow.png */,
 				ABEDF4BE170E0A1200B0251E /* grayArrow@2x.png */,
 				ABEDF4BF170E0A1200B0251E /* blackArrow.png */,
@@ -566,6 +566,8 @@
 				AB3C2CFC16E08E58003A1A58 /* camera.png */,
 				AB3C2CFD16E08E59003A1A58 /* colorLogoHome.png */,
 				AB3C2D4316E14DE9003A1A58 /* narrow_path_by_musicalartfreak-d4iytf7.jpg */,
+				ABE3643E170F7811004F2112 /* map57.png */,
+				ABE3643F170F7811004F2112 /* Map114.png */,
 				AB3C2CFE16E08E5A003A1A58 /* 14-gear.png */,
 				AB515C2916E2F4B000372E52 /* UWSP Logo 57.png */,
 				AB515C2A16E2F4B000372E52 /* UWSP Logo 114.png */,
@@ -587,8 +589,6 @@
 				7BDBF478166CDEB100FDA327 /* SASlideMenuAppDelegate.h */,
 				7BDBF479166CDEB100FDA327 /* SASlideMenuAppDelegate.m */,
 				AB3C2D4116E12F12003A1A58 /* MainStoryboard.storyboard */,
-				AB51ED6716E7058A00851F19 /* MRViewController.h */,
-				AB51ED6816E7058B00851F19 /* MRViewController.m */,
 				AB9CC1DF16E422F900B47683 /* MapPackListViewController.h */,
 				AB9CC1E016E422F900B47683 /* MapPackListViewController.m */,
 				AB51ED6D16E8226800851F19 /* SettingsMasterViewController.h */,
@@ -713,6 +713,9 @@
 				ABEDF4CA170E0A1200B0251E /* blueArrow@2x.png in Resources */,
 				ABEDF4CB170E0A1200B0251E /* whiteArrow.png in Resources */,
 				ABEDF4CC170E0A1200B0251E /* whiteArrow@2x.png in Resources */,
+				ABE36439170F70FA004F2112 /* map.png in Resources */,
+				ABE36440170F7811004F2112 /* map57.png in Resources */,
+				ABE36441170F7811004F2112 /* Map114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,7 +747,6 @@
 				AB3C2D2716E12606003A1A58 /* RadarViewPortView.m in Sources */,
 				AB9CC1DE16E3CE4000B47683 /* XmlArrayParser.m in Sources */,
 				AB9CC1E116E422FA00B47683 /* MapPackListViewController.m in Sources */,
-				AB51ED6916E7058C00851F19 /* MRViewController.m in Sources */,
 				AB51ED6C16E7D73600851F19 /* Singleton.m in Sources */,
 				AB51ED6F16E8226B00851F19 /* SettingsMasterViewController.m in Sources */,
 				AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */,

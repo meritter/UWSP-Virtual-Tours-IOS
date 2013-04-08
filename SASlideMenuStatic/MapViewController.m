@@ -48,7 +48,9 @@
       options.icon =  [UIImage imageNamed:@"flag-green-lt.png"];
 
     [mapView addMarkerWithOptions:options];
-    
+
+    //[CLLocationManager ];
+
   
     
     NSLog(poi.title);
@@ -182,7 +184,7 @@
 
 #pragma mark - MKMapKitDelegate
 
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+-(void)mapView:(MKMapView*)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
    // NSLog(@"didUpdateUserLocation = '%@'", userLocation);
     NSLog(@"Did update user location: %f,%f", userLocation.coordinate.latitude, userLocation.coordinate.longitude);
     
@@ -229,47 +231,15 @@
 
 -(IBAction)tapped:(id)sender
 {
+    [mapView animateToLocation:mapView.myLocation.coordinate];
+    [mapView animateToBearing:0];
+    [mapView animateToViewingAngle:0];
+}
+
+
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(id<GMSMarker>)marker
+{
     NSLog(@"hit");
-
-    //mapView.
-    
-   // mapView.showsUserLocation = !mapView.showsUserLocation;
-}
-
-
-
--(void)mapViewWillStartLoadingMap:(MKMapView *)mapView
-{
-    NSLog(@"Will start loading map");
-}
-
--(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
-{
-    NSLog(@"Did finish loading map");
-}
-
--(void)mapViewWillStartLocatingUser:(MKMapView *)mapView
-{
-    NSLog(@"Will start locating user");
-}
-
--(void)mapViewDidStopLocatingUser:(MKMapView *)mapView
-{
-    NSLog(@"Did stop locating user");
-}
-
--(void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
-{
-    NSLog(@"Did fail loading map");
-}
-
--(void)mapView:(MKMapView *)mapView didFailToLocateUserWithError:(NSError *)error
-{
-    if (error.code == kCLErrorDenied){
-        NSLog(@"User refused location services");
-    } else {
-        NSLog(@"Did fail to locate user with error: %@", error.description);
-    }
 }
 
 
@@ -287,9 +257,103 @@
 }
 
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]])
+    {
+          NSLog(@"Did update user location: %f,%f", mapView.myLocation.coordinate.latitude, mapView.myLocation.coordinate.longitude);
+        
+       // [mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView.myLocation.coordinate.latitude
+                                                                                 //longitude:mapView.myLocation.coordinate.longitude
+                                                                                   //   zoom:16]];
+        
+        
+        
+        CLLocation* ourUserLocation = [[CLLocation alloc]
+                                       initWithLatitude:myLocation.coordinate.latitude
+                                       longitude:myLocation.coordinate.longitude];
+        CLLocation* loc= [[CLLocation alloc]
+                                   initWithLatitude:44.528856
+                                   longitude:-89.569766];
+       // CLLocationDistance distance = [ourUserLocation distanceFromLocation:pinLocation] / 1000;
+        
+                
+        //CLLocation *loc = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
+        CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:mapView.myLocation.coordinate.latitude longitude:mapView.myLocation.coordinate.longitude];
+        
+        NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
+        NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
+        
+        CLLocationDistance dist = [loc distanceFromLocation:loc2] / 1000;
+        
+        NSLog(@"DIST: %f", dist); // Wrong formatting may show wrong value!
+        
+        //CLLocationDistance kilometers = [newLocation distanceFromLocation:oldLocation] / 1000;
+        
+       // CLLocationCoordinate2D newCoordinate = [ourUserLocation coordinate];
+       // CLLocationCoordinate2D oldCoordinate = [pinLocation coordinate];
+        
+        //CLLocationDistance kilometers = [newCoordinate distanceFromLocation:oldCoordinate] / 1000; // Error ocurring here.
+       // CLLocationDistance meters = [newCoordinate distanceFromLocation:oldCoordinate]; // Error ocurring here.
+        
+        //CLLocation *newLocation = [[CLLocation alloc] initWithCoordinate: distance altitude:1 horizontalAccuracy:1 verticalAccuracy:-1 timestamp:nil];
+        
+        //42.081917,-50.031738
+        //44.528856,-89.569766
+        //SCI CORD
+        if (dist < 0.02) {
+            
+            [[[UIAlertView alloc] initWithTitle:nil
+                                        message:@"YOU MADE IT TO THE SCI BUILDING! WHICH MEANS GPS GEOLOCATION WORKS, HURRAYY"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+
+        
+        }
+        
+         //for (int x = 0; x < [alertedForTag count]; x++) {
+         
+      /*(   if ([[alertedForTag objectAtIndex:x]isEqualToNumber:[NSNumber numberWithInt:i]]) {
+         
+         } else {
+         [self showAlertWithDictionary:[placesArray objectAtIndex:i]];
+         [alertedForTag addObject:[NSNumber numberWithInt:i]];
+         }
+         }
+         
+         
+         if ([alertedForTag count]==0) {
+         
+         [self showAlertWithDictionary:[placesArray objectAtIndex:i]];
+         //  [alertedForTag addObject:[NSNumber numberWithInt:i]];
+         }
+         }*/
+
+        
+        
+       // if (myLocation) {
+         //   <#statements#>
+       // }
+  }
+
+}
+
+
 - (void)viewDidAppear:(BOOL)animated{
     _arViewController = nil;
+    
+    [mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    // Implement here if the view has registered KVO
+   
+    [mapView removeObserver:self forKeyPath:@"myLocation"];
+}
+
 
 - (NSMutableArray *)geoLocations{
   

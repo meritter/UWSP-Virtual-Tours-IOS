@@ -150,7 +150,7 @@
 
 -(void)reachabilityChanged:(NSNotification*)note
 {
-        
+        //TODO make the pull unavliable in offline mode
     if([reach isReachable])
     {//
       //  notificationLabel.text = @"Notification Says Reachable";
