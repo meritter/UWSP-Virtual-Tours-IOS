@@ -41,11 +41,13 @@
     self.view = mapView;
     mapView.mapType = kGMSTypeHybrid;
     
+      mapView.delegate = self;
+    
     GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
     options.position = CLLocationCoordinate2DMake(longitude,lat);
     options.title =  poi.title;
     options.snippet = @"Test Text";
-      options.icon =  [UIImage imageNamed:@"flag-green-lt.png"];
+      options.icon =  [UIImage imageNamed:@"flag-red.png"];
 
     [mapView addMarkerWithOptions:options];
 
@@ -182,17 +184,9 @@
 
 
 
-#pragma mark - MKMapKitDelegate
+#pragma mark - GMSMAPKitDelegate
 
--(void)mapView:(MKMapView*)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-   // NSLog(@"didUpdateUserLocation = '%@'", userLocation);
-    NSLog(@"Did update user location: %f,%f", userLocation.coordinate.latitude, userLocation.coordinate.longitude);
-    
-    [[[UIAlertView alloc] initWithTitle:nil
-                                message:@"hit"
-                               delegate:nil
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
+//                      otherButtonTitles:nil] show];
     //CYCLE THROUGH PLACES ARRAY
     /*for (int i = 0; i < [placesArray count]; i++) {
      
@@ -227,7 +221,7 @@
      }
      }*/
     
-}
+
 
 -(IBAction)tapped:(id)sender
 {
@@ -237,9 +231,14 @@
 }
 
 
-- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(id<GMSMarker>)marker
-{
-    NSLog(@"hit");
+- (BOOL)mapView:(GMSMapView *)mapViewMethod didTapMarker:(id<GMSMarker>)marker {
+    if (marker != mapViewMethod.selectedMarker) {
+        // This marker is about to become the selected marker; animate to it.
+        [mapView animateToLocation:marker.position];
+        [mapView animateToBearing:0];
+        [mapView animateToViewingAngle:0];
+    }
+    return NO;  // the GMSMapView should handle this event normally
 }
 
 
@@ -285,8 +284,6 @@
         NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
         
         CLLocationDistance dist = [loc distanceFromLocation:loc2] / 1000;
-        
-        NSLog(@"DIST: %f", dist); // Wrong formatting may show wrong value!
         
         //CLLocationDistance kilometers = [newLocation distanceFromLocation:oldLocation] / 1000;
         
