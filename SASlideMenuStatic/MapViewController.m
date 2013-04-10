@@ -41,7 +41,8 @@
     self.view = mapView;
     mapView.mapType = kGMSTypeHybrid;
     
-      mapView.delegate = self;
+    //Allows you to tap a marker and have camera pan to it
+    mapView.delegate = self;
     
     GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
     options.position = CLLocationCoordinate2DMake(longitude,lat);
@@ -98,8 +99,16 @@
             //button.center = CGPointMake(30, 392);
         }
     }else{
+       UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        if (orientation == UIDeviceOrientationPortrait) {
+               button.center = CGPointMake(30, 930);
+        }
+        else{
+                button.center = CGPointMake(30, 682);
+        }
+        
         //iPad
-            button.center = CGPointMake(30, 930);
+       
     }
     
     
@@ -157,7 +166,7 @@
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             // set up the iPad-specific view
-         button.center = CGPointMake(30, 680);
+         button.center = CGPointMake(30, 682);
         }
         else {
             

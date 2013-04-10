@@ -7,6 +7,8 @@
 
 #import "SettingsMasterViewController.h"
 #import "Singleton.h"
+#import "MapModeListViewController.h"
+#import "MapPackListViewController.h"
 
 @interface SettingsMasterViewController ()
 
@@ -34,12 +36,6 @@
     
     mapPackName = [Singleton sharedSingleton].selectedMapPack;
     mapMode = [Singleton sharedSingleton].selectedMode;
-       
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
@@ -62,12 +58,9 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Put this here so whenever this method gets hit to reset tables it fires
-    
-   //  mapPackName =  [Singleton sharedSingleton].SelectedMapPack;
     switch (indexPath.section) {
-        case 0:
-            switch (indexPath.row) {
-                case 0:
+
+                    case 0:
                     if(mapPackName != nil)
                     {
                         [[cell detailTextLabel] setText:mapPackName];
@@ -78,67 +71,38 @@
                     }
                     break;
                           
-        case 1:
-            if(mapMode != nil)
-            {
-                [[cell detailTextLabel] setText:mapMode];
-            }
-            else
-            {
-                [[cell detailTextLabel]  setText:@"Not Selected"];
-            }
-            break;
-    }
-
-            break;
-    
+                case 1:
+                    if(mapMode != nil)
+                    {
+                        [[cell detailTextLabel] setText:mapMode];
+                    }
+                    else
+                    {
+                        [[cell detailTextLabel]  setText:@"Not Selected"];
+                    }       
+                    break;
+            
         default:
             break;
     }
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    //Having these two controllers here probably isn't the best to code but it works for now
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"mapPacks"];
+    UIViewController *controller2 = [self.storyboard instantiateViewControllerWithIdentifier:@"mapMode"];
+
+        switch (indexPath.section) {
+            case 0:
+                [self.navigationController pushViewController:controller animated:YES];
+                break;
+            case 1:
+                     [self.navigationController pushViewController:controller2 animated:YES];
+                     break;
+            
+        }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
 
 
 @end

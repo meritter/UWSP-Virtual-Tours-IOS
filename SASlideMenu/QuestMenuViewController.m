@@ -170,6 +170,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         {
             poi = [users objectAtIndex:indexPath.row];
                 cell.textLabel.text = poi.title;
+        
             }
            break;
         case 2:
