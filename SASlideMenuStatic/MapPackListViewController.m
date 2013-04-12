@@ -11,6 +11,8 @@
 #import "Singleton.h"
 #import "DummyConnection.h"
 #import "Reachability.h"
+#import "XMLDataAccess.h"
+#import "QuestMenuViewController.h"
 
 
 @implementation MapPackListViewController
@@ -422,7 +424,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
          [Singleton sharedSingleton].selectedMapPack = cellText;
-        [self.navigationController  popViewControllerAnimated:YES];
     } else {
     
     //For right now if the map pack is in the serverMapPack, we download it
@@ -434,15 +435,17 @@ shouldReloadTableForSearchString:(NSString *)searchString
         break;
         case 1:
              [Singleton sharedSingleton].selectedMapPack = cellText;
-                [self.navigationController  popViewControllerAnimated:YES];
-            break;
             
-           
+            XMLDataAccess * da = [[XMLDataAccess alloc] init];
+            
+            [da setUpPOI:  [Singleton sharedSingleton].selectedMapPack];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"MyNotification" object:self];
+
+            [self.navigationController  popViewControllerAnimated:YES];
+            break;
+        }
     }
-    
-    
-    }
-    
 }
 
 
@@ -465,7 +468,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void)uploadDidFinish:(WDUploadProgressView *)progressView {
 	[progressView removeFromSuperview];
 	[self.tableView setTableHeaderView:nil];
-    [self.navigationController  popViewControllerAnimated:YES];
 }
 
 - (void)uploadDidCancel:(WDUploadProgressView *)progressView {
@@ -508,6 +510,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (void)viewDidUnload
 {
+    
+
     [self setTableData:nil];
     [super viewDidUnload];
 }

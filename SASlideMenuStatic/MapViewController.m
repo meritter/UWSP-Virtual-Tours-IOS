@@ -9,6 +9,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "Singleton.h"
 #import "Poi.h"
+#import "DMRNotificationView.h"
 
 @interface MapViewController ()
 
@@ -28,15 +29,15 @@
 
 
 - (void)loadView {
-    
-    
+
     double lat = [poi.lat doubleValue];
     double longitude = [poi.lon doubleValue];
-
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:longitude
-                                                            longitude:lat
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
+                                                            longitude:longitude
                                                                  zoom:15];
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    
     mapView.myLocationEnabled = YES;
     self.view = mapView;
     mapView.mapType = kGMSTypeHybrid;
@@ -44,19 +45,21 @@
     //Allows you to tap a marker and have camera pan to it
     mapView.delegate = self;
     
-    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-    options.position = CLLocationCoordinate2DMake(longitude,lat);
+    
+    
+   /* GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+    //options.position = CLLocationCoordinate2DMake(longitude,lat);
     options.title =  poi.title;
     options.snippet = @"Test Text";
-      options.icon =  [UIImage imageNamed:@"flag-red.png"];
-
-    [mapView addMarkerWithOptions:options];
-
-    //[CLLocationManager ];
-
-  
-    
+    options.icon =  [UIImage imageNamed:@"flag-red.png"];
     NSLog(poi.title);
+    [mapView addMarkerWithOptions:options];*/
+    
+     
+
+   /*     
+    //NSLog(poi);
+    
      //If Free Roam Mode
     /*for (Poi * poi in [Singleton sharedSingleton].locationsArray)
     {
@@ -70,12 +73,24 @@
            options.icon =  [UIImage imageNamed:@"flag-green.png"];
 
         }*/
-        
 
+        
+    /*NSMutableArray *array = [NSMutableArray arrayWithObjects:@"12.981902,80.266333",@"12.982902,80.266363", nil];
     
+    CLLocationCoordinate2D pointsToUse[5];
     
+    for (int i = 0; i < [array count]; i++)
+    {
+        pointsToUse[i] = CLLocationCoordinate2DMake([[[[array objectAtIndex:0]  componentsSeparatedByString:@","] objectAtIndex:0] floatValue],[[[[array objectAtIndex:0]  componentsSeparatedByString:@","] objectAtIndex:1] floatValue]);
+        
+        [array removeObjectAtIndex:0];
+        
+        GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+        options.position = pointsToUse[i];
+        [mapView animateToLocation:pointsToUse[i]];
+        [mapView addMarkerWithOptions:options];
+    }*/
     
-       
     button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"locate.png"] forState:UIControlStateNormal];
     CGRect frame = CGRectMake(10, 10, 40, 32);
@@ -234,6 +249,10 @@
 
 -(IBAction)tapped:(id)sender
 {
+    
+    [DMRNotificationView showInView:self.view
+                              title:@"DUC Disovered"
+                           subTitle:@"Tap the camera button the right to see more"];
     [mapView animateToLocation:mapView.myLocation.coordinate];
     [mapView animateToBearing:0];
     [mapView animateToViewingAngle:0];
@@ -269,7 +288,7 @@
 {
     if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]])
     {
-          NSLog(@"Did update user location: %f,%f", mapView.myLocation.coordinate.latitude, mapView.myLocation.coordinate.longitude);
+         // NSLog(@"Did update user location: %f,%f", mapView.myLocation.coordinate.latitude, mapView.myLocation.coordinate.longitude);
         
        // [mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView.myLocation.coordinate.latitude
                                                                                  //longitude:mapView.myLocation.coordinate.longitude
@@ -289,8 +308,8 @@
         //CLLocation *loc = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
         CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:mapView.myLocation.coordinate.latitude longitude:mapView.myLocation.coordinate.longitude];
         
-        NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
-        NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
+       // NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
+        //NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
         
         CLLocationDistance dist = [loc distanceFromLocation:loc2] / 1000;
         
@@ -307,13 +326,11 @@
         //42.081917,-50.031738
         //44.528856,-89.569766
         //SCI CORD
-        if (dist < 0.02) {
+        if (dist < 0.01) {
             
-            [[[UIAlertView alloc] initWithTitle:nil
-                                        message:@"YOU MADE IT TO THE SCI BUILDING! WHICH MEANS GPS GEOLOCATION WORKS, HURRAYY"
-                                       delegate:nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
+            [DMRNotificationView showInView:self.view
+                                      title:@"DUC Disovered"
+                                   subTitle:@"Tap the camera button the right to see more"];
 
         
         }
@@ -346,19 +363,39 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     _arViewController = nil;
     
     [mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
+   
+    
+    double lat = [poi.lat doubleValue];
+    double longitude = [poi.lon doubleValue];
+    
+   
+
+    
+    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+    options.position = CLLocationCoordinate2DMake(longitude,lat);
+     options.title =  poi.title;
+     options.snippet = @"Test Text";
+     options.icon =  [UIImage imageNamed:@"flag-red.png"];
+     NSLog(poi.title);
+     [mapView addMarkerWithOptions:options];
+    
+    
+    [mapView animateToLocation:options.position];
+    [mapView animateToBearing:0];
+    [mapView animateToViewingAngle:0];
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
-    // Implement here if the view has registered KVO
-   
+    [super viewWillDisappear:animated];   
     [mapView removeObserver:self forKeyPath:@"myLocation"];
-}
+    }
 
 
 - (NSMutableArray *)geoLocations{
@@ -464,34 +501,6 @@
     tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"San Diego"];
     [locationArray addObject:tempCoordinate];
     
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:-40.900557 longitude:174.885971];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Munich"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:33.5033333 longitude:-117.126611];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Temecula"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:19.26 longitude:-99.8];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Mexico City"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:53.566667 longitude:-113.516667];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Edmonton"];
-    tempCoordinate.inclination = 0.5;
-    [locationArray addObject:tempCoordinate];
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:50.458061 longitude:-3.597078];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Marldon"];
-    [locationArray addObject:tempCoordinate];
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:50.528717 longitude:-3.606691];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Newton Abbot"];
-    [locationArray addObject:tempCoordinate];
     
     [Singleton sharedSingleton].locationsArray = locationArray;
     return [Singleton sharedSingleton].locationsArray;

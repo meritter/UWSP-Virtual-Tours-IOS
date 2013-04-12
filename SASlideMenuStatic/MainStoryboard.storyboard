@@ -57,6 +57,7 @@
                     </tableView>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
+                        <outlet property="MyTableView" destination="C1E-Me-VP4" id="XgX-7h-wHr"/>
                         <segue destination="doc-P0-YCL" kind="custom" identifier="settings" customClass="SASlideMenuContentSegue" id="POg-Df-gpJ"/>
                         <segue destination="FgT-Db-JXl" kind="custom" identifier="map" customClass="SASlideMenuContentSegue" id="jgz-po-BPx"/>
                         <segue destination="79Z-YM-vAE" kind="custom" identifier="about" customClass="SASlideMenuContentSegue" id="0IC-8a-lf6"/>
@@ -484,6 +485,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                             <segue destination="VKh-QN-AtT" kind="modal" id="mdO-dn-f3h"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="That's all we need for now. If you need to change your map pack later, you can change it in the settings tab - map packs" textAlignment="center" id="E8b-IZ-yEB">
+                                        <rect key="frame" x="10" y="42" width="300" height="118"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="0.93852645990000005" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
@@ -643,6 +651,48 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <image name="fall_lakeside_by_musicalartfreak-d4iyt97.jpg" width="1024" height="683"/>
         <image name="narrow_path_by_musicalartfreak-d4iytf7.jpg" width="1024" height="683"/>
     </resources>
+    <classes>
+        <class className="MapModeListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapModeListViewController.h"/>
+        </class>
+        <class className="MapPackListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapPackListViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealUnderRight:"/>
+                <relationship kind="action" name="tapped:"/>
+                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="subtitleView" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleView" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="QuestMenuViewController" superclassName="SASlideMenuViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QuestMenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="MyTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SASlideMenuRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SASlideMenuRootViewController.h"/>
+        </class>
+        <class className="SASlideMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SASlideMenuViewController.h"/>
+        </class>
+        <class className="SettingsMasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsMasterViewController.h"/>
+        </class>
+        <class className="TutorialFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="MyTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="TutorialSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TutorialSecondViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

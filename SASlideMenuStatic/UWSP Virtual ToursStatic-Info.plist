@@ -14,8 +14,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>map57.png</string>
-				<string>Map114.png</string>
+				<string>UWSP Logo 57.png</string>
+				<string>UWSP Logo 114.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>

@@ -10,7 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "TutorialFirstViewController.h"
 #import "Singleton.h"
-#import "XmlArrayParser.h"
+#import "XMLDataAccess.h"
 #import "Poi.h"
 @implementation SASlideMenuAppDelegate
 
@@ -22,7 +22,6 @@
    NSUserDefaults * deviceStoredValues;
    NSString       * currentMapPack;
    NSString       * currentMode;
-   NSMutableArray * parsedMapPack;
    int launchCount;
     
     //get stored values on device
@@ -53,59 +52,13 @@
             //set the singletons values for later use
             [Singleton sharedSingleton].selectedMapPack = currentMapPack;
             [Singleton sharedSingleton].selectedMode = currentMode;
-           
-            parsedMapPack = [[NSMutableArray alloc] init];
             
-            //Find the .xml file associated to the currentMapPack
-            NSString * stringURL = [NSString stringWithFormat:@"%@%@", currentMapPack, @".xml"];
+            XMLDataAccess * da = [[XMLDataAccess alloc] init];
             
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            
-            NSString *filePath = [documentsDirectory stringByAppendingPathComponent:stringURL];
-            NSData *data = [NSData dataWithContentsOfFile:filePath];
-        
-            XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
-            
-            //get pois points from array in XML starting with <poi> tag
-            parser.rowElementName = @"poi";
-            parser.elementNames = [NSArray arrayWithObjects: @"description", @"id", @"lat", @"long", @"title", nil];
-        
-                       
-            BOOL success = [parser parse];
-            
-            //If parse was successful send items to Array
-            if (success)
-            {
-              parsedMapPack = [parser items];
-            }
-            
-            
-            for (int i = 0; i < [parsedMapPack count]; i++)
-            {
-                //Create a dictionary and set to the count of i
-              NSDictionary *tempObjectDict = [parsedMapPack objectAtIndex:i];
-                
-                //Create and initialize a poi object
-                 Poi * poi = [[Poi alloc] init];
-                
-                //Assign based upon dictionary key value pairs
-                 poi.title = [tempObjectDict objectForKey:@"title"];
-                 poi.lat = [tempObjectDict objectForKey:@"lat"];
-                 poi.lon = [tempObjectDict objectForKey:@"long"];
-                
-                //Add poi to singleton for App use
-                 [[Singleton sharedSingleton].locationsArray  addObject:poi];
-
-                for ( Poi * poi in [Singleton sharedSingleton].locationsArray)
-                {
-                    NSLog(@"Poi:  %@", poi.title);
-                }
-            }
+            [da setUpPOI:currentMapPack];
         }
-        
+    
     }
-
     return YES;
 }
 

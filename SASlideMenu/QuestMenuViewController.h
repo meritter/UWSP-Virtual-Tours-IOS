@@ -10,10 +10,16 @@
 #import "SASlideMenuDataSource.h"
 #import "Poi.h"
 
-@interface QuestMenuViewController :SASlideMenuViewController<SASlideMenuDataSource,SASlideMenuDelegate>
+@interface QuestMenuViewController :SASlideMenuViewController<SASlideMenuDataSource,SASlideMenuDelegate, UITableViewDelegate>
 {
     NSMutableArray *users;
     NSMutableArray * tours;
+    int indexCount;
+    
+    
+    IBOutlet UITableView  *MyTableView;
 }
+
 @property (nonatomic, strong) Poi * poi;
+
 @end

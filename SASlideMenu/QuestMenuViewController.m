@@ -54,6 +54,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     [super viewDidLoad];
 
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"MyNotification" object:nil];
     settings = [[NSMutableArray alloc] init];
     users = [[NSMutableArray alloc] init];
     tours = [[NSMutableArray alloc] init];
@@ -62,7 +64,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     [settings addObject:@"Settings"];
     [settings addObject:@"About"];
-
+    int indexCount;
     for (Poi * poi in [Singleton sharedSingleton].locationsArray)
     {
         [users addObject:poi];
@@ -73,6 +75,21 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
 }
 
+
+- (void)handleNotification:(NSNotification*)note {
+
+     [users removeAllObjects];
+    
+        for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    {
+        [users addObject:poi];
+    }
+    
+   
+    
+
+    [MyTableView reloadData];
+}
 
 
 - (void)awakeFromNib
@@ -184,6 +201,24 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
      
 }
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger section = indexPath.section;
+    if (section == 0 && [users count]!= 0) {
+        poi = [users objectAtIndex:indexPath.row];
+    }
+
+    else if (section==1 && [users count]!= 0){
+        poi = [users objectAtIndex:indexPath.row];
+    }
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
+
+
+
+
+
 #pragma mark -
 #pragma mark SASlideMenuDataSource
 // The SASlideMenuDataSource is used to provide the initial segueid that represents the initial visibile view controller and to provide eventual additional configuration to the menu button
@@ -193,55 +228,25 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return [NSIndexPath indexPathForRow:0 inSection:0];
 }
 
--(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath
-{
-    @try {
-    if([Singleton sharedSingleton].selectedMapPack == nil)
-    {
-        return @"tutorial";
-    }
-    else
-    {
-      
-            switch (indexPath.section) {
-                case 0:
-                   /* if([Singleton sharedSingleton].selectedMapPack != nil)
-                    {
-                        poi = [users objectAtIndex:indexPath.row];
-                    }*/
-                    return @"map";
-                    break;
-                case 1:
-                    /*if([Singleton sharedSingleton].selectedMapPack != nil)
-                    {
-                        poi = [users objectAtIndex:indexPath.row];
-                    }*/
-                    return @"map";
-                    break;
-                case 2:
-                    if (indexPath.row == 0) {
-                        return @"settings";
-                        
-                    }else if (indexPath.row == 1){
-                        return @"about";
-                    }
-                    break;
 
-             }
-    }
-        
-    }
-          @catch (NSException *exception) {
-              NSLog(@"Hit exception");
-          }
-          @finally {
-              
-          }
 
+-(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section < 2) {
+        return @"map";
+    }
     
-    
+    else if (indexPath.section == 2)
+    {
+        if (indexPath.row == 0) {
+            return @"settings";
+            
+        }else if (indexPath.row == 1){
+            return @"about";
+        }
+    }
     return 0;
 
+   
 }
 
 -(Boolean) allowContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath{
@@ -274,8 +279,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     UIViewController* controller = [content.viewControllers objectAtIndex:0];
     if ([controller isKindOfClass:[MapViewController class]]) {
         MapViewController* mapViewController = (MapViewController*)controller;
+        //poi = [users objectAtIndex:indexCount];
+         
         mapViewController.poi =  poi;
+              //[self.view addSubview:self.mapViewController.view];
+  
+          // [mapViewController view];
         mapViewController.menuViewController = self;
+              //[mapViewController loadView];
     }
 }
 
