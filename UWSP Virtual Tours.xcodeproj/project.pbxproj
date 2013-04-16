@@ -39,8 +39,6 @@
 		AB018F371716154A009931CB /* flag-red.png in Resources */ = {isa = PBXBuildFile; fileRef = AB018F361716154A009931CB /* flag-red.png */; };
 		AB019CCB170A077800EB5D56 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB019CCA170A077800EB5D56 /* icon.png */; };
 		AB019CCD170A090D00EB5D56 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = AB019CCC170A090D00EB5D56 /* flag.png */; };
-		AB08905716FE988400506A01 /* DummyConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08905516FE988400506A01 /* DummyConnection.m */; };
-		AB08905E16FE98F300506A01 /* WDUploadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08905C16FE98F300506A01 /* WDUploadProgressView.m */; };
 		AB089063170116E800506A01 /* screenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = AB089062170116E800506A01 /* screenShot.png */; };
 		AB101FF6170782F200C316F8 /* Poi.m in Sources */ = {isa = PBXBuildFile; fileRef = AB101FF5170782F200C316F8 /* Poi.m */; };
 		AB395E5D170A5217007C2D59 /* flagGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = AB395E5C170A5217007C2D59 /* flagGreen.png */; };
@@ -114,6 +112,13 @@
 		ABA1D0F717151BC1007F2972 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ABA1D0F617151BC1007F2972 /* GoogleMaps.bundle */; };
 		ABA1D0FD17151C5A007F2972 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA1D0FC17151C5A007F2972 /* GoogleMaps.framework */; };
 		ABA1D0FE17151CAE007F2972 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBDE47717151A60002A416E /* ImageIO.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		ABAF55C3171BB04200278222 /* ZAActivityBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ABAF55C2171BB04200278222 /* ZAActivityBar.bundle */; };
+		ABAF55C6171BB04D00278222 /* ZAActivityBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF55C5171BB04D00278222 /* ZAActivityBar.m */; };
+		ABAF55C9171BB22C00278222 /* SKBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF55C8171BB22C00278222 /* SKBounceAnimation.m */; };
+		ABAF55CC171CD1CC00278222 /* LocationDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF55CB171CD1CC00278222 /* LocationDetailsController.m */; };
+		ABAF55CF171CEBB900278222 /* GKLParallaxPicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF55CE171CEBB900278222 /* GKLParallaxPicturesViewController.m */; };
+		ABAF55D2171CF9D500278222 /* MDCParallaxView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF55D1171CF9D400278222 /* MDCParallaxView.m */; };
+		ABAF55D5171CF9E200278222 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF55D4171CF9DE00278222 /* ImageViewController.m */; };
 		ABE36439170F70FA004F2112 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE36438170F70FA004F2112 /* map.png */; };
 		ABE36440170F7811004F2112 /* map57.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE3643E170F7811004F2112 /* map57.png */; };
 		ABE36441170F7811004F2112 /* Map114.png in Resources */ = {isa = PBXBuildFile; fileRef = ABE3643F170F7811004F2112 /* Map114.png */; };
@@ -180,11 +185,6 @@
 		AB018F361716154A009931CB /* flag-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-red.png"; path = "../../Downloads/flag-red.png"; sourceTree = "<group>"; };
 		AB019CCA170A077800EB5D56 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		AB019CCC170A090D00EB5D56 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
-		AB08905416FE988400506A01 /* DummyConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DummyConnection.h; path = ../DummyConnection.h; sourceTree = "<group>"; };
-		AB08905516FE988400506A01 /* DummyConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DummyConnection.m; path = ../DummyConnection.m; sourceTree = "<group>"; };
-		AB08905A16FE98F300506A01 /* WDClientUploadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDClientUploadDelegate.h; path = ../WDClientUploadDelegate.h; sourceTree = "<group>"; };
-		AB08905B16FE98F300506A01 /* WDUploadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDUploadProgressView.h; path = ../WDUploadProgressView.h; sourceTree = "<group>"; };
-		AB08905C16FE98F300506A01 /* WDUploadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDUploadProgressView.m; path = ../WDUploadProgressView.m; sourceTree = "<group>"; };
 		AB089062170116E800506A01 /* screenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenShot.png; sourceTree = "<group>"; };
 		AB101FF4170782F200C316F8 /* Poi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Poi.h; path = ../../Downloads/UITableViewFilterDemo/UITableViewFilterDemo/Poi.h; sourceTree = "<group>"; };
 		AB101FF5170782F200C316F8 /* Poi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Poi.m; path = ../../Downloads/UITableViewFilterDemo/UITableViewFilterDemo/Poi.m; sourceTree = "<group>"; };
@@ -287,6 +287,19 @@
 		AB9CC1E816E52D3300B47683 /* camera copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera copy.png"; sourceTree = "<group>"; };
 		ABA1D0F617151BC1007F2972 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		ABA1D0FC17151C5A007F2972 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		ABAF55C2171BB04200278222 /* ZAActivityBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZAActivityBar.bundle; sourceTree = "<group>"; };
+		ABAF55C4171BB04D00278222 /* ZAActivityBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAActivityBar.h; sourceTree = "<group>"; };
+		ABAF55C5171BB04D00278222 /* ZAActivityBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZAActivityBar.m; sourceTree = "<group>"; };
+		ABAF55C7171BB22C00278222 /* SKBounceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBounceAnimation.h; sourceTree = "<group>"; };
+		ABAF55C8171BB22C00278222 /* SKBounceAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBounceAnimation.m; sourceTree = "<group>"; };
+		ABAF55CA171CD1CC00278222 /* LocationDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailsController.h; sourceTree = "<group>"; };
+		ABAF55CB171CD1CC00278222 /* LocationDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailsController.m; sourceTree = "<group>"; };
+		ABAF55CD171CEBB800278222 /* GKLParallaxPicturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLParallaxPicturesViewController.h; sourceTree = "<group>"; };
+		ABAF55CE171CEBB900278222 /* GKLParallaxPicturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLParallaxPicturesViewController.m; sourceTree = "<group>"; };
+		ABAF55D0171CF9D400278222 /* MDCParallaxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCParallaxView.h; sourceTree = "<group>"; };
+		ABAF55D1171CF9D400278222 /* MDCParallaxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCParallaxView.m; sourceTree = "<group>"; };
+		ABAF55D3171CF9DD00278222 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		ABAF55D4171CF9DE00278222 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		ABBDE47717151A60002A416E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		ABE36438170F70FA004F2112 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		ABE3643E170F7811004F2112 /* map57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map57.png; sourceTree = "<group>"; };
@@ -384,6 +397,7 @@
 		7B8C3FDD15D8D55800E42A41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABAF55C2171BB04200278222 /* ZAActivityBar.bundle */,
 				ABA1D0FC17151C5A007F2972 /* GoogleMaps.framework */,
 				ABA1D0F617151BC1007F2972 /* GoogleMaps.bundle */,
 				ABBDE47717151A60002A416E /* ImageIO.framework */,
@@ -453,7 +467,6 @@
 			isa = PBXGroup;
 			children = (
 				7B8C3FE415D8D55800E42A41 /* SASlideMenuSource */,
-				AB08905F16FEA05100506A01 /* WDUploadFiles */,
 				7B1141A4161B621000549B42 /* Default-568h@2x.png */,
 				7BDBF471166CDEB100FDA327 /* UWSP Virtual ToursStatic-Info.plist */,
 				7BDBF472166CDEB100FDA327 /* InfoPlist.strings */,
@@ -474,18 +487,6 @@
 			path = SASlideMenu;
 			sourceTree = "<group>";
 		};
-		AB08905F16FEA05100506A01 /* WDUploadFiles */ = {
-			isa = PBXGroup;
-			children = (
-				AB08905416FE988400506A01 /* DummyConnection.h */,
-				AB08905516FE988400506A01 /* DummyConnection.m */,
-				AB08905A16FE98F300506A01 /* WDClientUploadDelegate.h */,
-				AB08905B16FE98F300506A01 /* WDUploadProgressView.h */,
-				AB08905C16FE98F300506A01 /* WDUploadProgressView.m */,
-			);
-			name = WDUploadFiles;
-			sourceTree = "<group>";
-		};
 		AB0890601700DBD600506A01 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +500,12 @@
 				AB39ABA816EE7F9B007B06EC /* Reachability.m */,
 				AB018F331715F0A9009931CB /* XMLDataAccess.h */,
 				AB018F341715F0A9009931CB /* XMLDataAccess.m */,
+				ABAF55C4171BB04D00278222 /* ZAActivityBar.h */,
+				ABAF55C5171BB04D00278222 /* ZAActivityBar.m */,
+				ABAF55C7171BB22C00278222 /* SKBounceAnimation.h */,
+				ABAF55C8171BB22C00278222 /* SKBounceAnimation.m */,
+				ABAF55D0171CF9D400278222 /* MDCParallaxView.h */,
+				ABAF55D1171CF9D400278222 /* MDCParallaxView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -605,6 +612,8 @@
 		AB9CC1D816E319B200B47683 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ABAF55D3171CF9DD00278222 /* ImageViewController.h */,
+				ABAF55D4171CF9DE00278222 /* ImageViewController.m */,
 				AB51ED7A16E9B6B800851F19 /* TutorialFirstViewController.h */,
 				AB51ED7B16E9B6BA00851F19 /* TutorialFirstViewController.m */,
 				AB51ED8116EAABAD00851F19 /* TutorialSecondViewController.h */,
@@ -622,6 +631,10 @@
 				AB51ED6E16E8226A00851F19 /* SettingsMasterViewController.m */,
 				AB616F491714B3EB0058EB99 /* MapModeListViewController.h */,
 				AB616F4A1714B3EB0058EB99 /* MapModeListViewController.m */,
+				ABAF55CA171CD1CC00278222 /* LocationDetailsController.h */,
+				ABAF55CB171CD1CC00278222 /* LocationDetailsController.m */,
+				ABAF55CD171CEBB800278222 /* GKLParallaxPicturesViewController.h */,
+				ABAF55CE171CEBB900278222 /* GKLParallaxPicturesViewController.m */,
 			);
 			name = Controllers;
 			path = SASlideMenuStatic;
@@ -749,6 +762,7 @@
 				AB616F481714AE9F0058EB99 /* camera1 copy.png in Resources */,
 				ABA1D0F717151BC1007F2972 /* GoogleMaps.bundle in Resources */,
 				AB018F371716154A009931CB /* flag-red.png in Resources */,
+				ABAF55C3171BB04200278222 /* ZAActivityBar.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,8 +793,6 @@
 				AB51ED7C16E9B6BD00851F19 /* TutorialFirstViewController.m in Sources */,
 				AB51ED8316EAABB100851F19 /* TutorialSecondViewController.m in Sources */,
 				AB39ABA916EE7F9B007B06EC /* Reachability.m in Sources */,
-				AB08905716FE988400506A01 /* DummyConnection.m in Sources */,
-				AB08905E16FE98F300506A01 /* WDUploadProgressView.m in Sources */,
 				AB101FF6170782F200C316F8 /* Poi.m in Sources */,
 				ABEDF4BC170E09B700B0251E /* EGORefreshTableHeaderView.m in Sources */,
 				AB616F4B1714B3EB0058EB99 /* MapModeListViewController.m in Sources */,
@@ -794,6 +806,12 @@
 				AB77BCB41717A92B00CC5644 /* SASlideMenuRootViewController.m in Sources */,
 				AB77BCB51717A92B00CC5644 /* SASlideMenuRightMenuViewController.m in Sources */,
 				AB77BCB61717A92B00CC5644 /* SASlideMenuNavigationController.m in Sources */,
+				ABAF55C6171BB04D00278222 /* ZAActivityBar.m in Sources */,
+				ABAF55C9171BB22C00278222 /* SKBounceAnimation.m in Sources */,
+				ABAF55CC171CD1CC00278222 /* LocationDetailsController.m in Sources */,
+				ABAF55CF171CEBB900278222 /* GKLParallaxPicturesViewController.m in Sources */,
+				ABAF55D2171CF9D500278222 /* MDCParallaxView.m in Sources */,
+				ABAF55D5171CF9E200278222 /* ImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

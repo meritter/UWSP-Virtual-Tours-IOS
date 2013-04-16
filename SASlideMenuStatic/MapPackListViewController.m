@@ -9,10 +9,10 @@
 #import "XmlArrayParser.h"
 #import "SettingsMasterViewController.h"
 #import "Singleton.h"
-#import "DummyConnection.h"
 #import "Reachability.h"
 #import "XMLDataAccess.h"
 #import "QuestMenuViewController.h"
+#import "ZAActivityBar.h"
 
 
 @implementation MapPackListViewController
@@ -20,16 +20,26 @@
     NSArray *searchResults;
     NSMutableArray  * serverMapPacks;
     NSMutableArray * localMapPacks;
+    
 }
 
 
 @synthesize tableData, reach;
-
+@synthesize searchBar;
+@synthesize isFiltered;
+@synthesize filteredTableData;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    searchBar.delegate = (id)self;
+    
     serverMapPacks = [[NSMutableArray alloc] init];
     localMapPacks = [[NSMutableArray alloc] init];
+    
+    
+       //     [ZAActivityBar showWithStatus:@"Checking for Updates..."];
+
     
     
     if (_refreshHeaderView == nil) {
@@ -136,12 +146,6 @@
 }
 
 
-/*- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
-{
-    [self reloadTableData];
-}*/
-
-
 -(void) reloadTableData
 {
     [self getMapPacksFromServer];
@@ -224,47 +228,30 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
 {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
-
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
-    NSPredicate *resultPredicate = [NSPredicate
-                                   predicateWithFormat:@"SELF contains[cd] %@",
-                                    searchText];
-
-    searchResults = [localMapPacks filteredArrayUsingPredicate:resultPredicate];
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller
-shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString
-                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
-                                      objectAtIndex:[self.searchDisplayController.searchBar
-                                    selectedScopeButtonIndex]]];
-    return YES;
-}
-
-
-
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if(text.length == 0)
+    {
+        isFiltered = FALSE;
+    }
+    else
+    {
+        isFiltered = true;
+        
+        NSPredicate *resultPredicate = [NSPredicate
+                                        predicateWithFormat:@"SELF contains[cd] %@",
+                                        text];
+        
+       filteredTableData = [localMapPacks filteredArrayUsingPredicate:resultPredicate];
+    }
     
-    if(section == 0)
+    [self.tableView reloadData];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+
+    if(section == 0 && !isFiltered)
         return @"Tours Near You";
     else
         return @"Downloaded Tours";
@@ -274,7 +261,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if(self.isFiltered) {
         return 1;
         
     } else {
@@ -282,29 +269,31 @@ shouldReloadTableForSearchString:(NSString *)searchString
     }
 }
 
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView)
+    int rowCount;
+    if(self.isFiltered)
     {
-        return [searchResults count];
+        rowCount = filteredTableData.count;
     }
     else
-    {
         switch (section)
-        {
+    {
         case 0:
             return [serverMapPacks count];
-                break;
-            case 1:
+            break;
+        case 1:
             return [localMapPacks count];
-                break;
+            break;
         default:
             break;
-        }
     }
     
-    return 0;
+    return rowCount;
 }
+
 
 
 
@@ -337,14 +326,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
     
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     
-    if (tableView == self.searchDisplayController.searchResultsTableView)
+
+    if(isFiltered)
     {
-        switch (indexPath.section)
-        {
-        case 0:
-        cell.textLabel.text = [searchResults objectAtIndex:indexPath.row];
-        break;
-        }
+
+    cell.textLabel.text = [filteredTableData objectAtIndex:indexPath.row];
+        cell.detailTextLabel.text = @"";
     }
     else
     {
@@ -422,16 +409,22 @@ shouldReloadTableForSearchString:(NSString *)searchString
     index = [item objectForKey:@"id"];
     }
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
+    if (isFiltered) {
          [Singleton sharedSingleton].selectedMapPack = cellText;
+         [self.navigationController  popViewControllerAnimated:YES];
     } else {
     
     //For right now if the map pack is in the serverMapPack, we download it
     switch (indexPath.section) {
         case 0:
-            [self showUploadView:cellText];
+               //[ZAActivityBar showWithStatus:@"Downloading Map Pack"];
+           // [self showUploadView:cellText];
             [self saveMapPack:cellText:index];
              [Singleton sharedSingleton].selectedMapPack = cellText;
+            
+            // make async
+            [ZAActivityBar showSuccessWithStatus:@"Downloaded Map Pack"];
+            [self reloadTableData];
         break;
         case 1:
              [Singleton sharedSingleton].selectedMapPack = cellText;
@@ -440,39 +433,12 @@ shouldReloadTableForSearchString:(NSString *)searchString
             
             [da setUpPOI:  [Singleton sharedSingleton].selectedMapPack];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"MyNotification" object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
 
             [self.navigationController  popViewControllerAnimated:YES];
             break;
         }
     }
-}
-
-
-- (void)showUploadView: selectedMapPack {
-	WDUploadProgressView *progressView = [[WDUploadProgressView alloc] initWithTableView:self.tableView cancelButton:YES];
-	progressView.delegate = self;
-	
-    NSString * progressString = [NSString stringWithFormat:@"%s%@%@","Downloading ", selectedMapPack, @"..."];
-	[progressView setUploadMessage:progressString];
-		
-	// Insert your connection library that will deal with the upload
-	// and set the progress view as a delegate
-    //The Dummy connection works fine for now it is located in Supporting Files/WDUploadFiles/DummyConnection
-	DummyConnection * connection = [[DummyConnection alloc] initWithDelegate:progressView];
-	
-	
-}
-
-
-- (void)uploadDidFinish:(WDUploadProgressView *)progressView {
-	[progressView removeFromSuperview];
-	[self.tableView setTableHeaderView:nil];
-}
-
-- (void)uploadDidCancel:(WDUploadProgressView *)progressView {
-	[progressView removeFromSuperview];
-	[self.tableView setTableHeaderView:nil];
 }
 
 
@@ -511,6 +477,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 - (void)viewDidUnload
 {
     
+    [self setSearchBar:nil];
 
     [self setTableData:nil];
     [super viewDidUnload];

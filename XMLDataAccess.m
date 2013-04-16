@@ -72,6 +72,8 @@ for (int i = 0; i < [parsedMapPack count]; i++)
         NSLog(@"Poi:  %@", poi.title);
         NSLog(@"Poi:  %@", poi.description);
         
+        
+        
     }
 }
 

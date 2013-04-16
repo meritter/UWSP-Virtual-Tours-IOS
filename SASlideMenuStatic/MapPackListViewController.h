@@ -6,16 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WDUploadProgressView.h"
 #import "Reachability.h"
 #import "EGORefreshTableHeaderView.h"
 
 
-@interface MapPackListViewController :  UITableViewController<EGORefreshTableHeaderDelegate, UITableViewDataSource, UITabBarControllerDelegate, WDUploadProgressDelegate>
+@interface MapPackListViewController :  UITableViewController<EGORefreshTableHeaderDelegate, UITableViewDataSource, UITabBarControllerDelegate>
     
 {
     
-    
+
 	EGORefreshTableHeaderView *_refreshHeaderView;
 	
 	//  Reloading var should really be your tableviews datasource
@@ -25,10 +24,13 @@
     NSArray *tableData;
     NSDictionary *item;
 
-}  
+}
+@property (strong, nonatomic) NSArray* filteredTableData;
 @property (nonatomic, retain) Reachability * reach;
 @property (nonatomic, retain) NSArray *tableData;
 @property (assign, nonatomic) BOOL ascending;
+@property (nonatomic, assign) bool isFiltered;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 - (void)reloadTableViewDataSource;
 - (void)doneLoadingTableViewData;

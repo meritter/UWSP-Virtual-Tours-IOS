@@ -55,7 +55,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [super viewDidLoad];
 
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"MyNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NotifyOnMapModeChange:) name:@"MapModeChange" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NotifyOnMapPackChange:) name:@"MapPackChange" object:nil];
+
     settings = [[NSMutableArray alloc] init];
     users = [[NSMutableArray alloc] init];
     tours = [[NSMutableArray alloc] init];
@@ -70,27 +72,50 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         [users addObject:poi];
     }
     
-    
-       
-    
+   
 }
 
 
-- (void)handleNotification:(NSNotification*)note {
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
+    {
+        [users removeAllObjects];
+        [tours removeAllObjects];
+        
+    }
+    [MyTableView reloadData];
+    
+
+}
+
+- (void)NotifyOnMapPackChange:(NSNotification*)note {
 
      [users removeAllObjects];
     
         for (Poi * poi in [Singleton sharedSingleton].locationsArray)
     {
         [users addObject:poi];
-    }
-    
-   
-    
-
+    } 
     [MyTableView reloadData];
 }
 
+
+
+
+- (void)NotifyOnMapModeChange:(NSNotification*)note {
+    
+    if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
+    {
+        [users removeAllObjects];
+        [tours removeAllObjects];
+        
+    }
+    [MyTableView reloadData];
+}
 
 - (void)awakeFromNib
 {
@@ -118,6 +143,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     label.opaque = YES;
     label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15.5];
      UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 75, 80 }];
+    
+    
+    
     if(section == 0)
     {
         label.text = @"Active Quest";
@@ -254,9 +282,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 -(Boolean) disablePanGestureForIndexPath:(NSIndexPath *)indexPath{
-   // if (indexPath.row ==0) {
-      //  return YES;
-   //}
     return YES;
 }
 
@@ -275,18 +300,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 -(CGFloat) leftMenuVisibleWidth{
     return 280;
 }
+
 -(void) prepareForSwitchToContentViewController:(UINavigationController *)content{
     UIViewController* controller = [content.viewControllers objectAtIndex:0];
-    if ([controller isKindOfClass:[MapViewController class]]) {
+    if ([controller isKindOfClass:[MapViewController class]])
+    {
         MapViewController* mapViewController = (MapViewController*)controller;
-        //poi = [users objectAtIndex:indexCount];
-         
         mapViewController.poi =  poi;
-              //[self.view addSubview:self.mapViewController.view];
-  
-          // [mapViewController view];
         mapViewController.menuViewController = self;
-              //[mapViewController loadView];
     }
 }
 

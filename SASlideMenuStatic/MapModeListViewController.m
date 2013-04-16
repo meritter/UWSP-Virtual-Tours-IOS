@@ -128,6 +128,8 @@ int count = 1;
     NSString *cellText = selectedCell.textLabel.text;
     count = 0;
     [Singleton sharedSingleton].selectedMode = cellText;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MapModeChange" object:self];
+
     self.lastIndexPath = indexPath;
     
     

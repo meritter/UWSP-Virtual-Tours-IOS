@@ -10,6 +10,8 @@
 #import "Singleton.h"
 #import "Poi.h"
 #import "DMRNotificationView.h"
+#import "LocationDetailsController.h"
+#import "GKLParallaxPicturesViewController.h"
 
 @interface MapViewController ()
 
@@ -44,52 +46,6 @@
     
     //Allows you to tap a marker and have camera pan to it
     mapView.delegate = self;
-    
-    
-    
-   /* GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-    //options.position = CLLocationCoordinate2DMake(longitude,lat);
-    options.title =  poi.title;
-    options.snippet = @"Test Text";
-    options.icon =  [UIImage imageNamed:@"flag-red.png"];
-    NSLog(poi.title);
-    [mapView addMarkerWithOptions:options];*/
-    
-     
-
-   /*     
-    //NSLog(poi);
-    
-     //If Free Roam Mode
-    /*for (Poi * poi in [Singleton sharedSingleton].locationsArray)
-    {
-        GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-                         options.position = CLLocationCoordinate2DMake(lat,longitude);
-        options.title =  poi.title;
-        options.snippet = @"Test Text";
-        //We can chnage icon colors here
-        if(poi.visited == false)
-        {
-           options.icon =  [UIImage imageNamed:@"flag-green.png"];
-
-        }*/
-
-        
-    /*NSMutableArray *array = [NSMutableArray arrayWithObjects:@"12.981902,80.266333",@"12.982902,80.266363", nil];
-    
-    CLLocationCoordinate2D pointsToUse[5];
-    
-    for (int i = 0; i < [array count]; i++)
-    {
-        pointsToUse[i] = CLLocationCoordinate2DMake([[[[array objectAtIndex:0]  componentsSeparatedByString:@","] objectAtIndex:0] floatValue],[[[[array objectAtIndex:0]  componentsSeparatedByString:@","] objectAtIndex:1] floatValue]);
-        
-        [array removeObjectAtIndex:0];
-        
-        GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-        options.position = pointsToUse[i];
-        [mapView animateToLocation:pointsToUse[i]];
-        [mapView addMarkerWithOptions:options];
-    }*/
     
     button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"locate.png"] forState:UIControlStateNormal];
@@ -132,43 +88,7 @@
     
     
 
-    
-    CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
-    UIView* _headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
-    _headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
-    _headerTitleSubtitleView.autoresizesSubviews = YES;
-    
-    CGRect titleFrame = CGRectMake(0, 2, 200, 24);
-    titleView = [[UILabel alloc] initWithFrame:titleFrame];
-    titleView.backgroundColor = [UIColor clearColor];
-    titleView.font = [UIFont boldSystemFontOfSize:17];
-    titleView.textAlignment = UITextAlignmentCenter;
-    titleView.textColor = [UIColor whiteColor];
-    titleView.shadowColor = [UIColor darkGrayColor];
-    titleView.shadowOffset = CGSizeMake(0, -1);
-    titleView.text = @"UWSP Virtual Tours";
-    titleView.adjustsFontSizeToFitWidth = YES;
-    [_headerTitleSubtitleView addSubview:titleView];
-    
-    CGRect subtitleFrame = CGRectMake(0, 24, 200, 44-24);
-    subtitleView = [[UILabel alloc] initWithFrame:subtitleFrame];
-    subtitleView.backgroundColor = [UIColor clearColor];
-    subtitleView.font = [UIFont boldSystemFontOfSize:12];
-    subtitleView.textAlignment = UITextAlignmentCenter;
-    subtitleView.textColor = [UIColor whiteColor];
-    subtitleView.shadowColor = [UIColor darkGrayColor];
-    subtitleView.shadowOffset = CGSizeMake(0, -1);
-    subtitleView.text = [Singleton sharedSingleton].selectedMode;
-    subtitleView.adjustsFontSizeToFitWidth = YES;
-    [_headerTitleSubtitleView addSubview:subtitleView];
-    
-    _headerTitleSubtitleView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
-                                                 UIViewAutoresizingFlexibleRightMargin |
-                                                 UIViewAutoresizingFlexibleTopMargin |
-                                                 UIViewAutoresizingFlexibleBottomMargin);
-    
-    self.navigationItem.titleView = _headerTitleSubtitleView;
-
+  
 }
 
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -277,7 +197,7 @@
  _arViewController = [[ARViewController alloc] initWithDelegate:self];
  _arViewController.showsCloseButton = false;
 // [_arViewController setHidesBottomBarWhenPushed:YES];
-[_arViewController setRadarRange:1.0];
+[_arViewController setRadarRange:2.0];
  [_arViewController setOnlyShowItemsWithinRadarRange:YES];
  [self.navigationController pushViewController:_arViewController animated:YES];
  }
@@ -301,7 +221,10 @@
                                        longitude:myLocation.coordinate.longitude];
         CLLocation* loc= [[CLLocation alloc]
                                    initWithLatitude:44.528856
-                                   longitude:-89.569766];
+                                   longitude:-89.569621];
+        
+        
+      
        // CLLocationDistance distance = [ourUserLocation distanceFromLocation:pinLocation] / 1000;
         
                 
@@ -366,17 +289,99 @@
 - (void)viewWillAppear:(BOOL)animated{
     _arViewController = nil;
     
+    
+    
+    
+    CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
+    UIView* _headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
+    _headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
+    _headerTitleSubtitleView.autoresizesSubviews = YES;
+    
+    CGRect titleFrame = CGRectMake(0, 2, 200, 24);
+    titleView = [[UILabel alloc] initWithFrame:titleFrame];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.font = [UIFont boldSystemFontOfSize:17];
+    titleView.textAlignment = UITextAlignmentCenter;
+    titleView.textColor = [UIColor whiteColor];
+    titleView.shadowColor = [UIColor darkGrayColor];
+    titleView.shadowOffset = CGSizeMake(0, -1);
+    titleView.text = @"UWSP Virtual Tours";
+    titleView.adjustsFontSizeToFitWidth = YES;
+    [_headerTitleSubtitleView addSubview:titleView];
+    
+    CGRect subtitleFrame = CGRectMake(0, 24, 200, 44-24);
+    subtitleView = [[UILabel alloc] initWithFrame:subtitleFrame];
+    subtitleView.backgroundColor = [UIColor clearColor];
+    subtitleView.font = [UIFont boldSystemFontOfSize:12];
+    subtitleView.textAlignment = UITextAlignmentCenter;
+    subtitleView.textColor = [UIColor whiteColor];
+    subtitleView.shadowColor = [UIColor darkGrayColor];
+    subtitleView.shadowOffset = CGSizeMake(0, -1);
+    subtitleView.text = [Singleton sharedSingleton].selectedMode;
+    subtitleView.adjustsFontSizeToFitWidth = YES;
+    [_headerTitleSubtitleView addSubview:subtitleView];
+    
+    _headerTitleSubtitleView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
+                                                 UIViewAutoresizingFlexibleRightMargin |
+                                                 UIViewAutoresizingFlexibleTopMargin |
+                                                 UIViewAutoresizingFlexibleBottomMargin);
+    
+    self.navigationItem.titleView = _headerTitleSubtitleView;
+
+    
     [mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
    
     
-    double lat = [poi.lat doubleValue];
-    double longitude = [poi.lon doubleValue];
-    
-   
 
     
+   /* if([[Singleton sharedSingleton].selectedMode isEqual: @"Free Roam Mode"])
+    {
+    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    {
+        // NSMutableArray *array = [NSMutableArray arrayWithObjects:@"12.981902,80.266333",@"12.982902,80.266363", nil];
+     
+         CLLocationCoordinate2D pointsToUse[[[Singleton sharedSingleton].locationsArray count]];
+     
+         for (int i = 0; i < [[Singleton sharedSingleton].locationsArray count]; i++)
+         {
+             
+            
+             NSDictionary *tempObjectDict = [[Singleton sharedSingleton].locationsArray objectAtIndex:i];
+         
+             //Create and initialize a poi object
+             Poi * poi = [[Poi alloc] init];
+         
+             //Assign based upon dictionary key value pairs
+             /*poi.title = [tempObjectDict objectForKey:@"title"];
+             poi.lat = [tempObjectDict objectForKey:@"lat"];
+             poi.lon = [tempObjectDict objectForKey:@"long"];
+    
+             
+             double lat = [poi.lat doubleValue];
+             double longitude = [poi.lon doubleValue];
+             
+             //pointsToUse[i] = CLLocationCoordinate2DMake([
+             CLLocationCoordinate2D newCoord = CLLocationCoordinate2DMake(lat, longitude);
+            // [array removeObjectAtIndex:0];*/
+     
+         /*    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+             options.position = pointsToUse[i];
+             [mapView animateToLocation:pointsToUse[i]];
+             options.snippet = @"Test Text";
+             options.icon =  [UIImage imageNamed:@"flag-green.png"];
+             [mapView addMarkerWithOptions:options];
+         }
+     }
+    }
+    else
+        {*/
+    
+            
+            double lat = [poi.lat doubleValue];
+            double longitude = [poi.lon doubleValue];
+    
     GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-    options.position = CLLocationCoordinate2DMake(longitude,lat);
+    options.position = CLLocationCoordinate2DMake(lat, longitude);
      options.title =  poi.title;
      options.snippet = @"Test Text";
      options.icon =  [UIImage imageNamed:@"flag-red.png"];
@@ -389,7 +394,8 @@
     [mapView animateToViewingAngle:0];
     
     
-}
+        }
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -405,11 +411,68 @@
     CLLocation       *tempLocation;
     
     
+    
+
+    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+        {
+           // id value = [xyz objectForKey:key];
+            double lat = [poi.lat  doubleValue];
+            double longitude = [poi.lon   doubleValue];
+            NSString * name = poi.title;
+            
+          /*  tempLocation = [[CLLocation alloc] initWithLatitude:44.531575 longitude:-89.569221];
+            tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"May Roach Hall"];
+            [locationArray addObject:tempCoordinate];*/
+
+            tempLocation = [[CLLocation alloc] initWithLatitude:lat longitude:longitude];
+            tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:name];
+            //tempCoordinate.inclination = 100;
+            [locationArray addObject:tempCoordinate];
+
+        
+    }
+    
+    return locationArray;
+}
+
+    
+-(void)locationClicked:(ARGeoCoordinate *)coordinate
+{
+        
+       LocationDetailsController * lvc = [[LocationDetailsController alloc] init];
+        lvc.locationName = coordinate.title;
+        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Root"];
+       [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifySelectedLocationName" object:self];
+        [self.navigationController pushViewController:controller animated:YES];
+        NSLog(@"%@", coordinate.title);
+    //GKLParallaxPicturesViewController *paralaxViewController = [GKLParallaxPicturesViewController alloc];
+    
+      //UIView *testContentView = [[[UINib nibWithNibName:@"testContentView" bundle:nil] instantiateWithOwner:nil options:nil] objectAtIndex:0];
+  //  GKLParallaxPicturesViewController *paralaxViewController = [[GKLParallaxPicturesViewController alloc] initWithImages:[NSArray arrayWithObjects:[UIImage imageNamed:@"shovel"], //[UIImage imageNamed:@"shovel"], nil] andContentView:testContentView];
+
+   //GKLParallaxPicturesViewController *paralaxViewController = [[GKLParallaxPicturesViewController alloc] init];    //	paralaxViewController.parallaxHeight = 150;
+    //	paralaxViewController.contentScrollView.delegate = self;
+    //self.viewController = paralaxViewController;
+    //self.window.rootViewController = self.viewController;
+    //[self.window makeKeyAndVisible];
+    //[paralaxViewController addImages:[NSArray arrayWithObjects:[UIImage imageNamed:@"shovel"], [UIImage imageNamed:@"shovel"], nil]];
+  // [self.navigationController  pushViewController:paralaxViewController  animated:YES];
+}
+        
+            
+  /*  }
+    for ( Poi * poi in [Singleton sharedSingleton].locationsArray)
+    {
+        NSLog(@"Poi:  %@", poi.title);
+        NSLog(@"Poi:  %@", poi.description);
+        
+    }8/
+
+    
     tempLocation = [[CLLocation alloc] initWithLatitude:44.525967 longitude:-89.568972];
     tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"DUC"];
     tempCoordinate.inclination = 100;
-    [locationArray addObject:tempCoordinate];
-    
+    [locationArray addObject:tempCoordinate];    
     
     tempLocation = [[CLLocation alloc] initWithLatitude:44.532252 longitude:-89.568738];
     tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Suites"];
@@ -440,77 +503,8 @@
     tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Science Building NW"];
     tempCoordinate.inclination = M_PI/100;
     [locationArray addObject:tempCoordinate];
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:44.528611 longitude:-89.570305];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Hardees"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:48.856667 longitude:2.350987];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Paris"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:55.676294 longitude:12.568116];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Copenhagen"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:52.373801 longitude:4.890935];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Amsterdam"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:19.611544 longitude:-155.665283];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Hawaii"];
-    tempCoordinate.inclination = M_PI/30;
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:40.756054 longitude:-73.986951];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"New York City"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:42.35892 longitude:-71.05781];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Boston"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:49.817492 longitude:15.472962];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Czech Republic"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:53.41291 longitude:-8.24389];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Ireland"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:38.892091 longitude:-77.024055];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Washington, DC"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:45.545447 longitude:-73.639076];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Montreal"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:32.78 longitude:-117.15];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"San Diego"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    [Singleton sharedSingleton].locationsArray = locationArray;
-    return [Singleton sharedSingleton].locationsArray;
-}
-
--(void)locationClicked:(ARGeoCoordinate *)coordinate{
-    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Root"];
-    [self.navigationController pushViewController:controller animated:YES];
-
-}
+        
+*/
 
 
 @end
