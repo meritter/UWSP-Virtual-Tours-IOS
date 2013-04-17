@@ -27,7 +27,7 @@
 }
 
 
-@synthesize titleView, subtitleView, button, myLocation, poi;
+@synthesize titleView, subtitleView, button, myLocation, poi, count;
 
 
 - (void)loadView {
@@ -122,52 +122,8 @@
 }
 
 
-
-#pragma mark - GMSMAPKitDelegate
-
-//                      otherButtonTitles:nil] show];
-    //CYCLE THROUGH PLACES ARRAY
-    /*for (int i = 0; i < [placesArray count]; i++) {
-     
-     //GET 2 POINTS AND CALCULATE DISTANCE
-     CLLocation* ourUserLocation = [[CLLocation alloc]
-     initWithLatitude:userLocation.coordinate.latitude
-     longitude:userLocation.coordinate.latitude];
-     CLLocation* pinLocation = [[CLLocation alloc]
-     initWithLatitude:[[[placesArray objectAtIndex:i]objectForKey:@"latitude"]floatValue]
-     longitude:[[[placesArray objectAtIndex:i]objectForKey:@"latitude"]floatValue]];
-     CLLocationDistance distance = [ourUserLocation distanceFromLocation:pinLocation];
-     
-     */
-    
-    /*if (distance < 100) {
-     
-     for (int x = 0; x < [alertedForTag count]; x++) {
-     
-     if ([[alertedForTag objectAtIndex:x]isEqualToNumber:[NSNumber numberWithInt:i]]) {
-     
-     } else {
-     [self showAlertWithDictionary:[placesArray objectAtIndex:i]];
-     [alertedForTag addObject:[NSNumber numberWithInt:i]];
-     }
-     }
-     
-     
-     if ([alertedForTag count]==0) {
-     
-     [self showAlertWithDictionary:[placesArray objectAtIndex:i]];
-     //  [alertedForTag addObject:[NSNumber numberWithInt:i]];
-     }
-     }*/
-    
-
-
 -(IBAction)tapped:(id)sender
 {
-    
-    [DMRNotificationView showInView:self.view
-                              title:@"DUC Disovered"
-                           subTitle:@"Tap the camera button the right to see more"];
     [mapView animateToLocation:mapView.myLocation.coordinate];
     [mapView animateToBearing:0];
     [mapView animateToViewingAngle:0];
@@ -215,21 +171,24 @@
         CLLocationDistance dist = [destinationLocation distanceFromLocation:currentLocation] / 1000;
         
         
-        int count = 1;
+       
         if (dist < 0.02 && count == 1) {
+            NSString * discoveredLocationName = [NSString stringWithFormat:@"%s%@","Discovered ", poi.title];
             
             [DMRNotificationView showInView:self.view
-                                      title:@"DUC Disovered"
+                                      title:discoveredLocationName
                                    subTitle:@"Tap the camera button the right to see more"];
-            
             
             poi.visited = true;
             
             
                    [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
+            
+            
+            count++;
             //set notificaiton to cycle points
 
-            count++;
+          
         }
     }
 
@@ -328,14 +287,22 @@
     }
     else
         {*/
-    
-    
+
+    count = 1;
     [mapView clear];
     GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
     options.position = CLLocationCoordinate2DMake(poi.lat, poi.lon);
     options.title =  poi.title;
     options.snippet = poi.description;
-    options.icon =  [UIImage imageNamed:@"flag-red.png"];
+    
+    if(!poi.visited)
+    {
+    options.icon =  [UIImage imageNamed:@"flag.png"];
+    }
+    else{
+        options.icon =  [UIImage imageNamed:@"flagGreen.png"];
+
+    }
     [mapView addMarkerWithOptions:options];
 
     
@@ -350,7 +317,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     
-    [mapView removeObserver:self forKeyPath:@"myLocation"];
+   // [mapView removeObserver:self forKeyPath:@"myLocation"];
 }
 
 

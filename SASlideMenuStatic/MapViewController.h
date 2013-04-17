@@ -27,6 +27,7 @@
  */
 @property (nonatomic, strong, readonly) CLLocation *myLocation;
 @property(nonatomic, retain) Poi * poi;
+@property int count;
 /** Updates with the display 'split view controller' button. */
 @property (nonatomic, retain) IBOutlet UILabel * titleView;
 @property (nonatomic, retain) IBOutlet UILabel * subtitleView;

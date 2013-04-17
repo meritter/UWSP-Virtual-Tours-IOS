@@ -77,8 +77,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         [users addObject:poi];
     }*/
     
-    NSLog(@"hit view load");
-    
     int i = 1;
     for (Poi * poi in [Singleton sharedSingleton].locationsArray)
     {
@@ -87,35 +85,19 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         {
             [visitedLocations addObject:poi];
         }
-        else if (i == 1)
+        else if (i == 1 && poi.visited == false)
         {
             [currentQuest addObject:poi];
             i++;
         }
         
     }
+    
+  
 
 }
 
 
-
-
--(void)viewDidAppear:(BOOL)animated
-{
-    
-
-
-    
-    
-    /*if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
-    {
-        [users removeAllObjects];
-       // [tours removeAllObjects];
-        
-    }
-        */
-
-}
 
 - (void)NotifyOnMapPackChange:(NSNotification*)note {
      [currentQuest removeAllObjects];
@@ -130,7 +112,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         {
             [visitedLocations addObject:poi];
         }
-        else if (i == 1)
+        else if (i == 1 && poi.visited == false)
         {
             [currentQuest addObject:poi];
             i++;
@@ -233,7 +215,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     switch (section) {
         case 0:
-            return [currentQuest count];
+            return 1;
             break;
         case 1:
             return [visitedLocations count];
@@ -265,16 +247,24 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
  
     switch (indexPath.section) {
         case 0:
-           poi = [currentQuest objectAtIndex:indexPath.row];
-            NSLog(poi.title);
-                  cell.textLabel.text = poi.title;
+            
+            if([currentQuest count] == 0)
+            {
+                   cell.textLabel.text = @"Map Pack Completed";
+            }
+            else
+            {
+                poi = [currentQuest objectAtIndex:indexPath.row];
+                cell.textLabel.text = poi.title;
+            }
             break;
         case 1:
-        {
-            poi = [visitedLocations  objectAtIndex:indexPath.row];
+            if([visitedLocations count] != 0)
+            {
+                poi = [visitedLocations  objectAtIndex:indexPath.row];
                 cell.textLabel.text = poi.title;
-        
             }
+
            break;
         case 2:
             cell.textLabel.text  = [settings objectAtIndex:indexPath.row];
@@ -292,7 +282,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if (section == 0 && [currentQuest count]!= 0) {
         poi = [currentQuest objectAtIndex:indexPath.row];
     }
-
     else if (section==1 && [visitedLocations  count]!= 0){
         poi = [visitedLocations  objectAtIndex:indexPath.row];
     }

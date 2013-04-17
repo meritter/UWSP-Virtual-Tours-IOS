@@ -63,6 +63,8 @@
     poi.lon = [[tempObjectDict objectForKey:@"long"] doubleValue];
     poi.description = [tempObjectDict objectForKey:@"description"];
     
+        
+       // poi.visited = true;
     //Add poi to singleton for App use
     [[Singleton sharedSingleton].locationsArray  addObject:poi];
    
