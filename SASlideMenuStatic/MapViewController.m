@@ -32,12 +32,12 @@
 
 - (void)loadView {
 
-    double lat = [poi.lat doubleValue];
-    double longitude = [poi.lon doubleValue];
-    
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:lat
-                                                            longitude:longitude
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:poi.lat
+                                                            longitude:poi.lon
                                                                  zoom:15];
+    
+    
+
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     
     mapView.myLocationEnabled = YES;
@@ -56,7 +56,7 @@
     button.layer.cornerRadius = 5;//half of the width
     button.layer.borderColor=[UIColor blackColor].CGColor;
     button.layer.borderWidth=0.8f;
-    button.center = CGPointMake(30, 392);
+    button.center = CGPointMake(30, 396);
     [button addTarget:self action:@selector(tapped:) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -119,11 +119,6 @@
         else {
              }
     }
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
 }
 
 
@@ -208,80 +203,35 @@
 {
     if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]])
     {
-         // NSLog(@"Did update user location: %f,%f", mapView.myLocation.coordinate.latitude, mapView.myLocation.coordinate.longitude);
+        CLLocation* destinationLocation = [[CLLocation alloc]  initWithLatitude:poi.lat longitude:poi.lon];
         
-       // [mapView animateToCameraPosition:[GMSCameraPosition cameraWithLatitude:mapView.myLocation.coordinate.latitude
-                                                                                 //longitude:mapView.myLocation.coordinate.longitude
-                                                                                   //   zoom:16]];
-        
-        
-        
-        CLLocation* ourUserLocation = [[CLLocation alloc]
-                                       initWithLatitude:myLocation.coordinate.latitude
-                                       longitude:myLocation.coordinate.longitude];
-        CLLocation* loc= [[CLLocation alloc]
-                                   initWithLatitude:44.528856
-                                   longitude:-89.569621];
-        
-        
-      
-       // CLLocationDistance distance = [ourUserLocation distanceFromLocation:pinLocation] / 1000;
-        
-                
-        //CLLocation *loc = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
-        CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:mapView.myLocation.coordinate.latitude longitude:mapView.myLocation.coordinate.longitude];
+        NSLog(poi.title);
+               
+        CLLocation * currentLocation = [[CLLocation alloc] initWithLatitude:mapView.myLocation.coordinate.latitude longitude:mapView.myLocation.coordinate.longitude];
         
        // NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
         //NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
         
-        CLLocationDistance dist = [loc distanceFromLocation:loc2] / 1000;
+        CLLocationDistance dist = [destinationLocation distanceFromLocation:currentLocation] / 1000;
         
-        //CLLocationDistance kilometers = [newLocation distanceFromLocation:oldLocation] / 1000;
         
-       // CLLocationCoordinate2D newCoordinate = [ourUserLocation coordinate];
-       // CLLocationCoordinate2D oldCoordinate = [pinLocation coordinate];
-        
-        //CLLocationDistance kilometers = [newCoordinate distanceFromLocation:oldCoordinate] / 1000; // Error ocurring here.
-       // CLLocationDistance meters = [newCoordinate distanceFromLocation:oldCoordinate]; // Error ocurring here.
-        
-        //CLLocation *newLocation = [[CLLocation alloc] initWithCoordinate: distance altitude:1 horizontalAccuracy:1 verticalAccuracy:-1 timestamp:nil];
-        
-        //42.081917,-50.031738
-        //44.528856,-89.569766
-        //SCI CORD
-        if (dist < 0.01) {
+        int count = 1;
+        if (dist < 0.02 && count == 1) {
             
             [DMRNotificationView showInView:self.view
                                       title:@"DUC Disovered"
                                    subTitle:@"Tap the camera button the right to see more"];
+            
+            
+            poi.visited = true;
+            
+            
+                   [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
+            //set notificaiton to cycle points
 
-        
+            count++;
         }
-        
-         //for (int x = 0; x < [alertedForTag count]; x++) {
-         
-      /*(   if ([[alertedForTag objectAtIndex:x]isEqualToNumber:[NSNumber numberWithInt:i]]) {
-         
-         } else {
-         [self showAlertWithDictionary:[placesArray objectAtIndex:i]];
-         [alertedForTag addObject:[NSNumber numberWithInt:i]];
-         }
-         }
-         
-         
-         if ([alertedForTag count]==0) {
-         
-         [self showAlertWithDictionary:[placesArray objectAtIndex:i]];
-         //  [alertedForTag addObject:[NSNumber numberWithInt:i]];
-         }
-         }*/
-
-        
-        
-       // if (myLocation) {
-         //   <#statements#>
-       // }
-  }
+    }
 
 }
 
@@ -328,8 +278,11 @@
     
     self.navigationItem.titleView = _headerTitleSubtitleView;
 
-    
+    if(poi.visited == false)
+    {
+        NSLog(@"Set the observer for the map");
     [mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
+    }
    
     
 
@@ -376,18 +329,15 @@
     else
         {*/
     
-            
-            double lat = [poi.lat doubleValue];
-            double longitude = [poi.lon doubleValue];
     
+    [mapView clear];
     GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-    options.position = CLLocationCoordinate2DMake(lat, longitude);
-     options.title =  poi.title;
-     options.snippet = @"Test Text";
-     options.icon =  [UIImage imageNamed:@"flag-red.png"];
-     NSLog(poi.title);
-     [mapView addMarkerWithOptions:options];
-    
+    options.position = CLLocationCoordinate2DMake(poi.lat, poi.lon);
+    options.title =  poi.title;
+    options.snippet = poi.description;
+    options.icon =  [UIImage imageNamed:@"flag-red.png"];
+    [mapView addMarkerWithOptions:options];
+
     
     [mapView animateToLocation:options.position];
     [mapView animateToBearing:0];
@@ -399,9 +349,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];   
+    
     [mapView removeObserver:self forKeyPath:@"myLocation"];
-    }
+}
+
 
 
 - (NSMutableArray *)geoLocations{
@@ -415,16 +366,14 @@
 
     for (Poi * poi in [Singleton sharedSingleton].locationsArray)
         {
-           // id value = [xyz objectForKey:key];
-            double lat = [poi.lat  doubleValue];
-            double longitude = [poi.lon   doubleValue];
+
             NSString * name = poi.title;
             
           /*  tempLocation = [[CLLocation alloc] initWithLatitude:44.531575 longitude:-89.569221];
             tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"May Roach Hall"];
             [locationArray addObject:tempCoordinate];*/
 
-            tempLocation = [[CLLocation alloc] initWithLatitude:lat longitude:longitude];
+            tempLocation = [[CLLocation alloc] initWithLatitude:poi.lat longitude:poi.lon];
             tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:name];
             //tempCoordinate.inclination = 100;
             [locationArray addObject:tempCoordinate];
@@ -442,7 +391,6 @@
        LocationDetailsController * lvc = [[LocationDetailsController alloc] init];
         lvc.locationName = coordinate.title;
         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Root"];
-       [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifySelectedLocationName" object:self];
         [self.navigationController pushViewController:controller animated:YES];
         NSLog(@"%@", coordinate.title);
     //GKLParallaxPicturesViewController *paralaxViewController = [GKLParallaxPicturesViewController alloc];
@@ -473,37 +421,6 @@
     tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"DUC"];
     tempCoordinate.inclination = 100;
     [locationArray addObject:tempCoordinate];    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:44.532252 longitude:-89.568738];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Suites"];
-    tempCoordinate.inclination = M_PI/10;
-    [locationArray addObject:tempCoordinate];
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:44.531575 longitude:-89.569221];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"May Roach Hall"];
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:44.528103 longitude:-89.570632];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Science Building SW"];
-    [locationArray addObject:tempCoordinate];
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:44.528631 longitude:-89.570771];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Science Building SE"];
-    tempCoordinate.inclination = 200;
-    [locationArray addObject:tempCoordinate];
-    
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude: 44.527762 longitude:-89.570187];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Science Building NW"];
-    tempCoordinate.inclination = M_PI/40;
-    [locationArray addObject:tempCoordinate];
-    
-    tempLocation = [[CLLocation alloc] initWithLatitude:44.527782 longitude:-89.57068];
-    tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:@"Science Building NW"];
-    tempCoordinate.inclination = M_PI/100;
-    [locationArray addObject:tempCoordinate];
-        
 */
 
 

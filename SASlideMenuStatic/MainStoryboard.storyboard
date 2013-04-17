@@ -318,7 +318,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hld-U0-TVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="290" y="414"/>
+            <point key="canvasLocation" x="245" y="414"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="kku-UF-JaJ">

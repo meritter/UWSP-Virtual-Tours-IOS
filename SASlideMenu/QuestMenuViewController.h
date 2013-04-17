@@ -12,8 +12,8 @@
 
 @interface QuestMenuViewController :SASlideMenuViewController<SASlideMenuDataSource,SASlideMenuDelegate, UITableViewDelegate>
 {
-    NSMutableArray *users;
-    NSMutableArray * tours;
+   // NSMutableArray *users;
+    NSMutableArray * visitedLocations;
     int indexCount;
     
     
@@ -21,5 +21,5 @@
 }
 
 @property (nonatomic, strong) Poi * poi;
-
+@property (nonatomic, strong)  NSMutableArray * currentQuest;
 @end

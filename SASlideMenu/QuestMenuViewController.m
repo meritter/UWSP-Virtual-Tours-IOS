@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSMutableArray  * settings;
 
 
+
+
 @end
 
 
@@ -25,7 +27,10 @@ colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @implementation QuestMenuViewController
-@synthesize poi;
+{
+    
+}
+@synthesize poi, currentQuest;
 
 @synthesize settings;
 -(id) initWithCoder:(NSCoder *)aDecoder{
@@ -59,20 +64,37 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NotifyOnMapPackChange:) name:@"MapPackChange" object:nil];
 
     settings = [[NSMutableArray alloc] init];
-    users = [[NSMutableArray alloc] init];
-    tours = [[NSMutableArray alloc] init];
+    visitedLocations = [[NSMutableArray alloc] init];
+    currentQuest = [[NSMutableArray alloc] init];
   
-    [tours addObject:@"Place Holder 1"];
+    //[tours addObject:@"Place Holder 1"];
     
     [settings addObject:@"Settings"];
     [settings addObject:@"About"];
-    int indexCount;
-    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    
+   /* for (Poi * poi in [Singleton sharedSingleton].locationsArray)
     {
         [users addObject:poi];
-    }
+    }*/
     
-   
+    NSLog(@"hit view load");
+    
+    int i = 1;
+    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    {
+        
+        if(poi.visited)
+        {
+            [visitedLocations addObject:poi];
+        }
+        else if (i == 1)
+        {
+            [currentQuest addObject:poi];
+            i++;
+        }
+        
+    }
+
 }
 
 
@@ -81,26 +103,60 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 -(void)viewDidAppear:(BOOL)animated
 {
     
-    if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
+
+
+    
+    
+    /*if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
     {
         [users removeAllObjects];
-        [tours removeAllObjects];
+       // [tours removeAllObjects];
         
     }
-    [MyTableView reloadData];
-    
+        */
 
 }
 
 - (void)NotifyOnMapPackChange:(NSNotification*)note {
+     [currentQuest removeAllObjects];
+     [visitedLocations removeAllObjects];
 
-     [users removeAllObjects];
     
-        for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    int i = 1;
+    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
     {
-        [users addObject:poi];
-    } 
+        
+        if(poi.visited)
+        {
+            [visitedLocations addObject:poi];
+        }
+        else if (i == 1)
+        {
+            [currentQuest addObject:poi];
+            i++;
+        }
+        
+    }
+
     [MyTableView reloadData];
+  /*
+    [visitedLocations removeAllObjects];
+    
+    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    {
+        
+        if(poi.visited)
+        {
+            [visitedLocations addObject:poi];
+        }
+        else if (i == 1)
+        {
+            [currentQuest addObject:poi];
+            i++;
+        }
+        
+    }
+    [MyTableView reloadData];*/
 }
 
 
@@ -110,8 +166,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
     {
-        [users removeAllObjects];
-        [tours removeAllObjects];
+       // [users removeAllObjects];
+       // [tours removeAllObjects];
         
     }
     [MyTableView reloadData];
@@ -177,10 +233,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     switch (section) {
         case 0:
-            return [tours count];
+            return [currentQuest count];
             break;
         case 1:
-            return [users count];
+            return [visitedLocations count];
             break;
         case 2:
             return [settings count];
@@ -201,7 +257,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = [UIColor colorWithRed:(133/255.0) green:(176/255.0) blue:(0/255.0) alpha:1] ;
-    [cell setSelectedBackgroundView:bgColorView];
+    [cell setSelectedBackgroundView:bgColorView]; 
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0];
@@ -209,11 +265,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
  
     switch (indexPath.section) {
         case 0:
-          cell.textLabel.text  = [tours objectAtIndex:indexPath.row];
+           poi = [currentQuest objectAtIndex:indexPath.row];
+            NSLog(poi.title);
+                  cell.textLabel.text = poi.title;
             break;
         case 1:
         {
-            poi = [users objectAtIndex:indexPath.row];
+            poi = [visitedLocations  objectAtIndex:indexPath.row];
                 cell.textLabel.text = poi.title;
         
             }
@@ -225,19 +283,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             break;
     }
     
-             return cell;
-
+        return cell;
      
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
-    if (section == 0 && [users count]!= 0) {
-        poi = [users objectAtIndex:indexPath.row];
+    if (section == 0 && [currentQuest count]!= 0) {
+        poi = [currentQuest objectAtIndex:indexPath.row];
     }
 
-    else if (section==1 && [users count]!= 0){
-        poi = [users objectAtIndex:indexPath.row];
+    else if (section==1 && [visitedLocations  count]!= 0){
+        poi = [visitedLocations  objectAtIndex:indexPath.row];
     }
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
