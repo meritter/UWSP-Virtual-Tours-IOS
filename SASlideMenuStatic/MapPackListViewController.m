@@ -187,7 +187,6 @@
     parser.rowElementName = @"tour";
     parser.elementNames = [NSArray arrayWithObjects:@"id", @"description", @"lat", @"long", @"name", nil];
     
-     NSLog(@"fnished parsing");
     BOOL success = [parser parse];
     //If fails we need to check this here
     // test the result
@@ -372,6 +371,11 @@
 }
 
 
+
+
+
+
+
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
@@ -402,7 +406,7 @@
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = selectedCell.textLabel.text;
     NSString * index;
-    
+    XMLDataAccess * da = [[XMLDataAccess alloc] init];
     if([reach isReachable])
     {
     item  = [serverMapPacks objectAtIndex:indexPath.row];
@@ -420,8 +424,12 @@
                //[ZAActivityBar showWithStatus:@"Downloading Map Pack"];
            // [self showUploadView:cellText];
             [self saveMapPack:cellText:index];
-             [Singleton sharedSingleton].selectedMapPack = cellText;
             
+
+             [Singleton sharedSingleton].selectedMapPack = cellText;
+            [da downloadImagesOfMapPack:cellText];
+         //   ownloadImagesOfMapPack:currentMapPack
+        
             // make async
             [ZAActivityBar showSuccessWithStatus:@"Downloaded Map Pack"];
             [self reloadTableData];
@@ -434,9 +442,10 @@
             [da setUpPOI:  [Singleton sharedSingleton].selectedMapPack];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
-
-            [self.navigationController  popViewControllerAnimated:YES];
-            break;
+          
+                  [self.navigationController  popViewControllerAnimated:YES];
+            
+                        break;
         }
     }
 }

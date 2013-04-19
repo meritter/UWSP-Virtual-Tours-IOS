@@ -46,7 +46,9 @@
     
     //Allows you to tap a marker and have camera pan to it
     mapView.delegate = self;
-    
+
+
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RemoveListener:) name:@"RemoveListener" object:nil];
     button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"locate.png"] forState:UIControlStateNormal];
     CGRect frame = CGRectMake(10, 10, 40, 32);
@@ -90,6 +92,13 @@
 
   
 }
+
+
+- (void)RemoveListener:(NSNotification*)note {
+    
+    [mapView removeObserver:self forKeyPath:@"myLocation"];
+    }
+
 
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self adjustLabelsForOrientation:toInterfaceOrientation];
@@ -237,12 +246,11 @@
     
     self.navigationItem.titleView = _headerTitleSubtitleView;
 
-    if(poi.visited == false)
+    /*if(poi.visited == false)
     {
         NSLog(@"Set the observer for the map");
-    [mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
-    }
-   
+        }
+   */
     
 
     
@@ -287,7 +295,7 @@
     }
     else
         {*/
-
+        [mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
     count = 1;
     [mapView clear];
     GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
@@ -314,11 +322,13 @@
         }
 
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
     
-   // [mapView removeObserver:self forKeyPath:@"myLocation"];
+    [mapView removeObserver:self forKeyPath:@"myLocation"];
 }
+
+
 
 
 
@@ -355,8 +365,8 @@
 -(void)locationClicked:(ARGeoCoordinate *)coordinate
 {
         
-       LocationDetailsController * lvc = [[LocationDetailsController alloc] init];
-        lvc.locationName = coordinate.title;
+      // LocationDetailsController * lvc = [[LocationDetailsController alloc] init];
+       // lvc.locationName = coordinate.title;
         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Root"];
         [self.navigationController pushViewController:controller animated:YES];
         NSLog(@"%@", coordinate.title);

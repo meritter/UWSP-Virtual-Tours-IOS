@@ -36,8 +36,8 @@
     //get pois points from array in XML starting with <poi> tag
     parser.rowElementName = @"poi";
     parser.elementNames = [NSArray arrayWithObjects: @"description", @"id", @"lat", @"long", @"title", nil];
-
-
+    
+    
     BOOL success = [parser parse];
 
     //If parse was successful send items to Array
@@ -64,6 +64,7 @@
     poi.description = [tempObjectDict objectForKey:@"description"];
     
         
+        
        // poi.visited = true;
     //Add poi to singleton for App use
     [[Singleton sharedSingleton].locationsArray  addObject:poi];
@@ -71,5 +72,69 @@
     }
 }
 
+
+
+-(void)downloadImagesOfMapPack:currentMapPack
+{
+    NSString * stringURL = [NSString stringWithFormat:@"%@%@", currentMapPack, @".xml"];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:stringURL];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    
+    XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
+    
+    //get pois points from array in XML starting with <poi> tag
+    parser.rowElementName = @"image";
+    parser.elementNames = [NSArray arrayWithObjects: @"description", @"url", @"poi-id", nil];
+   // parser
+  
+    
+    BOOL success = [parser parse];
+    
+    //If parse was successful send items to Array
+    if (success)
+    {
+        parsedMapPack = [parser items];
+    }
+
+    
+    //[[Singleton sharedSingleton].locationsArray removeAllObjects];
+    
+    for (int i = 0; i < [parsedMapPack count]; i++)
+    {
+        
+            NSDictionary *tempObjectDict = [parsedMapPack objectAtIndex:i];
+        
+            NSString * path = [tempObjectDict objectForKey:@"url"];
+            int poiId =  [[tempObjectDict objectForKey:@"poi-id"] integerValue];
+
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
+            UIImage *image = [UIImage imageWithData: imageData];
+        
+        
+           NSString * stringURL = [NSString stringWithFormat:@"%d%d%@", poiId, i, @".png"];
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:stringURL];
+            
+            NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(image)];
+            NSError *writeError = nil;
+            
+            [data1 writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
+            
+            if (writeError) {
+                NSLog(@"Error writing file: %@", writeError);
+            }
+        }
+}
+
+
+//save images
+
+
+//for each poi
+//add images by name+1
 
 @end

@@ -14,5 +14,5 @@
 
 
 -(void)setUpPOI:currentMapPack;
-
+-(void)downloadImagesOfMapPack:currentMapPack;
 @end

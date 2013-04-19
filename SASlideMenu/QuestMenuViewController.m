@@ -250,11 +250,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             
             if([currentQuest count] == 0)
             {
-                   cell.textLabel.text = @"Map Pack Completed";
+                   cell.textLabel.text = @"All Quests Completed";
             }
             else
             {
                 poi = [currentQuest objectAtIndex:indexPath.row];
+                cell.imageView.image = [UIImage imageNamed:@"flag-white-larger.png"];
                 cell.textLabel.text = poi.title;
             }
             break;
@@ -262,6 +263,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             if([visitedLocations count] != 0)
             {
                 poi = [visitedLocations  objectAtIndex:indexPath.row];
+                 cell.imageView.image = [UIImage imageNamed:@"flag-white-larger.png"];
                 cell.textLabel.text = poi.title;
             }
 
@@ -305,7 +307,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 -(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section < 2) {
+    
+    
+    if([Singleton sharedSingleton].selectedMapPack == nil)
+    {
+        return @"tutorial";
+    }
+    else if (indexPath.section < 2) {
         return @"map";
     }
     
@@ -355,6 +363,19 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         mapViewController.poi =  poi;
         mapViewController.menuViewController = self;
     }
+}
+
+
+
+
+
+-(void) slideMenuDidSlideIn{
+    NSLog(@"slideMenuDidSlideIn");
+}
+-(void) slideMenuWillSlideToSide{
+    NSLog(@"slideMenuWillSlideToSide");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
+    //Here
 }
 
 @end
