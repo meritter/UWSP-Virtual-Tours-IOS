@@ -1,6 +1,7 @@
 //  ImageViewController.m
 //
 //  Copyright (c) 2012 modocache
+//  Edited by Jonathan Christian on 4/20/13.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining
 //  a copy of this software and associated documentation files (the

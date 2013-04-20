@@ -1,9 +1,7 @@
 //
-//  MapModeListViewController.m
 //  UWSP Virtual Tours
-//
+//  MapModeListViewController.m
 //  Created by Jonathan Christian on 4/9/13.
-//  Copyright (c) 2013 UWSP GIS All rights reserved.
 //
 
 #import "MapModeListViewController.h"
@@ -135,12 +133,5 @@ int count = 1;
     
     [tableView reloadData];
 }
-
-
-
-
-
-
-
 
 @end

@@ -1,9 +1,9 @@
 //
+//  UWSP Virtual Tours
 //  MapViewController.h
-//
 //  Created by Jonathan Christian on 2/18/13.
-//  Copyright (c) UWSP GIS All rights reserved.
 //
+
 
 
 #import <UIKit/UIKit.h>
