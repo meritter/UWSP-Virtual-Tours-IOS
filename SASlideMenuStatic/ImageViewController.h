@@ -27,5 +27,10 @@
 
 
 @interface ImageViewController : UIViewController
+{
+    NSString * locationName;
+}
+
+@property (nonatomic, copy) NSString * locationName;
 
 @end

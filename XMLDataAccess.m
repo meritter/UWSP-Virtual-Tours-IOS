@@ -62,6 +62,7 @@
     poi.lat = [[tempObjectDict objectForKey:@"lat"] doubleValue];
     poi.lon = [[tempObjectDict objectForKey:@"long"] doubleValue];
     poi.description = [tempObjectDict objectForKey:@"description"];
+    poi.poiId = [[tempObjectDict objectForKey:@"id"] integerValue];
     
         
         
@@ -110,12 +111,41 @@
         
             NSString * path = [tempObjectDict objectForKey:@"url"];
             int poiId =  [[tempObjectDict objectForKey:@"poi-id"] integerValue];
+            int lastPoiId =  poiId;
+            int imagecount = 0;
+       
+          
+        if  (poiId == lastPoiId)
+        {
+            int imagecount = 0;
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
+            UIImage *image = [UIImage imageWithData: imageData];
+            
+            
+            NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", lastPoiId, imagecount, @".png"];
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:stringURL];
+            
+            NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(image)];
+            NSError *writeError = nil;
+            
+            [data1 writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
+            
+            if (writeError) {
+                NSLog(@"Error writing file: %@", writeError);
+            }
+            imagecount++;
 
+        }
+        else
+        {
+           //Assign it a new id
+            int imagecount = 0;
             NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
             UIImage *image = [UIImage imageWithData: imageData];
         
         
-           NSString * stringURL = [NSString stringWithFormat:@"%d%d%@", poiId, i, @".png"];
+           NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poiId, imagecount, @".png"];
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:stringURL];
             
@@ -128,13 +158,6 @@
                 NSLog(@"Error writing file: %@", writeError);
             }
         }
+    }
 }
-
-
-//save images
-
-
-//for each poi
-//add images by name+1
-
 @end

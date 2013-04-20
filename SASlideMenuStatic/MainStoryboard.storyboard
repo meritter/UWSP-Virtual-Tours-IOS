@@ -323,6 +323,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <!--View Controller-->
         <scene sceneID="kku-UF-JaJ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iLZ-so-WyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Root" id="JPB-EH-wdc" customClass="KIViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IqO-Lh-MDh">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
@@ -343,8 +344,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="_imagePager" destination="XGi-qX-GU2" id="9DO-sK-YqS"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iLZ-so-WyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="710" y="-243"/>
         </scene>
@@ -471,15 +474,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="That's all we need for now. If you need to change your map pack later, you can change it in the settings tab - map packs" textAlignment="center" id="E8b-IZ-yEB">
-                                        <rect key="frame" x="13" y="205" width="300" height="85"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="10" y="66" width="300" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="0.93852645990000005" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="check2.png" id="k5c-sR-1SY">
-                                        <rect key="frame" x="96" y="84" width="129" height="134"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <rect key="frame" x="95" y="191" width="129" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -546,7 +549,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please provide UWSP Virtual Tours with a map pack of your choosing." textAlignment="center" id="uPR-HY-bwt">
                                 <rect key="frame" x="10" y="9" width="300" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.93852645985401473" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -617,7 +620,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="map.png" id="OV0-tU-q1D">
-                                <rect key="frame" x="33" y="101" width="267" height="192"/>
+                                <rect key="frame" x="26" y="98" width="267" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
@@ -650,12 +653,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <relationships>
                 <relationship kind="outlet" name="dataSource"/>
                 <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="KIViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KIViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="_imagePager" candidateClass="KIImagePager"/>
             </relationships>
         </class>
         <class className="MapModeListViewController" superclassName="UITableViewController">

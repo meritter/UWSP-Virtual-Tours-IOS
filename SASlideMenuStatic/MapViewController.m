@@ -5,13 +5,14 @@
 //  Copyright (c) UWSP GIS All rights reserved.
 //
 
+
 #import "MapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "Singleton.h"
 #import "Poi.h"
 #import "DMRNotificationView.h"
-#import "LocationDetailsController.h"
-#import "GKLParallaxPicturesViewController.h"
+#import "ImageViewController.h"
+
 
 @interface MapViewController ()
 
@@ -48,7 +49,7 @@
     mapView.delegate = self;
 
 
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RemoveListener:) name:@"RemoveListener" object:nil];
+     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RemoveListener:) name:@"RemoveListener" object:nil];
     button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setImage:[UIImage imageNamed:@"locate.png"] forState:UIControlStateNormal];
     CGRect frame = CGRectMake(10, 10, 40, 32);
@@ -96,7 +97,7 @@
 
 - (void)RemoveListener:(NSNotification*)note {
     
-    [mapView removeObserver:self forKeyPath:@"myLocation"];
+    //[mapView removeObserver:self forKeyPath:@"myLocation"];
     }
 
 
@@ -364,24 +365,11 @@
     
 -(void)locationClicked:(ARGeoCoordinate *)coordinate
 {
-        
-      // LocationDetailsController * lvc = [[LocationDetailsController alloc] init];
-       // lvc.locationName = coordinate.title;
-        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Root"];
-        [self.navigationController pushViewController:controller animated:YES];
-        NSLog(@"%@", coordinate.title);
-    //GKLParallaxPicturesViewController *paralaxViewController = [GKLParallaxPicturesViewController alloc];
-    
-      //UIView *testContentView = [[[UINib nibWithNibName:@"testContentView" bundle:nil] instantiateWithOwner:nil options:nil] objectAtIndex:0];
-  //  GKLParallaxPicturesViewController *paralaxViewController = [[GKLParallaxPicturesViewController alloc] initWithImages:[NSArray arrayWithObjects:[UIImage imageNamed:@"shovel"], //[UIImage imageNamed:@"shovel"], nil] andContentView:testContentView];
-
-   //GKLParallaxPicturesViewController *paralaxViewController = [[GKLParallaxPicturesViewController alloc] init];    //	paralaxViewController.parallaxHeight = 150;
-    //	paralaxViewController.contentScrollView.delegate = self;
-    //self.viewController = paralaxViewController;
-    //self.window.rootViewController = self.viewController;
-    //[self.window makeKeyAndVisible];
-    //[paralaxViewController addImages:[NSArray arrayWithObjects:[UIImage imageNamed:@"shovel"], [UIImage imageNamed:@"shovel"], nil]];
-  // [self.navigationController  pushViewController:paralaxViewController  animated:YES];
+         ImageViewController       * kivc = [[ImageViewController alloc] init];
+        kivc.locationName = coordinate.title;
+        //UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"Root"];
+    [self.navigationController pushViewController:kivc animated:YES];
+  //  [self.navigationController  pushViewController:paralaxViewController  animated:YES];
 }
         
             
