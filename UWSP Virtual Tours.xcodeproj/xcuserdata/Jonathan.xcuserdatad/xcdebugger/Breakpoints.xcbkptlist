@@ -221,8 +221,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "48"
          endingLineNumber = "48"
-         landmarkName = "-viewWillAppear:"
-         landmarkType = "5">
+         landmarkName = "@implementation SettingsMasterViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -286,8 +286,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "48"
          endingLineNumber = "48"
-         landmarkName = "-viewWillAppear:"
-         landmarkType = "5">
+         landmarkName = "@implementation SettingsMasterViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1012,8 +1012,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "451"
          endingLineNumber = "451"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
+         landmarkName = "@implementation MapPackListViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1025,8 +1025,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "451"
          endingLineNumber = "451"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
+         landmarkName = "@implementation MapPackListViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1233,8 +1233,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "65"
          endingLineNumber = "65"
-         landmarkName = "@implementation SASlideMenuAppDelegate"
-         landmarkType = "3">
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1246,8 +1246,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "71"
          endingLineNumber = "71"
-         landmarkName = "@implementation SASlideMenuAppDelegate"
-         landmarkType = "3">
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1259,8 +1259,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "65"
          endingLineNumber = "65"
-         landmarkName = "@implementation SASlideMenuAppDelegate"
-         landmarkType = "3">
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -1272,7 +1272,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "79"
          endingLineNumber = "79"
-         landmarkName = "-applicationDidEnterBackground:"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1285,7 +1285,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "70"
          endingLineNumber = "70"
-         landmarkName = "-applicationWillResignActive:"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1298,7 +1298,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "69"
          endingLineNumber = "69"
-         landmarkName = "-applicationWillResignActive:"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1311,7 +1311,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "68"
          endingLineNumber = "68"
-         landmarkName = "-applicationWillResignActive:"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -1401,9 +1401,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "15"
-         endingLineNumber = "15"
-         landmarkName = "@implementation SASlideMenuAppDelegate"
-         landmarkType = "3">
+         endingLineNumber = "15">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -2000,8 +1998,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "33"
          endingLineNumber = "33"
-         landmarkName = "searchBar"
-         landmarkType = "19">
+         landmarkName = "@interface MapPackListViewController"
+         landmarkType = "2">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -2654,7 +2652,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/SASlideMenuAppDelegate.m"
@@ -2715,8 +2713,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "227"
          endingLineNumber = "227"
-         landmarkName = "-getLocalMapPAcks"
-         landmarkType = "5">
+         landmarkName = "@implementation MapPackListViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -2728,8 +2726,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "227"
          endingLineNumber = "227"
-         landmarkName = "-getLocalMapPAcks"
-         landmarkType = "5">
+         landmarkName = "@implementation MapPackListViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
