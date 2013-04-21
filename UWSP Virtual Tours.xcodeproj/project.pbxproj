@@ -50,13 +50,7 @@
 		AB3C2D2516E12606003A1A58 /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3C2D1A16E12606003A1A58 /* MarkerView.m */; };
 		AB3C2D2616E12606003A1A58 /* Radar.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3C2D1C16E12606003A1A58 /* Radar.m */; };
 		AB3C2D2716E12606003A1A58 /* RadarViewPortView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3C2D1E16E12606003A1A58 /* RadarViewPortView.m */; };
-		AB3C2D3016E12648003A1A58 /* chevron copy.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2916E12642003A1A58 /* chevron copy.png */; };
 		AB3C2D3116E12648003A1A58 /* poi2.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2A16E12643003A1A58 /* poi2.png */; };
-		AB3C2D3216E12648003A1A58 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2B16E12644003A1A58 /* location.png */; };
-		AB3C2D3316E12648003A1A58 /* bgCalloutDisclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2C16E12644003A1A58 /* bgCalloutDisclosure.png */; };
-		AB3C2D3416E12648003A1A58 /* bgCalloutDisclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2D16E12645003A1A58 /* bgCalloutDisclosure@2x.png */; };
-		AB3C2D3516E12648003A1A58 /* bgCallout.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2E16E12646003A1A58 /* bgCallout.png */; };
-		AB3C2D3616E12648003A1A58 /* bgCallout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D2F16E12647003A1A58 /* bgCallout@2x.png */; };
 		AB3C2D3B16E1277F003A1A58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2D3A16E1277F003A1A58 /* AVFoundation.framework */; };
 		AB3C2D3D16E127E5003A1A58 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2D3C16E127E4003A1A58 /* QuartzCore.framework */; };
 		AB3C2D4216E12F12003A1A58 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3C2D4116E12F12003A1A58 /* MainStoryboard.storyboard */; };
@@ -168,13 +162,7 @@
 		AB3C2D1C16E12606003A1A58 /* Radar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Radar.m; sourceTree = "<group>"; };
 		AB3C2D1D16E12606003A1A58 /* RadarViewPortView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadarViewPortView.h; sourceTree = "<group>"; };
 		AB3C2D1E16E12606003A1A58 /* RadarViewPortView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadarViewPortView.m; sourceTree = "<group>"; };
-		AB3C2D2916E12642003A1A58 /* chevron copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chevron copy.png"; path = "../chevron copy.png"; sourceTree = "<group>"; };
 		AB3C2D2A16E12643003A1A58 /* poi2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poi2.png; path = ../poi2.png; sourceTree = "<group>"; };
-		AB3C2D2B16E12644003A1A58 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = ../location.png; sourceTree = "<group>"; };
-		AB3C2D2C16E12644003A1A58 /* bgCalloutDisclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgCalloutDisclosure.png; path = ../bgCalloutDisclosure.png; sourceTree = "<group>"; };
-		AB3C2D2D16E12645003A1A58 /* bgCalloutDisclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgCalloutDisclosure@2x.png"; path = "../bgCalloutDisclosure@2x.png"; sourceTree = "<group>"; };
-		AB3C2D2E16E12646003A1A58 /* bgCallout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgCallout.png; path = ../bgCallout.png; sourceTree = "<group>"; };
-		AB3C2D2F16E12647003A1A58 /* bgCallout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgCallout@2x.png"; path = "../bgCallout@2x.png"; sourceTree = "<group>"; };
 		AB3C2D3A16E1277F003A1A58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AB3C2D3C16E127E4003A1A58 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AB3C2D4116E12F12003A1A58 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -470,13 +458,7 @@
 		AB3C2D2816E1260D003A1A58 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AB3C2D2916E12642003A1A58 /* chevron copy.png */,
 				AB3C2D2A16E12643003A1A58 /* poi2.png */,
-				AB3C2D2B16E12644003A1A58 /* location.png */,
-				AB3C2D2C16E12644003A1A58 /* bgCalloutDisclosure.png */,
-				AB3C2D2D16E12645003A1A58 /* bgCalloutDisclosure@2x.png */,
-				AB3C2D2E16E12646003A1A58 /* bgCallout.png */,
-				AB3C2D2F16E12647003A1A58 /* bgCallout@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -580,13 +562,7 @@
 				7BDBF4A8166CDF8200FDA327 /* row@2x.png in Resources */,
 				7BDBF4A9166CDF8200FDA327 /* rowselected.png in Resources */,
 				7BDBF4AA166CDF8200FDA327 /* rowselected@2x.png in Resources */,
-				AB3C2D3016E12648003A1A58 /* chevron copy.png in Resources */,
 				AB3C2D3116E12648003A1A58 /* poi2.png in Resources */,
-				AB3C2D3216E12648003A1A58 /* location.png in Resources */,
-				AB3C2D3316E12648003A1A58 /* bgCalloutDisclosure.png in Resources */,
-				AB3C2D3416E12648003A1A58 /* bgCalloutDisclosure@2x.png in Resources */,
-				AB3C2D3516E12648003A1A58 /* bgCallout.png in Resources */,
-				AB3C2D3616E12648003A1A58 /* bgCallout@2x.png in Resources */,
 				AB3C2D4216E12F12003A1A58 /* MainStoryboard.storyboard in Resources */,
 				AB9CC1E316E51B4500B47683 /* menu copy.png in Resources */,
 				AB9CC1E516E52A4D00B47683 /* menu copy2.png in Resources */,

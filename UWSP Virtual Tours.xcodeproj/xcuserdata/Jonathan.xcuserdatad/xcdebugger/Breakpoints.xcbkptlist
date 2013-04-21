@@ -2323,8 +2323,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "365"
          endingLineNumber = "365"
-         landmarkName = "@implementation MapViewController"
-         landmarkType = "3">
+         landmarkName = "-locationClicked:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
