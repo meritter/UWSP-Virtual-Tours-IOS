@@ -1,6 +1,7 @@
 # UWSP-Virtual Tours
 Created by **Jonathan Christian**
 
+#An augmented reality application of the University of Wisconsin Stevens Point nature reserve
 
 
 # Screenshots
