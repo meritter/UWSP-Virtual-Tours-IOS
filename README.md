@@ -1,11 +1,11 @@
 # UWSP-Virtual Tours
 Created by **Jonathan Christian**
 
-#An augmented reality application of the University of Wisconsin Stevens Point nature reserve
+UWSP Virtual Tours is an augmented reality application that allows users to take a “tour” through Schmeeckle Reserve. On this tour, users hold their phones or tablets up to discover different points of interest. These points of interest are displayed either on a map view mode using Google maps, or a camera view mode which uses the user’s camera. Upon discovering a point of interest, the app allows users to touch the point of interest marker for more information. This information consists of history, facts, and pictures about the point of interest. The application gives the choice between a free roam mode, which allows users to freely wander throughout Schmeeckle Reserve, and a quest mode, which directs users from one specific point to the next. With the use of a server, the app is expandable beyond Schmeeckle Reserve, giving the opportunity to create new tours in any imaginable location. UWSP Virtual Tours will help build and inspire future augmented reality applications in the university and beyond.
 
 
 # Screenshots
-![](https://github.com/jchri853/UWSP-Virtual-Tours-IOS/blob/master/screenShot.png)&nbsp;
+![](https://github.com/jchri853/UWSP-Virtual-Tours-IOS/screenShot.png)&nbsp;
 
 # Requirements
 
