@@ -73,8 +73,39 @@
             [Singleton sharedSingleton].selectedMapPack = currentMapPack;
             [Singleton sharedSingleton].selectedMode = currentMode;
             
-            XMLDataAccess * da = [[XMLDataAccess alloc] init];
+            NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            NSString *filePath = [docDir stringByAppendingPathComponent:@"locationsArrayData.plist"];
             
+         NSMutableArray * array = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+            
+            for (int i = 0; i < [array count]; i++)
+            {
+                //Create a dictionary and set to the count of i
+                NSDictionary *tempObjectDict = [array objectAtIndex:i];
+                
+                //Create and initialize a poi object
+                Poi * poi = [[Poi alloc] init];
+                
+                //Assign based upon dictionary key value pairs
+                poi.title = [tempObjectDict objectForKey:@"title"];
+                poi.lat = [[tempObjectDict objectForKey:@"lat"] doubleValue];
+                poi.lon = [[tempObjectDict objectForKey:@"lon"] doubleValue];
+                poi.description = [tempObjectDict objectForKey:@"description"];
+                poi.poiId = [[tempObjectDict objectForKey:@"id"] integerValue];
+                poi.visited = [[tempObjectDict objectForKey:@"visited"] boolValue];
+                
+                
+                // poi.visited = true;
+                //Add poi to singleton for App use
+                [[Singleton sharedSingleton].locationsArray  addObject:poi];
+                
+            }
+        }
+        
+        
+        if ([[Singleton sharedSingleton].locationsArray count] == 0)
+        {
+            XMLDataAccess * da = [[XMLDataAccess alloc] init];
             [da setUpPOI:currentMapPack];
         }
     
@@ -92,15 +123,42 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     
-    NSUserDefaults *padFactoids;
-    padFactoids = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults * deviceStoredValues = [NSUserDefaults standardUserDefaults];
   
-    [padFactoids setValue:[Singleton sharedSingleton].selectedMapPack forKey:@"CurrentMapPack"];
-    [padFactoids synchronize];
-    [padFactoids setValue:[Singleton sharedSingleton].selectedMode  forKey:@"CurrentMode"];
-    [padFactoids synchronize];
+    [deviceStoredValues setValue:[Singleton sharedSingleton].selectedMapPack forKey:@"CurrentMapPack"];
+    [deviceStoredValues synchronize];
+    [deviceStoredValues setValue:[Singleton sharedSingleton].selectedMode  forKey:@"CurrentMode"];
+    
+
+  NSMutableArray *myArray = [[NSMutableArray alloc] init];
+    for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray) {
+        
+        NSMutableDictionary * tempObjectDict = [[NSMutableDictionary alloc] init];
+        [tempObjectDict setValue:tempPoi.title forKey:@"title"];
+        [tempObjectDict setValue:tempPoi.description forKey:@"description"];
+        [tempObjectDict setValue:[NSNumber numberWithDouble:tempPoi.lat]  forKey:@"lat"];
+        [tempObjectDict setValue:[NSNumber numberWithDouble:tempPoi.lon] forKey:@"lon"];
+        [tempObjectDict setValue:[NSNumber numberWithInt:tempPoi.poiId] forKey:@"poiId"];
+        [tempObjectDict setValue:[NSNumber numberWithBool:tempPoi.visited]  forKey:@"visited"];
+        [myArray addObject:tempObjectDict];
+
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *prsPath = [documentsDirectory stringByAppendingPathComponent:@"locationsArrayData.plist"];    //Save
+    [myArray writeToFile:prsPath atomically:YES];
 }
 
+
+- (void) writeToPlist: (NSString*)fileName withData:(NSMutableArray *)data
+{
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+    
+    [data writeToFile:finalPath atomically: YES];
+    /* This would change the firmware version in the plist to 1.1.1 by initing the NSDictionary with the plist, then changing the value of the string in the key "ProductVersion" to what you specified */
+}
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     

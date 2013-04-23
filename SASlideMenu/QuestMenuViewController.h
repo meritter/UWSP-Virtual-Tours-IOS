@@ -14,8 +14,6 @@
    // NSMutableArray *users;
     NSMutableArray * visitedLocations;
     int indexCount;
-    
-    
     IBOutlet UITableView  *MyTableView;
 }
 

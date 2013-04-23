@@ -285,8 +285,6 @@
         case 1:
             return [localMapPacks count];
             break;
-        default:
-            break;
     }
     
     return rowCount;

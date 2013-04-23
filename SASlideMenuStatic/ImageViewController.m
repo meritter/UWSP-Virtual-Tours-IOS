@@ -62,15 +62,11 @@
     
     NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poi.poiId, 0, @".png"];
                             
-                            //NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", lastPoiId, imagecount, @".png"];
-
-
     NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:stringURL];
 
 
     NSData *imgData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
     UIImage * backgroundImage = [[UIImage alloc] initWithData:imgData];
-   // UIImage *= [[NSBundle pathForResource:ofType:inDirectory:filePath];
     CGRect backgroundRect = CGRectMake(0, 0, self.view.frame.size.width, backgroundImage.size.height);
     
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:backgroundRect];

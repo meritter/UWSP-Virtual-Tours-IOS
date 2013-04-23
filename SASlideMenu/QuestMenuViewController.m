@@ -14,12 +14,7 @@
 @interface QuestMenuViewController ()
 @property (nonatomic, strong) NSMutableArray  * settings;
 
-
-
-
 @end
-
-
 
 //RGB color macro
 #define UIColorFromRGB(rgbValue) [UIColor \
@@ -66,32 +61,38 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     settings = [[NSMutableArray alloc] init];
     visitedLocations = [[NSMutableArray alloc] init];
     currentQuest = [[NSMutableArray alloc] init];
-  
-    //[tours addObject:@"Place Holder 1"];
     
     [settings addObject:@"Settings"];
     [settings addObject:@"About"];
     
-   /* for (Poi * poi in [Singleton sharedSingleton].locationsArray)
-    {
-        [users addObject:poi];
-    }*/
     
     int i = 1;
-    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
     {
         
-        if(poi.visited)
+        if(tempPoi.visited)
         {
-            [visitedLocations addObject:poi];
+            [visitedLocations addObject:tempPoi];
         }
         else if (i == 1 && poi.visited == false)
         {
-            [currentQuest addObject:poi];
+            [currentQuest addObject:tempPoi];
             i++;
         }
         
     }
+    
+    //When app starts up and all visited locations are loaded with now curren Quest- lets notify the person the tour is comple
+    if ([currentQuest count] == 0 && [visitedLocations count] != 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Tour Completed"
+                                                       message:@"Start this tour again?"
+                                                      delegate:self
+                                             cancelButtonTitle:@"No"
+                                             otherButtonTitles:@"Yes",nil];
+        [alert show];
+    }
+
     
   
 
@@ -105,20 +106,30 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
     
     int i = 1;
-    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
+    for (Poi * tempPoi  in [Singleton sharedSingleton].locationsArray)
     {
         
-        if(poi.visited)
+        if(tempPoi.visited)
         {
-            [visitedLocations addObject:poi];
+            [visitedLocations addObject:tempPoi ];
         }
         else if (i == 1 && poi.visited == false)
         {
-            [currentQuest addObject:poi];
+            [currentQuest addObject:tempPoi ];
             i++;
         }
-        
     }
+    if ([currentQuest count] == 0 )
+    {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"You have completed this tour!"
+                                                   message:@"Do you like cats?"
+                                                  delegate:self
+                                         cancelButtonTitle:@"No"
+                                         otherButtonTitles:@"Yes",nil];
+
+        [alert show];
+
+      }
 
     [MyTableView reloadData];
   /*
@@ -142,6 +153,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+	// 0 = Tapped yes
+	if (buttonIndex == 1)
+	{
+        for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
+        {
+            tempPoi.visited = false;
+           
+        }
+
+	}
+    
+}
 
 
 - (void)NotifyOnMapModeChange:(NSNotification*)note {
@@ -154,11 +179,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     }
     [MyTableView reloadData];
 }
-
-- (void)awakeFromNib
-{
-}
-
 
 #pragma mark - Table view data source
 
@@ -250,7 +270,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             
             if([currentQuest count] == 0)
             {
-                   cell.textLabel.text = @"All Quests Completed";
+                 cell.textLabel.textColor = [UIColor grayColor];
+                 cell.textLabel.text = @"All Quests Completed";
             }
             else
             {
@@ -301,7 +322,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 // This is the indexPath selected at start-up
 -(NSIndexPath*) selectedIndexPath{
-    return [NSIndexPath indexPathForRow:0 inSection:0];
+    return 0;;
 }
 
 
@@ -373,9 +394,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSLog(@"slideMenuDidSlideIn");
 }
 -(void) slideMenuWillSlideToSide{
-    NSLog(@"slideMenuWillSlideToSide");
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
-    //Here
+    @try {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
+
+    }
+    @catch (NSException *exception) {
+        NSLog(exception.name);
+    }
+    @finally {
+
+    }
+       //Here
 }
 
 @end
