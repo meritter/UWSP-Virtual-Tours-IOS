@@ -66,20 +66,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [settings addObject:@"About"];
     
     
-    int i = 1;
+    bool hasQuest = false;
     for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
     {
-        
-        if(tempPoi.visited)
-        {
-            [visitedLocations addObject:tempPoi];
-        }
-        else if (i == 1 && poi.visited == false)
+        if (!hasQuest && !tempPoi.visited)
         {
             [currentQuest addObject:tempPoi];
-            i++;
+            hasQuest = true;
+        } 
+        else if(tempPoi.visited)
+        {
+             [visitedLocations addObject:tempPoi];
         }
-        
     }
     
     //When app starts up and all visited locations are loaded with now curren Quest- lets notify the person the tour is comple
@@ -99,62 +97,64 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 
+- (void)reloadTour
+{
+    bool hasQuest = false;
+    for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
+    {
+        if (!hasQuest && !tempPoi.visited)
+        {
+            [currentQuest addObject:tempPoi];
+            hasQuest = true;
+        }
+        else if(tempPoi.visited)
+        {
+            [visitedLocations addObject:tempPoi];
+        }
+    }
+ [MyTableView reloadData];
+}
+
 
 - (void)NotifyOnMapPackChange:(NSNotification*)note {
      [currentQuest removeAllObjects];
      [visitedLocations removeAllObjects];
 
     
-    int i = 1;
-    for (Poi * tempPoi  in [Singleton sharedSingleton].locationsArray)
+    bool hasQuest = false;
+    for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
     {
-        
-        if(tempPoi.visited)
+        if (!hasQuest && !tempPoi.visited)
         {
-            [visitedLocations addObject:tempPoi ];
+            [currentQuest addObject:tempPoi];
+            hasQuest = true;
         }
-        else if (i == 1 && poi.visited == false)
+          else if(tempPoi.visited == true)
         {
-            [currentQuest addObject:tempPoi ];
-            i++;
+            [visitedLocations addObject:tempPoi];
         }
     }
-    if ([currentQuest count] == 0 )
+       if ([currentQuest count] == 0 && [visitedLocations count] != 0)
     {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"You have completed this tour!"
-                                                   message:@"Do you like cats?"
-                                                  delegate:self
-                                         cancelButtonTitle:@"No"
-                                         otherButtonTitles:@"Yes",nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Tour Completed"
+                                                       message:@"Start this tour again?"
+                                                      delegate:self
+                                             cancelButtonTitle:@"No"
+                                             otherButtonTitles:@"Yes",nil];
 
         [alert show];
 
       }
 
     [MyTableView reloadData];
-  /*
-    [visitedLocations removeAllObjects];
-    
-    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
-    {
-        
-        if(poi.visited)
-        {
-            [visitedLocations addObject:poi];
-        }
-        else if (i == 1)
-        {
-            [currentQuest addObject:poi];
-            i++;
-        }
-        
-    }
-    [MyTableView reloadData];*/
 }
 
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+    [currentQuest removeAllObjects];
+    [visitedLocations removeAllObjects];
+
 	// 0 = Tapped yes
 	if (buttonIndex == 1)
 	{
@@ -165,7 +165,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         }
 
 	}
-    
+    [self reloadTour];
 }
 
 
@@ -291,10 +291,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
            break;
         case 2:
             cell.textLabel.text  = [settings objectAtIndex:indexPath.row];
+            cell.imageView.image = nil;
             break;
-        default:
-            break;
-    }
+        }
     
         return cell;
      

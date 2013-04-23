@@ -151,14 +151,6 @@
 }
 
 
-- (void) writeToPlist: (NSString*)fileName withData:(NSMutableArray *)data
-{
-    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *finalPath = [documentsDirectory stringByAppendingPathComponent:fileName];
-    
-    [data writeToFile:finalPath atomically: YES];
-    /* This would change the firmware version in the plist to 1.1.1 by initing the NSDictionary with the plist, then changing the value of the string in the key "ProductVersion" to what you specified */
-}
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     

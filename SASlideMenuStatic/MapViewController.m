@@ -175,7 +175,8 @@
         
         
        
-        if (dist < 0.015 && count == 1 && poi.visited == false) {
+        if (dist < 0.015 && count == 1)
+        {
             NSString * discoveredLocationName = [NSString stringWithFormat:@"%s%@","Discovered ", poi.title];
             
             [DMRNotificationView showInView:self.view
