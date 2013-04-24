@@ -270,6 +270,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             
             if([currentQuest count] == 0)
             {
+                 cell.imageView.image = nil;
                  cell.textLabel.textColor = [UIColor grayColor];
                  cell.textLabel.text = @"All Quests Completed";
             }
@@ -284,7 +285,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             if([visitedLocations count] != 0)
             {
                 poi = [visitedLocations  objectAtIndex:indexPath.row];
-                 cell.imageView.image = [UIImage imageNamed:@"flag-white-larger.png"];
+                cell.imageView.image = [UIImage imageNamed:@"flag-white-larger.png"];
                 cell.textLabel.text = poi.title;
             }
 
@@ -303,9 +304,23 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSInteger section = indexPath.section;
     if (section == 0 && [currentQuest count]!= 0) {
         poi = [currentQuest objectAtIndex:indexPath.row];
+        @try {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
+            
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Exception: %@", exception);
+        }
     }
     else if (section==1 && [visitedLocations  count]!= 0){
         poi = [visitedLocations  objectAtIndex:indexPath.row];
+        @try {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
+            
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Exception: %@", exception);
+        }
     }
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
@@ -321,7 +336,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 // This is the indexPath selected at start-up
 -(NSIndexPath*) selectedIndexPath{
-    return 0;;
+    return 0;
 }
 
 
@@ -393,17 +408,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSLog(@"slideMenuDidSlideIn");
 }
 -(void) slideMenuWillSlideToSide{
-    @try {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
-
-    }
-    @catch (NSException *exception) {
-        NSLog(exception.name);
-    }
-    @finally {
-
-    }
-       //Here
+    
 }
 
 @end

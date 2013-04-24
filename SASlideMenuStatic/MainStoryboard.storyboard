@@ -633,6 +633,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
                 <relationship kind="action" name="revealUnderRight:"/>
+                <relationship kind="action" name="tapped:"/>
                 <relationship kind="outlet" name="button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="subtitleView" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleView" candidateClass="UILabel"/>
