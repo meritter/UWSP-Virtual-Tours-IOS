@@ -64,7 +64,7 @@
     poi.description = [tempObjectDict objectForKey:@"description"];
     poi.poiId = [[tempObjectDict objectForKey:@"id"] integerValue];
     
-        
+        poi.visited = true;
         
        // poi.visited = true;
     //Add poi to singleton for App use

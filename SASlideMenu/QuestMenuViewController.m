@@ -66,31 +66,40 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [settings addObject:@"About"];
     
     
-    bool hasQuest = false;
-    for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
+    if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
     {
-        if (!hasQuest && !tempPoi.visited)
-        {
-            [currentQuest addObject:tempPoi];
-            hasQuest = true;
-        } 
-        else if(tempPoi.visited)
-        {
-             [visitedLocations addObject:tempPoi];
-        }
+         [currentQuest removeAllObjects];
+         [visitedLocations removeAllObjects];
+        
     }
-    
-    //When app starts up and all visited locations are loaded with now curren Quest- lets notify the person the tour is comple
-    if ([currentQuest count] == 0 && [visitedLocations count] != 0)
+    else
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Tour Completed"
+    
+        bool hasQuest = false;
+        for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
+        {
+            if (!hasQuest && !tempPoi.visited)
+            {
+                [currentQuest addObject:tempPoi];
+                hasQuest = true;
+            }
+            else if(tempPoi.visited)
+            {
+                [visitedLocations addObject:tempPoi];
+            }
+        }
+    
+        //When app starts up and all visited locations are loaded with now curren Quest- lets notify the person the tour is comple
+        if ([currentQuest count] == 0 && [visitedLocations count] != 0)
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Tour Completed"
                                                        message:@"Start this tour again?"
                                                       delegate:self
-                                             cancelButtonTitle:@"No"
-                                             otherButtonTitles:@"Yes",nil];
-        [alert show];
+                                                        cancelButtonTitle:@"No"
+                                                        otherButtonTitles:@"Yes",nil];
+            [alert show];
+        }
     }
-
     
   
 
@@ -112,15 +121,58 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             [visitedLocations addObject:tempPoi];
         }
     }
- [MyTableView reloadData];
+    [MyTableView reloadData];
+}
+
+
+
+- (void)NotifyOnMapModeChange:(NSNotification*)note {
+    [currentQuest removeAllObjects];
+    [visitedLocations removeAllObjects];
+    
+    if([[Singleton sharedSingleton].selectedMode isEqual:@"Quest Mode"])
+    {
+        
+        bool hasQuest = false;
+        for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
+        {
+            if (!hasQuest && !tempPoi.visited)
+            {
+                [currentQuest addObject:tempPoi];
+                hasQuest = true;
+            }
+            else if(tempPoi.visited == true)
+            {
+                [visitedLocations addObject:tempPoi];
+            }
+        }
+        if ([currentQuest count] == 0 && [visitedLocations count] != 0)
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Tour Completed"
+                                                           message:@"Start this tour again?"
+                                                          delegate:self
+                                                 cancelButtonTitle:@"No"
+                                                 otherButtonTitles:@"Yes",nil];
+            
+            [alert show];
+            
+        }
+    }
+    else{
+        
+    }
+    
+    [MyTableView reloadData];
 }
 
 
 - (void)NotifyOnMapPackChange:(NSNotification*)note {
-     [currentQuest removeAllObjects];
-     [visitedLocations removeAllObjects];
+    [currentQuest removeAllObjects];
+    [visitedLocations removeAllObjects];
 
-    
+    if([[Singleton sharedSingleton].selectedMode isEqual:@"Quest Mode"])
+    {
+        
     bool hasQuest = false;
     for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
     {
@@ -145,6 +197,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         [alert show];
 
       }
+    }
+       else{
+           
+       }
 
     [MyTableView reloadData];
 }
@@ -169,16 +225,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 
-- (void)NotifyOnMapModeChange:(NSNotification*)note {
-    
-    if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
-    {
-       // [users removeAllObjects];
-       // [tours removeAllObjects];
-        
-    }
-    [MyTableView reloadData];
-}
+
 
 #pragma mark - Table view data source
 
@@ -263,16 +310,26 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0];
-     //item  = [serverMapPacks objectAtIndex:indexPath.row];
- 
+    
     switch (indexPath.section) {
         case 0:
             
             if([currentQuest count] == 0)
             {
+                
                  cell.imageView.image = nil;
                  cell.textLabel.textColor = [UIColor grayColor];
+                 if([[Singleton sharedSingleton].selectedMode  isEqualToString:@"Free Roam Mode"])
+                 {
+                        cell.textLabel.text = @"In Free Roam Mode";
+                      
+                 }
+                 else
+                 {
                  cell.textLabel.text = @"All Quests Completed";
+                 }
+
+               
             }
             else
             {
@@ -304,23 +361,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSInteger section = indexPath.section;
     if (section == 0 && [currentQuest count]!= 0) {
         poi = [currentQuest objectAtIndex:indexPath.row];
-        @try {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
-            
-        }
-        @catch (NSException *exception) {
-            NSLog(@"Exception: %@", exception);
-        }
+       
     }
     else if (section==1 && [visitedLocations  count]!= 0){
         poi = [visitedLocations  objectAtIndex:indexPath.row];
-        @try {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
-            
-        }
-        @catch (NSException *exception) {
-            NSLog(@"Exception: %@", exception);
-        }
     }
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
@@ -395,7 +439,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if ([controller isKindOfClass:[MapViewController class]])
     {
         MapViewController* mapViewController = (MapViewController*)controller;
+         if([[Singleton sharedSingleton].selectedMode isEqual:@"Quest Mode"])
+         {
         mapViewController.poi =  poi;
+         }
         mapViewController.menuViewController = self;
     }
 }
@@ -408,7 +455,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSLog(@"slideMenuDidSlideIn");
 }
 -(void) slideMenuWillSlideToSide{
-    
+    @try {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RemoveListener" object:self];
+        
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+    }
 }
 
 @end

@@ -234,47 +234,30 @@
 
 
     
-   /* if([[Singleton sharedSingleton].selectedMode isEqual: @"Free Roam Mode"])
+    if([[Singleton sharedSingleton].selectedMode isEqual: @"Free Roam Mode"])
     {
-    for (Poi * poi in [Singleton sharedSingleton].locationsArray)
-    {
+        [mapView clear];
+        for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
+        {
         // NSMutableArray *array = [NSMutableArray arrayWithObjects:@"12.981902,80.266333",@"12.982902,80.266363", nil];
-     
-         CLLocationCoordinate2D pointsToUse[[[Singleton sharedSingleton].locationsArray count]];
-     
-         for (int i = 0; i < [[Singleton sharedSingleton].locationsArray count]; i++)
-         {
-             
-            
-             NSDictionary *tempObjectDict = [[Singleton sharedSingleton].locationsArray objectAtIndex:i];
-         
-             //Create and initialize a poi object
-             Poi * poi = [[Poi alloc] init];
-         
-             //Assign based upon dictionary key value pairs
-             poi.title = [tempObjectDict objectForKey:@"title"];
-             poi.lat = [tempObjectDict objectForKey:@"lat"];
-             poi.lon = [tempObjectDict objectForKey:@"long"];
-    
-             
-             double lat = [poi.lat doubleValue];
-             double longitude = [poi.lon doubleValue];
-             
-             //pointsToUse[i] = CLLocationCoordinate2DMake([
-             CLLocationCoordinate2D newCoord = CLLocationCoordinate2DMake(lat, longitude);
-            // [array removeObjectAtIndex:0];*/
-     
-         /*    GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
-             options.position = pointsToUse[i];
-             [mapView animateToLocation:pointsToUse[i]];
-             options.snippet = @"Test Text";
-             options.icon =  [UIImage imageNamed:@"flag-green.png"];
-             [mapView addMarkerWithOptions:options];
-         }
-     }
+           
+        GMSMarkerOptions *options = [[GMSMarkerOptions alloc] init];
+        options.position = CLLocationCoordinate2DMake(tempPoi.lat, tempPoi.lon);
+        options.title =  tempPoi.title;
+        options.snippet = tempPoi.description;
+
+        options.icon =  [UIImage imageNamed:@"flag.png"];
+        [mapView addMarkerWithOptions:options];
+        
+        
+        [mapView animateToLocation:options.position];
+        [mapView animateToBearing:0];
+        [mapView animateToViewingAngle:0];
+        }
     }
+    
     else
-        {*/
+    {
 
     [mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
     
@@ -289,9 +272,9 @@
     {
     options.icon =  [UIImage imageNamed:@"flag.png"];
     }
-    else{
+    else
+    {
         options.icon =  [UIImage imageNamed:@"flagGreen.png"];
-
     }
     [mapView addMarkerWithOptions:options];
 
@@ -299,6 +282,7 @@
     [mapView animateToLocation:options.position];
     [mapView animateToBearing:0];
     [mapView animateToViewingAngle:0];
+    }
     
 }
 
