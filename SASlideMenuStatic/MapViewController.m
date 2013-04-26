@@ -175,7 +175,7 @@
         
         
        
-        if (dist < 0.015 && count == 1)
+        if (dist < 0.012 && count == 1)
         {
             NSString * discoveredLocationName = [NSString stringWithFormat:@"%s%@","Discovered ", poi.title];
             
@@ -183,9 +183,14 @@
                                       title:discoveredLocationName
                                    subTitle:@"Tap the camera button the right to see more"];
             
-            poi.visited = true;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
+           
             
+            if(!poi.visited)
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
+            }
+            
+            poi.visited = true;
             count++;
         }
     }

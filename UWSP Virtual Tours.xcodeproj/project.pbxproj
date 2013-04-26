@@ -46,6 +46,7 @@
 		AB07D132172393D40099361D /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AB07D131172393D40099361D /* GoogleMaps.bundle */; };
 		AB07D134172393E10099361D /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB07D133172393E10099361D /* GoogleMaps.framework */; };
 		AB07D136172393EE0099361D /* ZAActivityBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AB07D135172393EE0099361D /* ZAActivityBar.bundle */; };
+		AB0F61FE17288B1600028726 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0F61FD17288B1600028726 /* QTouchposeApplication.m */; };
 		AB397EF71703F0E5000A6F18 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB397EF61703F0E4000A6F18 /* AudioToolbox.framework */; };
 		AB3C2CF716E07C8B003A1A58 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */; };
 		AB3C2D1F16E12606003A1A58 /* ARCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3C2D0C16E12606003A1A58 /* ARCoordinate.m */; };
@@ -150,6 +151,8 @@
 		AB07D131172393D40099361D /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = SASlideMenuStatic/GoogleMaps.bundle; sourceTree = "<group>"; };
 		AB07D133172393E10099361D /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = SASlideMenuStatic/GoogleMaps.framework; sourceTree = "<group>"; };
 		AB07D135172393EE0099361D /* ZAActivityBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ZAActivityBar.bundle; path = SASlideMenuStatic/ZAActivityBar.bundle; sourceTree = "<group>"; };
+		AB0F61FC17288B1600028726 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
+		AB0F61FD17288B1600028726 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
 		AB397EF61703F0E4000A6F18 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AB3C2CF616E07C8A003A1A58 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AB3C2D0B16E12606003A1A58 /* ARCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoordinate.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				AB07D128172391A60099361D /* ZAActivityBar.h */,
 				AB07D129172391A60099361D /* ZAActivityBar.m */,
 				AB07D125172391900099361D /* XMLDataAccess.h */,
+				AB0F61FC17288B1600028726 /* QTouchposeApplication.h */,
+				AB0F61FD17288B1600028726 /* QTouchposeApplication.m */,
 				AB07D126172391900099361D /* XMLDataAccess.m */,
 				AB07D122172391790099361D /* Reachability.h */,
 				AB07D123172391790099361D /* Reachability.m */,
@@ -610,6 +615,7 @@
 				AB07D12A172391A60099361D /* ZAActivityBar.m in Sources */,
 				AB07D12D172391B50099361D /* SKBounceAnimation.m in Sources */,
 				AB07D130172391C10099361D /* MDCParallaxView.m in Sources */,
+				AB0F61FE17288B1600028726 /* QTouchposeApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
