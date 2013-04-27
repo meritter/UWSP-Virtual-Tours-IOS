@@ -1486,11 +1486,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156"
+         startingLineNumber = "170"
+         endingLineNumber = "170"
          landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1863,11 +1863,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "239"
-         endingLineNumber = "239"
+         startingLineNumber = "254"
+         endingLineNumber = "254"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1876,11 +1876,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "216"
-         endingLineNumber = "216"
+         startingLineNumber = "231"
+         endingLineNumber = "231"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2097,11 +2097,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "277"
-         endingLineNumber = "277"
+         startingLineNumber = "292"
+         endingLineNumber = "292"
          landmarkName = "-geoLocations"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2110,11 +2110,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "283"
-         endingLineNumber = "283"
+         startingLineNumber = "298"
+         endingLineNumber = "298"
          landmarkName = "-geoLocations"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2123,11 +2123,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "285"
-         endingLineNumber = "285"
+         startingLineNumber = "300"
+         endingLineNumber = "300"
          landmarkName = "-geoLocations"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2136,11 +2136,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "285"
-         endingLineNumber = "285"
+         startingLineNumber = "300"
+         endingLineNumber = "300"
          landmarkName = "-geoLocations"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2149,11 +2149,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "277"
-         endingLineNumber = "277"
+         startingLineNumber = "292"
+         endingLineNumber = "292"
          landmarkName = "-geoLocations"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2162,11 +2162,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "240"
-         endingLineNumber = "240"
+         startingLineNumber = "255"
+         endingLineNumber = "255"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2175,11 +2175,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "291"
-         endingLineNumber = "291"
+         startingLineNumber = "306"
+         endingLineNumber = "306"
          landmarkName = "-geoLocations"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2188,11 +2188,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "297"
-         endingLineNumber = "297"
+         startingLineNumber = "312"
+         endingLineNumber = "312"
          landmarkName = "-locationClicked:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2721,13 +2721,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388692449.040138"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "72"
-         endingLineNumber = "72"
-         landmarkName = "@implementation MapViewController"
-         landmarkType = "3">
+         startingLineNumber = "86"
+         endingLineNumber = "86"
+         landmarkName = "-RemoveListener:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -2925,20 +2925,20 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388692449.040138"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
          landmarkName = "-RemoveListener:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenu/QuestMenuViewController.m"
@@ -2968,11 +2968,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
          landmarkName = "-tapped:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -2981,12 +2981,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SASlideMenuStatic/MapViewController.m"
-         timestampString = "388693067.489031"
+         timestampString = "388725399.377815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
+         startingLineNumber = "134"
+         endingLineNumber = "134"
          landmarkName = "-tapped:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SASlideMenuStatic/MapViewController.m"
+         timestampString = "388724835.639674"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "36"
+         endingLineNumber = "36"
+         landmarkName = "-loadView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SASlideMenuStatic/MapViewController.m"
+         timestampString = "388725399.377815"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "230"
+         endingLineNumber = "230"
+         landmarkName = "-viewWillAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SASlideMenuStatic/MapViewController.m"
+         timestampString = "388725354.983698"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
+         landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

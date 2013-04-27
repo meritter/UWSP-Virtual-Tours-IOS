@@ -31,7 +31,9 @@
 
 
 - (void)loadView {
-
+    
+    
+  
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:poi.lat
                                                             longitude:poi.lon
                                                                  zoom:16];
@@ -59,6 +61,18 @@
     button.center = CGPointMake(160, 406);
     [button addTarget:self action:@selector(tapped:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:button];
+    
+    
+    
+    if (![@"1" isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"alert"]]){
+        
+        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"alert"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome to UWSP Virtual Tours" message:@"Tap the left button at the top to view quests" delegate:nil cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+        
+        [alert show];
+        
+    }
 }
 
 - (void)RemoveListener:(NSNotification*)note {
@@ -213,6 +227,7 @@
     self.navigationItem.titleView = _headerTitleSubtitleView;
 
 
+ 
     
     if([[Singleton sharedSingleton].selectedMode isEqual: @"Free Roam Mode"])
     {
