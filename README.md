@@ -41,4 +41,36 @@ Created by **Jonathan Christian**
 
 #Credits
 
-The Following were used in this app
+The Following Controls/Frameworks were used in this app. 
+
+SASlideMenu
+https://github.com/stefanoa/SASlideMenu
+Copyright (c) 2012 stefanoa
+
+NSXMLParser ARC Demonstration
+https://github.com/robertmryan/nsxmlparser-demonstration
+Copyright (c) 2012 Robert M. Ryan. All rights reserved
+
+MDCParallaxView
+https://github.com/modocache/MDCParallaxView
+Copyright (c) 2012 modocache
+
+SKBounceAnimation 
+https://github.com/khanlou/SKBounceAnimation
+Copyright (c) 2012 Soroush Khanlou
+
+ZAActivityBar
+https://github.com/zacaltman/ZAActivityBar
+Copyright (c) 2012 Zac Altman. All rights reserved
+
+Reachability
+https://github.com/tonymillion/Reachability
+Copyright (c) 2011, Tony Million
+
+DMRNotificationView
+https://github.com/tursunovic/DMRNotificationView
+Copyright (c) 2013, Damir Tursunovi
+
+EGORefreshTableHeaderView
+https://github.com/enormego/EGOTableViewPullRefresh
+Copyright 2009 enormego. All rights reserved.

@@ -138,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wt5-CN-6ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="669" y="-1652"/>
+            <point key="canvasLocation" x="657" y="-1320"/>
         </scene>
         <!--Settings Master View Controller - Settings-->
         <scene sceneID="j2Z-Be-pUO">
@@ -413,7 +413,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="678" y="-950"/>
+            <point key="canvasLocation" x="666" y="-618"/>
         </scene>
         <!--View Controller - Thank You-->
         <scene sceneID="Qm5-P9-hfg">
