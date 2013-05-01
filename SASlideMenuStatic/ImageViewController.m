@@ -44,6 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     self.title = locationName;
     
     Poi * poi = [[Poi alloc] init];

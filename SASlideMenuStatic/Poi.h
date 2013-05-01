@@ -6,6 +6,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+//Model holds necessary POI information for each location
 @interface Poi : NSObject
 
 @property (nonatomic, retain) NSString * title;

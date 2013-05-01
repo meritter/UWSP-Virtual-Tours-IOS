@@ -76,7 +76,7 @@
             NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
             NSString *filePath = [docDir stringByAppendingPathComponent:@"locationsArrayData.plist"];
             
-         NSMutableArray * array = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+            NSMutableArray * array = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
             
             for (int i = 0; i < [array count]; i++)
             {

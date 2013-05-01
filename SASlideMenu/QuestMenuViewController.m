@@ -89,7 +89,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
             }
         }
     
-        //When app starts up and all visited locations are loaded with now curren Quest- lets notify the person the tour is comple
+        //When app starts up and all visited locations are loaded with now curren Quest- lets notify the person the tour is complete
         if ([currentQuest count] == 0 && [visitedLocations count] != 0)
         {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Tour Completed"
@@ -395,7 +395,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     else if (indexPath.section < 2) {
         return @"map";
     }
-    
     else if (indexPath.section == 2)
     {
         if (indexPath.row == 0) {

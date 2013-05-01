@@ -34,7 +34,7 @@
    _coordinateInfo = coordinate;
     _delegate       = aDelegate;
     _allowsCallout  = allowsCallout;
-    _bgImage        = [UIImage imageNamed:@"poi2.png"];
+    _bgImage        = [UIImage imageNamed:@"poi-globe.png"];
     
     UIImage *disclosureImage    = [UIImage imageNamed:@"location.png"];
     CGSize calloutSize          = _bgImage.size;
