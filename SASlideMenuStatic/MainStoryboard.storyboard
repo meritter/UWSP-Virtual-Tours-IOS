@@ -296,21 +296,100 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="en3-fg-1Ye">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <rect key="frame" x="0.0" y="111" width="320" height="393"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.14459103954081631" green="0.14459103954081631" blue="0.14459103954081631" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">A little bit about us in here for fun, happy coding                                                       iPhone AR Toolkit
-Copyright (c) 2013 Ed Rackham (edrackham.com)
+                                <mutableString key="text">UWSP-Virtual Tours
+Created by Jonathan Christian                                 
+                                                                      UWSP Virtual Tours is an augmented reality application that allows users to take a “tour” through Schmeeckle Reserve. On this tour, users hold their phones or tablets up to discover different points of interest. These points of interest are displayed either on a map view mode using Google maps, or a camera view mode which uses the user’s camera. Upon discovering a point of interest, the app allows users to touch the point of interest marker for more information. This information consists of history, facts, and pictures about the point of interest. The application gives the choice between a free roam mode, which allows users to freely wander throughout Schmeeckle Reserve, and a quest mode, which directs users from one specific point to the next. With the use of a server, the app is expandable beyond Schmeeckle Reserve, giving the opportunity to create new tours in any imaginable location. UWSP Virtual Tours will help build and inspire future augmented reality applications in the university and beyond.
+                                           UWSP-Virtual Tours is available under the MIT license:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+*Permission is hereby granted, free of charge, to any person obtaining a copy*
+*of this software and associated documentation files (the "Software"), to deal*
+*in the Software without restriction, including without limitation the rights*
+*to use, copy, modify, merge, publish, distribute, sublicense, and/or sell*
+*copies of the Software, and to permit persons to whom the Software is*
+*furnished to do so, subject to the following conditions:*
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*The above copyright notice and this permission notice shall be included in*
+*all copies or substantial portions of the Software.*
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+*THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR*
+*IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,*
+*FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE*
+*AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER*
+*LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
+*OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN*
+*THE SOFTWARE.*
+
+#Credits
+
+The Following Controls/Frameworks were used in this app. 
+
+SASlideMenu
+https://github.com/stefanoa/SASlideMenu
+Copyright (c) 2012 stefanoa
+
+NSXMLParser ARC Demonstration
+https://github.com/robertmryan/nsxmlparser-demonstration
+Copyright (c) 2012 Robert M. Ryan
+
+MDCParallaxView
+https://github.com/modocache/MDCParallaxView
+Copyright (c) 2012 modocache
+
+SKBounceAnimation 
+https://github.com/khanlou/SKBounceAnimation
+Copyright (c) 2012 Soroush Khanlou
+
+ZAActivityBar
+https://github.com/zacaltman/ZAActivityBar
+Copyright (c) 2012 Zac Altman
+
+Reachability
+https://github.com/tonymillion/Reachability
+Copyright (c) 2011, Tony Million
+
+DMRNotificationView
+https://github.com/tursunovic/DMRNotificationView
+Copyright (c) 2013, Damir Tursunovi
+
+EGORefreshTableHeaderView
+https://github.com/enormego/EGOTableViewPullRefresh
+Copyright 2009 enormego</mutableString>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" id="0zn-Cr-hO0">
+                                <rect key="frame" x="0.0" y="-42" width="320" height="154"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flagGreen.png" id="DEH-au-oxO">
+                                        <rect key="frame" x="20" y="52" width="80" height="73"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flag.png" id="Dd6-eK-Bbn">
+                                        <rect key="frame" x="190" y="52" width="77" height="73"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Not visited" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gwe-Gu-zyw">
+                                        <rect key="frame" x="25" y="133" width="92" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Visited" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I4E-1v-8M5">
+                                        <rect key="frame" x="207" y="133" width="60" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.23728475765306123" green="0.23728475765306123" blue="0.23728475765306123" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -631,6 +710,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <image name="WisconsinMap.png" width="639" height="784"/>
         <image name="camera1 copy.png" width="25" height="19"/>
         <image name="colorLogoHome.png" width="271" height="72"/>
+        <image name="flag.png" width="50" height="50"/>
+        <image name="flagGreen.png" width="50" height="50"/>
         <image name="map.png" width="300" height="300"/>
         <image name="personholdingphone.png" width="1958" height="2611"/>
     </resources>
@@ -648,6 +729,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
                 <relationship kind="action" name="revealUnderRight:"/>
+                <relationship kind="action" name="tapped:"/>
                 <relationship kind="outlet" name="button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="subtitleView" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleView" candidateClass="UILabel"/>
