@@ -60,7 +60,7 @@
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.5];
-    [[cell  textLabel]  setText:@"Map Pack Not Selected"];
+    [[cell  textLabel]  setText:@"No Tour Selected"];
     
     return cell;
 }
@@ -82,7 +82,7 @@
     }
     else
     {
-      [[cell  textLabel]  setText:@"Map Pack Not Selected"];
+      [[cell  textLabel]  setText:@"No Tour Selected"];
     }
 }
 

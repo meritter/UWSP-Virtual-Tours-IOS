@@ -428,7 +428,7 @@
          //   ownloadImagesOfMapPack:currentMapPack
         
             // make async
-            [ZAActivityBar showSuccessWithStatus:@"Downloaded Map Pack"];
+            [ZAActivityBar showSuccessWithStatus:@"Downloaded Tour"];
             [self reloadTableData];
         break;
         case 1:

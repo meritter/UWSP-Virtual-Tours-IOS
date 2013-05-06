@@ -60,6 +60,7 @@
         
     }
 
+    //IF device doe sor does not have images we need to do a check and change image size on the code here.
     
     NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poi.poiId, 0, @".png"];
                             

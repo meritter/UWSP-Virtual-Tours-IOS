@@ -60,7 +60,7 @@ int count = 1;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-        return @"Map Mode";
+        return @"Tour Mode";
 }
 
 

@@ -98,6 +98,8 @@
 		AB9CC1E516E52A4D00B47683 /* menu copy2.png in Resources */ = {isa = PBXBuildFile; fileRef = AB9CC1E416E52A4C00B47683 /* menu copy2.png */; };
 		ABA1D0FE17151CAE007F2972 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBDE47717151A60002A416E /* ImageIO.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		ABAF55D5171CF9E200278222 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAF55D4171CF9DE00278222 /* ImageViewController.m */; };
+		ABD9CF131737487500C4ABD8 /* iOSlauncher.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD9CF111737487500C4ABD8 /* iOSlauncher.png */; };
+		ABD9CF141737487500C4ABD8 /* iOSlauncherIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = ABD9CF121737487500C4ABD8 /* iOSlauncherIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,6 +244,8 @@
 		ABAF55D3171CF9DD00278222 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		ABAF55D4171CF9DE00278222 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		ABBDE47717151A60002A416E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		ABD9CF111737487500C4ABD8 /* iOSlauncher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOSlauncher.png; path = Assets/iOSlauncher.png; sourceTree = "<group>"; };
+		ABD9CF121737487500C4ABD8 /* iOSlauncherIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOSlauncherIcon.png; path = Assets/iOSlauncherIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +454,8 @@
 		AB0D037917305653005943DE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				ABD9CF111737487500C4ABD8 /* iOSlauncher.png */,
+				ABD9CF121737487500C4ABD8 /* iOSlauncherIcon.png */,
 				AB0239C11730B21100D6B382 /* personholdingphone.png */,
 				AB0D037A17305678005943DE /* camera1 copy.png */,
 				AB0D037B17305678005943DE /* colorLogoHome.png */,
@@ -615,6 +621,8 @@
 				AB0D038E17305678005943DE /* poi2.png in Resources */,
 				AB0D038F17305678005943DE /* WisconsinMap.png in Resources */,
 				AB0239C21730B21100D6B382 /* personholdingphone.png in Resources */,
+				ABD9CF131737487500C4ABD8 /* iOSlauncher.png in Resources */,
+				ABD9CF141737487500C4ABD8 /* iOSlauncherIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

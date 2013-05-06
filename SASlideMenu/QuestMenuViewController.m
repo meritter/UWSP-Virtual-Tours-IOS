@@ -63,6 +63,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     currentQuest = [[NSMutableArray alloc] init];
     
     [settings addObject:@"Settings"];
+     [settings addObject:@"Help"];
     [settings addObject:@"About"];
     
     
@@ -399,8 +400,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     {
         if (indexPath.row == 0) {
             return @"settings";
-            
         }else if (indexPath.row == 1){
+            return @"help";
+        }else if (indexPath.row == 2){
             return @"about";
         }
     }
