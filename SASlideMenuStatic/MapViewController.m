@@ -68,7 +68,9 @@
         
         [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"alert"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome to UWSP Virtual Tours" message:@"Tap the left button at the top to view quests" delegate:nil cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome to UWSP Virtual Tours"  message: [NSString stringWithFormat: @"%C First Tap the left button at the top to view quests  \n %C Next tap the current Active Quest to view your first location on the map\n %C Repeat these steps for every location in the tour", (unichar) 0x2022, (unichar) 0x2022, (unichar) 0x2022]
+                              delegate:nil cancelButtonTitle: @"Ok" otherButtonTitles: nil];
+//message:@"   Next tap the active quest to view your first location" 
         
         [alert show];
         
