@@ -61,8 +61,28 @@
     button.center = CGPointMake(160, 406);
     [button addTarget:self action:@selector(tapped:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:button];
+        [self setUpHeaderTitle];
     
-    
+    if([[Singleton sharedSingleton].selectedMode isEqual: @"Free Roam Mode"])
+    {
+        [mapView clear];
+        for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
+        {
+            CLLocationCoordinate2D position = CLLocationCoordinate2DMake(tempPoi.lat, tempPoi.lon);
+            GMSMarker * marker = [GMSMarker markerWithPosition:position];
+            marker.title = tempPoi.title;
+            marker.icon = [UIImage imageNamed:@"flag.png"];
+            marker.snippet = tempPoi.description;
+            marker.map = mapView;
+            
+            [mapView animateToLocation:position];
+            [mapView animateToBearing:0];
+            [mapView animateToViewingAngle:0];
+        }
+    }
+    else
+    {
+
     
     if (![@"1" isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"alert"]]){
         
@@ -73,6 +93,7 @@
 //message:@"   Next tap the active quest to view your first location" 
         
         [alert show];
+        }
         
     }
 }
@@ -189,14 +210,14 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated{
-    _arViewController = nil;
-    
+
+- (void)setUpHeaderTitle
+{
     CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
     UIView* _headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
     _headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
     _headerTitleSubtitleView.autoresizesSubviews = YES;
-    
+
     CGRect titleFrame = CGRectMake(0, 2, 200, 24);
     titleView = [[UILabel alloc] initWithFrame:titleFrame];
     titleView.backgroundColor = [UIColor clearColor];
@@ -208,7 +229,7 @@
     titleView.text = @"UWSP Virtual Tours";
     titleView.adjustsFontSizeToFitWidth = YES;
     [_headerTitleSubtitleView addSubview:titleView];
-    
+
     CGRect subtitleFrame = CGRectMake(0, 24, 200, 44-24);
     subtitleView = [[UILabel alloc] initWithFrame:subtitleFrame];
     subtitleView.backgroundColor = [UIColor clearColor];
@@ -220,16 +241,24 @@
     subtitleView.text = [Singleton sharedSingleton].selectedMode;
     subtitleView.adjustsFontSizeToFitWidth = YES;
     [_headerTitleSubtitleView addSubview:subtitleView];
-    
+
     _headerTitleSubtitleView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
-                                                 UIViewAutoresizingFlexibleRightMargin |
-                                                 UIViewAutoresizingFlexibleTopMargin |
-                                                 UIViewAutoresizingFlexibleBottomMargin);
-    
+                                             UIViewAutoresizingFlexibleRightMargin |
+                                             UIViewAutoresizingFlexibleTopMargin |
+                                             UIViewAutoresizingFlexibleBottomMargin);
+
     self.navigationItem.titleView = _headerTitleSubtitleView;
+}
 
 
- 
+
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    _arViewController = nil;
+    
+   
+    [self setUpHeaderTitle];
     
     if([[Singleton sharedSingleton].selectedMode isEqual: @"Free Roam Mode"])
     {
@@ -241,6 +270,8 @@
             marker.title = tempPoi.title;
             marker.icon = [UIImage imageNamed:@"flag.png"];
             marker.snippet = tempPoi.description;
+            marker.tappable = YES;
+
             marker.map = mapView;
         
             [mapView animateToLocation:position];
@@ -259,6 +290,12 @@
         [self loadMap];
     }
     
+}
+
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    ImageViewController * kivc = [[ImageViewController alloc] init];
+    kivc.locationName = marker.title;
+    [self.navigationController pushViewController:kivc animated:YES];
 }
 
 -(void)loadMap
