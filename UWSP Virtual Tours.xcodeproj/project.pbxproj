@@ -77,9 +77,9 @@
 		AB51ED8316EAABB100851F19 /* TutorialSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51ED8216EAABAF00851F19 /* TutorialSecondViewController.m */; };
 		AB616F4B1714B3EB0058EB99 /* MapModeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB616F4A1714B3EB0058EB99 /* MapModeListViewController.m */; };
 		AB6F7116173D5EE0009D8E16 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6F7115173D5EE0009D8E16 /* screenshot.png */; };
-		AB6F711A173D5FC3009D8E16 /* iOSlauncher72.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6F7117173D5FC3009D8E16 /* iOSlauncher72.png */; };
-		AB6F711B173D5FC3009D8E16 /* iOSlauncher114.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6F7118173D5FC3009D8E16 /* iOSlauncher114.png */; };
-		AB6F711C173D5FC3009D8E16 /* iOSlauncherIcon57.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6F7119173D5FC3009D8E16 /* iOSlauncherIcon57.png */; };
+		AB6F7120173D6103009D8E16 /* iOSlauncher72.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6F711D173D6103009D8E16 /* iOSlauncher72.png */; };
+		AB6F7121173D6103009D8E16 /* iOSlauncher114.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6F711E173D6103009D8E16 /* iOSlauncher114.png */; };
+		AB6F7122173D6103009D8E16 /* iOSlauncherIcon57.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6F711F173D6103009D8E16 /* iOSlauncherIcon57.png */; };
 		AB77BCAF1717A92B00CC5644 /* SASlideMenuContentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77BCA01717A92B00CC5644 /* SASlideMenuContentSegue.m */; };
 		AB77BCB01717A92B00CC5644 /* SASlideMenuLeftMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77BCA21717A92B00CC5644 /* SASlideMenuLeftMenuSegue.m */; };
 		AB77BCB11717A92B00CC5644 /* SASlideMenuRightMenuSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AB77BCA41717A92B00CC5644 /* SASlideMenuRightMenuSegue.m */; };
@@ -212,9 +212,9 @@
 		AB616F491714B3EB0058EB99 /* MapModeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapModeListViewController.h; sourceTree = "<group>"; };
 		AB616F4A1714B3EB0058EB99 /* MapModeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapModeListViewController.m; sourceTree = "<group>"; };
 		AB6F7115173D5EE0009D8E16 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
-		AB6F7117173D5FC3009D8E16 /* iOSlauncher72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOSlauncher72.png; path = Assets/iOSlauncher72.png; sourceTree = "<group>"; };
-		AB6F7118173D5FC3009D8E16 /* iOSlauncher114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOSlauncher114.png; path = Assets/iOSlauncher114.png; sourceTree = "<group>"; };
-		AB6F7119173D5FC3009D8E16 /* iOSlauncherIcon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOSlauncherIcon57.png; path = Assets/iOSlauncherIcon57.png; sourceTree = "<group>"; };
+		AB6F711D173D6103009D8E16 /* iOSlauncher72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOSlauncher72.png; path = Assets/iOSlauncher72.png; sourceTree = "<group>"; };
+		AB6F711E173D6103009D8E16 /* iOSlauncher114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOSlauncher114.png; path = Assets/iOSlauncher114.png; sourceTree = "<group>"; };
+		AB6F711F173D6103009D8E16 /* iOSlauncherIcon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iOSlauncherIcon57.png; path = Assets/iOSlauncherIcon57.png; sourceTree = "<group>"; };
 		AB77BC9D1717A92B00CC5644 /* SASlideMenuDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuDataSource.h; sourceTree = "<group>"; };
 		AB77BC9E1717A92B00CC5644 /* SASlideMenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuDelegate.h; sourceTree = "<group>"; };
 		AB77BC9F1717A92B00CC5644 /* SASlideMenuContentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASlideMenuContentSegue.h; sourceTree = "<group>"; };
@@ -459,9 +459,9 @@
 		AB0D037917305653005943DE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				AB6F7117173D5FC3009D8E16 /* iOSlauncher72.png */,
-				AB6F7118173D5FC3009D8E16 /* iOSlauncher114.png */,
-				AB6F7119173D5FC3009D8E16 /* iOSlauncherIcon57.png */,
+				AB6F711D173D6103009D8E16 /* iOSlauncher72.png */,
+				AB6F711E173D6103009D8E16 /* iOSlauncher114.png */,
+				AB6F711F173D6103009D8E16 /* iOSlauncherIcon57.png */,
 				AB0239C11730B21100D6B382 /* personholdingphone.png */,
 				AB0D037A17305678005943DE /* camera1 copy.png */,
 				AB0D037B17305678005943DE /* colorLogoHome.png */,
@@ -628,9 +628,9 @@
 				AB0D038F17305678005943DE /* WisconsinMap.png in Resources */,
 				AB0239C21730B21100D6B382 /* personholdingphone.png in Resources */,
 				AB6F7116173D5EE0009D8E16 /* screenshot.png in Resources */,
-				AB6F711A173D5FC3009D8E16 /* iOSlauncher72.png in Resources */,
-				AB6F711B173D5FC3009D8E16 /* iOSlauncher114.png in Resources */,
-				AB6F711C173D5FC3009D8E16 /* iOSlauncherIcon57.png in Resources */,
+				AB6F7120173D6103009D8E16 /* iOSlauncher72.png in Resources */,
+				AB6F7121173D6103009D8E16 /* iOSlauncher114.png in Resources */,
+				AB6F7122173D6103009D8E16 /* iOSlauncherIcon57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

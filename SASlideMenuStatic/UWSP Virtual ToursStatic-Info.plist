@@ -18,7 +18,12 @@
 				<string>UWSP Logo 114.png</string>
 				<string>iOSlauncher.png</string>
 				<string>iOSlauncherIcon.png</string>
+				<string>iOSlauncher114.png</string>
+				<string>iOSlauncherIcon57.png</string>
+				<string>iOSlauncher72.png</string>
 			</array>
+			<key>UIPrerenderedIcon</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
@@ -41,6 +46,8 @@
 	<string>MainStoryboard</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>MainStoryboard</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
