@@ -5,7 +5,7 @@ Created by **Jonathan Christian**
 
 
 # Screenshots
-![](http://jonathanchristian.pcriot.com/assets/img/shots/480.png)&nbsp;
+![](http://jonathanchristian.pcriot.com/assets/img/shots/uwspvt.png)&nbsp;
 
 # Requirements
 
