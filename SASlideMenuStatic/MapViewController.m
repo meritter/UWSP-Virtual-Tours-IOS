@@ -38,10 +38,11 @@
                                                             longitude:poi.lon
                                                                  zoom:16];
     
-     //[mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
+
+    
+    //Sets up the ability to remove the "myLocation" observer for GPS purposes see below in code
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RemoveListener:) name:@"RemoveListener" object:nil];
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    
     mapView.myLocationEnabled = YES;
     self.view = mapView;
     mapView.mapType = kGMSTypeHybrid;
@@ -50,6 +51,9 @@
     //Allows you to tap a marker and have camera pan to it
     mapView.delegate = self;
     
+    
+    
+    /* This is the button that can simulate a location being discovered
     button = [UIButton buttonWithType:UIButtonTypeCustom];
 
     CGRect frame = CGRectMake(10, 10, 60, 12);
@@ -60,9 +64,14 @@
     button.titleLabel.text = @"hello";
     button.center = CGPointMake(160, 406);
     [button addTarget:self action:@selector(tapped:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:button];
-        [self setUpHeaderTitle];
+    [self.view addSubview:button];
+    */
     
+    
+    [self setUpHeaderTitle];
+    
+    
+    //If we are in free roam mode clear the map and load all markers
     if([[Singleton sharedSingleton].selectedMode isEqual: @"Free Roam Mode"])
     {
         [mapView clear];
@@ -83,7 +92,7 @@
     else
     {
 
-    
+    //else  in quest mode - on initial app load up show and alert to guide our user in doing quests
     if (![@"1" isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"alert"]]){
         
         [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"alert"];
@@ -97,6 +106,8 @@
     }
 }
 
+
+//Listener for a notification from QuestMenuViewController to remove our observer so we only keep one observer in play
 - (void)RemoveListener:(NSNotification*)note {
     
     @try {
@@ -109,11 +120,13 @@
 }
 
 
+//Handle orientation changes
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [self adjustLabelsForOrientation:toInterfaceOrientation];
 }
 
 
+//If we do change the orintation set the title and subtitles font appropiately 
 - (void) adjustLabelsForOrientation:(UIInterfaceOrientation)orientation {
     if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
     {
@@ -129,7 +142,8 @@
 }
 
 
--(IBAction)tapped:(id)sender
+/* This Logic is here if you want to simulate a location change with the button code above just uncomment this and the code above
+ -(IBAction)tapped:(id)sender
 {
     NSString * discoveredLocationName = [NSString stringWithFormat:@"%s%@","Discovered ", poi.title];
     
@@ -147,25 +161,26 @@
     
  
     count++;
-}
+}*/
 
 
 
 
 
-
-- (IBAction)revealUnderRight:(id)sender
+//Show the AR view 
+- (IBAction)cameraButonTap:(id)sender
 {
-    //We want to push camera here
+    //First check if AR is supported on device
  if([ARKit deviceSupportsAR]){
  _arViewController = [[ARViewController alloc] initWithDelegate:self];
  _arViewController.showsCloseButton = false;
-// [_arViewController setHidesBottomBarWhenPushed:YES];
-[_arViewController setRadarRange:2.0];
+     //Set radar range - currently set to 1km
+ [_arViewController setRadarRange:1.0];
  [_arViewController setOnlyShowItemsWithinRadarRange:YES];
  [self.navigationController pushViewController:_arViewController animated:YES];
  }
 }
+
 
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

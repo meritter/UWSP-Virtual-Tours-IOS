@@ -33,7 +33,7 @@
 @property (nonatomic, retain) IBOutlet UILabel * subtitleView;
 @property (nonatomic, retain) IBOutlet UIButton * button;
 @property (nonatomic,strong) SASlideMenuViewController* menuViewController;
--(IBAction)revealUnderRight:(id)sender;
+-(IBAction)cameraButonTap:(id)sender;
 
 
 

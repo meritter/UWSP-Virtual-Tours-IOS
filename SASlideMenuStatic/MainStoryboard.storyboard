@@ -706,7 +706,7 @@ Copyright 2009 enormego</string>
                                 <rect key="frame" x="0.0" y="111" width="320" height="393"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.14459103949999999" green="0.14459103949999999" blue="0.14459103949999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Quick Start                                               1. Select Map Pack                                       2. Open Quest Screen via left button</string>
+                                <string key="text">Quick Start                                               1. Select Map Pack                                       2. Open Quest Screen via left button     3. Tap Quest to view location on map                       4. Walk to Quest                                     5. Press Camera Button to view more information</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

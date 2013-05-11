@@ -11,10 +11,11 @@
 
 @interface QuestMenuViewController :SASlideMenuViewController<SASlideMenuDataSource,SASlideMenuDelegate, UITableViewDelegate>
 {
-   // NSMutableArray *users;
     NSMutableArray * visitedLocations;
-    int indexCount;
+    // Since this isn't a table view controller but a SASlideMenuViewController I have set up an outlet linking to my table in the Storyboard
+    //The UITable is then refrenced here so I can call [myTableView ReloadTable] functions
     IBOutlet UITableView  *MyTableView;
+    int indexCount;
 }
 
 @property (nonatomic, strong) Poi * poi;
