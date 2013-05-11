@@ -8,8 +8,9 @@
 
 @interface TutorialSecondViewController :UIViewController <UITableViewDataSource, UITabBarControllerDelegate>
 {
-    
-    NSMutableArray *users;
-    NSMutableArray * tours;
+    NSMutableArray * tourModeArray;
 }
+
+@property (nonatomic, strong) NSMutableArray  * tourModeArray;
+
 @end

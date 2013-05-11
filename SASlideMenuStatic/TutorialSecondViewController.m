@@ -9,27 +9,21 @@
 
 @interface TutorialSecondViewController ()
 
-
-@property (nonatomic, strong) NSMutableArray  * settings;
 @property(retain) NSIndexPath* lastIndexPath;
 @end
 
 
 @implementation TutorialSecondViewController
 
-@synthesize settings;
-
-- (void)awakeFromNib
-{
-}
+@synthesize tourModeArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    users = [[NSMutableArray alloc] init];
-    [users addObject:@"Quest Mode"];
-    [users addObject:@"Free Roam Mode"];
+    tourModeArray = [[NSMutableArray alloc] init];
+    [tourModeArray addObject:@"Quest Mode"];
+    [tourModeArray addObject:@"Free Roam Mode"];
     
 }
 
@@ -57,7 +51,7 @@
         cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text  = [users objectAtIndex:indexPath.row];
+    cell.textLabel.text  = [tourModeArray objectAtIndex:indexPath.row];
     if ([indexPath compare:self.lastIndexPath] == NSOrderedSame)
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -69,7 +63,7 @@
     return cell;
 }
 
-// UITableView Delegate Method
+// Logic if you select on button in the table set the mode to the singleton
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];

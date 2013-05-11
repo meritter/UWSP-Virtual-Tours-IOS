@@ -86,12 +86,14 @@
     }
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Having these two controllers here probably isn't the best to code but it works for now
     UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"mapPacks"];
     UIViewController *controller2 = [self.storyboard instantiateViewControllerWithIdentifier:@"mapMode"];
 
+        //depending on what is selected push a view controller 
         switch (indexPath.section) {
             case 0:
                 [self.navigationController pushViewController:controller animated:YES];

@@ -18,7 +18,7 @@ int count = 1;
 @implementation MapModeListViewController
 
 
-@synthesize mapMode, modes;
+@synthesize mapMode, tourModeArray;
 
 
 
@@ -35,9 +35,9 @@ int count = 1;
 {
     [super viewDidLoad];
     
-    modes = [[NSMutableArray alloc] init];
-    [modes addObject:@"Quest Mode"];
-    [modes addObject:@"Free Roam Mode"];
+    tourModeArray = [[NSMutableArray alloc] init];
+    [tourModeArray addObject:@"Quest Mode"];
+    [tourModeArray addObject:@"Free Roam Mode"];
     
     mapMode = [Singleton sharedSingleton].selectedMode;
 }
@@ -88,7 +88,7 @@ int count = 1;
     }
     
     
-    NSString *cellValue = [[self modes] objectAtIndex:indexPath.row];
+    NSString *cellValue = [[self tourModeArray] objectAtIndex:indexPath.row];
     
     // configure the cell
     cell.textLabel.text = cellValue;

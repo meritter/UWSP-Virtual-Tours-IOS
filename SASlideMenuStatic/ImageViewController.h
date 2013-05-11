@@ -32,6 +32,10 @@
     NSString * locationName;
 }
 
+//Location named is pulled from the previous controller
+//Example in mapViewController where this controller is called and "kivc"
+// kivc.locationName = marker.title;
+
 @property (nonatomic, copy) NSString * locationName;
 
 @end

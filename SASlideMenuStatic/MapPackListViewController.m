@@ -32,14 +32,8 @@
     [super viewDidLoad];
     
     searchBar.delegate = (id)self;
-    
     serverMapPacks = [[NSMutableArray alloc] init];
     localMapPacks = [[NSMutableArray alloc] init];
-    
-    
-       //     [ZAActivityBar showWithStatus:@"Checking for Updates..."];
-
-    
     
     if (_refreshHeaderView == nil) {
 		
@@ -76,10 +70,6 @@
     [reach startNotifier];
     [self getMapPacksFromServer];
     [self getLocalMapPAcks];
-    //Hide search bar in iOS
-    //Handle updates for verison numbers Check for them
-    //perhaps set the bar after map pack download but that can picky points later...
-    
  
 }
 

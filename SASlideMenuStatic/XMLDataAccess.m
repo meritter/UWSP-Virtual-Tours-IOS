@@ -73,7 +73,8 @@
 }
 
 
-
+//Get the <image> xml tag in each poi and set up each image to be downloaded and saved in the
+//devices documents directory
 -(void)downloadImagesOfMapPack:currentMapPack
 {
     NSString * stringURL = [NSString stringWithFormat:@"%@%@", currentMapPack, @".xml"];
@@ -100,9 +101,7 @@
         parsedMapPack = [parser items];
     }
 
-    
-    //[[Singleton sharedSingleton].locationsArray removeAllObjects];
-    
+        
     for (int i = 0; i < [parsedMapPack count]; i++)
     {
         
@@ -111,9 +110,9 @@
             NSString * path = [tempObjectDict objectForKey:@"url"];
             int poiId =  [[tempObjectDict objectForKey:@"poi-id"] integerValue];
             int lastPoiId =  poiId;
-            int imagecount = 0;
        
-          
+          //Does a check if the same poi has more than one image - if it does we up the count
+          // 12-0.png would have 12-1.png as well
         if  (poiId == lastPoiId)
         {
             int imagecount = 0;

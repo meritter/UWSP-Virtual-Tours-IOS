@@ -73,6 +73,8 @@
             [Singleton sharedSingleton].selectedMapPack = currentMapPack;
             [Singleton sharedSingleton].selectedMode = currentMode;
             
+            //Find our plist file if it contain data we set our singleton to that data
+            //Otherwise parse the Tour with the setUpPOI methodand set up singleton
             NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
             NSString *filePath = [docDir stringByAppendingPathComponent:@"locationsArrayData.plist"];
             
@@ -95,7 +97,6 @@
                 poi.visited = [[tempObjectDict objectForKey:@"visited"] boolValue];
                 
                 
-                // poi.visited = true;
                 //Add poi to singleton for App use
                 [[Singleton sharedSingleton].locationsArray  addObject:poi];
                 
@@ -122,15 +123,16 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    
+    //Store mapPack and Mode in device 
     NSUserDefaults * deviceStoredValues = [NSUserDefaults standardUserDefaults];
   
     [deviceStoredValues setValue:[Singleton sharedSingleton].selectedMapPack forKey:@"CurrentMapPack"];
     [deviceStoredValues synchronize];
     [deviceStoredValues setValue:[Singleton sharedSingleton].selectedMode  forKey:@"CurrentMode"];
     
-
-  NSMutableArray *myArray = [[NSMutableArray alloc] init];
+    
+    //Create a dictionary of each poi in singleton and store it in a plist file on the device
+    NSMutableArray *myArray = [[NSMutableArray alloc] init];
     for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray) {
         
         NSMutableDictionary * tempObjectDict = [[NSMutableDictionary alloc] init];
@@ -146,7 +148,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *prsPath = [documentsDirectory stringByAppendingPathComponent:@"locationsArrayData.plist"];    //Save
+    NSString *prsPath = [documentsDirectory stringByAppendingPathComponent:@"locationsArrayData.plist"];   
     [myArray writeToFile:prsPath atomically:YES];
 }
 

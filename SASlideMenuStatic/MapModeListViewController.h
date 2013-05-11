@@ -10,6 +10,6 @@
 
 @property NSString * mapMode;
 
-@property NSMutableArray * modes;
+@property NSMutableArray * tourModeArray;
 
 @end

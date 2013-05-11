@@ -44,11 +44,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    //Set this views title to our location name pulled from the previous controller
     self.title = locationName;
     
+    //Create a POI pointer
     Poi * poi = [[Poi alloc] init];
 
+    /* Foreach poi in our singleton
+     * if our title matches a locationName
+     * set the description of this views poi's description and set the ID
+     */
     for (Poi * loopPoi in [Singleton sharedSingleton].locationsArray)
     {
         
@@ -60,17 +65,21 @@
         
     }
 
-    //IF device doe sor does not have images we need to do a check and change image size on the code here.
-    
+    //Here I build the image name from the loop above which contains ID 
     NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poi.poiId, 0, @".png"];
-                            
+    
+    //We do a search in the Documents Directory for any image for example 12-0.png
+    // The 12 is the location ID
+    // The 0 is the image number  - I use 0 for right now for only 1 image
+    // .png is the image type
     NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:stringURL];
-
+  
 
     NSData *imgData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
     UIImage * backgroundImage = [[UIImage alloc] initWithData:imgData];
     CGRect backgroundRect = CGRectMake(0, 0, self.view.frame.size.width, backgroundImage.size.height);
     
+    //This is a paralax view meaning the textbox moves along with the image The rest of the code sets this up
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:backgroundRect];
     backgroundImageView.image = backgroundImage;
     backgroundImageView.backgroundColor = [UIColor blackColor];
@@ -80,11 +89,12 @@
     UITextView *textView = [[UITextView alloc] initWithFrame:textRect];
     textView.backgroundColor = [UIColor blackColor];
     
-
+    
+    //Set the text to our poi's desceiption
     textView.text = poi.description;
     textView.font = [UIFont systemFontOfSize:14.0f];
     textView.backgroundColor = [UIColor darkTextColor];
-        textView.textColor = [UIColor whiteColor];
+    textView.textColor = [UIColor whiteColor];
     textView.scrollsToTop = NO;
     textView.editable = NO;
 
@@ -92,14 +102,24 @@
                                                                      foregroundView:textView];
     parallaxView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
+    //IF device does not have or this specific Poi does not contain images - I set the height of the background to 10
+    if ([stringURL  isEqual:@"0-0.png"]) {
+         parallaxView.backgroundHeight = 10.0f;
+    }
+    else
+    {
+            parallaxView.backgroundHeight = 250.0f;
+    }
+    
     parallaxView.backgroundColor = [UIColor blackColor];
     parallaxView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    parallaxView.backgroundHeight = 250.0f;
+
     parallaxView.scrollView.scrollsToTop = YES;
     parallaxView.scrollViewDelegate = self;
     [self.view addSubview:parallaxView];
 }
 
+//Used to get the directory to the documents folder
 -(NSString *)applicationDocumentsDirectory {
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
