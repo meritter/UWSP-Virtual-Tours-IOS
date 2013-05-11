@@ -32,6 +32,7 @@
     serverMapPacks = [[NSMutableArray alloc] init];
     localMapPacks = [[NSMutableArray alloc] init];
     
+    //Set up refreshView
     if (_refreshHeaderView == nil) {
 		
 		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
@@ -158,6 +159,7 @@
     [super viewWillAppear:animated];
    
 }
+
 
 - (void)getMapPacksFromServer {
     NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
