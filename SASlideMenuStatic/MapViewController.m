@@ -27,7 +27,7 @@
 }
 
 
-@synthesize titleView, subtitleView, button, myLocation, poi, count;
+@synthesize titleView, subtitleView, button, myLocation, poi, discovered;
 
 
 - (void)loadView {
@@ -107,7 +107,7 @@
 }
 
 
-//Listener for a notification from QuestMenuViewController to remove our observer so we only keep one observer in play
+//Listen for a notification from QuestMenuViewController to remove our observer so we only keep one observer in play
 - (void)RemoveListener:(NSNotification*)note {
     
     @try {
@@ -164,9 +164,6 @@
 }*/
 
 
-
-
-
 //Show the AR view 
 - (IBAction)cameraButonTap:(id)sender
 {
@@ -182,21 +179,23 @@
 }
 
 
-
+//Observes the myLocation change when a user walks with GPS enabledå
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"myLocation"] && [object isKindOfClass:[GMSMapView class]])
     {
+        
+        //The destination location using the poi information passed from the questViewController upon prepareForSwitchToContentViewController method
         CLLocation* destinationLocation = [[CLLocation alloc]  initWithLatitude:poi.lat longitude:poi.lon];
         
+        //Let us know we made it here
         NSLog(@"HIt observer for the location");
-               
+        
+        //get our current location
         CLLocation * currentLocation = [[CLLocation alloc] initWithLatitude:mapView.myLocation.coordinate.latitude longitude:mapView.myLocation.coordinate.longitude];
         CLLocationDistance dist = [destinationLocation distanceFromLocation:currentLocation] / 1000;
         
-        
-       
-        if (dist < 0.012 && count == 1)
+        if (dist < 0.012 && !discovered)
         {
             NSString * discoveredLocationName = [NSString stringWithFormat:@"%s%@","Discovered ", poi.title];
             
@@ -205,21 +204,25 @@
                                    subTitle:@"Tap the camera button the right to see more"];
             
            
-            
+            //set location to visited
              poi.visited = true;
+            
+            //reload our map
              [self loadMap];
+            
+            //let the QuestModeViewController know we had a change and need to update the active quest
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
             
             
-           
-            count++;
+            //Change this location to discovered so this doesn't fire again
+            discovered = true;
         }
     }
 
 }
 
 
-
+//set up our header to the Name of the app and the current Mode we are in  add and it to the view
 - (void)setUpHeaderTitle
 {
     CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
@@ -269,6 +272,7 @@
    
     [self setUpHeaderTitle];
     
+    //Clear the map, load all markers 
     if([[Singleton sharedSingleton].selectedMode isEqual: @"Free Roam Mode"])
     {
         [mapView clear];
@@ -292,15 +296,17 @@
     else
     {
 
+    //On each viewAppear I re-add the mylocation observer
     [mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context: nil];
     
-    count = 1;
+    discovered = false;
         
-        [self loadMap];
+    [self loadMap];
     }
     
 }
 
+//If a user taps the white information window push the details controller and pass the title of the current poi
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
     ImageViewController * kivc = [[ImageViewController alloc] init];
     kivc.locationName = marker.title;
@@ -335,15 +341,17 @@
 
 }
 
-
+//Creates the locations for the augmented reality controller
 - (NSMutableArray *)geoLocations{
   
     NSMutableArray *locationArray = [[NSMutableArray alloc] init];
     ARGeoCoordinate *tempCoordinate;
     CLLocation       *tempLocation;
 
+    //foreach poi in our singleton
     for (Poi * tempPoi in [Singleton sharedSingleton].locationsArray)
     {
+        //add the title, lat, and lon
         NSString * name = tempPoi .title;
         tempLocation = [[CLLocation alloc] initWithLatitude:tempPoi .lat longitude:tempPoi .lon];
         tempCoordinate = [ARGeoCoordinate coordinateWithLocation:tempLocation locationTitle:name];
@@ -354,7 +362,7 @@
     return locationArray;
 }
 
-
+//If we click a location in the augmented reality controller push the details controller and pass the title of the coordinate poi
 -(void)locationClicked:(ARGeoCoordinate *)coordinate
 {
     ImageViewController * kivc = [[ImageViewController alloc] init];

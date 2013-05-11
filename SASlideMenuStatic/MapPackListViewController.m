@@ -22,11 +22,8 @@
     
 }
 
+@synthesize tableData, reach, searchBar, isFiltered, filteredTableData;
 
-@synthesize tableData, reach;
-@synthesize searchBar;
-@synthesize isFiltered;
-@synthesize filteredTableData;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -72,8 +69,6 @@
     [self getLocalMapPAcks];
  
 }
-
-
 
 
 #pragma mark -
@@ -163,8 +158,6 @@
     [super viewWillAppear:animated];
    
 }
-
-
 
 - (void)getMapPacksFromServer {
     NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
@@ -281,9 +274,6 @@
 }
 
 
-
-
-
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -358,11 +348,6 @@
 }
 
 
-
-
-
-
-
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
@@ -377,14 +362,14 @@
         [fileManager removeItemAtPath:[documentsDirectoryPath stringByAppendingPathComponent:stringURL] error:nil];
         
     }
-        [localMapPacks removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewRowAnimationFade];
+    
+    [localMapPacks removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation: UITableViewRowAnimationFade];
     
      
      [self getLocalMapPAcks];
     
 }
-
 
 
 
@@ -438,7 +423,6 @@
 }
 
 
-
 - (void)saveMapPack:(NSString *)packName :(NSString *)selectedIndexPath
 {
     NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","http://uwsp-gis-tour-data-test.herokuapp.com/tours/", selectedIndexPath, @".xml"];
@@ -461,8 +445,6 @@
 }
 
 
-
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -472,7 +454,6 @@
 
 - (void)viewDidUnload
 {
-    
     [self setSearchBar:nil];
 
     [self setTableData:nil];
