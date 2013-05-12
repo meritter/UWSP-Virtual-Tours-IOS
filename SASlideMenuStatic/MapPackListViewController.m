@@ -16,7 +16,7 @@
 
 @implementation MapPackListViewController
 {
-    NSArray *searchResults;
+    NSArray * searchResults;
     NSMutableArray  * serverMapPacks;
     NSMutableArray * localMapPacks;
     
@@ -28,7 +28,9 @@
 {
     [super viewDidLoad];
     
+    //Set search bar from outlet to self
     searchBar.delegate = (id)self;
+    
     serverMapPacks = [[NSMutableArray alloc] init];
     localMapPacks = [[NSMutableArray alloc] init];
     
@@ -66,6 +68,8 @@
     };
     
     [reach startNotifier];
+    
+    //load the list with server and local map packs
     [self getMapPacksFromServer];
     [self getLocalMapPAcks];
  
@@ -130,7 +134,7 @@
 	
 }
 
-
+//When table is reloaded get the local and server map packs
 -(void) reloadTableData
 {
     [self getMapPacksFromServer];
@@ -139,6 +143,7 @@
 }
 
 
+//Logic to add if reachability (data on/off) has changed
 -(void)reachabilityChanged:(NSNotification*)note
 {
         //TODO make the pull unavliable in offline mode
@@ -161,6 +166,7 @@
 }
 
 
+//parses xml of all tours on server gets id,description,lat,long,and name
 - (void)getMapPacksFromServer {
     NSString *stringURL = @"http://uwsp-gis-tour-data-test.herokuapp.com/tours.xml";
     NSURL  *url = [NSURL URLWithString:stringURL];
@@ -183,7 +189,6 @@
 
 - (void)getLocalMapPAcks
 {
-    
     if(localMapPacks != nil)
     {
         [localMapPacks removeAllObjects];
@@ -193,7 +198,6 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     NSDirectoryEnumerator *direnum = [manager enumeratorAtPath:basePath];
     NSString *filename;
-
 
     //loop for map packs in downloads folder loads into array for UI
     while ((filename = [direnum nextObject] ))
@@ -211,6 +215,7 @@
 }
 
 
+//When the user enters a new character into the textbox we take the search bar and then text entered
 -(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
 {
     if(text.length == 0)
@@ -221,16 +226,18 @@
     {
         isFiltered = true;
         
+        //if Length is at least one character filtered=true and a predicate function checks the text
         NSPredicate *resultPredicate = [NSPredicate
                                         predicateWithFormat:@"SELF contains[cd] %@",
                                         text];
-        
+        //Filteed table data array is then set from what is yielded from the predicate function of array items returned from the localMapPacks array
        filteredTableData = [localMapPacks filteredArrayUsingPredicate:resultPredicate];
     }
     
     [self.tableView reloadData];
 }
 
+//When the table is being filtered we change the table header accordinaly 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
 
@@ -253,7 +260,8 @@
 }
 
 
-
+//Once again is it is being filtered - set the number of rows to the count
+//else do the server and local map packs
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int rowCount;
@@ -293,7 +301,7 @@
     @try {
             if([reach isReachable])
              {
-            item  = [serverMapPacks objectAtIndex:indexPath.row];
+                 item  = [serverMapPacks objectAtIndex:indexPath.row];
              }
      
     }
@@ -304,7 +312,7 @@
     
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     
-
+    //If its filtered I do not show the details text label
     if(isFiltered)
     {
 
@@ -313,12 +321,15 @@
     }
     else
     {
+        //Else show the details label and title for server map packs
     switch (indexPath.section)
     {
         case 0:
            [[cell textLabel] setText:[item objectForKey:@"name"]];
            [[cell detailTextLabel] setText:[item objectForKey:@"description"]];
             break;
+            
+            //Local map packs only have a title
         case 1:
             cell.textLabel.text  = [localMapPacks objectAtIndex:indexPath.row];
             break;
@@ -331,7 +342,7 @@
     
 }
 
-// Return NO if you do not want the specified item to be editable.
+// Return NO if you do not want the specified item to be editable I have set them all to NO for now
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section)
@@ -340,7 +351,7 @@
             return NO;
             break;
         case 1:
-            return YES;
+            return NO;
             break;
         default:
             return NO;
@@ -349,8 +360,9 @@
        return NO;
 }
 
-
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//If you want to delete a map pack saved under localMapPacks -  uncomment this code and return YES under case 1 in canEditRowAtIndexPath above
+//This function will get the name of the cell you are trying to delete and then remove it from the docuemnts folder
+/*-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {            
@@ -371,8 +383,7 @@
      
      [self getLocalMapPAcks];
     
-}
-
+}*/
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -381,61 +392,66 @@
     NSString *cellText = selectedCell.textLabel.text;
     NSString * index;
     XMLDataAccess * da = [[XMLDataAccess alloc] init];
+    
+    //If we have cellular data, we can set the item instance to an object of our serverMapPacks array
     if([reach isReachable])
     {
-    item  = [serverMapPacks objectAtIndex:indexPath.row];
-    index = [item objectForKey:@"id"];
+        item  = [serverMapPacks objectAtIndex:indexPath.row];
+        //Set the index to the ID of the mapPack so we know what mapPack to download later
+        index = [item objectForKey:@"id"];
     }
     
-    if (isFiltered) {
+    if (isFiltered)
+    {
          [Singleton sharedSingleton].selectedMapPack = cellText;
          [self.navigationController  popViewControllerAnimated:YES];
-    } else {
-    
-    //For right now if the map pack is in the serverMapPack, we download it
+    }
+    else
+    {
+    //For right now if the map pack is in the serverMapPack section (0), we download it
     switch (indexPath.section) {
         case 0:
-               //[ZAActivityBar showWithStatus:@"Downloading Map Pack"];
-           // [self showUploadView:cellText];
+            //send the title:cellText and index set above
             [self saveMapPack:cellText:index];
-            
-
-             [Singleton sharedSingleton].selectedMapPack = cellText;
+            //set the singletons selectedMapPAck to what the user selects
+            [Singleton sharedSingleton].selectedMapPack = cellText;
+            //Download the images associated to the MapPack
             [da downloadImagesOfMapPack:cellText];
-         //   ownloadImagesOfMapPack:currentMapPack
-        
-            // make async
+            //Alert the users that we have downloaded the mapPack
             [ZAActivityBar showSuccessWithStatus:@"Downloaded Tour"];
             [self reloadTableData];
         break;
         case 1:
-             [Singleton sharedSingleton].selectedMapPack = cellText;
+            //If the section is (1) localMapPacks we once again set the selectedMapPack to the singleton
+            [Singleton sharedSingleton].selectedMapPack = cellText;
             
+            //using the XMLDataAccess set up the app with the new mapPack selection
             XMLDataAccess * da = [[XMLDataAccess alloc] init];
-            
             [da setUpPOI:  [Singleton sharedSingleton].selectedMapPack];
             
+            //Send a notification that the mapPackChanged which reloads the questViewController with the new Tour data
             [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
-          
-                  [self.navigationController  popViewControllerAnimated:YES];
-            
-                        break;
+            //push the controller
+            [self.navigationController  popViewControllerAnimated:YES];
+        break;
         }
     }
 }
 
 
+//Upon didSelectRowAtIndexPath method above this method gets the selected indexPath and the name of the mapPack
 - (void)saveMapPack:(NSString *)packName :(NSString *)selectedIndexPath
 {
+    //get the index of the mapPack and create a URL
     NSString * stringURL = [NSString stringWithFormat:@"%s%@%@","http://uwsp-gis-tour-data-test.herokuapp.com/tours/", selectedIndexPath, @".xml"];
     
-    //Encode our String
+    //Encode our URL
     NSString* escapedUrlString = [stringURL stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     
     NSURL  *url = [NSURL URLWithString:escapedUrlString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     
-    
+    //Save the file in the docuemntsdirectory with the MapPack name as the filename
     if (urlData)
     {
         NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -446,18 +462,9 @@
     
 }
 
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    // Relinquish ownership any cached data, images, etc that aren't in use.
-}
-
 - (void)viewDidUnload
 {
     [self setSearchBar:nil];
-
     [self setTableData:nil];
     [super viewDidUnload];
 }

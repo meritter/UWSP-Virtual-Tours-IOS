@@ -21,6 +21,7 @@
 				<string>iOSlauncher114.png</string>
 				<string>iOSlauncherIcon57.png</string>
 				<string>iOSlauncher72.png</string>
+				<string>launcher144.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
