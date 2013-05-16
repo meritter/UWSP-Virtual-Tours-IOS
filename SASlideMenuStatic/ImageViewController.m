@@ -77,13 +77,14 @@
 
     NSData *imgData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
     UIImage * backgroundImage = [[UIImage alloc] initWithData:imgData];
+
     CGRect backgroundRect = CGRectMake(0, 0, self.view.frame.size.width, backgroundImage.size.height);
     
     //This is a paralax view meaning the textbox moves along with the image The rest of the code sets this up
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:backgroundRect];
     backgroundImageView.image = backgroundImage;
     backgroundImageView.backgroundColor = [UIColor blackColor];
-    backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+    backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
 
     CGRect textRect = CGRectMake(0, 0, self.view.frame.size.width, 400.0f);
     UITextView *textView = [[UITextView alloc] initWithFrame:textRect];

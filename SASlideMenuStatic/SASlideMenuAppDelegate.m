@@ -103,7 +103,7 @@
             }
         }
         
-        
+        // If we single has no locations (the plist file was empty) and we have a mapPack set - parse the xml using the XMLDataAccess class
         if ([[Singleton sharedSingleton].locationsArray count] == 0)
         {
             XMLDataAccess * da = [[XMLDataAccess alloc] init];
