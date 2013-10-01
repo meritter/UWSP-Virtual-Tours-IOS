@@ -36,6 +36,7 @@
     _showsCloseButton               = YES;
     _radarRange                     = 20.0;
     _onlyShowItemsWithinRadarRange  = NO;
+    _showsSlider                    = YES;
     
     // Create ARC
     _agController = [[AugmentedRealityController alloc] initWithViewController:self withDelgate:self];
@@ -46,6 +47,7 @@
 	[_agController setMinimumScaleFactor:_minimumScaleFactor];
 	[_agController setRotateViewsBasedOnPerspective:_rotateViewsBasedOnPerspective];
     [_agController setOnlyShowItemsWithinRadarRange:_onlyShowItemsWithinRadarRange];
+    [_agController setShowsSlider:_showsSlider];
     
     GEOLocations *locations = [[GEOLocations alloc] initWithDelegate:delegate];
 	
@@ -125,6 +127,11 @@
 - (void)setShowsRadar:(BOOL)showsRadar{
     _showsRadar = showsRadar;
     [_agController setShowsRadar:_showsRadar];
+}
+
+- (void)setShowsSlider:(BOOL)showsSlider{
+    _showsSlider = showsSlider;
+    [_agController setShowsSlider:_showsSlider];
 }
 
 - (void)setScaleViewsBasedOnDistance:(BOOL)scaleViewsBasedOnDistance{

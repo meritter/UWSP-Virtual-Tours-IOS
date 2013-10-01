@@ -48,6 +48,7 @@
 @property double maximumRotationAngle;
 
 @property (nonatomic, assign, setter = setShowsRadar:) BOOL showsRadar;
+@property (nonatomic, assign, setter = setShowsSlider:) BOOL showsSlider;
 
 @property (nonatomic, retain) UIAccelerometer           *accelerometerManager;
 @property (nonatomic, retain) CLLocationManager         *locationManager;
@@ -64,6 +65,7 @@
 @property (strong, nonatomic) RadarViewPortView         *radarViewPort;
 @property (assign, nonatomic) float                     radarRange;
 
+@property (strong, nonatomic) UISlider                  *sliderView;
 
 @property (nonatomic, weak) NSObject<UIAccelerometerDelegate> *accelerometerDelegate;
 

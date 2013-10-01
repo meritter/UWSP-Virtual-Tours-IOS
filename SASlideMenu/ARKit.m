@@ -28,13 +28,13 @@
     }
     
     if (!suportsVideo)
-        return NO;
+//        return NO;
    
 	//TODO: Check to see if Device supports the Gyroscope (iPhone4 and higher)
     
 
 	if(![CLLocationManager headingAvailable]){
-		return NO;
+//		return NO;
 	}
 	
 	return YES;

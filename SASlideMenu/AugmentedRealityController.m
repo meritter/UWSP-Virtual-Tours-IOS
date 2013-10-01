@@ -201,6 +201,42 @@
     }
 }
 
+- (void)setShowsSlider:(BOOL)showsSlider{
+    _showsSlider = showsSlider;
+    
+    [_sliderView          removeFromSuperview];
+    
+    _sliderView       = nil;
+    
+    if(_showsSlider){
+        
+        CGRect displayFrame = CGRectMake(50.0, 350.0, 200.0, 10.0);
+        
+        _sliderView       = [[UISlider alloc] initWithFrame:displayFrame];
+        
+        _sliderView.autoresizingMask         = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+        
+        _sliderView.minimumValue = 0.0;
+        _sliderView.maximumValue = 100.0;
+        _sliderView.value = 50.0;
+        
+        [self.displayView addSubview:_sliderView];
+    }
+}
+
+/*-(void)setShowsSlider:(BOOL)showsSlider{
+    CGRect frame = CGRectMake(50.0, 200.0, 200.0, 10.0);
+    UISlider *slider = [[UISlider alloc] initWithFrame:frame];
+    [slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
+    [slider setBackgroundColor:[UIColor clearColor]];
+    slider.minimumValue = 0.0;
+    slider.maximumValue = 50.0;
+    slider.continuous = YES;
+    slider.value = 25.0;
+    
+    [self.displayView addSubview:slider];
+}*/
+
 -(void)unloadAV {
     [captureSession stopRunning];
     AVCaptureInput* input = [captureSession.inputs objectAtIndex:0];
@@ -608,4 +644,6 @@ UIAccelerationValue rollingX, rollingZ;
     [previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     
 }
+
+
 @end
