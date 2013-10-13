@@ -73,6 +73,9 @@
 
 @property (nonatomic,retain) NSMutableArray		*coordinates;
 
+@property (nonatomic, retain) UILabel                   *label;
+@property (nonatomic, retain) UIButton                  *button;
+
 - (id)initWithViewController:(UIViewController *)theView withDelgate:(id<ARDelegate>) aDelegate;
 
 - (void) updateLocations;

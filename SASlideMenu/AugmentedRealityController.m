@@ -12,6 +12,8 @@
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <AVFoundation/AVFoundation.h>
+#import "GEOLocations.h"
+#import "MarkerView.h"
 
 #define kFilteringFactor 0.03
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
@@ -60,6 +62,8 @@
 @synthesize previewLayer;
 @synthesize delegate;
 @synthesize accelerometerDelegate;
+@synthesize label;
+@synthesize button;
 
 - (id)initWithViewController:(UIViewController *)vc withDelgate:(id<ARDelegate>) aDelegate {
     
@@ -208,9 +212,21 @@
     
     _sliderView       = nil;
     
+    //label used to capture slider value for use
+    CGRect frame = CGRectMake(10.0, 10.0, 40.0, 30.0);
+    label = [[UILabel alloc] initWithFrame:frame];
+    //[self.displayView addSubview:label];
+    
+    //button used to test slider changes
+    /*button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"filter" forState:UIControlStateNormal];
+    button.frame = CGRectMake(220.0, 350.0, 80.0, 20.0);
+    [self.displayView addSubview:button];*/
+    
     if(_showsSlider){
         
-        CGRect displayFrame = CGRectMake(50.0, 350.0, 200.0, 10.0);
+        CGRect displayFrame = CGRectMake(10.0, 350.0, 200.0, 10.0);
         
         _sliderView       = [[UISlider alloc] initWithFrame:displayFrame];
         
@@ -219,23 +235,34 @@
         _sliderView.minimumValue = 0.0;
         _sliderView.maximumValue = 100.0;
         _sliderView.value = 50.0;
+        [_sliderView addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
         
         [self.displayView addSubview:_sliderView];
     }
 }
 
-/*-(void)setShowsSlider:(BOOL)showsSlider{
-    CGRect frame = CGRectMake(50.0, 200.0, 200.0, 10.0);
-    UISlider *slider = [[UISlider alloc] initWithFrame:frame];
-    [slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
-    [slider setBackgroundColor:[UIColor clearColor]];
-    slider.minimumValue = 0.0;
-    slider.maximumValue = 50.0;
-    slider.continuous = YES;
-    slider.value = 25.0;
+- (void)sliderChanged:(UISlider *)slider {
+    self.label.text = [NSString stringWithFormat:@"%g", slider.value];
+    //show POIs based on value of slider
     
-    [self.displayView addSubview:slider];
-}*/
+    int sliderValue = [self.label.text intValue];
+    NSArray *coordinateArray = self.coordinates;
+    
+    for (ARGeoCoordinate *coordinate in coordinateArray)
+    {
+        if (coordinate.distanceFromOrigin > sliderValue)
+        {
+            //hide coordinate
+            [coordinate.displayView setHidden:YES];
+        }
+        else
+        {
+            [coordinate.displayView setHidden:NO];
+        }
+    }
+}
+
+//-(void)buttonClick:(UIButton *)button {}
 
 -(void)unloadAV {
     [captureSession stopRunning];
