@@ -41,6 +41,84 @@
 
 #pragma mark - UIViewController Overrides
 
+/*- (void)viewDidLoad {
+ [super viewDidLoad];
+ 
+ //Set this views title to our location name pulled from the previous controller
+ self.title = locationName;
+ 
+ //Create a POI pointer
+ Poi * poi = [[Poi alloc] init];
+ 
+ //Foreach poi in our singleton
+ //if our title matches a locationName
+ //set the description of this views poi's description and set the ID
+ for (Poi * loopPoi in [Singleton sharedSingleton].locationsArray)
+ {
+ 
+ if([loopPoi.title isEqual:locationName])
+ {
+ poi.description = loopPoi.description;
+ poi.poiId = loopPoi.poiId;
+ }
+ 
+ }
+ 
+ //Here I build the image name from the loop above which contains ID
+ NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poi.poiId, 0, @".png"];
+ 
+ //We do a search in the Documents Directory for any image for example 12-0.png
+ // The 12 is the location ID
+ // The 0 is the image number  - I use 0 for right now for only 1 image
+ // .png is the image type
+ NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:stringURL];
+ 
+ 
+ NSData *imgData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
+ UIImage * backgroundImage = [[UIImage alloc] initWithData:imgData];
+ 
+ CGRect backgroundRect = CGRectMake(0, 0, self.view.frame.size.width, backgroundImage.size.height);
+ 
+ //This is a paralax view meaning the textbox moves along with the image The rest of the code sets this up
+ UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:backgroundRect];
+ backgroundImageView.image = backgroundImage;
+ backgroundImageView.backgroundColor = [UIColor blackColor];
+ backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
+ 
+ CGRect textRect = CGRectMake(0, 0, self.view.frame.size.width, 400.0f);
+ UITextView *textView = [[UITextView alloc] initWithFrame:textRect];
+ textView.backgroundColor = [UIColor blackColor];
+ 
+ 
+ //Set the text to our poi's desceiption
+ textView.text = poi.description;
+ textView.font = [UIFont systemFontOfSize:14.0f];
+ textView.backgroundColor = [UIColor darkTextColor];
+ textView.textColor = [UIColor whiteColor];
+ textView.scrollsToTop = NO;
+ textView.editable = NO;
+ 
+ MDCParallaxView *parallaxView = [[MDCParallaxView alloc] initWithBackgroundView:backgroundImageView
+ foregroundView:textView];
+ parallaxView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+ 
+ //IF device does not have or this specific Poi does not contain images - I set the height of the background to 10
+ if ([stringURL  isEqual:@"0-0.png"]) {
+ parallaxView.backgroundHeight = 10.0f;
+ }
+ else
+ {
+ parallaxView.backgroundHeight = 250.0f;
+ }
+ 
+ parallaxView.backgroundColor = [UIColor blackColor];
+ parallaxView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+ 
+ parallaxView.scrollView.scrollsToTop = YES;
+ parallaxView.scrollViewDelegate = self;
+ [self.view addSubview:parallaxView];
+ }*/
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -65,26 +143,28 @@
         
     }
 
+
     //Here I build the image name from the loop above which contains ID 
-    NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poi.poiId, 0, @".png"];
+    NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poi.poiId, 0, @".txt"];
     
     //We do a search in the Documents Directory for any image for example 12-0.png
     // The 12 is the location ID
     // The 0 is the image number  - I use 0 for right now for only 1 image
     // .png is the image type
     NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:stringURL];
-  
-
-    NSData *imgData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
-    UIImage * backgroundImage = [[UIImage alloc] initWithData:imgData];
-
-    CGRect backgroundRect = CGRectMake(0, 0, self.view.frame.size.width, backgroundImage.size.height);
+    NSData *urlData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
+    NSString *urlString = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding];
+    CGRect backgroundRect = CGRectMake(0, 0, 171.0f, 171.0f);
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:(backgroundRect)];
     
-    //This is a paralax view meaning the textbox moves along with the image The rest of the code sets this up
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:backgroundRect];
-    backgroundImageView.image = backgroundImage;
-    backgroundImageView.backgroundColor = [UIColor blackColor];
-    backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
+//    NSString *htmlString = @"<html><head><meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 212\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"212\" height=\"172\"><param name=\"movie\" value=\"";
+//    htmlString = [htmlString stringByAppendingString: poi.videoURL];
+//    htmlString = [htmlString stringByAppendingString: @"\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\""];
+//    htmlString = [htmlString stringByAppendingString: poi.videoURL];
+//    htmlString = [htmlString stringByAppendingString: @"\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"212\" height=\"172\"></embed></object></div></body></html>" ];
+    NSString *htmlString = @"<html><head><meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 212\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"212\" height=\"172\"><param name=\"movie\" value=\"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"212\" height=\"172\"></embed></object></div></body></html>";
+    
+    [webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:@"http://www.your-url.com"]];
 
     CGRect textRect = CGRectMake(0, 0, self.view.frame.size.width, 400.0f);
     UITextView *textView = [[UITextView alloc] initWithFrame:textRect];
@@ -99,7 +179,7 @@
     textView.scrollsToTop = NO;
     textView.editable = NO;
 
-    MDCParallaxView *parallaxView = [[MDCParallaxView alloc] initWithBackgroundView:backgroundImageView
+    MDCParallaxView *parallaxView = [[MDCParallaxView alloc] initWithBackgroundView:webView
                                                                      foregroundView:textView];
     parallaxView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     

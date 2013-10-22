@@ -63,6 +63,7 @@
     poi.lon = [[tempObjectDict objectForKey:@"long"] doubleValue];
     poi.description = [tempObjectDict objectForKey:@"description"];
     poi.poiId = [[tempObjectDict objectForKey:@"id"] integerValue];
+    
 
         
        // poi.visited = true;
@@ -72,7 +73,7 @@
     }
 }
 
-
+/*
 //Get the <image> xml tag in each poi and set up each image to be downloaded and saved in the
 //devices documents directory
 -(void)downloadImagesOfMapPack:currentMapPack
@@ -157,5 +158,105 @@
             }
         }
     }
+}*/
+
+//this will be changed to video later
+//Get the <image> xml tag in each poi and set up each image to be downloaded and saved in the
+//devices documents directory
+-(void)downloadImagesOfMapPack:currentMapPack
+{
+    NSString * stringURL = [NSString stringWithFormat:@"%@%@", currentMapPack, @".xml"];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:stringURL];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    
+    XmlArrayParser *parser = [[XmlArrayParser alloc] initWithData:data];
+    
+    //get pois points from array in XML starting with <poi> tag
+    parser.rowElementName = @"image";
+    parser.elementNames = [NSArray arrayWithObjects: @"description", @"url", @"poi-id", nil];
+    // parser
+    
+    
+    BOOL success = [parser parse];
+    
+    //If parse was successful send items to Array
+    if (success)
+    {
+        parsedMapPack = [parser items];
+    }
+    
+/*    for (int i = 0; i < [parsedMapPack count]; i++)
+    {
+        NSDictionary *tempObjectDict = [parsedMapPack objectAtIndex:i];
+        NSString * path = [tempObjectDict objectForKey:@"url"];
+        NSString *videoString = [[NSString alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
+        NSData *data1 = [videoString dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *writeError = nil;
+        [data1 writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
+        
+        if (writeError) {
+            NSLog(@"Error writing file: %@", writeError);
+        }
+
+    }*/
+    
+    for (int i = 0; i < [parsedMapPack count]; i++)
+    {
+        
+        NSDictionary *tempObjectDict = [parsedMapPack objectAtIndex:i];
+        
+        NSString * path = [tempObjectDict objectForKey:@"url"];
+        NSString *videoString = [[NSString alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
+        int poiId =  [[tempObjectDict objectForKey:@"poi-id"] integerValue];
+        int lastPoiId =  poiId;
+        
+        //Does a check if the same poi has more than one image - if it does we up the count
+        // 12-0.png would have 12-1.png as well
+        if  (poiId == lastPoiId)
+        {
+            int imagecount = 0;            
+            
+            NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", lastPoiId, imagecount, @".txt"];
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:stringURL];
+            
+            NSData *data1 = [videoString dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *writeError = nil;
+            
+            [data1 writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
+            
+            if (writeError) {
+                NSLog(@"Error writing file: %@", writeError);
+            }
+            imagecount++;
+            
+        }
+        else
+        {
+            //Assign it a new id
+            int imagecount = 0;
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
+            UIImage *image = [UIImage imageWithData: imageData];
+            
+            
+            NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poiId, imagecount, @".png"];
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:stringURL];
+            
+            NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(image)];
+            NSError *writeError = nil;
+            
+            [data1 writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
+            
+            if (writeError) {
+                NSLog(@"Error writing file: %@", writeError);
+            }
+        }
+    }
 }
+
 @end
