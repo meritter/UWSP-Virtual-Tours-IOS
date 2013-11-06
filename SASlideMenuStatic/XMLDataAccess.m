@@ -160,9 +160,9 @@
     }
 }*/
 
-//this will be changed to video later
-//Get the <image> xml tag in each poi and set up each image to be downloaded and saved in the
-//devices documents directory
+//Mimics the functionality of downloading Images but saves the video url (youtube link) to a text file instead.
+//Still needs to be changed to look for @"video" ElementNames once they are added to the xml database
+//along with the name of the method and adding calls to the new method
 -(void)downloadImagesOfMapPack:currentMapPack
 {
     NSString * stringURL = [NSString stringWithFormat:@"%@%@", currentMapPack, @".xml"];
@@ -189,28 +189,12 @@
         parsedMapPack = [parser items];
     }
     
-/*    for (int i = 0; i < [parsedMapPack count]; i++)
-    {
-        NSDictionary *tempObjectDict = [parsedMapPack objectAtIndex:i];
-        NSString * path = [tempObjectDict objectForKey:@"url"];
-        NSString *videoString = [[NSString alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
-        NSData *data1 = [videoString dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *writeError = nil;
-        [data1 writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
-        
-        if (writeError) {
-            NSLog(@"Error writing file: %@", writeError);
-        }
-
-    }*/
-    
     for (int i = 0; i < [parsedMapPack count]; i++)
     {
         
         NSDictionary *tempObjectDict = [parsedMapPack objectAtIndex:i];
         
-        NSString * path = [tempObjectDict objectForKey:@"url"];
-        NSString *videoString = [[NSString alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
+        NSString *videoURL = [tempObjectDict objectForKey:@"url"];
         int poiId =  [[tempObjectDict objectForKey:@"poi-id"] integerValue];
         int lastPoiId =  poiId;
         
@@ -224,10 +208,9 @@
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:stringURL];
             
-            NSData *data1 = [videoString dataUsingEncoding:NSUTF8StringEncoding];
             NSError *writeError = nil;
             
-            [data1 writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
+            [videoURL writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&writeError];
             
             if (writeError) {
                 NSLog(@"Error writing file: %@", writeError);
@@ -239,18 +222,14 @@
         {
             //Assign it a new id
             int imagecount = 0;
-            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: path]];
-            UIImage *image = [UIImage imageWithData: imageData];
             
-            
-            NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poiId, imagecount, @".png"];
+            NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poiId, imagecount, @".txt"];
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:stringURL];
             
-            NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(image)];
             NSError *writeError = nil;
             
-            [data1 writeToFile:filePath options:NSDataWritingAtomic error:&writeError];
+            [videoURL writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:&writeError];
             
             if (writeError) {
                 NSLog(@"Error writing file: %@", writeError);

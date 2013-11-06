@@ -37,7 +37,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Google API Key
-    [GMSServices provideAPIKey:@"AIzaSyBy6x3X8S_tf_folhpgrkz9iI6A9DHiJZU"];
+    [GMSServices provideAPIKey:@"AIzaSyCYSU7qY8ei10C0xHRp-G9YJtG6lO3r5B8"];
     
    NSUserDefaults * deviceStoredValues;
    NSString       * currentMapPack;

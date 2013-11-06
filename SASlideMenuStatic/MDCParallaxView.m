@@ -57,13 +57,15 @@ static CGFloat const kMDCParallaxViewDefaultHeight = 150.0f;
         _backgroundScrollView.showsVerticalScrollIndicator = NO;
         _backgroundScrollView.scrollsToTop = NO;
         [_backgroundScrollView addSubview:_backgroundView];
-        [self addSubview:_backgroundScrollView];
+        [_backgroundScrollView setUserInteractionEnabled:YES];
 
         _foregroundScrollView = [UIScrollView new];
         _foregroundScrollView.backgroundColor = [UIColor clearColor];
         _foregroundScrollView.delegate = self;
         [_foregroundScrollView addSubview:_foregroundView];
+        [_foregroundScrollView setUserInteractionEnabled:YES];
         [self addSubview:_foregroundScrollView];
+        [self addSubview:_backgroundScrollView];
         
         [self addFrameObservers];
     }

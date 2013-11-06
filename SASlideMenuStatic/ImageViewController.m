@@ -28,6 +28,7 @@
 #import "MDCParallaxView.h"
 #import "Poi.h"
 #import "Singleton.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface ImageViewController () <UIScrollViewDelegate>
 
@@ -143,6 +144,14 @@
         
     }
 
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    BOOL ok;
+    NSError *setCategoryError = nil;
+    ok = [audioSession setCategory:AVAudioSessionCategoryPlayback
+                             error:&setCategoryError];
+    if (!ok) {
+        NSLog(@"%s setCategoryError=%@", __PRETTY_FUNCTION__, setCategoryError);
+    }
 
     //Here I build the image name from the loop above which contains ID 
     NSString * stringURL = [NSString stringWithFormat:@"%d-%d%@", poi.poiId, 0, @".txt"];
@@ -152,20 +161,16 @@
     // The 0 is the image number  - I use 0 for right now for only 1 image
     // .png is the image type
     NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:stringURL];
-    NSData *urlData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
-    NSString *urlString = [[NSString alloc] initWithData:urlData encoding:NSASCIIStringEncoding];
-    CGRect backgroundRect = CGRectMake(0, 0, 171.0f, 171.0f);
+    NSString *videoURL = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:NULL];
+    CGRect backgroundRect = CGRectMake(0, 0, 171.0f, 250.0f);
     UIWebView *webView = [[UIWebView alloc] initWithFrame:(backgroundRect)];
     
-//    NSString *htmlString = @"<html><head><meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 212\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"212\" height=\"172\"><param name=\"movie\" value=\"";
-//    htmlString = [htmlString stringByAppendingString: poi.videoURL];
-//    htmlString = [htmlString stringByAppendingString: @"\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\""];
-//    htmlString = [htmlString stringByAppendingString: poi.videoURL];
-//    htmlString = [htmlString stringByAppendingString: @"\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"212\" height=\"172\"></embed></object></div></body></html>" ];
-    NSString *htmlString = @"<html><head><meta name = \"viewport\" content = \"initial-scale = 1.0, user-scalable = no, width = 212\"/></head><body style=\"background:#F00;margin-top:0px;margin-left:0px\"><div><object width=\"212\" height=\"172\"><param name=\"movie\" value=\"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM\"></param><param name=\"wmode\" value=\"transparent\"></param><embed src=\"http://www.youtube.com/v/oHg5SJYRHA0&f=gdata_videos&c=ytapi-my-clientID&d=nGF83uyVrg8eD4rfEkk22mDOl3qUImVMV6ramM\"type=\"application/x-shockwave-flash\" wmode=\"transparent\" width=\"212\" height=\"172\"></embed></object></div></body></html>";
+    NSString *embedHTML = @"<html><head><style type=\"text/css\">iframe {position:absolute; top:50%%; margin-top:-130px;}body {background-color:#000; margin:0;}</style></head><body><iframe src=\"%@\" width=\"%0.0f\" height=\"%0.0f\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
     
-    [webView loadHTMLString:htmlString baseURL:[NSURL URLWithString:@"http://www.your-url.com"]];
-
+    NSString *htmlString = [NSString stringWithFormat:embedHTML, videoURL, self.view.frame.size.width, backgroundRect.size.height];
+    
+    [webView loadHTMLString:htmlString baseURL:nil];
+    
     CGRect textRect = CGRectMake(0, 0, self.view.frame.size.width, 400.0f);
     UITextView *textView = [[UITextView alloc] initWithFrame:textRect];
     textView.backgroundColor = [UIColor blackColor];
@@ -178,17 +183,18 @@
     textView.textColor = [UIColor whiteColor];
     textView.scrollsToTop = NO;
     textView.editable = NO;
-
+    
     MDCParallaxView *parallaxView = [[MDCParallaxView alloc] initWithBackgroundView:webView
                                                                      foregroundView:textView];
     parallaxView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     
     //IF device does not have or this specific Poi does not contain images - I set the height of the background to 10
     if ([stringURL  isEqual:@"0-0.png"]) {
-         parallaxView.backgroundHeight = 10.0f;
+        parallaxView.backgroundHeight = 10.0f;
     }
     else
     {
+    
             parallaxView.backgroundHeight = 250.0f;
     }
     
