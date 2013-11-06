@@ -217,23 +217,17 @@
     label = [[UILabel alloc] initWithFrame:frame];
     //[self.displayView addSubview:label];
     
-    //button used to test slider changes
-    /*button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"filter" forState:UIControlStateNormal];
-    button.frame = CGRectMake(220.0, 350.0, 80.0, 20.0);
-    [self.displayView addSubview:button];*/
     
     if(_showsSlider){
         
-        CGRect displayFrame = CGRectMake(10.0, 350.0, 200.0, 10.0);
-        
-        _sliderView       = [[UISlider alloc] initWithFrame:displayFrame];
+        CGRect displayFrame = [[UIScreen mainScreen] bounds];
+        _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 300, 20, 200, 10)];
         
         _sliderView.autoresizingMask         = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+        _radarViewPort.autoresizingMask     = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
         
         _sliderView.minimumValue = 0.0;
-        _sliderView.maximumValue = 100.0;
+        _sliderView.maximumValue = 1000.0;
         _sliderView.value = 50.0;
         [_sliderView addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
         
