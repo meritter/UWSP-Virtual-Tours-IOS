@@ -27,15 +27,23 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ImageViewController : UIViewController
+@interface ImageViewController : UITableViewController
 {
+    NSArray *mediaList;
     NSString * locationName;
+    int mediaIndex;
+    int videoCount;
+    UIView *mediaView;
 }
 
 //Location named is pulled from the previous controller
 //Example in mapViewController where this controller is called and "kivc"
 // kivc.locationName = marker.title;
 
+@property (strong, nonatomic) NSArray *mediaList;
 @property (nonatomic, copy) NSString * locationName;
+@property (nonatomic, assign) int mediaIndex;
+@property (nonatomic, assign) int videoCount;
+@property (strong, nonatomic) UIView *mediaView;
 
 @end

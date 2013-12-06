@@ -32,7 +32,7 @@
 
 - (void)loadView {
     
-    
+    // Create a Google Maps camera position that tells the map where to begin and how far to be zoomed in.
   
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:poi.lat
                                                             longitude:poi.lon
@@ -45,13 +45,12 @@
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView.myLocationEnabled = YES;
     self.view = mapView;
+    
     mapView.mapType = kGMSTypeHybrid;
     mapView.settings.compassButton = YES;
     mapView.settings.myLocationButton = YES;
     //Allows you to tap a marker and have camera pan to it
     mapView.delegate = self;
-    
-    
     
     /* This is the button that can simulate a location being discovered
     button = [UIButton buttonWithType:UIButtonTypeCustom];

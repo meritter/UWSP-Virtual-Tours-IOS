@@ -50,22 +50,24 @@ static CGFloat const kMDCParallaxViewDefaultHeight = 150.0f;
         _backgroundHeight = kMDCParallaxViewDefaultHeight;
         _backgroundView = backgroundView;
         _foregroundView = foregroundView;
-
+        
         _backgroundScrollView = [UIScrollView new];
         _backgroundScrollView.backgroundColor = [UIColor clearColor];
         _backgroundScrollView.showsHorizontalScrollIndicator = NO;
         _backgroundScrollView.showsVerticalScrollIndicator = NO;
         _backgroundScrollView.scrollsToTop = NO;
-        [_backgroundScrollView addSubview:_backgroundView];
+        [_backgroundScrollView addSubview:_foregroundView];
         [_backgroundScrollView setUserInteractionEnabled:YES];
-
+        
         _foregroundScrollView = [UIScrollView new];
         _foregroundScrollView.backgroundColor = [UIColor clearColor];
         _foregroundScrollView.delegate = self;
-        [_foregroundScrollView addSubview:_foregroundView];
+        _foregroundScrollView.showsHorizontalScrollIndicator = NO;
+        _foregroundScrollView.showsVerticalScrollIndicator = NO;
+        [_foregroundScrollView addSubview:_backgroundView];
         [_foregroundScrollView setUserInteractionEnabled:YES];
-        [self addSubview:_foregroundScrollView];
         [self addSubview:_backgroundScrollView];
+        [self addSubview:_foregroundScrollView];
         
         [self addFrameObservers];
     }
@@ -192,13 +194,13 @@ static CGFloat const kMDCParallaxViewDefaultHeight = 150.0f;
                                                  self.frame.size.height);
     self.backgroundScrollView.contentSize = CGSizeMake(self.frame.size.width,
                                                        self.frame.size.height);
-    self.backgroundScrollView.contentOffset	= CGPointZero;
-
+    self.backgroundScrollView.contentOffset = CGPointZero;
+    
     self.backgroundView.frame =
-        CGRectMake(0.0f,
-                   floorf((self.backgroundHeight - self.backgroundView.frame.size.height)/2),
-                   self.frame.size.width,
-                   self.backgroundView.frame.size.height);
+    CGRectMake(0.0f,
+               floorf((self.backgroundHeight - self.backgroundView.frame.size.height)/2),
+               self.frame.size.width,
+               self.backgroundView.frame.size.height);
 }
 
 - (void)updateForegroundFrame {
@@ -206,17 +208,17 @@ static CGFloat const kMDCParallaxViewDefaultHeight = 150.0f;
                                            self.backgroundHeight,
                                            self.foregroundView.frame.size.width,
                                            self.foregroundView.frame.size.height);
-
+    
     self.foregroundScrollView.frame = self.bounds;
     self.foregroundScrollView.contentSize =
-        CGSizeMake(self.foregroundView.frame.size.width,
-                   self.foregroundView.frame.size.height + self.backgroundHeight);
+    CGSizeMake(self.foregroundView.frame.size.width,
+               self.foregroundView.frame.size.height + self.backgroundHeight);
 }
 
 - (void)updateContentOffset {
     CGFloat offsetY   = self.foregroundScrollView.contentOffset.y;
     CGFloat threshold = self.backgroundView.frame.size.height - self.backgroundHeight;
-
+    
     if (offsetY > -threshold && offsetY < 0.0f) {
         self.backgroundScrollView.contentOffset = CGPointMake(0.0f, floorf(offsetY/2));
     } else if (offsetY < 0.0f) {

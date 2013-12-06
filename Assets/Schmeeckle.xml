@@ -194,11 +194,11 @@
     </image>
     <image>
       <url>3-1</url>
-      <poi-id type="integer">105</poi-id>
+      <poi-id type="integer">3</poi-id>
     </image>
     <image>
       <url>3-2</url>
-      <poi-id type="integer">105</poi-id>
+      <poi-id type="integer">3</poi-id>
     </image>
     <image>
       <url>3-3</url>
@@ -262,11 +262,11 @@
     </image>
     <image>
       <url>10-1</url>
-      <poi-id type="integer">105</poi-id>
+      <poi-id type="integer">10</poi-id>
     </image>
     <image>
       <url>10-2</url>
-      <poi-id type="integer">105</poi-id>
+      <poi-id type="integer">10</poi-id>
     </image>
     <image>
       <url>11-1</url>
