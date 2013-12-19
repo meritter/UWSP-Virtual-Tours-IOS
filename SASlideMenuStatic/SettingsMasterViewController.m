@@ -15,7 +15,7 @@
 
 @implementation SettingsMasterViewController
 
-@synthesize mapPackName;
+
 @synthesize mapMode;
 
   
@@ -33,7 +33,6 @@
 {
     [super viewDidLoad];
     
-    mapPackName = [Singleton sharedSingleton].selectedMapPack;
     mapMode = [Singleton sharedSingleton].selectedMode;
 }
 
@@ -41,7 +40,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    mapPackName = [Singleton sharedSingleton].selectedMapPack;
+    
     mapMode = [Singleton sharedSingleton].selectedMode;
     [self.tableView reloadData];
     }
@@ -58,19 +57,8 @@
 {
     //Put this here so whenever this method gets hit to reset tables it fires
     switch (indexPath.section) {
-
-                    case 0:
-                    if(mapPackName != nil)
-                    {
-                        [[cell detailTextLabel] setText:mapPackName];
-                    }
-                    else
-                    {
-                        [[cell detailTextLabel]  setText:@"Not Selected"];
-                    }
-                    break;
-                          
-                case 1:
+                     
+                case 0:
                     if(mapMode != nil)
                     {
                         [[cell detailTextLabel] setText:mapMode];
@@ -81,7 +69,7 @@
                     }       
                     break;
             
-        default:
+   
             break;
     }
 }
@@ -89,19 +77,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //Having these two controllers here probably isn't the best to code but it works for now
-    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"mapPacks"];
+    
     UIViewController *controller2 = [self.storyboard instantiateViewControllerWithIdentifier:@"mapMode"];
 
-        //depending on what is selected push a view controller 
+        //Push mapMode view controller
         switch (indexPath.section) {
             case 0:
-                [self.navigationController pushViewController:controller animated:YES];
+                [self.navigationController pushViewController:controller2 animated:YES];
                 break;
-            case 1:
-                     [self.navigationController pushViewController:controller2 animated:YES];
-                     break;
-            
+
         }
 }
 

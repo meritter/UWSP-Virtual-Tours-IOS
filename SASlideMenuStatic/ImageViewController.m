@@ -168,6 +168,27 @@
     parallaxView.scrollView.scrollsToTop = YES;
     parallaxView.scrollViewDelegate = self;
     [self.view addSubview:parallaxView];
+    
+    //Arrows
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"leftArrow" ofType:@"png"];
+    NSData *imgData = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath]];
+    UIImage *leftArrowImage = [[UIImage alloc] initWithData:imgData];
+    UIImageView *leftArrowImageView = [[UIImageView alloc] initWithImage:leftArrowImage];
+    
+    leftArrowImageView.frame = CGRectMake(-25, 65, 100, 100);
+    leftArrowImageView.alpha = 0.75;
+    
+    [self.view addSubview: leftArrowImageView];
+    
+    NSString *filePath2 = [[NSBundle mainBundle] pathForResource:@"rightArrow" ofType:@"png"];
+    NSData *imgData2 = [[NSData alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath2]];
+    UIImage *rightArrowImage = [[UIImage alloc] initWithData:imgData2];
+    UIImageView *rightArrowImageView = [[UIImageView alloc] initWithImage:rightArrowImage];
+    
+    rightArrowImageView.frame = CGRectMake(250, 65, 100, 100);
+    rightArrowImageView.alpha = 0.75;
+    
+    [self.view addSubview: rightArrowImageView];
 }
 
 - (void) loadMedia

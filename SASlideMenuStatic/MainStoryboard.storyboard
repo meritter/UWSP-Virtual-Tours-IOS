@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="qOU-sl-zJh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="qz0-7a-giN">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
+        <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
@@ -17,7 +18,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4r5-SS-30D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1831" y="-257"/>
+            <point key="canvasLocation" x="-4335" y="-297"/>
         </scene>
         <!--Navigation Controller - Tour Mode-->
         <scene sceneID="bZ3-Hh-inT">
@@ -41,7 +42,7 @@
         <scene sceneID="lLz-x0-QXn">
             <objects>
                 <tableViewController storyboardIdentifier="mapMode" title="Tour Mode" id="eWw-1u-hJf" customClass="MapModeListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="XW7-5K-Qux">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="XW7-5K-Qux">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -49,18 +50,20 @@
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jJJ-Ad-zKi">
                                 <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jJJ-Ad-zKi" id="qXl-s9-2Br">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="k7d-DA-YBM">
                                 <rect key="frame" x="0.0" y="91" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k7d-DA-YBM" id="8Hm-Ht-Ka6">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -73,49 +76,21 @@
             </objects>
             <point key="canvasLocation" x="657" y="-1320"/>
         </scene>
-        <!--Settings Master View Controller - Settings-->
+        <!--Settings Master View Controller - Tour Mode-->
         <scene sceneID="j2Z-Be-pUO">
             <objects>
                 <tableViewController storyboardIdentifier="SettingsView" id="HWb-3y-jm7" customClass="SettingsMasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bl4-Nr-UvY">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bl4-Nr-UvY">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Tour" id="884-NF-11G">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="IFd-8N-dBx" detailTextLabel="KV1-Ti-RJG" style="IBUITableViewCellStyleSubtitle" id="Soy-Df-0ta">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Soy-Df-0ta" id="SNy-jf-bTK">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Current Tour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IFd-8N-dBx">
-                                                    <rect key="frame" x="10" y="2" width="104" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KV1-Ti-RJG">
-                                                    <rect key="frame" x="10" y="24" width="37" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Tour Settings" id="w2j-o6-BXf">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xln-FS-jfd" detailTextLabel="6ZC-Wm-en2" style="IBUITableViewCellStyleSubtitle" id="Tqw-Fc-Wk4">
-                                        <rect key="frame" x="0.0" y="138" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tqw-Fc-Wk4" id="2gT-sb-RVd">
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -134,7 +109,8 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
-                                        </tableViewCellContentView>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <accessibility key="accessibilityConfiguration" label=""/>
                                     </tableViewCell>
                                 </cells>
@@ -145,7 +121,7 @@
                             <outlet property="delegate" destination="HWb-3y-jm7" id="O3R-E8-RVy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="9N8-W4-M52"/>
+                    <navigationItem key="navigationItem" title="Tour Mode" id="9N8-W4-M52"/>
                     <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SY4-it-ymh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,7 +162,7 @@
                         <color key="tintColor" red="0.23451012721446424" green="0.15843770171996549" blue="0.28573421556122447" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
-                        <segue destination="CJX-Z9-Ud1" kind="relationship" relationship="rootViewController" id="lgs-jo-P0Y"/>
+                        <segue destination="CJX-Z9-Ud1" kind="relationship" relationship="rootViewController" id="pJ0-lW-Utg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KSr-DZ-dpv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,63 +208,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.14459103949999999" green="0.14459103949999999" blue="0.14459103949999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">UWSP-Virtual Tours-iOS
-Created by Jonathan Christian                                 
-                                                                      UWSP Virtual Tours is an augmented reality application that allows users to take a “tour” through Schmeeckle Reserve. On this tour, users hold their phones or tablets up to discover different points of interest. These points of interest are displayed either on a map view mode using Google maps, or a camera view mode which uses the user’s camera. Upon discovering a point of interest, the app allows users to touch the point of interest marker for more information. This information consists of history, facts, and pictures about the point of interest. The application gives the choice between a free roam mode, which allows users to freely wander throughout Schmeeckle Reserve, and a quest mode, which directs users from one specific point to the next. With the use of a server, the app is expandable beyond Schmeeckle Reserve, giving the opportunity to create new tours in any imaginable location. UWSP Virtual Tours will help build and inspire future augmented reality applications in the university and beyond.UWSP-Virtual Tours is available under the MIT license:
+                                <string key="text">UWSP Virtual Tours
+Created by Jonathan Christian, Ryan Nasi, Justin Bernklau.     
 
-*Permission is hereby granted, free of charge, to any person obtaining a copy*
-*of this software and associated documentation files (the "Software"), to deal*
-*in the Software without restriction, including without limitation the rights*
-*to use, copy, modify, merge, publish, distribute, sublicense, and/or sell*
-*copies of the Software, and to permit persons to whom the Software is*
-*furnished to do so, subject to the following conditions:*
+Geography advisors, concept by Michael Ritter, Dr. Keith Rice
+Media spokesperson, Ron Zimmerman                             
+                                                                  
+UWSP Virtual Tours is an augmented reality application that allows users to take a tour through Schmeeckle Reserve. On this tour, users hold their phones up to discover different points of interest. These points of interest are displayed either on a map view mode using Google maps, or a camera view mode. Upon discovering a point of interest, the app allows users to touch the point of interest marker for more information. The application gives the choice between a Free Roam Mode and a Quest Mode. Free Roam is an open tour where users may navigate Schmeeckle to any point they want. Quest Mode directs users from one specific point to the next.                                                                                                                     UWSP-Virtual Tours is available under the MIT license:
 
-*The above copyright notice and this permission notice shall be included in*
-*all copies or substantial portions of the Software.*
+*Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-*THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR*
-*IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,*
-*FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE*
-*AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER*
-*LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,*
-*OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN*
-*THE SOFTWARE.*
+*The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.*
 
-#Credits
-
-The Following Controls/Frameworks were used in this app. 
-
-SASlideMenu
-https://github.com/stefanoa/SASlideMenu
-Copyright (c) 2012 stefanoa
-
-NSXMLParser ARC Demonstration
-https://github.com/robertmryan/nsxmlparser-demonstration
-Copyright (c) 2012 Robert M. Ryan
-
-MDCParallaxView
-https://github.com/modocache/MDCParallaxView
-Copyright (c) 2012 modocache
-
-SKBounceAnimation 
-https://github.com/khanlou/SKBounceAnimation
-Copyright (c) 2012 Soroush Khanlou
-
-ZAActivityBar
-https://github.com/zacaltman/ZAActivityBar
-Copyright (c) 2012 Zac Altman
-
-Reachability
-https://github.com/tonymillion/Reachability
-Copyright (c) 2011, Tony Million
-
-DMRNotificationView
-https://github.com/tursunovic/DMRNotificationView
-Copyright (c) 2013, Damir Tursunovi
-
-EGORefreshTableHeaderView
-https://github.com/enormego/EGOTableViewPullRefresh
-Copyright 2009 enormego</string>
+*THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -306,7 +238,7 @@ Copyright 2009 enormego</string>
         <scene sceneID="x7o-iV-loV">
             <objects>
                 <tableViewController storyboardIdentifier="mapPacks" title="Tours" id="Cbb-lJ-bVm" customClass="MapPackListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ddZ-8O-U0E">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ddZ-8O-U0E">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,7 +252,7 @@ Copyright 2009 enormego</string>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="HSw-lp-pg4" detailTextLabel="Oq0-NG-1Ue" imageView="ydr-nV-dZh" style="IBUITableViewCellStyleSubtitle" id="4eb-bM-lWe">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4eb-bM-lWe" id="fKL-cG-OUw">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -343,15 +275,17 @@ Copyright 2009 enormego</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
-                                </tableViewCellContentView>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oLM-tH-ZuD">
                                 <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oLM-tH-ZuD" id="eQB-dB-A6X">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -426,18 +360,31 @@ Copyright 2009 enormego</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="edQ-p0-X8t">
-                                <rect key="frame" x="0.0" y="150" width="320" height="305"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="edQ-p0-X8t">
+                                <rect key="frame" x="0.0" y="149" width="320" height="306"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="backgroundColor" red="0.2168605639" green="0.2168605639" blue="0.2168605639" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Welcome to the UWSP virtual tour of Schmeeckle Reserve.
+
+Quick Start Tips 
+- Go to the map to navigate the tour.                                            - To view tour point information, tap the flag or navigate to the location and enter the augmented reality mode by tapping the camera button. In augmented reality mode, tap the point of interest tag to view information. 
+- To change tour mode, tap Tour Mode.  Quest Mode is a directed tour, one point at a time. Free Roam Mode is an open tour with all points available.                         
+</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-1.png" id="J7o-BN-etm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" id="g1w-fU-Eaj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1-1.png" id="GnO-6M-GR7">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14459103949999999" green="0.14459103949999999" blue="0.14459103949999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.21686056385869568" green="0.21686056385869568" blue="0.21686056385869568" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -469,12 +416,56 @@ Copyright 2009 enormego</string>
             </objects>
             <point key="canvasLocation" x="-1283" y="-257"/>
         </scene>
+        <!--Quest Menu View Controller-->
+        <scene sceneID="ejG-py-MtC">
+            <objects>
+                <tableViewController storyboardIdentifier="Static" id="qz0-7a-giN" customClass="QuestMenuViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="24" sectionFooterHeight="22" id="gsF-dY-1fv">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.2351415479" green="0.031271557239999997" blue="0.36714764030000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="uI1-CX-tqR">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Virtual Tours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d0C-Aa-VZ7">
+                                    <rect key="frame" x="109" y="71" width="105" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <rect key="contentStretch" x="0.0" y="1.3877787807814457e-17" width="1" height="1"/>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                    <color key="textColor" red="0.97647064920000004" green="0.82352948189999997" blue="0.054901964960000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="left" image="colorLogoHome.png" id="a2U-WD-stj">
+                                    <rect key="frame" x="9" y="0.0" width="280" height="93"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.20000000000000001" green="0.058823529409999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="qz0-7a-giN" id="QHH-Yh-sb7"/>
+                            <outlet property="delegate" destination="qz0-7a-giN" id="EDf-Br-Rng"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="MyTableView" destination="gsF-dY-1fv" id="CLc-KT-eWF"/>
+                        <segue destination="qOU-sl-zJh" kind="modal" identifier="UITabBarControllerSegue" id="TjF-NC-EoB"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hB3-cJ-Hu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1837" y="-257"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1-1.png" width="640" height="480"/>
         <image name="Default.png" width="320" height="480"/>
         <image name="aboutmenu.png" width="18" height="19"/>
         <image name="camera1 copy.png" width="25" height="19"/>
+        <image name="colorLogoHome.png" width="271" height="72"/>
         <image name="mapmenu.png" width="22" height="22"/>
         <image name="tourmodemenu.png" width="12" height="22"/>
         <image name="welcomemenu.png" width="18" height="19"/>

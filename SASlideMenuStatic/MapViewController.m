@@ -90,6 +90,8 @@
     }
     else
     {
+        
+    
 
     //else  in quest mode - on initial app load up show and alert to guide our user in doing quests
     if (![@"1" isEqualToString:[[NSUserDefaults standardUserDefaults] objectForKey:@"alert"]]){
@@ -209,10 +211,7 @@
             //reload our map
              [self loadMap];
             
-            //let the QuestModeViewController know we had a change and need to update the active quest
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"MapPackChange" object:self];
-            
-            
+        
             //Change this location to discovered so this doesn't fire again
             discovered = true;
         }

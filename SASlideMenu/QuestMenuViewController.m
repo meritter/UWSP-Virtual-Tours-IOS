@@ -50,6 +50,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self performSelector:@selector(doSegue) withObject:Nil afterDelay:0.0];
+    
+}
+
+- (void)doSegue {
+    [self performSegueWithIdentifier:@"UITabBarControllerSegue" sender:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,6 +72,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     visitedLocations = [[NSMutableArray alloc] init];
     currentQuest = [[NSMutableArray alloc] init];
     
+    [settings addObject:@"Settings"];
+    [settings addObject:@"Help"];
+    [settings addObject:@"About"];
     
     if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
     {
@@ -132,7 +146,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (void)NotifyOnMapModeChange:(NSNotification*)note {
     [currentQuest removeAllObjects];
     [visitedLocations removeAllObjects];
-    
+
     if([[Singleton sharedSingleton].selectedMode isEqual:@"Quest Mode"])
     {
         //We only want one active quest so this flag will change
@@ -152,6 +166,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
                 [visitedLocations addObject:tempPoi];
             }
         }
+        
+        
         //If we cant find any active Quest and the Completed Quest has at least 1 element
         //prompt the user of the Tour being complete
         if ([currentQuest count] == 0 && [visitedLocations count] != 0)
@@ -411,6 +427,33 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return 0;
 }
 
+-(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath
+{
+    //If we dont have a mapPack (This would be the first run of the app) show tutorial view
+    if([Singleton sharedSingleton].selectedMapPack == nil)
+    {
+        return @"tutorial";
+    }
+    
+    //Else dirrect the user to the map
+    else if (indexPath.section < 2) {
+        return @"map";
+    }
+    
+    //Or the other options
+    else if (indexPath.section == 2)
+    {
+        if (indexPath.row == 0) {
+            return @"settings";
+        }else if (indexPath.row == 1){
+            return @"help";
+        }else if (indexPath.row == 2){
+            return @"about";
+        }
+    }
+    return 0;
+
+}
 
 //I dont use caching but it is an option I have seen no difference in app functionality
 -(Boolean) allowContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath{

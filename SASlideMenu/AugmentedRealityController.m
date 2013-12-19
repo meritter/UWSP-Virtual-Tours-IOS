@@ -216,38 +216,21 @@
     sliderLabel = [[UILabel alloc] initWithFrame:frame];
     //[self.displayView addSubview:label];
     
-    if(_showsSlider){
-        
-        CGRect displayFrame = [[UIScreen mainScreen] bounds];
-        
-        //_sliderView.autoresizingMask         = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
-        
-        
-        switch (cameraOrientation) {
-            case UIDeviceOrientationLandscapeLeft:
-                _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 100, displayFrame.size.height - 400, 200, 10)];
-                break;
-            case UIDeviceOrientationLandscapeRight:
-                _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 100, displayFrame.size.height - 400, 200, 10)];
-                break;
-            case UIDeviceOrientationPortraitUpsideDown:
-                //none
-                break;
-            default:
-                _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 250, displayFrame.size.height - 180, 200, 10)];
-                break;
+        if(_showsSlider){
+            
+            CGRect displayFrame = [[UIScreen mainScreen] bounds];
+            _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 300, 20, 200, 10)];
+            
+            _sliderView.autoresizingMask         = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+            
+            _sliderView.minimumValue = 0.0;
+            _sliderView.maximumValue = 1000.0;
+            _sliderView.value = 50.0;
+            [_sliderView addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+            
+            [self.displayView addSubview:_sliderView];
         }
-        
-        
-        _sliderView.minimumValue = 0.0;
-        _sliderView.maximumValue = 1000.0;
-        _sliderView.value = 50.0;
-        [_sliderView addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
-      
-        [self.displayView addSubview:_sliderView];
-
     }
-}
 
 - (void)sliderChanged:(UISlider *)slider {
     self.sliderLabel.text = [NSString stringWithFormat:@"%g", slider.value];
@@ -344,16 +327,11 @@
     
     if(_showsRadar){
         int gradToRotate = newHeading.magneticHeading - 90 - 22.5;
-        CGRect displayFrame = [[UIScreen mainScreen] bounds];
         if ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft) {
             gradToRotate += 90;
-            
-            _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 100, displayFrame.size.height - 400, 200, 10)];
         }
         if([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight){
             gradToRotate -= 90;
-            
-            _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 100, displayFrame.size.height - 400, 200, 10)];
         }
         if (gradToRotate < 0) {
             gradToRotate = 360 + gradToRotate;
