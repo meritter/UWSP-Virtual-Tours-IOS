@@ -30,7 +30,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @synthesize settings;
 -(id) initWithCoder:(NSCoder *)aDecoder{
     if (self = [super initWithCoder:aDecoder]) {
-        // Assign self to the slideMenuDataSource because self will implement SASlideMenuDatSource 
+        // Assign self to the slideMenuDataSource because self will implement SASlideMenuDataSource 
         self.slideMenuDataSource = self;
         self.slideMenuDelegate = self;
     }
@@ -56,15 +56,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
     //Listen for notifications comming from MapPackListViewController for a mapModeChange and mapPackChange
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NotifyOnMapModeChange:) name:@"MapModeChange" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NotifyOnMapPackChange:) name:@"MapPackChange" object:nil];
 
     settings = [[NSMutableArray alloc] init];
     visitedLocations = [[NSMutableArray alloc] init];
     currentQuest = [[NSMutableArray alloc] init];
-    
-    [settings addObject:@"Settings"];
-    [settings addObject:@"Help"];
-    [settings addObject:@"About"];
     
     
     if([[Singleton sharedSingleton].selectedMode isEqual:@"Free Roam Mode"])
@@ -417,45 +412,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 
--(NSString*) segueIdForIndexPath:(NSIndexPath *)indexPath
-{
-    //If we dont have a mapPack (This would be the first run of the app) show tutorial view
-    if([Singleton sharedSingleton].selectedMapPack == nil)
-    {
-        return @"tutorial";
-    }
-    
-    //Else dirrect the user to the map
-    else if (indexPath.section < 2) {
-        return @"map";
-    }
-    
-    //Or the other options
-    else if (indexPath.section == 2)
-    {
-        if (indexPath.row == 0) {
-            return @"settings";
-        }else if (indexPath.row == 1){
-            return @"help";
-        }else if (indexPath.row == 2){
-            return @"about";
-        }
-    }
-    return 0;
-
-   /*
-    Note: Each view in MainStoryboard.storyboard has a viewcontroller named
-    tutorial
-    map
-    settings
-    help
-    about
-    
-    and uses a "Slide menu content" special seque function to push view controllers
-    */
-    
-}
-
 //I dont use caching but it is an option I have seen no difference in app functionality
 -(Boolean) allowContentViewControllerCachingForIndexPath:(NSIndexPath *)indexPath{
     return NO;
@@ -485,7 +441,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 //When the user taps a item in the table we prepare to switch it
 //I pass the poi of this current controller which is set above in the didSelectRowAtIndexPath method
-//This is only set i quest mode
+//This is only set in quest mode
 -(void) prepareForSwitchToContentViewController:(UINavigationController *)content{
     UIViewController* controller = [content.viewControllers objectAtIndex:0];
     if ([controller isKindOfClass:[MapViewController class]])

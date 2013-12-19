@@ -73,8 +73,8 @@
 
 @property (nonatomic,retain) NSMutableArray		*coordinates;
 
-@property (nonatomic, retain) UILabel                   *label;
-@property (nonatomic, retain) UIButton                  *button;
+@property (nonatomic, retain) UILabel                   *sliderLabel;
+
 
 - (id)initWithViewController:(UIViewController *)theView withDelgate:(id<ARDelegate>) aDelegate;
 

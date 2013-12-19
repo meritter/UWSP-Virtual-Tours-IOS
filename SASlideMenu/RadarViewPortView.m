@@ -18,7 +18,7 @@
         _newAngle               = 45.0;
         _referenceAngle         = 247.5;
         self.backgroundColor    = [UIColor clearColor];
-        _viewportColour         = [UIColor colorWithRed:14.0/255.0 green:140.0/255.0 blue:14.0/255.0 alpha:0.5];
+        _viewportColour         = [UIColor colorWithRed:14.0/255.0 green:14.0/255.0 blue:140.0/255.0 alpha:0.5];
     }
     
     return self;

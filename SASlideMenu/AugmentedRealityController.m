@@ -62,8 +62,8 @@
 @synthesize previewLayer;
 @synthesize delegate;
 @synthesize accelerometerDelegate;
-@synthesize label;
-@synthesize button;
+@synthesize sliderLabel;
+
 
 - (id)initWithViewController:(UIViewController *)vc withDelgate:(id<ARDelegate>) aDelegate {
     
@@ -211,35 +211,49 @@
     [_sliderView          removeFromSuperview];
     
     _sliderView       = nil;
-    
     //label used to capture slider value for use
     CGRect frame = CGRectMake(10.0, 10.0, 40.0, 30.0);
-    label = [[UILabel alloc] initWithFrame:frame];
+    sliderLabel = [[UILabel alloc] initWithFrame:frame];
     //[self.displayView addSubview:label];
-    
     
     if(_showsSlider){
         
         CGRect displayFrame = [[UIScreen mainScreen] bounds];
-        _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 300, 20, 200, 10)];
         
-        _sliderView.autoresizingMask         = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
-        _radarViewPort.autoresizingMask     = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+        //_sliderView.autoresizingMask         = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+        
+        
+        switch (cameraOrientation) {
+            case UIDeviceOrientationLandscapeLeft:
+                _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 100, displayFrame.size.height - 400, 200, 10)];
+                break;
+            case UIDeviceOrientationLandscapeRight:
+                _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 100, displayFrame.size.height - 400, 200, 10)];
+                break;
+            case UIDeviceOrientationPortraitUpsideDown:
+                //none
+                break;
+            default:
+                _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 250, displayFrame.size.height - 180, 200, 10)];
+                break;
+        }
+        
         
         _sliderView.minimumValue = 0.0;
         _sliderView.maximumValue = 1000.0;
         _sliderView.value = 50.0;
         [_sliderView addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
-        
+      
         [self.displayView addSubview:_sliderView];
+
     }
 }
 
 - (void)sliderChanged:(UISlider *)slider {
-    self.label.text = [NSString stringWithFormat:@"%g", slider.value];
+    self.sliderLabel.text = [NSString stringWithFormat:@"%g", slider.value];
     //show POIs based on value of slider
     
-    int sliderValue = [self.label.text intValue];
+    int sliderValue = [self.sliderLabel.text intValue];
     NSArray *coordinateArray = self.coordinates;
     
     for (ARGeoCoordinate *coordinate in coordinateArray)
@@ -330,11 +344,16 @@
     
     if(_showsRadar){
         int gradToRotate = newHeading.magneticHeading - 90 - 22.5;
+        CGRect displayFrame = [[UIScreen mainScreen] bounds];
         if ([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeLeft) {
             gradToRotate += 90;
+            
+            _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 100, displayFrame.size.height - 400, 200, 10)];
         }
         if([[UIDevice currentDevice] orientation] == UIDeviceOrientationLandscapeRight){
             gradToRotate -= 90;
+            
+            _sliderView       = [[UISlider alloc] initWithFrame:CGRectMake(displayFrame.size.width - 100, displayFrame.size.height - 400, 200, 10)];
         }
         if (gradToRotate < 0) {
             gradToRotate = 360 + gradToRotate;
@@ -342,7 +361,10 @@
         
         _radarViewPort.referenceAngle = gradToRotate;
         [_radarViewPort setNeedsDisplay];
+       
+        
     }
+    
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
@@ -361,7 +383,7 @@
 
     switch (cameraOrientation) {
         case UIDeviceOrientationLandscapeLeft:
-            adjustment = degreesToRadian(270); 
+            adjustment = degreesToRadian(270);
             break;
         case UIDeviceOrientationLandscapeRight:    
             adjustment = degreesToRadian(90);
@@ -611,7 +633,7 @@ UIAccelerationValue rollingX, rollingZ;
 
 - (void)currentDeviceOrientation {
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-
+    CGRect displayFrame = [[UIScreen mainScreen] bounds];
 	if (orientation != UIDeviceOrientationUnknown && orientation != UIDeviceOrientationFaceUp && orientation != UIDeviceOrientationFaceDown) {
 		switch (orientation) {
             case UIDeviceOrientationLandscapeLeft:
@@ -665,6 +687,5 @@ UIAccelerationValue rollingX, rollingZ;
     [previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
     
 }
-
 
 @end

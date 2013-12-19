@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <tour>
-  <description>
-    In this quest the user will seek out way-points to selected areas on campus that are north of the Science Building.  When present at the site information about the facilities will be available for review. 
+  <description>In this quest the user will seek out way-points to selected areas on campus that are north of the Science Building.  When present at the site information about the facilities will be available for review.
   </description>
   <lat type="decimal">44.529062</lat>
   <long type="decimal">-89.571276</long>
@@ -9,9 +8,7 @@
   <name>Campus Test Tour</name>
   <pois type="array">
     <poi>
-      <description>
-     	 Follow the Quest or Free Roam tours to navigate through each of the points around campus.
-		 *Note - This tour is just for demonstration purposes and is not meant to be a full campus tour, but rather a sample tour to show the application's functionality.
+      <description>Follow the Quest or Free Roam tours to navigate through each of the points around campus. *Note - This tour is just for demonstration purposes and is not meant to be a full campus tour, but rather a sample tour to show the application's functionality.
       </description>
       <id type="integer">1</id>
       <lat type="decimal">44.528855</lat>
@@ -19,9 +16,7 @@
       <title>Welcome to UWSP Campus Tour!</title>
     </poi>
     <poi>
-      <description>
-       UWSP College of Letters and Science has disciplines in Biology, Chemistry, Computing and New Media Technology, English, Foreign Languages, Geography and Geology, History, Interdisciplinary, Mathamatical Sciences, Philosophy, Physics and Astronomy, Political Science, Psychology, and Sociology and Social Work. 
-		
+      <description>UWSP College of Letters and Science has disciplines in Biology, Chemistry, Computing and New Media Technology, English, Foreign Languages, Geography and Geology, History, Interdisciplinary, Mathamatical Sciences, Philosophy, Physics and Astronomy, Political Science, Psychology, and Sociology and Social Work.
       </description>
       <id type="integer">2</id>
       <lat type="decimal">44.528775</lat>
@@ -29,9 +24,7 @@
       <title>#1 Science Building</title>
     </poi>
     <poi>
-      <description>
-        The Health Enhancement Center is dedicated to providing the opportunity for students, staff, alumni and community members to maximize well-being and to help establish healthy lifestyle patterns. Options are provided in HEC to enhance the social, physical, emotional, intellectual, career, spiritual and environmental dimensions of one's life. Facilities inclued a swimming pool, climbing wall, multiple gyms, a multi-activity center, and strength fitness center.
-		
+      <description>The Health Enhancement Center is dedicated to providing the opportunity for students, staff, alumni and community members to maximize well-being and to help establish healthy lifestyle patterns. Options are provided in HEC to enhance the social, physical, emotional, intellectual, career, spiritual and environmental dimensions of one's life. Facilities inclued a swimming pool, climbing wall, multiple gyms, a multi-activity center, and strength fitness center.
       </description>
       <id type="integer">3</id>
       <lat type="decimal">44.528947</lat>
@@ -39,13 +32,7 @@
       <title>#2 Health Enhancement Center</title>
     </poi>
     <poi>
-      <description>
-       The College of Professional Studies (CPS) at UWSP was created in the early 1970s to house many of the campus's pre-professional programs. With majors in CPS as diverse as business an economics, education, interior architecture, dietetics, health sciences, health promotion, athletic training or clinical lab sciences, you may wonder what is the common thread.
-  
-Preparation for a profession is the answer. Pre-professional programs typically require a lot of supervised and graded practicum experiences/labs, where for instance, athletic training students actually tape ankles or education students tutor 6th graders. Practicums and labs help students to affirm their interest in the major (it is one thing to think you want to be in interior design and another to produce complicated designs for a nursing home). These hands-on experiences also help the faculty to see if the students can actually DO the job well, not just talk about it.
-
-The college enrolls about 2,350 undergraduates and 1,200 graduate and continuing education students. Job placement or advanced graduate study in professional fields for all majors is above 94 percent.
-		
+      <description>The College of Professional Studies (CPS) at UWSP was created in the early 1970s to house many of the campus's pre-professional programs. With majors in CPS as diverse as business an economics, education, interior architecture, dietetics, health sciences, health promotion, athletic training or clinical lab sciences, you may wonder what is the common thread. Preparation for a profession is the answer.
       </description>
       <id type="integer">4</id>
       <lat type="decimal">44.528779</lat>
@@ -53,8 +40,7 @@ The college enrolls about 2,350 undergraduates and 1,200 graduate and continuing
       <title>#3 College of Professional Studies</title>
     </poi>
     <poi>
-      <description>
-        DeBot Dining offers an all-you-care-to-eat dining option. This includes a fruit and yogurt bar, a salad bar, a deli station including Panini grill, and fresh bakery items from the DeBot Bakery.
+      <description>DeBot Dining offers an all-you-care-to-eat dining option. This includes a fruit and yogurt bar, a salad bar, a deli station including Panini grill, and fresh bakery items from the DeBot Bakery.
       </description>
       <id type="integer">5</id>
       <lat type="decimal">44.532025</lat>
@@ -62,10 +48,7 @@ The college enrolls about 2,350 undergraduates and 1,200 graduate and continuing
       <title>#4 Debot Dining Center</title>
     </poi>
     <poi>
-      <description>
-        Residential Living Mission: To enhance students' educational and developmental experiences. We ensure safe,
-well-maintained living environments; promote a wellness lifestyle; and provide outstanding
-service to our customers.
+      <description>Residential Living Mission: To enhance students' educational and developmental experiences. We ensure safe, well-maintained living environments; promote a wellness lifestyle; and provide outstanding service to our customers.
       </description>
       <id type="integer">6</id>
       <lat type="decimal">44.532672</lat>

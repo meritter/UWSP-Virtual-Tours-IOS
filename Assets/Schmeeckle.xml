@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <tour>
-  <description>
-    In this quest the user will seek out way-points to selected areas in the reserve that are representative of distinct ecosystems as defined by the Wisconsin Department of Natural Resources.  When present at the site information regarding the characteristic flora and fauna will be available for review.
+  <description>In this quest the user will seek out way-points to selected areas in the reserve that are representative of distinct ecosystems as defined by the Wisconsin Department of Natural Resources.  When present at the site information regarding the characteristic flora and fauna will be available for review.
 
     Start at the red indicator on Maria Drive, south of Lake Joanis.
   </description>
@@ -11,19 +10,14 @@
   <name>Schmeeckle Quest for Knowledge</name>
   <pois type="array">
     <poi>
-      <description>
-        Schmeeckle Reserve is an interface between the University of Wisconsin-Stevens Point and the central Wisconsin community. The 280-acre natural area makes up 2/3 of the University campus. The Reserve was created to protect and restore native ecological communities, serve as an outdoor classroom for students and teachers, and provide recreational opportunities to all visitors.
-
-        Follow the Quest or Free Roam tours to navigate through each of the ecosystems in Schmeeckle Reserve.
-      </description>
+      <description>Schmeeckle Reserve is an interface between the University of Wisconsin-Stevens Point and the central Wisconsin community. The 280-acre natural area makes up 2/3 of the University campus. The Reserve was created to protect and restore native ecological communities, serve as an outdoor classroom for students and teachers, and provide recreational opportunities to all visitors. Follow the Quest or Free Roam tours to navigate through each of the ecosystems in Schmeeckle Reserve.</description>
       <id type="integer">1</id>
       <lat type="decimal">44.534277</lat>
       <long type="decimal">-89.561693</long>
       <title>Welcome to Schmeeckle Reserve!</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as, "This forest community occurs on nutrient-poor sites with excessively drained sandy or rocky soils. The primary historic disturbance regime was catastrophic fire at intervals of decades to approximately a century. Dominant trees of mature stands include jack and red pines (Pinus banksiana and P. resinosa) and/or Hill's oak (Quercus ellipsoidalis). Large acreages of this forest type were cut and burned during the catastrophic logging of the late 19th and early 20th century. Much of this land was then colonized by white birch (Betula papyrifera) and/or quaking aspen (Populus tremuloides), or converted to pine plantations starting in the 1920s. Common understory shrubs are hazelnuts (Corylus spp.), early blueberry (Vaccinium angustifolium) and brambles (Rubus spp.); common herbs include bracken fern (Pteridium aquilinium), starflower (Trientalis borealis), barren-strawberry (Waldsteinia fragarioides), cow-wheat (Melampyrum lineare), trailing arbutus (Epigaea repens), and members of the shinleaf family (Chimaphila umbellata, Pyrola spp.). Vast acreages of open "barrens" were also planted to pine, or naturally succeeded to densely stocked "dry" forests."
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as, "This forest community occurs on nutrient-poor sites with excessively drained sandy or rocky soils. The primary historic disturbance regime was catastrophic fire at intervals of decades to approximately a century. Dominant trees of mature stands include jack and red pines (Pinus banksiana and P. resinosa) and/or Hill's oak (Quercus ellipsoidalis). Large acreages of this forest type were cut and burned during the catastrophic logging of the late 19th and early 20th century. Much of this land was then colonized by white birch (Betula papyrifera) and/or quaking aspen (Populus tremuloides), or converted to pine plantations starting in the 1920s. Common understory shrubs are hazelnuts (Corylus spp.), early blueberry (Vaccinium angustifolium) and brambles (Rubus spp.); common herbs include bracken fern (Pteridium aquilinium), starflower (Trientalis borealis), barren-strawberry (Waldsteinia fragarioides), cow-wheat (Melampyrum lineare), trailing arbutus (Epigaea repens), and members of the shinleaf family (Chimaphila umbellata, Pyrola spp.). Vast acreages of open "barrens" were also planted to pine, or naturally succeeded to densely stocked "dry" forests."
 
         Works cited:
         Epstein, E.J., E.J. Judziewicz, and E.A. Spencer. 2002. Wisconsin Natural Community Abstracts. Department of Natural Resources, Bureau of Endangered Resources, Madison, WI.
@@ -34,18 +28,8 @@
       <title>#1 Northern Dry Forest</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as, "This grassland community occurs on rich, moist, well-drained sites. The dominant plant is the tall grass, big
-        bluestem (Andropogon gerardii). The grasses little bluestem (Andropogon scoparius), indian grass
-        (Sorghastrum nutans), porcupine grass (Stipa spartea), prairie dropseed (Sporobolus heterolepis), and tall
-        switchgrass (Panicum virgatum) are also frequent. The forb layer is diverse in the number, size, and
-        physiognomy of the species. Common taxa include the prairie docks (Silphium spp.), lead plant (Amorpha
-        canescens), heath and smooth asters (Aster ericoides and A. laevis), sand coreopsis (Coreopsis palmata), prairie
-        sunflower (Helianthus laetiflorus), rattlesnake-master (Eryngium yuccifolium), flowering spurge (Euphorbia
-        corollata), beebalm (Monarda fistulosa), prairie coneflower (Ratibida pinnata), and spiderwort (Tradescantia
-        ohioensis)."
-
-        Works Cited:
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as, "This grassland community occurs on rich, moist, well-drained sites. The dominant plant is the tall grass, big bluestem (Andropogon gerardii). The grasses little bluestem (Andropogon scoparius), indian grass (Sorghastrum nutans), porcupine grass (Stipa spartea), prairie dropseed (Sporobolus heterolepis), and tall switchgrass (Panicum virgatum) are also frequent. The forb layer is diverse in the number, size, and physiognomy of the species. Common taxa include the prairie docks (Silphium spp.), lead plant (Amorphacanescens), heath and smooth asters (Aster ericoides and A. laevis), sand coreopsis (Coreopsis palmata), prairie sunflower (Helianthuslaetiflorus), rattlesnake-master (Eryngium yuccifolium), flowering spurge (Euphorbiacorollata), beebalm (Monarda fistulosa), prairie coneflower (Ratibida pinnata), and spiderwort (Tradescantiaohioensis)."
+          Works Cited:
         Epstein, E.J., E.J. Judziewicz, and E.A. Spencer. 2002. Wisconsin Natural Community Abstracts. Department of Natural Resources, Bureau of Endangered Resources, Madison, WI.
       </description>
       <id type="integer">3</id>
@@ -54,8 +38,7 @@
       <title>#2 Mesic Prairie</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as, "This open wetland community is dominated by sedges and grasses. There are several common subtypes: Tussock meadows, dominated by tussock sedge (Carex stricta) and Canada bluejoint grass (Calamagrostis canadensis); Broad-leaved sedge meadows, dominated by the robust sedges (Carex lacustris and/or C. utriculata); and Wire-leaved sedge meadows, dominated by such species as woolly sedge (Carex lasiocarpa) and few-seeded sedge (C. oligosperma). Frequent associates include marsh bluegrass (Poa palustris), manna grasses (Glyceria spp.), panicled aster (Aster lanceolatus), joy-pye-weed (Eupatorium maculatum), and the bulrushes (Scirpus atrovirens and S. cyperinus)."
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as, "This open wetland community is dominated by sedges and grasses. There are several common subtypes: Tussock meadows, dominated by tussock sedge (Carex stricta) and Canada bluejoint grass (Calamagrostis canadensis); Broad-leaved sedge meadows, dominated by the robust sedges (Carex lacustris and/or C. utriculata); and Wire-leaved sedge meadows, dominated by such species as woolly sedge (Carex lasiocarpa) and few-seeded sedge (C. oligosperma). Frequent associates include marsh bluegrass (Poa palustris), manna grasses (Glyceria spp.), panicled aster (Aster lanceolatus), joy-pye-weed (Eupatorium maculatum), and the bulrushes (Scirpus atrovirens and S. cyperinus)."
 
         Works cited:
         Epstein, E.J., E.J. Judziewicz, and E.A. Spencer. 2002. Wisconsin Natural Community Abstracts. Department of Natural Resources, Bureau of Endangered Resources, Madison, WI.
@@ -66,8 +49,7 @@
       <title>#3 Northern Sedge Meadow</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as, "These open, marsh, lake, riverine and estuarine communities with permanent standing water are dominated by robust emergent macrophytes, in pure stands of single species or in various mixtures. Dominants include cat-tails (Typha spp.), bulrushes (particularly Scirpus acutus, S. fluviatilis, and S. validus), bur-reeds (Sparganium spp.), giant reed (Phragmites australis), pickerel-weed (Pontederia cordata), water-plantains (Alisma spp.), arrowheads (Sagittaria spp.), and the larger species of spikerush such as (Eleocharis smallii)."
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as, "These open, marsh, lake, riverine and estuarine communities with permanent standing water are dominated by robust emergent macrophytes, in pure stands of single species or in various mixtures. Dominants include cat-tails (Typha spp.), bulrushes (particularly Scirpus acutus, S. fluviatilis, and S. validus), bur-reeds (Sparganium spp.), giant reed (Phragmites australis), pickerel-weed (Pontederia cordata), water-plantains (Alisma spp.), arrowheads (Sagittaria spp.), and the larger species of spikerush such as (Eleocharis smallii)."
 
         Works cited:
         Epstein, E.J., E.J. Judziewicz, and E.A. Spencer. 2002. Wisconsin Natural Community Abstracts. Department of Natural Resources, Bureau of Endangered Resources, Madison, WI.
@@ -78,10 +60,9 @@
       <title>#4 Emergent Marsh</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as, "Inland lakes are naturally occurring bodies of standing water with a huge diversity in size, configuration, water chemistry, and biota. Their surface area can range from less than one acre to over 137,000 acres and their depth can range from less than a foot to more than 230 feet. Glaciation, post-glacial water flow, soil characteristics, topography, bedrock composition, land cover, land use and other factors can all combine to determine the physical and chemical characteristics of any given lake. The concentration of glacial kettle lakes within the Northern Highlands Ecological Landscape is globally important. Some of the lake types there are rare, and support many rare organisms.
-
-        Natural lakes in Wisconsin frequently are classified by the source of water supply. Based on water source and outflows, four categories of lakes are commonly recognized:
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as, "Inland lakes are naturally occurring bodies of standing water with a huge diversity in size, configuration, water chemistry, and biota. Their surface area can range from less than one acre to over 137,000 acres and their depth can range from less than a foot to more than 230 feet. Glaciation, post-glacial water flow, soil characteristics, topography, bedrock composition, land cover, land use and other factors can all combine to determine the physical and chemical characteristics of any given lake. The concentration of glacial kettle lakes within the Northern Highlands Ecological Landscape is globally important. Some of the lake types there are rare, and support many rare organisms.
+          
+          Natural lakes in Wisconsin frequently are classified by the source of water supply. Based on water source and outflows, four categories of lakes are commonly recognized:
 
         Drainage lakes: These lakes have both an inlet and outlet where the main water source is stream drainage. Most major rivers in Wisconsin have drainage lakes along their course. Drainage lakes owing one-half of their maximum depth to a dam are considered to be artificial lakes or impoundments (see Section 3.3.1.3 for information regarding impoundments/reservoirs).
 
@@ -104,8 +85,7 @@
       <title>#5 Reflection Pond</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as, "Black oak (Quercus velutina) is the dominant tree in this fire-adapted savanna community of xeric sites, but other oaks may also be present. Common understory species are lead plant (Amorpha canescens), black-eyed susan (Rudbeckia hirta), round-headed bush clover (Lespedeza capitata), goat's rue (Tephrosia virginiana), june grass (Koeleria cristata), little bluestem (Schizachyrium scoparium), flowering spurge (Euphorbia corollata), frostweed (Helianthemum canadense), false Solomon's-seals (Smilacina racemosa and S. stellata), spiderwort (Tradescantia ohioensis), and lupine (Lupinus perennis). Distribution of this community is mostly in southwestern, central and west central Wisconsin."
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as, "Black oak (Quercus velutina) is the dominant tree in this fire-adapted savanna community of xeric sites, but other oaks may also be present. Common understory species are lead plant (Amorpha canescens), black-eyed susan (Rudbeckia hirta), round-headed bush clover (Lespedeza capitata), goat's rue (Tephrosia virginiana), june grass (Koeleria cristata), little bluestem (Schizachyrium scoparium), flowering spurge (Euphorbia corollata), frostweed (Helianthemum canadense), false Solomon's-seals (Smilacina racemosa and S. stellata), spiderwort (Tradescantia ohioensis), and lupine (Lupinus perennis). Distribution of this community is mostly in southwestern, central and west central Wisconsin."
 
         Works cited:
         Epstein, E.J., E.J. Judziewicz, and E.A. Spencer. 2002. Wisconsin Natural Community Abstracts. Department of Natural Resources, Bureau of Endangered Resources, Madison, WI.
@@ -116,8 +96,7 @@
       <title>#6 Oak Barrens - Treehouse</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as, "This grassland community occurs on rich, moist, well-drained sites. The dominant plant is the tall grass, big bluestem (Andropogon gerardii). The grasses little bluestem (Andropogon scoparius), indian grass (Sorghastrum nutans), porcupine grass (Stipa spartea), prairie dropseed (Sporobolus heterolepis), and tall switchgrass (Panicum virgatum) are also frequent. The forb layer is diverse in the number, size, and physiognomy of the species. Common taxa include the prairie docks (Silphium spp.), lead plant (Amorpha canescens), heath and smooth asters (Aster ericoides and A. laevis), sand coreopsis (Coreopsis palmata), prairie sunflower (Helianthus laetiflorus), rattlesnake-master (Eryngium yuccifolium), flowering spurge (Euphorbia corollata), beebalm (Monarda fistulosa), prairie coneflower (Ratibida pinnata), and spiderwort (Tradescantia ohioensis)."
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as, "This grassland community occurs on rich, moist, well-drained sites. The dominant plant is the tall grass, big bluestem (Andropogon gerardii). The grasses little bluestem (Andropogon scoparius), indian grass (Sorghastrum nutans), porcupine grass (Stipa spartea), prairie dropseed (Sporobolus heterolepis), and tall switchgrass (Panicum virgatum) are also frequent. The forb layer is diverse in the number, size, and physiognomy of the species. Common taxa include the prairie docks (Silphium spp.), lead plant (Amorpha canescens), heath and smooth asters (Aster ericoides and A. laevis), sand coreopsis (Coreopsis palmata), prairie sunflower (Helianthus laetiflorus), rattlesnake-master (Eryngium yuccifolium), flowering spurge (Euphorbia corollata), beebalm (Monarda fistulosa), prairie coneflower (Ratibida pinnata), and spiderwort (Tradescantia ohioensis)."
 
         Works Cited:
         Epstein, E.J., E.J. Judziewicz, and E.A. Spencer. 2002. Wisconsin Natural Community Abstracts. Department of Natural Resources, Bureau of Endangered Resources, Madison, WI.
@@ -128,8 +107,7 @@
       <title>#7 Mesic Prairie</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as,
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as,
         "As defined by Curtis, this is an oak-dominated savanna community in which there is less than 50% tree canopy. Historically, oak openings occurred on wet-mesic to dry sites. The few extant remnants are mostly on drier sites, with the mesic and wet-mesic openings almost totally destroyed by conversion to agricultural or residential uses, and by the encroachment of other woody plants due to fire suppression. Bur, white, and black oaks (Quercus macrocarpa, Q. alba and Q. velutina) are dominant in mature stands as large, open-grown trees with distinctive limb architecture. Shagbark hickory (Carya ovata) is sometimes present. American hazelnut (Corylus americana) is a common shrub, and while the herblayer is similar to those found in oak forests and prairies, with many of the same grasses and forbs present, there are some plants and animals that reach their optimal abundance in the "openings"."
 
         Works Cited:
@@ -141,8 +119,7 @@
       <title>#8 Oak Opening</title>
     </poi>
     <poi>
-      <description>
-        For over 70 years, Moses Creek flowed in a drainage ditch through the eastern portion of Schmeeckle Reserve. A major restoration project in summer and fall of 2010 recreated the natural meanders of the stream and restored the historic wetland floodplain. New trails and boardwalks now provide access to the wetland, which has been planted with trees, shrubs, and marsh vegetation.
+      <description>For over 70 years, Moses Creek flowed in a drainage ditch through the eastern portion of Schmeeckle Reserve. A major restoration project in summer and fall of 2010 recreated the natural meanders of the stream and restored the historic wetland floodplain. New trails and boardwalks now provide access to the wetland, which has been planted with trees, shrubs, and marsh vegetation.
 
       </description>
       <id type="integer">10</id>
@@ -151,8 +128,7 @@
       <title>#9 Northern Sedge Meadow</title>
     </poi>
     <poi>
-      <description>
-        The Wisconsin Department of Natural Resources defines this Natural Community as, "In this forest community, mature stands are dominated by white and red pines (Pinus strobus and P. resinosa), sometimes mixed with red oak (Quercus rubra) and red maple (Acer rubrum). Common understory shrubs are hazelnuts (Corylus spp.), blueberries (Vaccinium angustifolium and V. myrtilloides), wintergreen (Gaultheria procumbens), partridge-berry (Mitchella repens); among the dominant herbs are wild sarsaparilla (Aralia nudicaulis), Canada mayflower (Maianthemum canadense), and cow-wheat (Melampyrum lineare). Stands usually occur on sandy loams, sands or sometimes rocky soils."
+      <description>The Wisconsin Department of Natural Resources defines this Natural Community as, "In this forest community, mature stands are dominated by white and red pines (Pinus strobus and P. resinosa), sometimes mixed with red oak (Quercus rubra) and red maple (Acer rubrum). Common understory shrubs are hazelnuts (Corylus spp.), blueberries (Vaccinium angustifolium and V. myrtilloides), wintergreen (Gaultheria procumbens), partridge-berry (Mitchella repens); among the dominant herbs are wild sarsaparilla (Aralia nudicaulis), Canada mayflower (Maianthemum canadense), and cow-wheat (Melampyrum lineare). Stands usually occur on sandy loams, sands or sometimes rocky soils."
 
         Works Cited:
         Epstein, E.J., E.J. Judziewicz, and E.A. Spencer. 2002. Wisconsin Natural Community Abstracts. Department of Natural Resources, Bureau of Endangered Resources, Madison, WI.
